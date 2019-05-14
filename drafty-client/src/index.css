@@ -15,8 +15,29 @@ code {
 
 
 
-/********** Nav **********/
+/********** NAV **********/
 
 #nav-link {
   color: white
+}
+
+
+
+/********** LOBBY **********/
+
+.lobby-row {
+  display: flex;
+  width: 100%;
+}
+
+.lobby-column {
+  flex: 50%;
+  padding: 10px;
+}
+
+.draft-lobby-container {
+  border-style: solid;
+  width: 100%;
+  text-align: center;
+  height: 3000%
 }

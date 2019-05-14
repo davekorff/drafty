@@ -27,3 +27,17 @@ User.create(username: 'tony', password: '1234', balance: 0)
 User.create(username: 'vicky', password: '1234', balance: 0)
 User.create(username: 'victoria', password: '1234', balance: 0)
 User.create(username: 'will', password: '1234', balance: 0)
+
+
+# Contest.create(name: 'Spring #10', start_date: '2019-05-20', end_date: '2019-05-24', prize: 100)
+# Contest.create(name: 'Spring #11', start_date: '2019-05-27', end_date: '2019-05-31', prize: 100)
+# Contest.create(name: 'Spring #12', start_date: '2019-06-03', end_date: '2019-06-07', prize: 100)
+#
+#
+#
+# uids = (1..User.all.length).to_a.shuffle
+#
+# 10.times do
+#   uid = uids.pop
+#   Team.create(name: Faker::Team.name, user_id: uid, contest_id: 1, score: 0)
+# end

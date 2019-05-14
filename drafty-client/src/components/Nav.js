@@ -1,7 +1,6 @@
 import React from 'react'
 import { Grid, Menu } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-import '../index.css'
 
 
 class Nav extends React.Component {
