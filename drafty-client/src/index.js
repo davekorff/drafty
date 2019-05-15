@@ -4,10 +4,16 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './index.css'
 import App from './App'
 import 'semantic-ui-css/semantic.min.css'
+import { createStore } from 'redux'
+import reducer from './reducers'
+import { Provider } from 'react-redux'
 
+const store = createStore(reducer)
 
 ReactDOM.render(
-  <Router>
-      <Route path="/" component={App} />
-  </Router>,
+  <Provider store={store}>
+    <Router>
+        <Route path="/" component={App} />
+    </Router>
+  </Provider>,
 document.getElementById('root'))
