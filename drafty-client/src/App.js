@@ -7,6 +7,7 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 import MainLobbyContainer from './containers/MainLobbyContainer'
 import HistoryContainer from './containers/HistoryContainer'
+import { connect } from 'react-redux'
 
 class App extends Component {
 
@@ -47,20 +48,30 @@ class App extends Component {
 	}
 
 	render() {
-
+		console.log(this.props.currentUser);
 		return (
 			<Grid>
 				<Nav currentUser={this.state.currentUser} logOut={this.logOut}/>
 					<Switch>
 						<Route exact path='/' render={ this.state.currentUser ? routeProps => <MainLobbyContainer {...routeProps} currentUser={this.state.currentUser}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>  }/>
 						<Route exact path='/lobby' render={ this.state.currentUser ? routeProps => <MainLobbyContainer {...routeProps} currentUser={this.state.currentUser}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>  }/>
-						<Route exact path='/login' render={ routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/> }/>
-						<Route exact path='/signup' render={ routeProps => <Signup {...routeProps} setCurrentUser={this.setCurrentUser}/> }/>
-						<Route exact path='/history' render={ routeProps => <HistoryContainer {...routeProps} setCurrentUser={this.setCurrentUser}/> }/>
+						<Route exact path='/login' render={ this.state.currentUser ? null : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/> }/>
+						<Route exact path='/signup' render={ this.state.currentUser ? null : routeProps => <Signup {...routeProps} setCurrentUser={this.setCurrentUser}/> }/>
+						<Route exact path='/history' render={ this.state.currentUser ? routeProps => <HistoryContainer {...routeProps} setCurrentUser={this.setCurrentUser}/> : null }/>
 					</Switch>
 			</Grid>
 		)
 	}
 }
 
-export default App
+function mapStateToProps(state) {
+	return {
+		currentUser: state.currentUser
+	}
+}
+
+function mapDispatchToProps(dispatch) {
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

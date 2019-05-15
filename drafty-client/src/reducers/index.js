@@ -1,4 +1,4 @@
-const initialState = 'beef'
+const initialState = {currentUser: null}
 
 function reducer(state = initialState, action) {
   switch(action.type) {
