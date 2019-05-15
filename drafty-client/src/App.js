@@ -48,8 +48,8 @@ class App extends Component {
 			<Grid>
 				<Nav currentUser={this.props.currentUser} logOut={this.logOut}/>
 					<Switch>
-						<Route exact path='/' render={ this.props.currentUser ? routeProps => <MainLobbyContainer {...routeProps} currentUser={this.props.currentUser}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>  }/>
-						<Route exact path='/lobby' render={ this.props.currentUser ? routeProps => <MainLobbyContainer {...routeProps} currentUser={this.props.currentUser}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>  }/>
+						<Route exact path='/' render={ this.props.currentUser ? routeProps => <MainLobbyContainer {...routeProps} /> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>  }/>
+						<Route exact path='/lobby' render={ this.props.currentUser ? routeProps => <MainLobbyContainer {...routeProps} /> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>  }/>
 						<Route exact path='/login' render={ this.props.currentUser ? null : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/> }/>
 						<Route exact path='/signup' render={ this.props.currentUser ? null : routeProps => <Signup {...routeProps} setCurrentUser={this.setCurrentUser}/> }/>
 						<Route exact path='/history' render={ this.props.currentUser ? routeProps => <HistoryContainer {...routeProps} setCurrentUser={this.setCurrentUser}/> : null }/>
@@ -60,7 +60,6 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-
 	return {
 		currentUser: state.user.currentUser
 	}
@@ -68,9 +67,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		setCurrentUser: function(response) {
-			dispatch({type: 'SET_CURRENT_USER', payload: response})
-		}
+		setCurrentUser: response => dispatch({type: 'SET_CURRENT_USER', payload: response})
 	}
 }
 
