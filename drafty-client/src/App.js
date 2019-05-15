@@ -11,15 +11,6 @@ import { connect } from 'react-redux'
 
 class App extends Component {
 
-	state = {
-		currentUser: null
-	}
-
-	logOut = () => {
-		localStorage.removeItem('token')
-		this.setState({ currentUser: null }, () => this.props.history.push('/login'))
-	}
-
 	componentDidMount(){
 		const token = localStorage.getItem('token')
 
@@ -34,30 +25,34 @@ class App extends Component {
 				if (response.errors) {
 					alert(response.errors)
 				} else {
-					this.setState({ currentUser: response })
+					this.props.setCurrentUser(response)
 				}
 			})
 		}
 	}
 
 	setCurrentUser = (response) => {
-		this.setState({ currentUser: response.user }, () => {
-			localStorage.setItem('token', response.token)
-			this.props.history.push('/')
-		})
+		this.props.setCurrentUser(response.user)
+		localStorage.setItem('token', response.token)
+		this.props.history.push('/')
+	}
+
+	logOut = () => {
+		localStorage.removeItem('token')
+		this.props.setCurrentUser(null)
+		this.props.history.push('/login')
 	}
 
 	render() {
-		console.log(this.props.currentUser);
 		return (
 			<Grid>
-				<Nav currentUser={this.state.currentUser} logOut={this.logOut}/>
+				<Nav currentUser={this.props.currentUser} logOut={this.logOut}/>
 					<Switch>
-						<Route exact path='/' render={ this.state.currentUser ? routeProps => <MainLobbyContainer {...routeProps} currentUser={this.state.currentUser}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>  }/>
-						<Route exact path='/lobby' render={ this.state.currentUser ? routeProps => <MainLobbyContainer {...routeProps} currentUser={this.state.currentUser}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>  }/>
-						<Route exact path='/login' render={ this.state.currentUser ? null : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/> }/>
-						<Route exact path='/signup' render={ this.state.currentUser ? null : routeProps => <Signup {...routeProps} setCurrentUser={this.setCurrentUser}/> }/>
-						<Route exact path='/history' render={ this.state.currentUser ? routeProps => <HistoryContainer {...routeProps} setCurrentUser={this.setCurrentUser}/> : null }/>
+						<Route exact path='/' render={ this.props.currentUser ? routeProps => <MainLobbyContainer {...routeProps} currentUser={this.props.currentUser}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>  }/>
+						<Route exact path='/lobby' render={ this.props.currentUser ? routeProps => <MainLobbyContainer {...routeProps} currentUser={this.props.currentUser}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>  }/>
+						<Route exact path='/login' render={ this.props.currentUser ? null : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/> }/>
+						<Route exact path='/signup' render={ this.props.currentUser ? null : routeProps => <Signup {...routeProps} setCurrentUser={this.setCurrentUser}/> }/>
+						<Route exact path='/history' render={ this.props.currentUser ? routeProps => <HistoryContainer {...routeProps} setCurrentUser={this.setCurrentUser}/> : null }/>
 					</Switch>
 			</Grid>
 		)
@@ -65,13 +60,18 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
+
 	return {
-		currentUser: state.currentUser
+		currentUser: state.user.currentUser
 	}
 }
 
 function mapDispatchToProps(dispatch) {
-
+	return {
+		setCurrentUser: function(response) {
+			dispatch({type: 'SET_CURRENT_USER', payload: response})
+		}
+	}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
