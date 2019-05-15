@@ -28,7 +28,7 @@ class HistoryCard extends React.Component {
           <div className='history-card-col'>
             Total Score: <br />
             50 points <br />
-          <img height='50px' alt='ribbon' src='ribbon-third.png' />
+          <img height='50px' alt='ribbon' src='ribbon-3.png' />
           </div>
           <div className='history-card-col'>
             Prize: <br />
