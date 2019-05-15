@@ -12,9 +12,6 @@ code {
     monospace;
 }
 
-
-
-
 /********** NAV **********/
 
 #nav-link {
@@ -22,22 +19,108 @@ code {
 }
 
 
+/********** LOGIN ********/
 
-/********** LOBBY **********/
+#login-form, #sign-up-form {
+  margin: auto;
+  width: 15%;
+  text-align: center;
+}
 
-.lobby-row {
+/********** HISTORY ********/
+
+.history-container {
+  margin: auto;
+  width: 90%;
+  text-align: center;
+}
+
+.history-card {
+  margin-top: 2%;
+  margin-bottom: 4%;
+  border-style: solid;
+  text-align: center;
+}
+
+.score-card {
+  display: flex;
+  border-style: solid;
+  margin-top: 4%;
+  margin-left: 4%;
+  margin-right: 4%;
+  padding: 5%;
+}
+
+.history-card-row {
+  display: flex;
+  margin-top: 10px;
+}
+
+.history-card-col {
+  flex: 33.3%
+}
+
+.score-card-row {
   display: flex;
   width: 100%;
 }
 
-.lobby-column {
+.score-card-col {
+  flex: 33.3%
+}
+
+
+
+/********** LOBBY **********/
+
+.main-lobby-row {
+  display: flex;
+  width: 100%;
+}
+
+.main-lobby-col {
   flex: 50%;
-  padding: 10px;
+  padding: 3%;
 }
 
 .draft-lobby-container {
   border-style: solid;
-  width: 100%;
+  width: 90%;
   text-align: center;
-  height: 3000%
+  height: 150%;
+  margin-left: 10%;
+}
+
+.my-teams-container {
+  border-style: solid;
+  width: 90%;
+  text-align: center;
+  height: 150%;
+  margin-right: 10%;
+}
+
+.draft-lobby-card {
+  display: flex;
+  border-style: solid;
+  margin-top: 4%;
+  margin-left: 4%;
+  margin-right: 4%;
+  padding: 5%;
+}
+
+.draft-lobby-card-col {
+  flex: 25%
+}
+
+.my-teams-card {
+  display: flex;
+  border-style: solid;
+  margin-top: 4%;
+  margin-left: 4%;
+  margin-right: 4%;
+  padding: 5%;
+}
+
+.my-teams-card-col {
+  flex: 25%
 }

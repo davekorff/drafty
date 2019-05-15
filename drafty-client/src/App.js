@@ -5,7 +5,8 @@ import { Grid } from 'semantic-ui-react'
 import Nav from './components/Nav'
 import Login from './components/Login'
 import Signup from './components/Signup'
-import LobbyContainer from './containers/LobbyContainer'
+import MainLobbyContainer from './containers/MainLobbyContainer'
+import HistoryContainer from './containers/HistoryContainer'
 
 class App extends Component {
 
@@ -51,10 +52,11 @@ class App extends Component {
 			<Grid>
 				<Nav currentUser={this.state.currentUser} logOut={this.logOut}/>
 					<Switch>
-						<Route exact path='/' render={ this.state.currentUser ? routeProps => <LobbyContainer {...routeProps} currentUser={this.state.currentUser}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>  }/>
-						<Route exact path='/lobby' render={ this.state.currentUser ? routeProps => <LobbyContainer {...routeProps} currentUser={this.state.currentUser}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>  }/>
+						<Route exact path='/' render={ this.state.currentUser ? routeProps => <MainLobbyContainer {...routeProps} currentUser={this.state.currentUser}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>  }/>
+						<Route exact path='/lobby' render={ this.state.currentUser ? routeProps => <MainLobbyContainer {...routeProps} currentUser={this.state.currentUser}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>  }/>
 						<Route exact path='/login' render={ routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/> }/>
 						<Route exact path='/signup' render={ routeProps => <Signup {...routeProps} setCurrentUser={this.setCurrentUser}/> }/>
+						<Route exact path='/history' render={ routeProps => <HistoryContainer {...routeProps} setCurrentUser={this.setCurrentUser}/> }/>
 					</Switch>
 			</Grid>
 		)

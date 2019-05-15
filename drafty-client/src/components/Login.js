@@ -34,7 +34,7 @@ class Login extends React.Component {
 	render(){
 
 		return (
-			<Form onSubmit={this.handleSubmit}>
+			<Form id='login-form' onSubmit={this.handleSubmit}>
 		    <Form.Field>
 		      <label>Username</label>
 		      <input onChange={this.handleChange} name='username' value={this.state.username} placeholder='Username' />

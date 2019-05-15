@@ -1,4 +1,5 @@
 import React from 'react'
+import DraftLobbyCard from '../components/DraftLobbyCard'
 
 class DraftLobby extends React.Component {
 
@@ -6,7 +7,10 @@ class DraftLobby extends React.Component {
 
     return (
       <div className='draft-lobby-container'>
-        Lobby
+        <h1>Draft Lobby</h1>
+        <DraftLobbyCard/>
+        <DraftLobbyCard/>
+        <DraftLobbyCard/>
       </div>
     )
   }
