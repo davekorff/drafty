@@ -7,16 +7,21 @@ class DraftLobbyItem extends React.Component {
     return (
       <div className='draft-lobby-card'>
         <div className='draft-lobby-card-col'>
-          Contest name
+          Contest name: <br/>
+          {this.props.contest.name}
         </div>
         <div className='draft-lobby-card-col'>
-          Prize
+          Prize: <br/>
+          {this.props.contest.prize} Flatcoin
         </div >
         <div className='draft-lobby-card-col'>
-          Dates
+          Starts: <br/>
+          {this.props.contest.start_date} <br/>
+          Ends: <br/>
+          {this.props.contest.end_date} <br/>
         </div>
         <button className='draft-lobby-card-col'>
-          Enter
+          Enter draft
         </button>
 
       </div>
