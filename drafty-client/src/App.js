@@ -7,6 +7,7 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 import MainLobbyContainer from './containers/MainLobbyContainer'
 import HistoryContainer from './containers/HistoryContainer'
+import ContestEntryContainer from './containers/ContestEntryContainer'
 import { connect } from 'react-redux'
 
 class App extends Component {
@@ -43,16 +44,22 @@ class App extends Component {
 		this.props.history.push('/login')
 	}
 
+	setCurrentContest = (contest) => {
+		this.props.setCurrentContest(contest)
+		this.props.history.push('/entry')
+	}
+
 	render() {
 		return (
 			<Grid>
 				<Nav currentUser={this.props.currentUser} logOut={this.logOut}/>
 					<Switch>
-						<Route exact path='/' render={ this.props.currentUser ? routeProps => <MainLobbyContainer {...routeProps} /> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>  }/>
-						<Route exact path='/lobby' render={ this.props.currentUser ? routeProps => <MainLobbyContainer {...routeProps} /> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>  }/>
+						<Route exact path='/' render={ this.props.currentUser ? routeProps => <MainLobbyContainer {...routeProps} setCurrentContest={this.setCurrentContest} /> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>  }/>
+						<Route exact path='/lobby' render={ this.props.currentUser ? routeProps => <MainLobbyContainer {...routeProps} setCurrentContest={this.setCurrentContest} /> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>  }/>
 						<Route exact path='/login' render={ this.props.currentUser ? null : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/> }/>
 						<Route exact path='/signup' render={ this.props.currentUser ? null : routeProps => <Signup {...routeProps} setCurrentUser={this.setCurrentUser}/> }/>
 						<Route exact path='/history' render={ this.props.currentUser ? routeProps => <HistoryContainer {...routeProps} setCurrentUser={this.setCurrentUser}/> : null }/>
+						<Route exact path='/entry' render={ routeProps => <ContestEntryContainer {...routeProps} currentContest={this.props.currentContest}/> }/>
 					</Switch>
 			</Grid>
 		)
@@ -61,13 +68,15 @@ class App extends Component {
 
 function mapStateToProps(state) {
 	return {
-		currentUser: state.user.currentUser
+		currentUser: state.user.currentUser,
+		currentContest: state.contests.currentContest
 	}
 }
 
 function mapDispatchToProps(dispatch) {
 	return {
-		setCurrentUser: response => dispatch({type: 'SET_CURRENT_USER', payload: response})
+		setCurrentUser: response => dispatch({type: 'SET_CURRENT_USER', payload: response}),
+		setCurrentContest: contest => dispatch({type: 'SET_CURRENT_CONTEST', payload: contest})
 	}
 }
 
