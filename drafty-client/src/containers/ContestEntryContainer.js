@@ -1,15 +1,28 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 class ContestEntryContainer extends React.Component {
 
+  
 
   render() {
-
     return (
-      <div>Contest Entry Container</div>
+      <div>
+        <h1>{this.props.currentContest.name}</h1>
+
+
+      </div>
     )
   }
 }
 
 
-export default ContestEntryContainer
+function mapStateToProps(state) {
+	return {
+		currentUser: state.user.currentUser,
+		currentContest: state.contests.currentContest
+	}
+}
+
+
+export default connect(mapStateToProps)(ContestEntryContainer)
