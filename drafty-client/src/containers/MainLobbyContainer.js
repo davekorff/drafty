@@ -5,10 +5,11 @@ import MyTeamsContainer from './MyTeamsContainer'
 class MainLobbyContainer extends React.Component {
 
   render() {
+
     return (
       <div className='main-lobby-row'>
         <div className='main-lobby-col'>
-          <ContestListContainer setCurrentContest={this.props.setCurrentContest} />
+          <ContestListContainer history={this.props.history} setCurrentContest={this.props.setCurrentContest} />
         </div>
         <div className='main-lobby-col'>
           <MyTeamsContainer />

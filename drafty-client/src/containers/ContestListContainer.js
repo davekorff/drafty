@@ -11,7 +11,7 @@ class ContestListContainer extends React.Component {
   }
 
   renderContestListItems() {
-    return this.props.contests.contests.map(contest => <ContestListItem setCurrentContest={this.props.setCurrentContest} key={contest.id} contest={contest}/>)
+    return this.props.contests.contests.map(contest => <ContestListItem history={this.props.history} setCurrentContest={this.props.setCurrentContest} key={contest.id} contest={contest}/>)
   }
 
 

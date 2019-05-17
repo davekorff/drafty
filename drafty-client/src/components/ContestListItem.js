@@ -2,6 +2,11 @@ import React from 'react'
 
 class ContestListItem extends React.Component {
 
+  selectContest(contestID) {
+    this.props.history.push('/entry/' + this.props.contest.id)
+  }
+
+
   render() {
     return (
       <div className='contest-list-item'>
@@ -24,7 +29,7 @@ class ContestListItem extends React.Component {
           2. render contest entry container
           3. ?
           */}
-        <button className='contest-list-item-col' onClick={() => this.props.setCurrentContest(this.props.contest)}>
+        <button className='contest-list-item-col' onClick={() => this.selectContest(this.props.contest.id)}>
           Enter draft
         </button>
 
