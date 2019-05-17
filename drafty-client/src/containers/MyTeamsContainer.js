@@ -1,5 +1,5 @@
 import React from 'react'
-import MyTeamsCard from '../components/MyTeamsCard'
+import MyTeamsListItem from '../components/MyTeamsListItem'
 
 class DraftLobby extends React.Component {
 
@@ -8,8 +8,8 @@ class DraftLobby extends React.Component {
     return (
       <div className='my-teams-container'>
         <h1>My Teams</h1>
-        <MyTeamsCard/>
-        <MyTeamsCard/>
+        <MyTeamsListItem/>
+        <MyTeamsListItem/>
       </div>
     )
   }

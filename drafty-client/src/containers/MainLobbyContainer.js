@@ -1,15 +1,14 @@
 import React from 'react'
-import DraftLobbyContainer from './DraftLobbyContainer'
+import ContestListContainer from './ContestListContainer'
 import MyTeamsContainer from './MyTeamsContainer'
 
-class LobbyContainer extends React.Component {
+class MainLobbyContainer extends React.Component {
 
   render() {
-
     return (
       <div className='main-lobby-row'>
         <div className='main-lobby-col'>
-          <DraftLobbyContainer />
+          <ContestListContainer setCurrentContest={this.props.setCurrentContest} />
         </div>
         <div className='main-lobby-col'>
           <MyTeamsContainer />
@@ -19,4 +18,4 @@ class LobbyContainer extends React.Component {
   }
 }
 
-export default LobbyContainer
+export default MainLobbyContainer

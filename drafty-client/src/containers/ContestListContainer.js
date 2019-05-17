@@ -1,8 +1,8 @@
 import React from 'react'
-import DraftLobbyCard from '../components/DraftLobbyCard'
+import ContestListItem from '../components/ContestListItem'
 import { connect } from 'react-redux'
 
-class DraftLobbyContainer extends React.Component {
+class ContestListContainer extends React.Component {
 
   componentDidMount() {
     fetch('http://localhost:3000/api/v1/contests')
@@ -10,17 +10,17 @@ class DraftLobbyContainer extends React.Component {
       .then(contests => this.props.setContests(contests))
   }
 
-  renderDraftLobbyCards() {
-    return this.props.contests.contests.map(contest => <DraftLobbyCard key={contest.id} contest={contest}/>)
+  renderContestListItems() {
+    return this.props.contests.contests.map(contest => <ContestListItem setCurrentContest={this.props.setCurrentContest} key={contest.id} contest={contest}/>)
   }
 
 
   render() {
-    // console.log(this.props.contests);
+
     return (
       <div className='draft-lobby-container'>
         <h1>Draft Lobby</h1>
-        {this.renderDraftLobbyCards()}
+        {this.renderContestListItems()}
       </div>
     )
   }
@@ -38,4 +38,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DraftLobbyContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(ContestListContainer)

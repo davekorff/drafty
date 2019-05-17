@@ -99,7 +99,7 @@ code {
   margin-right: 10%;
 }
 
-.draft-lobby-card {
+.contest-list-item {
   display: flex;
   border-style: solid;
   margin-top: 4%;
@@ -108,11 +108,11 @@ code {
   padding: 5%;
 }
 
-.draft-lobby-card-col {
+.contest-list-item-col {
   flex: 25%
 }
 
-.my-teams-card {
+.my-teams-list-item {
   display: flex;
   border-style: solid;
   margin-top: 4%;
@@ -121,6 +121,6 @@ code {
   padding: 5%;
 }
 
-.my-teams-card-col {
+.my-teams-list-item-col {
   flex: 25%
 }

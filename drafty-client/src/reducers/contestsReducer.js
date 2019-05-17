@@ -1,5 +1,6 @@
 const initialState = {
-  contests: []
+  contests: [],
+  currentContest: null
 }
 
 function contestsReducer(state = initialState, action) {
@@ -7,6 +8,9 @@ function contestsReducer(state = initialState, action) {
 
     case 'SET_CONTESTS':
       return { ...state, contests: action.payload }
+
+    case 'SET_CURRENT_CONTEST':
+      return { ...state, currentContest: action.payload}
 
     default:
       return state
