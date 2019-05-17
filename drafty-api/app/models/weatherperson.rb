@@ -1,0 +1,2 @@
+class Weatherperson < ApplicationRecord
+end

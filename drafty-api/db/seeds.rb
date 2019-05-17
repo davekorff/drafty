@@ -28,10 +28,20 @@
 # User.create(username: 'victoria', password: '1234', balance: 0)
 # User.create(username: 'will', password: '1234', balance: 0)
 
+#
+# Contest.create(name: 'Spring #10', start_date: '2019-05-20', end_date: '2019-05-24', prize: 100)
+# Contest.create(name: 'Spring #11', start_date: '2019-05-27', end_date: '2019-05-31', prize: 100)
+# Contest.create(name: 'Spring #12', start_date: '2019-06-03', end_date: '2019-06-07', prize: 100)
 
-Contest.create(name: 'Spring #10', start_date: '2019-05-20', end_date: '2019-05-24', prize: 100)
-Contest.create(name: 'Spring #11', start_date: '2019-05-27', end_date: '2019-05-31', prize: 100)
-Contest.create(name: 'Spring #12', start_date: '2019-06-03', end_date: '2019-06-07', prize: 100)
+
+# Weatherperson.create(name: 'Brick', station: 'KVWN channel 4', city: 'New York City')
+# Weatherperson.create(name: Faker::FunnyName.two_word_name, station: 'ABC', city: 'New York City')
+# Weatherperson.create(name: Faker::FunnyName.two_word_name, station: 'NBC', city: 'New York City')
+# Weatherperson.create(name: Faker::FunnyName.two_word_name, station: 'CBS', city: 'New York City')
+# Weatherperson.create(name: Faker::FunnyName.two_word_name, station: 'FOX', city: 'New York City')
+
+
+
 #
 #
 #
