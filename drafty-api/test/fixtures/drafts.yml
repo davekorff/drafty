@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  contest: one
+  weatherperson: one
+  score: 1
+
+two:
+  user: two
+  contest: two
+  weatherperson: two
+  score: 1

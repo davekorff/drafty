@@ -10,11 +10,13 @@ import { combineReducers } from 'redux'
 import userReducer from './reducers/userReducer'
 import contestsReducer from './reducers/contestsReducer'
 import weatherpeopleReducer from './reducers/weatherpeopleReducer'
+import draftsReducer from './reducers/draftsReducer'
 
 const rootReducer = combineReducers({
   user: userReducer,
   contests: contestsReducer,
-  weatherpeople: weatherpeopleReducer
+  weatherpeople: weatherpeopleReducer,
+  drafts: draftsReducer
 })
 
 const store = createStore(rootReducer)

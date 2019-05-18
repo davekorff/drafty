@@ -15,7 +15,7 @@ code {
 /********** CONTEST ENTRY **********/
 .contest-entry-container {
   margin: auto;
-  width: 90%;
+  width: 95%;
   text-align: center;
   border-style: solid;
 }
@@ -27,23 +27,23 @@ code {
 
 .contest-entry-col {
   flex: 50%;
-  padding: 3%;
+  padding: 1%;
 }
 
 .weatherpeople-list-container {
   border-style: solid;
-  width: 90%;
+  width: 100%;
   text-align: center;
-  height: 150%;
-  margin-left: 10%;
+  height: 100%;
+  /* margin-left: 10%; */
 }
 
 .my-team-list-container {
   border-style: solid;
-  width: 90%;
+  width: 100%;
   text-align: center;
-  height: 150%;
-  margin-left: 10%;
+  height: 100%;
+  /* margin-left: 10%; */
 }
 
 .forecast-box {

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :users
       resources :contests
       resources :weatherpeople
+      resources :drafts
 
       post '/login', to: 'auth#login'
       get '/auto_login', to: 'auth#auto_login'

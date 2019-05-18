@@ -12,6 +12,7 @@ class ContestEntry extends React.Component {
   }
 
   render() {
+
     return (
       this.props.currentContest
 
@@ -22,7 +23,7 @@ class ContestEntry extends React.Component {
         <h2>{this.props.currentContest.name}</h2>
           <div className='contest-entry-row'>
             <div className='contest-entry-col'>
-              <WeatherpeopleList currentContest={this.props.currentContest} />
+              <WeatherpeopleList/>
             </div>
             <div className='contest-entry-col'>
               <MyTeamList />

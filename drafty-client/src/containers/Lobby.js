@@ -1,8 +1,13 @@
 import React from 'react'
 import ContestList from './ContestList'
 import MyTeamsList from './MyTeamsList'
+import { connect } from 'react-redux'
 
 class Lobby extends React.Component {
+
+  componentDidMount() {
+    this.props.resetCurrentContest()
+  }
 
   render() {
 
@@ -19,4 +24,10 @@ class Lobby extends React.Component {
   }
 }
 
-export default Lobby
+function mapDispatchToProps(dispatch) {
+	return {
+		resetCurrentContest: () => dispatch({type: 'SET_CURRENT_CONTEST', payload: null})
+	}
+}
+
+export default connect(null, mapDispatchToProps)(Lobby)

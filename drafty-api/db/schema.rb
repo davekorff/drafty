@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_18_020055) do
+ActiveRecord::Schema.define(version: 2019_05_18_175946) do
 
   create_table "contests", force: :cascade do |t|
     t.string "name"
@@ -19,6 +19,18 @@ ActiveRecord::Schema.define(version: 2019_05_18_020055) do
     t.integer "prize"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "drafts", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "contest_id"
+    t.integer "weatherperson_id"
+    t.integer "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contest_id"], name: "index_drafts_on_contest_id"
+    t.index ["user_id"], name: "index_drafts_on_user_id"
+    t.index ["weatherperson_id"], name: "index_drafts_on_weatherperson_id"
   end
 
   create_table "forecasts", force: :cascade do |t|
@@ -50,6 +62,7 @@ ActiveRecord::Schema.define(version: 2019_05_18_020055) do
     t.string "img_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "drafted"
   end
 
 end
