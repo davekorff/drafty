@@ -1,14 +1,26 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 class MyTeamListItem extends React.Component {
 
+  // componentDidMount() {
+  //   const weatherperson = this.props.weatherpeople.filter(wp => wp.id === this.props.draft.weatherperson_id)[0]
+  // }
+  //
+
+
   render() {
+    const weatherperson = this.props.weatherpeople.filter(wp => wp.id === this.props.draft.weatherperson_id)[0]
 
     return (
+      weatherperson
+
+      ?
+
       <div className='my-teams-li'>
         <div className='my-teams-li-col'>
           <img height='50px' alt='wp-thumb' src='https://static.thenounproject.com/png/630729-200.png' /> <br/>
-          name <br/>
+          {weatherperson.name} <br/>
           station <br/>
           city
         </div>
@@ -53,8 +65,18 @@ class MyTeamListItem extends React.Component {
           friDate
         </div>
       </div>
+
+      :
+
+      <div>LOADING...</div>
     )
   }
 }
 
-export default MyTeamListItem
+function mapStateToProps(state) {
+  return {
+    weatherpeople: state.weatherpeople.weatherpeople
+  }
+}
+
+export default connect(mapStateToProps)(MyTeamListItem)
