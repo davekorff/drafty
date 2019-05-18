@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  weatherperson: one
+  date: 2019-05-17
+  predicted_temp: 1
+  actual_temp: 1
+  predicted_weather: MyString
+  actual_weather: MyString
+  score: 1
+
+two:
+  weatherperson: two
+  date: 2019-05-17
+  predicted_temp: 1
+  actual_temp: 1
+  predicted_weather: MyString
+  actual_weather: MyString
+  score: 1
