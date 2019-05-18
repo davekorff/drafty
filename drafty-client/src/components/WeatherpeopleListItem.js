@@ -2,8 +2,6 @@ import React from 'react'
 
 class WeatherpeopleListItem extends React.Component {
 
-
-
   monForecast = 'x'
   tueForecast = 'x'
   wedForecast = 'x'
@@ -28,7 +26,9 @@ class WeatherpeopleListItem extends React.Component {
       <div className='my-teams-li'>
         <div className='my-teams-li-col'>
           <img height='50px' alt='wp-thumb' src='https://static.thenounproject.com/png/630729-200.png' /> <br/>
-          name
+          {this.props.weatherperson.name} <br/>
+          {this.props.weatherperson.station} <br/>
+          {this.props.weatherperson.city}
         </div>
         <div className='my-teams-li-col'>
           <div className='forecast-box'>
