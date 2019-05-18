@@ -5,9 +5,9 @@ import { Grid } from 'semantic-ui-react'
 import Nav from './components/Nav'
 import Login from './components/Login'
 import Signup from './components/Signup'
-import MainLobbyContainer from './containers/MainLobbyContainer'
-import HistoryContainer from './containers/HistoryContainer'
-import ContestEntryContainer from './containers/ContestEntryContainer'
+import Lobby from './containers/Lobby'
+import History from './containers/History'
+import ContestEntry from './containers/ContestEntry'
 import { connect } from 'react-redux'
 
 class App extends Component {
@@ -44,12 +44,12 @@ class App extends Component {
 			<Grid>
 				<Nav currentUser={this.props.currentUser} logOut={this.logOut}/>
 					<Switch>
-						<Route exact path='/' render={this.props.currentUser ? routeProps => <MainLobbyContainer {...routeProps} setCurrentContest={this.setCurrentContest}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
-						<Route exact path='/lobby' render={this.props.currentUser ? routeProps => <MainLobbyContainer {...routeProps} setCurrentContest={this.setCurrentContest}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
+						<Route exact path='/' render={this.props.currentUser ? routeProps => <Lobby {...routeProps} setCurrentContest={this.setCurrentContest}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
+						<Route exact path='/lobby' render={this.props.currentUser ? routeProps => <Lobby {...routeProps} setCurrentContest={this.setCurrentContest}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
 						<Route exact path='/login' render={this.props.currentUser ? null : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
 						<Route exact path='/signup' render={this.props.currentUser ? null : routeProps => <Signup {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
-						<Route exact path='/history' render={this.props.currentUser ? routeProps => <HistoryContainer {...routeProps}/> : null}/>
-						<Route exact path='/entry/:contestID' render={routeProps => <ContestEntryContainer {...routeProps}/>}/>
+						<Route exact path='/history' render={this.props.currentUser ? routeProps => <History {...routeProps}/> : null}/>
+						<Route exact path='/entry/:contestID' render={routeProps => <ContestEntry {...routeProps}/>}/>
 					</Switch>
 			</Grid>
 		)

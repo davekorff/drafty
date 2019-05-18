@@ -2,7 +2,7 @@ import React from 'react'
 import ContestListItem from '../components/ContestListItem'
 import { connect } from 'react-redux'
 
-class ContestListContainer extends React.Component {
+class ContestList extends React.Component {
 
   componentDidMount() {
     fetch('http://localhost:3000/api/v1/contests')
@@ -14,12 +14,10 @@ class ContestListContainer extends React.Component {
     return this.props.contests.contests.map(contest => <ContestListItem history={this.props.history} setCurrentContest={this.props.setCurrentContest} key={contest.id} contest={contest}/>)
   }
 
-
   render() {
-
     return (
-      <div className='draft-lobby-container'>
-        <h1>Draft Lobby</h1>
+      <div className='contest-list-container'>
+        <h1>Contests</h1>
         {this.renderContestListItems()}
       </div>
     )
@@ -38,4 +36,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ContestListContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(ContestList)

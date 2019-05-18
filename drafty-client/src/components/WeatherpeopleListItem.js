@@ -1,6 +1,6 @@
 import React from 'react'
 
-class MyTeamsListItem extends React.Component {
+class WeatherpeopleListItem extends React.Component {
 
   render() {
 
@@ -24,4 +24,4 @@ class MyTeamsListItem extends React.Component {
   }
 }
 
-export default MyTeamsListItem
+export default WeatherpeopleListItem

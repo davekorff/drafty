@@ -1,7 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import WeatherpeopleList from './WeatherpeopleList'
+import MyTeamList from './MyTeamList'
 
-class ContestEntryContainer extends React.Component {
+class ContestEntry extends React.Component {
 
   componentDidMount() {
     fetch('http://localhost:3000/api/v1/contests/' + this.props.match.params.contestID)
@@ -15,8 +17,17 @@ class ContestEntryContainer extends React.Component {
 
       ?
 
-      <div>
-        {this.props.currentContest.name}
+      <div className='contest-entry-container'>
+        <h1>Contest Entry</h1>
+        <h2>{this.props.currentContest.name}</h2>
+          <div className='contest-entry-row'>
+            <div className='contest-entry-col'>
+              <WeatherpeopleList />
+            </div>
+            <div className='contest-entry-col'>
+              <MyTeamList />
+            </div>
+          </div>
       </div>
 
       :
@@ -39,4 +50,4 @@ function mapDispatchToProps(dispatch) {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(ContestEntryContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(ContestEntry)

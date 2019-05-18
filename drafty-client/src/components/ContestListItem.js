@@ -6,19 +6,18 @@ class ContestListItem extends React.Component {
     this.props.history.push('/entry/' + this.props.contest.id)
   }
 
-
   render() {
     return (
-      <div className='contest-list-item'>
-        <div className='contest-list-item-col'>
+      <div className='contest-li'>
+        <div className='contest-li-col'>
           Contest name: <br/>
           {this.props.contest.name}
         </div>
-        <div className='contest-list-item-col'>
+        <div className='contest-li-col'>
           Prize: <br/>
           {this.props.contest.prize} Flatcoin
         </div >
-        <div className='contest-list-item-col'>
+        <div className='contest-li-col'>
           Starts: <br/>
           {this.props.contest.start_date} <br/>
           Ends: <br/>
@@ -29,10 +28,9 @@ class ContestListItem extends React.Component {
           2. render contest entry container
           3. ?
           */}
-        <button className='contest-list-item-col' onClick={() => this.selectContest(this.props.contest.id)}>
+        <button className='contest-li-col' onClick={() => this.selectContest(this.props.contest.id)}>
           Enter draft
         </button>
-
       </div>
     )
   }

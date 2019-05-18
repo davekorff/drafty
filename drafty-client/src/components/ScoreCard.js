@@ -1,31 +1,31 @@
 import React from 'react'
 
-class ScoreCard extends React.Component {
+class Scorecard extends React.Component {
 
   render() {
 
     return (
-      <div className='score-card'>
-        <div className='score-card-col'>
+      <div className='scorecard-container'>
+        <div className='scorecard-col'>
           WP
         </div>
-        <div className='score-card-col'>
+        <div className='scorecard-col'>
           Mon <br />
           ✅
         </div >
-        <div className='score-card-col'>
+        <div className='scorecard-col'>
           Tue <br />
           ✅
         </div>
-        <div className='score-card-col'>
+        <div className='scorecard-col'>
           Wed <br />
           ❌
         </div>
-        <div className='score-card-col'>
+        <div className='scorecard-col'>
           Thur <br />
           ✅
         </div>
-        <div className='score-card-col'>
+        <div className='scorecard-col'>
           Fri <br />
           ❌
         </div>
@@ -35,4 +35,4 @@ class ScoreCard extends React.Component {
   }
 }
 
-export default ScoreCard
+export default Scorecard

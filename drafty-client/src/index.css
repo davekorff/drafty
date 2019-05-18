@@ -12,6 +12,41 @@ code {
     monospace;
 }
 
+/********** CONTEST ENTRY **********/
+.contest-entry-container {
+  margin: auto;
+  width: 90%;
+  text-align: center;
+  border-style: solid;
+}
+
+.contest-entry-row {
+  display: flex;
+  width: 100%;
+}
+
+.contest-entry-col {
+  flex: 50%;
+  padding: 3%;
+}
+
+.weatherpeople-list-container {
+  border-style: solid;
+  width: 90%;
+  text-align: center;
+  height: 150%;
+  margin-left: 10%;
+}
+
+.my-team-list-container {
+  border-style: solid;
+  width: 90%;
+  text-align: center;
+  height: 150%;
+  margin-left: 10%;
+}
+
+
 /********** NAV **********/
 
 #nav-link {
@@ -35,20 +70,11 @@ code {
   text-align: center;
 }
 
-.history-card {
+.history-card-container {
   margin-top: 2%;
   margin-bottom: 4%;
   border-style: solid;
   text-align: center;
-}
-
-.score-card {
-  display: flex;
-  border-style: solid;
-  margin-top: 4%;
-  margin-left: 4%;
-  margin-right: 4%;
-  padding: 5%;
 }
 
 .history-card-row {
@@ -60,12 +86,21 @@ code {
   flex: 33.3%
 }
 
-.score-card-row {
+.scorecard-container {
+  display: flex;
+  border-style: solid;
+  margin-top: 4%;
+  margin-left: 4%;
+  margin-right: 4%;
+  padding: 5%;
+}
+
+.scorecard-row {
   display: flex;
   width: 100%;
 }
 
-.score-card-col {
+.scorecard-col {
   flex: 33.3%
 }
 
@@ -73,17 +108,17 @@ code {
 
 /********** LOBBY **********/
 
-.main-lobby-row {
+.lobby-row {
   display: flex;
   width: 100%;
 }
 
-.main-lobby-col {
+.lobby-col {
   flex: 50%;
   padding: 3%;
 }
 
-.draft-lobby-container {
+.contest-list-container {
   border-style: solid;
   width: 90%;
   text-align: center;
@@ -91,7 +126,7 @@ code {
   margin-left: 10%;
 }
 
-.my-teams-container {
+.my-teams-list-container {
   border-style: solid;
   width: 90%;
   text-align: center;
@@ -99,7 +134,7 @@ code {
   margin-right: 10%;
 }
 
-.contest-list-item {
+.contest-li {
   display: flex;
   border-style: solid;
   margin-top: 4%;
@@ -108,11 +143,11 @@ code {
   padding: 5%;
 }
 
-.contest-list-item-col {
+.contest-li-col {
   flex: 25%
 }
 
-.my-teams-list-item {
+.my-teams-li {
   display: flex;
   border-style: solid;
   margin-top: 4%;
@@ -121,6 +156,6 @@ code {
   padding: 5%;
 }
 
-.my-teams-list-item-col {
+.my-teams-li-col {
   flex: 25%
 }

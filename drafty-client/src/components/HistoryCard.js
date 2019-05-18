@@ -1,22 +1,22 @@
 import React from 'react'
-import ScoreCard from './ScoreCard'
+import Scorecard from './Scorecard'
 
 class HistoryCard extends React.Component {
 
   render() {
 
     return (
-      <div className="history-card">
+      <div className="history-card-container">
         <h3>Contest name - Team name</h3>
         <div className='history-card-row'>
           <div className='history-card-col'>
-            <ScoreCard/>
+            <Scorecard/>
           </div>
           <div className='history-card-col'>
-            <ScoreCard/>
+            <Scorecard/>
           </div>
           <div className='history-card-col'>
-            <ScoreCard/>
+            <Scorecard/>
           </div>
         </div>
         <div className='history-card-row'>

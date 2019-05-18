@@ -1,12 +1,11 @@
 import React from 'react'
 import MyTeamsListItem from '../components/MyTeamsListItem'
 
-class DraftLobby extends React.Component {
+class MyTeamsList extends React.Component {
 
   render() {
-
     return (
-      <div className='my-teams-container'>
+      <div className='my-teams-list-container'>
         <h1>My Teams</h1>
         <MyTeamsListItem/>
         <MyTeamsListItem/>
@@ -15,4 +14,4 @@ class DraftLobby extends React.Component {
   }
 }
 
-export default DraftLobby
+export default MyTeamsList

@@ -2,7 +2,7 @@ import React from 'react'
 import HistoryCard from '../components/HistoryCard'
 
 
-class HistoryContainer extends React.Component {
+class History extends React.Component {
 
   render() {
     return (
@@ -16,4 +16,4 @@ class HistoryContainer extends React.Component {
   }
 }
 
-export default HistoryContainer
+export default History
