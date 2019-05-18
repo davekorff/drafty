@@ -8,6 +8,9 @@ function draftsReducer(state = initialState, action) {
     case 'ADD_DRAFT':
       return { ...state, drafts: [...state.drafts, action.payload] }
 
+    case 'SET_DRAFTS':
+      return { ...state, drafts: action.payload }
+
     default:
       return state
   }
