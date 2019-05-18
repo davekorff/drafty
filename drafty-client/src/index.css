@@ -46,6 +46,10 @@ code {
   margin-left: 10%;
 }
 
+.forecast-box {
+  border-style: solid;
+  border-with: thin;
+}
 
 /********** NAV **********/
 

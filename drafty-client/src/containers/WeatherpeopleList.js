@@ -10,6 +10,8 @@ class WeatherpeopleList extends React.Component {
         <WeatherpeopleListItem />
         <WeatherpeopleListItem />
         <WeatherpeopleListItem />
+        <WeatherpeopleListItem />
+        <WeatherpeopleListItem />
       </div>
     )
   }
