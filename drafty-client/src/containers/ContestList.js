@@ -15,6 +15,7 @@ class ContestList extends React.Component {
   }
 
   render() {
+
     return (
       <div className='contest-list-container'>
         <h1>Contests</h1>

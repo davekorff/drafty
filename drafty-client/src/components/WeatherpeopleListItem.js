@@ -6,7 +6,7 @@ class WeatherpeopleListItem extends React.Component {
 
   userID = this.props.currentUser.id
   weatherpersonID = this.props.weatherperson.id
-  contestID = this.props.currentContest.id
+  // contestID = this.props.currentContest.id
 
   thisWeeksPredictedForecasts = this.props.weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date)
 
@@ -28,8 +28,6 @@ class WeatherpeopleListItem extends React.Component {
   thuDate = this.thisWeeksPredictedForecasts[3].date.slice(5)
   friDate = this.thisWeeksPredictedForecasts[4].date.slice(5)
 
-  // team = this.props.drafts.filter(draft => draft.user_id === this.props.currentUser.id && draft.contest_id === this.props.currentContest.id)
-
   createDraft = () => {
 
     fetch('http://localhost:3000/api/v1/drafts', {
@@ -38,7 +36,7 @@ class WeatherpeopleListItem extends React.Component {
 				'Content-Type': 'application/json',
 				'Accepts': 'application/json',
 			},
-			body: JSON.stringify({user_id: this.userID, weatherperson_id: this.weatherpersonID, contest_id: this.contestID})
+			body: JSON.stringify({user_id: this.userID, weatherperson_id: this.weatherpersonID, contest_id: this.props.currentContest.id})
 		})
 		.then(res => res.json())
     .then(draft => this.props.addDraft(draft))

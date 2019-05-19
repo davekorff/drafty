@@ -40,10 +40,10 @@ function mapStateToProps(state) {
   }
 }
 
-function mapDisptachToProps(dispatch) {
+function mapDispatchToProps(dispatch) {
   return {
     setDrafts: drafts => dispatch({type: 'SET_DRAFTS', payload: drafts})
   }
 }
 
-export default connect(mapStateToProps, mapDisptachToProps)(MyTeamList)
+export default connect(mapStateToProps, mapDispatchToProps)(MyTeamList)

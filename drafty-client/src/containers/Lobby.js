@@ -5,10 +5,6 @@ import { connect } from 'react-redux'
 
 class Lobby extends React.Component {
 
-  componentDidMount() {
-    this.props.resetCurrentContest()
-  }
-
   render() {
 
     return (
