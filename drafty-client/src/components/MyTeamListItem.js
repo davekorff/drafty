@@ -7,10 +7,6 @@ class MyTeamListItem extends React.Component {
   render() {
     const weatherperson = this.props.weatherpeople.filter(wp => wp.id === this.props.draft.weatherperson_id)[0]
 
-    // const userID = this.props.currentUser.id
-    // const weatherpersonID = weatherperson ? weatherperson.id : null
-    // const contestID = this.props.currentContest.id
-
     const thisWeeksPredictedForecasts = weatherperson ? weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date) : null
 
     const monForecast = weatherperson ? thisWeeksPredictedForecasts[0].predicted_weather : null

@@ -28,8 +28,11 @@ class WeatherpeopleListItem extends React.Component {
   thuDate = this.thisWeeksPredictedForecasts[3].date.slice(5)
   friDate = this.thisWeeksPredictedForecasts[4].date.slice(5)
 
+  // team = this.props.drafts.filter(draft => draft.user_id === this.props.currentUser.id && draft.contest_id === this.props.currentContest.id)
+
   createDraft = () => {
-		fetch('http://localhost:3000/api/v1/drafts', {
+
+    fetch('http://localhost:3000/api/v1/drafts', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -42,6 +45,8 @@ class WeatherpeopleListItem extends React.Component {
 	}
 
   render() {
+    const team = this.props.drafts.filter(draft => draft.user_id === this.props.currentUser.id && draft.contest_id === this.props.currentContest.id)
+
     return (
       <div className='my-teams-li'>
         <div className='my-teams-li-col'>
@@ -90,7 +95,7 @@ class WeatherpeopleListItem extends React.Component {
           fri <br/>
           {this.friDate}
         </div>
-        <button className='my-teams-li-col' onClick={this.createDraft}>
+        <button className='my-teams-li-col' onClick={team.length < 3 ? this.createDraft : null}>
           Draft
         </button>
       </div>
