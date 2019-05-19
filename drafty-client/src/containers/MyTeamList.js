@@ -14,7 +14,7 @@ class MyTeamList extends React.Component {
     if (this.props.drafts) {
       return this.props.drafts.map(draft => {
         if (draft.user_id === this.props.currentUser.id && draft.contest_id === this.props.currentContest.id) {
-          return <MyTeamListItem draft={draft} key={draft.id} />
+          return <MyTeamListItem currentContest={this.props.currentContest} currentUser={this.props.currentUser} draft={draft} key={draft.id} />
         }
       })
     }
