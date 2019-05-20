@@ -1,9 +1,12 @@
 import React from 'react'
 import Scorecard from './Scorecard'
 import { connect } from 'react-redux'
+
 class HistoryCard extends React.Component {
 
+
   render() {
+
 
     const wp1 = this.props.weatherpeople.filter(wp => wp.id === this.props.team[0].weatherperson_id)
     const wp2 = this.props.weatherpeople.filter(wp => wp.id === this.props.team[1].weatherperson_id)
@@ -11,7 +14,6 @@ class HistoryCard extends React.Component {
 
     const contestID = this.props.team[0].contest_id
     const currentContest = this.props.contests.filter(contest => contest.id === contestID)[0]
-
 
 
     return (

@@ -41,7 +41,9 @@ class Scorecard extends React.Component {
   thuTempDiff = Math.abs(this.thuPredictedTemp - this.thuActualTemp)
   friTempDiff = Math.abs(this.friPredictedTemp - this.friActualTemp)
 
-
+  // function getPredictedTemp(day) {
+  //   return this.thisWeeksPredictedForecasts ? this.thisWeeksPredictedForecasts[day].predicted_temp : null
+  // }
 
 
   // scoring
@@ -76,58 +78,63 @@ class Scorecard extends React.Component {
   score = this.calculateScore(this.score)
 
   render() {
-    console.log(this.score);
+
     return (
       this.props.weatherperson.length !== 0
 
       ?
 
       <div className='scorecard-container'>
-        <div className='scorecard-col'>
-          <img height='50px' alt='wp-thumb' src='https://static.thenounproject.com/png/630729-200.png' /> <br/>
-          {this.props.weatherperson[0].name} <br/>
-          {this.props.weatherperson[0].station} <br/>
-          {this.props.weatherperson[0].city}
+        <div className='scorecard-row'>
+          <div className='scorecard-col'>
+            <img height='50px' alt='wp-thumb' src='https://static.thenounproject.com/png/630729-200.png' /> <br/>
+            {this.props.weatherperson[0].name} <br/>
+            {this.props.weatherperson[0].station} <br/>
+            {this.props.weatherperson[0].city}
+          </div>
+          <div className='scorecard-col'>
+            <div className='forecast-box'>
+              {this.monForecast}
+            </div>
+            {this.monPredictedTemp}℉ <br/>
+            mon <br/>
+            {this.monDate}
+          </div>
+          <div className='scorecard-col'>
+            <div className='forecast-box'>
+              {this.tueForecast}
+            </div>
+            {this.tuePredictedTemp}℉ <br/>
+            tue <br/>
+            {this.tueDate}
+          </div>
+          <div className='scorecard-col'>
+            <div className='forecast-box'>
+              {this.wedForecast}
+            </div>
+            {this.wedPredictedTemp}℉ <br/>
+            wed <br/>
+            {this.wedDate}
+          </div>
+          <div className='scorecard-col'>
+            <div className='forecast-box'>
+              {this.thuForecast}
+            </div>
+            {this.thuPredictedTemp}℉ <br/>
+            thu <br/>
+            {this.thuDate}
+          </div>
+          <div className='scorecard-col'>
+            <div className='forecast-box'>
+              {this.friForecast}
+            </div>
+            {this.friPredictedTemp}℉ <br/>
+            fri <br/>
+            {this.friDate}
+          </div>
         </div>
-        <div className='scorecard-col'>
-          <div className='forecast-box'>
-            {this.monForecast}
-          </div>
-          {this.monPredictedTemp}℉ <br/>
-          mon <br/>
-          {this.monDate}
-        </div >
-        <div className='scorecard-col'>
-          <div className='forecast-box'>
-            {this.tueForecast}
-          </div>
-          {this.tuePredictedTemp}℉ <br/>
-          tue <br/>
-          {this.tueDate}
-        </div>
-        <div className='scorecard-col'>
-          <div className='forecast-box'>
-            {this.wedForecast}
-          </div>
-          {this.wedPredictedTemp}℉ <br/>
-          wed <br/>
-          {this.wedDate}
-        </div>
-        <div className='scorecard-col'>
-          <div className='forecast-box'>
-            {this.thuForecast}
-          </div>
-          {this.thuPredictedTemp}℉ <br/>
-          thu <br/>
-          {this.thuDate}
-        </div>
-        <div className='scorecard-col'>
-          <div className='forecast-box'>
-            {this.friForecast}
-          </div>
-          {this.friPredictedTemp}℉ <br/>
-          fri <br/>
-          {this.friDate}
+        <div id='scorecard-score' className='scorecard-row'>
+          Score: {this.score}
         </div>
       </div>
 

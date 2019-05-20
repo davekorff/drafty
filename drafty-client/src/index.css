@@ -91,7 +91,6 @@ code {
 }
 
 .scorecard-container {
-  display: flex;
   border-style: solid;
   margin-top: 4%;
   margin-left: 4%;
@@ -102,11 +101,14 @@ code {
 
 .scorecard-row {
   display: flex;
-  width: 100%;
 }
 
 .scorecard-col {
-  flex: 25%;
+  flex: 100%;
+}
+
+#scorecard-score {
+ margin-left: 45%;
 }
 
 
