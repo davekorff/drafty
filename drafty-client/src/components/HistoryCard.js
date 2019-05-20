@@ -7,7 +7,7 @@ class HistoryCard extends React.Component {
 
     return (
       <div className="history-card-container">
-        <h3>Contest name - Team name</h3>
+        <h3>Contest name</h3>
         <div className='history-card-row'>
           <div className='history-card-col'>
             <Scorecard/>

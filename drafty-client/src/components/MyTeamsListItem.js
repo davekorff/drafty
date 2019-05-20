@@ -11,7 +11,7 @@ class MyTeamsListItem extends React.Component {
 
 
   render() {
-    // console.log(this.props);
+
     const wp1 = this.props.weatherpeople.filter(wp => wp.id === this.props.team[0].weatherperson_id)
     const wp2 = this.props.weatherpeople.filter(wp => wp.id === this.props.team[1].weatherperson_id)
     const wp3 = this.props.weatherpeople.filter(wp => wp.id === this.props.team[2].weatherperson_id)

@@ -10,8 +10,19 @@ class ContestList extends React.Component {
       .then(contests => this.props.setContests(contests))
   }
 
+  today = new Date()
+  dd = String(this.today.getDate()).padStart(2, '0')
+  mm = String(this.today.getMonth() + 1).padStart(2, '0')
+  yyyy = this.today.getFullYear();
+
+  currentDate = this.yyyy + '-' + this.mm + '-' + this.dd;
+
   renderContestListItems() {
-    return this.props.contests.contests.map(contest => <ContestListItem history={this.props.history} setCurrentContest={this.props.setCurrentContest} key={contest.id} contest={contest}/>)
+    return this.props.contests.contests.map(contest => {
+      if (contest.start_date > this.currentDate) {
+        return <ContestListItem history={this.props.history} setCurrentContest={this.props.setCurrentContest} key={contest.id} contest={contest}/>
+      }
+    })
   }
 
   render() {
