@@ -70,7 +70,7 @@ code {
 
 .history-container {
   margin: auto;
-  width: 90%;
+  width: 99%;
   text-align: center;
 }
 
@@ -97,6 +97,7 @@ code {
   margin-left: 4%;
   margin-right: 4%;
   padding: 5%;
+  height: 90%;
 }
 
 .scorecard-row {
@@ -105,7 +106,7 @@ code {
 }
 
 .scorecard-col {
-  flex: 33.3%
+  flex: 25%;
 }
 
 
