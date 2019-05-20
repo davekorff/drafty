@@ -20,13 +20,20 @@ class History extends React.Component {
       .then(contests => this.props.setContests(contests))
   }
 
+  today = new Date()
+  dd = String(this.today.getDate()).padStart(2, '0')
+  mm = String(this.today.getMonth() + 1).padStart(2, '0')
+  yyyy = this.today.getFullYear();
+
+  currentDate = this.yyyy + '-' + this.mm + '-' + this.dd
+
   render() {
     const currentUsersDrafts = this.props.drafts.filter(draft => draft.user_id === this.props.currentUser.id)
 
     const currentUsersTeams = this.props.contests.map(contest => {
       let team = []
       currentUsersDrafts.forEach(draft => {
-        if (draft.contest_id === contest.id) {
+        if (draft.contest_id === contest.id && contest.end_date <= this.currentDate) {
           team.push(draft)
         }
       })
