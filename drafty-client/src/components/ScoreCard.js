@@ -2,6 +2,8 @@ import React from 'react'
 
 class Scorecard extends React.Component {
 
+  //TODO: PUT ALL THE SCORING LOGIC INTO A FUNCTION
+
   thisWeeksPredictedForecasts = this.props.weatherperson.length !== 0 ? this.props.weatherperson[0].forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date) : null
   thisWeeksActualWeather = this.props.weatherperson.length !== 0 ? this.props.weatherperson[0].forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date) : null
 
@@ -40,6 +42,7 @@ class Scorecard extends React.Component {
   wedTempDiff = Math.abs(this.wedPredictedTemp - this.wedActualTemp)
   thuTempDiff = Math.abs(this.thuPredictedTemp - this.thuActualTemp)
   friTempDiff = Math.abs(this.friPredictedTemp - this.friActualTemp)
+
 
   // function getPredictedTemp(day) {
   //   return this.thisWeeksPredictedForecasts ? this.thisWeeksPredictedForecasts[day].predicted_temp : null

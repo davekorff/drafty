@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 
 class WeatherpeopleListItem extends React.Component {
 
+  //TODO: PUT THE BELOW LOGIC INTO A FUNCTION
+
   userID = this.props.currentUser.id
   weatherpersonID = this.props.weatherperson.id
   // contestID = this.props.currentContest.id

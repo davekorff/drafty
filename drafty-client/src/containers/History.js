@@ -20,6 +20,8 @@ class History extends React.Component {
       .then(contests => this.props.setContests(contests))
   }
 
+  //TODO: MOVE THE DATE LOGIC INTO APP AND SET IT IN THE REDUX STORE
+
   today = new Date()
   dd = String(this.today.getDate()).padStart(2, '0')
   mm = String(this.today.getMonth() + 1).padStart(2, '0')

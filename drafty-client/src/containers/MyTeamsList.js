@@ -11,6 +11,8 @@ class MyTeamsList extends React.Component {
       .then(drafts => this.props.setDrafts(drafts))
   }
 
+  //TODO: MOVE THE DATE LOGIC INTO APP AND SET IT IN THE REDUX STORE
+
   today = new Date()
   dd = String(this.today.getDate()).padStart(2, '0')
   mm = String(this.today.getMonth() + 1).padStart(2, '0')
