@@ -23,7 +23,7 @@ class Scorecard extends React.Component {
   friDate = this.thisWeeksPredictedForecasts ? this.thisWeeksPredictedForecasts[4].date.slice(5) : null
 
   render() {
-    console.log(this.props.weatherperson);
+
     return (
       this.props.weatherperson.length !== 0
 
