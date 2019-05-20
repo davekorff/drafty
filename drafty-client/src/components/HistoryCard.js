@@ -19,13 +19,13 @@ class HistoryCard extends React.Component {
         <h3>{currentContest.name}</h3>
         <div className='history-card-row'>
           <div className='history-card-col'>
-            <Scorecard wp1={wp1}/>
+            <Scorecard currentContest={currentContest} weatherperson={wp1}/>
           </div>
           <div className='history-card-col'>
-            <Scorecard wp2={wp2}/>
+            <Scorecard currentContest={currentContest} weatherperson={wp2}/>
           </div>
           <div className='history-card-col'>
-            <Scorecard wp3={wp3}/>
+            <Scorecard currentContest={currentContest} weatherperson={wp3}/>
           </div>
         </div>
         <div className='history-card-row'>

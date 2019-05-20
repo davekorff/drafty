@@ -44,7 +44,7 @@ class MyTeamListItem extends React.Component {
           <div className='forecast-box'>
             {monForecast}
           </div>
-          {monTemp} <br/>
+          {monTemp}℉ <br/>
           mon <br/>
           {monDate}
         </div >
@@ -52,7 +52,7 @@ class MyTeamListItem extends React.Component {
           <div className='forecast-box'>
             {tueForecast}
           </div>
-          {tueTemp} <br/>
+          {tueTemp}℉ <br/>
           tue <br/>
           {tueDate}
         </div>
@@ -60,7 +60,7 @@ class MyTeamListItem extends React.Component {
           <div className='forecast-box'>
             {wedForecast}
           </div>
-          {wedTemp} <br/>
+          {wedTemp}℉ <br/>
           wed <br/>
           {wedDate}
         </div>
@@ -68,7 +68,7 @@ class MyTeamListItem extends React.Component {
           <div className='forecast-box'>
             {thuForecast}
           </div>
-          {thuTemp} <br/>
+          {thuTemp}℉ <br/>
           thu <br/>
           {thuDate}
         </div>
@@ -76,7 +76,7 @@ class MyTeamListItem extends React.Component {
           <div className='forecast-box'>
             {friForecast}
           </div>
-          {friTemp} <br/>
+          {friTemp}℉ <br/>
           fri <br/>
           {friDate}
         </div>
