@@ -1,6 +1,7 @@
 import React from 'react'
 import HistoryCard from '../components/HistoryCard'
 import { connect } from 'react-redux'
+import uuid from 'uuid'
 
 
 class History extends React.Component {
@@ -32,14 +33,10 @@ class History extends React.Component {
       return team
     })
 
-    console.log(currentUsersTeams)
-
     return (
       <div className='history-container'>
         <h1>Contest History</h1>
-        <HistoryCard />
-        <HistoryCard />
-        <HistoryCard />
+        {currentUsersTeams.map(team => team.length === 3 ? <HistoryCard team={team} key={uuid()}/> : null)}
       </div>
     )
   }

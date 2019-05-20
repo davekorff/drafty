@@ -17,11 +17,20 @@ class ContestList extends React.Component {
 
   currentDate = this.yyyy + '-' + this.mm + '-' + this.dd;
 
-  renderContestListItems() {
+  // TODO: UNCOMMENT THIS
+  // Render contests that haven't begun yet
+  // renderContestList() {
+  //   return this.props.contests.contests.map(contest => {
+  //     if (contest.start_date > this.currentDate) {
+  //       return <ContestListItem history={this.props.history} setCurrentContest={this.props.setCurrentContest} key={contest.id} contest={contest}/>
+  //     }
+  //     return null
+  //   })
+  // }
+
+  renderContestList() {
     return this.props.contests.contests.map(contest => {
-      if (contest.start_date > this.currentDate) {
-        return <ContestListItem history={this.props.history} setCurrentContest={this.props.setCurrentContest} key={contest.id} contest={contest}/>
-      }
+      return <ContestListItem history={this.props.history} setCurrentContest={this.props.setCurrentContest} key={contest.id} contest={contest}/>
     })
   }
 
@@ -30,7 +39,7 @@ class ContestList extends React.Component {
     return (
       <div className='contest-list-container'>
         <h1>Contests</h1>
-        {this.renderContestListItems()}
+        {this.renderContestList()}
       </div>
     )
   }

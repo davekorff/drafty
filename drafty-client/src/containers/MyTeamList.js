@@ -16,6 +16,7 @@ class MyTeamList extends React.Component {
         if (draft.user_id === this.props.currentUser.id && draft.contest_id === this.props.currentContest.id) {
           return <MyTeamListItem currentContest={this.props.currentContest} currentUser={this.props.currentUser} draft={draft} key={draft.id} />
         }
+        return null
       })
     }
   }

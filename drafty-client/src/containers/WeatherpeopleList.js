@@ -16,6 +16,7 @@ class WeatherpeopleList extends React.Component {
         if (this.props.drafts.filter(draft => draft.user_id === this.props.currentUser.id && draft.weatherperson_id === weatherperson.id && draft.contest_id === this.props.currentContest.id).length === 0) {
           return <WeatherpeopleListItem key={weatherperson.id} weatherperson={weatherperson} />
         }
+        return null
       })
     }
   }

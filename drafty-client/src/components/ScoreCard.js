@@ -3,6 +3,7 @@ import React from 'react'
 class Scorecard extends React.Component {
 
   render() {
+    console.log(this.props);
 
     return (
       <div className='scorecard-container'>
