@@ -11,12 +11,14 @@ import userReducer from './reducers/userReducer'
 import contestsReducer from './reducers/contestsReducer'
 import weatherpeopleReducer from './reducers/weatherpeopleReducer'
 import draftsReducer from './reducers/draftsReducer'
+import dateReducer from './reducers/dateReducer'
 
 const rootReducer = combineReducers({
   user: userReducer,
   contests: contestsReducer,
   weatherpeople: weatherpeopleReducer,
-  drafts: draftsReducer
+  drafts: draftsReducer,
+  date: dateReducer
 })
 
 const store = createStore(rootReducer)

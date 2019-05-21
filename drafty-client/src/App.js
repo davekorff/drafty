@@ -24,6 +24,8 @@ class App extends Component {
 			.then(res => res.json())
 			.then(user => user.errors ? alert(user.errors) : this.props.setCurrentUser(user))
 		}
+
+		this.setCurrentDate()
 	}
 
 	setCurrentUser = (response) => {
@@ -36,6 +38,17 @@ class App extends Component {
 		localStorage.removeItem('token')
 		this.props.setCurrentUser(null)
 		this.props.history.push('/login')
+	}
+
+	setCurrentDate = () => {
+		const today = new Date()
+		const dd = String(today.getDate()).padStart(2, '0')
+		const mm = String(today.getMonth() + 1).padStart(2, '0')
+		const yyyy = today.getFullYear();
+
+		const currentDate = yyyy + '-' + mm + '-' + dd;
+
+		this.props.setCurrentDate(currentDate)
 	}
 
 	render() {
@@ -58,13 +71,15 @@ class App extends Component {
 
 function mapStateToProps(state) {
 	return {
-		currentUser: state.user.currentUser
+		currentUser: state.user.currentUser,
+		currentDate: state.date.currentDate
 	}
 }
 
 function mapDispatchToProps(dispatch) {
 	return {
-		setCurrentUser: response => dispatch({type: 'SET_CURRENT_USER', payload: response})
+		setCurrentUser: user => dispatch({type: 'SET_CURRENT_USER', payload: user}),
+		setCurrentDate: date => dispatch({type: 'SET_CURRENT_DATE', payload: date})
 	}
 }
 
