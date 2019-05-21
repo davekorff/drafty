@@ -41,13 +41,11 @@ class App extends Component {
 	}
 
 	setCurrentDate = () => {
-		const today = new Date()
-		const dd = String(today.getDate()).padStart(2, '0')
-		const mm = String(today.getMonth() + 1).padStart(2, '0')
-		const yyyy = today.getFullYear();
-
-		const currentDate = yyyy + '-' + mm + '-' + dd;
-
+		let today = new Date()
+		let dd = String(today.getDate()).padStart(2, '0')
+		let mm = String(today.getMonth() + 1).padStart(2, '0')
+		let yyyy = today.getFullYear()
+		let currentDate = yyyy + '-' + mm + '-' + dd
 		this.props.setCurrentDate(currentDate)
 	}
 
@@ -57,8 +55,8 @@ class App extends Component {
 			<Grid>
 				<Nav currentUser={this.props.currentUser} logOut={this.logOut}/>
 					<Switch>
-						<Route exact path='/' render={this.props.currentUser ? routeProps => <Lobby {...routeProps} setCurrentContest={this.setCurrentContest}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
-						<Route exact path='/lobby' render={this.props.currentUser ? routeProps => <Lobby {...routeProps} setCurrentContest={this.setCurrentContest}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
+						<Route exact path='/' render={this.props.currentUser ? routeProps => <Lobby {...routeProps} /> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
+						<Route exact path='/lobby' render={this.props.currentUser ? routeProps => <Lobby {...routeProps} /> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
 						<Route exact path='/login' render={this.props.currentUser ? null : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
 						<Route exact path='/signup' render={this.props.currentUser ? null : routeProps => <Signup {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
 						<Route exact path='/history' render={this.props.currentUser ? routeProps => <History {...routeProps}/> : null}/>
@@ -71,8 +69,7 @@ class App extends Component {
 
 function mapStateToProps(state) {
 	return {
-		currentUser: state.user.currentUser,
-		currentDate: state.date.currentDate
+		currentUser: state.user.currentUser
 	}
 }
 

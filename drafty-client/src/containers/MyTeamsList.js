@@ -6,19 +6,10 @@ import uuid from 'uuid'
 class MyTeamsList extends React.Component {
 
   componentDidMount() {
-    fetch('http://localhost:3000/api/v1/drafts')
+    fetch('http://localhost:3000/api/v1/teams')
       .then(res => res.json())
-      .then(drafts => this.props.setDrafts(drafts))
+      .then(teams => this.props.setTeams(teams))
   }
-
-  //TODO: MOVE THE DATE LOGIC INTO APP AND SET IT IN THE REDUX STORE
-
-  today = new Date()
-  dd = String(this.today.getDate()).padStart(2, '0')
-  mm = String(this.today.getMonth() + 1).padStart(2, '0')
-  yyyy = this.today.getFullYear();
-
-  currentDate = this.yyyy + '-' + this.mm + '-' + this.dd
 
   render() {
 
@@ -27,7 +18,7 @@ class MyTeamsList extends React.Component {
     const currentUsersTeams = this.props.contests.map(contest => {
       let team = []
       currentUsersDrafts.forEach(draft => {
-        if (draft.contest_id === contest.id && contest.end_date > this.currentDate) {
+        if (draft.contest_id === contest.id && contest.end_date > this.props.currentDate) {
           team.push(draft)
         }
       })
@@ -47,13 +38,14 @@ function mapStateToProps(state) {
   return {
     drafts: state.drafts.drafts,
     currentUser: state.user.currentUser,
-    contests: state.contests.contests
+    contests: state.contests.contests,
+    date: state.date.currentDate
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    setDrafts: drafts => dispatch({type: 'SET_DRAFTS', payload: drafts})
+    setTeams: teams => dispatch({type: 'SET_TEAMS', payload: teams})
   }
 }
 
