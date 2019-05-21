@@ -175,3 +175,35 @@ Forecast.create(weatherperson_id: 2, date: '2019-06-07', predicted_temp: temps.s
 Forecast.create(weatherperson_id: 3, date: '2019-06-07', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil, score: 0)
 Forecast.create(weatherperson_id: 4, date: '2019-06-07', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil, score: 0)
 Forecast.create(weatherperson_id: 5, date: '2019-06-07', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil, score: 0)
+
+
+# UPDATE CONTEST 1 ACTUAL TEMPS
+combined_temps = 0
+
+Forecast.all.each do |f|
+  if f.date.to_s >= '2019-0r5-13' && f.date.to_s <= '2019-05-17'
+    combined_temps += f.predicted_temp
+  end
+  combined_temps.to_f
+end
+
+avg_temp = (combined_temps / 25).round
+
+
+temp_diffs = (-5..5).to_a.shuffle
+
+Forecast.all.each do |f|
+  if f.date.to_s >= '2019-05-13' && f.date.to_s <= '2019-05-17'
+    temp_diff = temp_diffs.sample
+    f.update(actual_temp: avg_temp + temp_diff)
+  end
+end
+
+# UPDATE CONTEST 1 ACTUAL WEATHER
+
+
+Forecast.all.each do |f|
+  if f.date.to_s >= '2019-05-13' && f.date.to_s <= '2019-05-17'
+    f.update(actual_weather: weather.sample)
+  end
+end
