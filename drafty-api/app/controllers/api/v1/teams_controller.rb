@@ -10,4 +10,11 @@ class Api::V1::TeamsController < ApplicationController
 
 		render json: team
 	end
+
+	def create
+		team = Team.create(user_id: params[:user_id], contest_id: params[:contest_id])
+
+		render json: team
+	end
+
 end

@@ -1,8 +1,15 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 class ContestListItem extends React.Component {
 
-  selectContest(contestID) {
+  // selectContest(contestID) {
+  //   this.props.history.push('/entry/' + this.props.contest.id)
+  // }
+
+  createTeam(contestID) {
+
+
     this.props.history.push('/entry/' + this.props.contest.id)
   }
 
@@ -23,12 +30,7 @@ class ContestListItem extends React.Component {
           Ends: <br/>
           {this.props.contest.end_date} <br/>
         </div>
-        {/* user clicks enter contest button =>
-          1. set selectedContest in store
-          2. render contest entry container
-          3. ?
-          */}
-        <button className='contest-li-col' onClick={() => this.selectContest(this.props.contest.id)}>
+        <button className='contest-li-col' onClick={() => this.createTeam(this.props.contest.id)}>
           Enter draft
         </button>
       </div>
@@ -36,4 +38,10 @@ class ContestListItem extends React.Component {
   }
 }
 
-export default ContestListItem
+function mapStateToProps(state) {
+  return {
+    currentUser: state.user.currentUser
+  }
+}
+
+export default connect(mapStateToProps)(ContestListItem)

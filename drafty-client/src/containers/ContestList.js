@@ -10,6 +10,8 @@ class ContestList extends React.Component {
       .then(contests => this.props.setContests(contests))
   }
 
+  
+
   today = new Date()
   dd = String(this.today.getDate()).padStart(2, '0')
   mm = String(this.today.getMonth() + 1).padStart(2, '0')
