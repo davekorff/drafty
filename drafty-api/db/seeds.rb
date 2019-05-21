@@ -22,22 +22,55 @@ User.create(username: 'victoria', password: '1234', balance: 0)
 User.create(username: 'will', password: '1234', balance: 0)
 
 
-Contest.create(name: 'Spring #9', start_date: '2019-05-13', end_date: '2019-05-17', prize: 100)
-
-Contest.create(name: 'Spring #10', start_date: '2019-05-20', end_date: '2019-05-24', prize: 100)
-Contest.create(name: 'Spring #11', start_date: '2019-05-27', end_date: '2019-05-31', prize: 100)
-Contest.create(name: 'Spring #12', start_date: '2019-06-03', end_date: '2019-06-07', prize: 100)
-
-
-Weatherperson.create(name: 'Brick', station: 'KVWN channel 4', city: 'New York City', drafted: false)
-Weatherperson.create(name: Faker::FunnyName.two_word_name, station: 'ABC', city: 'New York City', drafted: false)
-Weatherperson.create(name: Faker::FunnyName.two_word_name, station: 'NBC', city: 'New York City', drafted: false)
-Weatherperson.create(name: Faker::FunnyName.two_word_name, station: 'CBS', city: 'New York City', drafted: false)
-Weatherperson.create(name: Faker::FunnyName.two_word_name, station: 'FOX', city: 'New York City', drafted: false)
+Contest.create(name: 'Spring No. 9', start_date: '2019-05-13', end_date: '2019-05-17', prize: 100)
+Contest.create(name: 'Spring No. 10', start_date: '2019-05-20', end_date: '2019-05-24', prize: 150)
+Contest.create(name: 'Spring No. 11', start_date: '2019-05-27', end_date: '2019-05-31', prize: 200)
+Contest.create(name: 'Spring No. 12', start_date: '2019-06-03', end_date: '2019-06-07', prize: 250)
 
 
-weather = ['sun', 'cloudy', 'rain']
-temps = (55..75).to_a
+i = 0
+uids = (1..22).to_a.shuffle
+while i < 10 do
+  uid = uids.pop
+  Team.create(name: Faker::Kpop.i_groups, user_id: uid, contest_id: 1, score: 0)
+  i += 1
+end
+
+i = 0
+uids = (1..22).to_a.shuffle
+while i < 8 do
+  uid = uids.pop
+  Team.create(name: Faker::Kpop.i_groups, user_id: uid, contest_id: 2, score: 0)
+  i += 1
+end
+
+i = 0
+uids = (1..22).to_a.shuffle
+while i < 6 do
+  uid = uids.pop
+  Team.create(name: Faker::Kpop.i_groups, user_id: uid, contest_id: 3, score: 0)
+  i += 1
+end
+
+i = 0
+uids = (1..22).to_a.shuffle
+while i < 4 do
+  uid = uids.pop
+  Team.create(name: Faker::Kpop.i_groups, user_id: uid, contest_id: 4, score: 0)
+  i += 1
+end
+
+
+Weatherperson.create(name: 'Brick', station: 'KVWN ch. 4', city: 'NYC')
+Weatherperson.create(name: Faker::FunnyName.name, station: 'ABC', city: 'NYC')
+Weatherperson.create(name: Faker::FunnyName.name, station: 'NBC', city: 'NYC')
+Weatherperson.create(name: Faker::FunnyName.name, station: 'CBS', city: 'NYC')
+Weatherperson.create(name: Faker::FunnyName.name, station: 'FOX', city: 'NYC')
+
+
+weather = ['Sunny', 'Cloudy', 'Rain', 'T-storm',]
+temps = (65..80).to_a
+
 
 Forecast.create(weatherperson_id: 1, date: '2019-05-13', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil, score: 0)
 Forecast.create(weatherperson_id: 2, date: '2019-05-13', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil, score: 0)
@@ -95,6 +128,7 @@ Forecast.create(weatherperson_id: 2, date: '2019-05-27', predicted_temp: temps.s
 Forecast.create(weatherperson_id: 3, date: '2019-05-27', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil, score: 0)
 Forecast.create(weatherperson_id: 4, date: '2019-05-27', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil, score: 0)
 Forecast.create(weatherperson_id: 5, date: '2019-05-27', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil, score: 0)
+
 Forecast.create(weatherperson_id: 1, date: '2019-05-28', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil, score: 0)
 Forecast.create(weatherperson_id: 2, date: '2019-05-28', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil, score: 0)
 Forecast.create(weatherperson_id: 3, date: '2019-05-28', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil, score: 0)
@@ -115,6 +149,7 @@ Forecast.create(weatherperson_id: 2, date: '2019-05-31', predicted_temp: temps.s
 Forecast.create(weatherperson_id: 3, date: '2019-05-31', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil, score: 0)
 Forecast.create(weatherperson_id: 4, date: '2019-05-31', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil, score: 0)
 Forecast.create(weatherperson_id: 5, date: '2019-05-31', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil, score: 0)
+
 Forecast.create(weatherperson_id: 1, date: '2019-06-03', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil, score: 0)
 Forecast.create(weatherperson_id: 2, date: '2019-06-03', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil, score: 0)
 Forecast.create(weatherperson_id: 3, date: '2019-06-03', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil, score: 0)

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
       resources :contests
       resources :weatherpeople
       resources :drafts
+      resources :teams
+      resources :forecasts
 
       post '/login', to: 'auth#login'
       get '/auto_login', to: 'auth#auto_login'

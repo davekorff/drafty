@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_18_175946) do
+ActiveRecord::Schema.define(version: 2019_05_21_013952) do
 
   create_table "contests", force: :cascade do |t|
     t.string "name"
@@ -22,14 +22,11 @@ ActiveRecord::Schema.define(version: 2019_05_18_175946) do
   end
 
   create_table "drafts", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "contest_id"
     t.integer "weatherperson_id"
-    t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["contest_id"], name: "index_drafts_on_contest_id"
-    t.index ["user_id"], name: "index_drafts_on_user_id"
+    t.integer "team_id"
+    t.index ["team_id"], name: "index_drafts_on_team_id"
     t.index ["weatherperson_id"], name: "index_drafts_on_weatherperson_id"
   end
 
@@ -44,6 +41,17 @@ ActiveRecord::Schema.define(version: 2019_05_18_175946) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["weatherperson_id"], name: "index_forecasts_on_weatherperson_id"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "contest_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "score"
+    t.index ["contest_id"], name: "index_teams_on_contest_id"
+    t.index ["user_id"], name: "index_teams_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,7 +70,7 @@ ActiveRecord::Schema.define(version: 2019_05_18_175946) do
     t.string "img_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "drafted"
+    t.string "img_url_lg"
   end
 
 end
