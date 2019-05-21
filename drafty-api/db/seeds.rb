@@ -181,7 +181,7 @@ Forecast.create(weatherperson_id: 5, date: '2019-06-07', predicted_temp: temps.s
 combined_temps = 0
 
 Forecast.all.each do |f|
-  if f.date.to_s >= '2019-0r5-13' && f.date.to_s <= '2019-05-17'
+  if f.date.to_s >= '2019-05-13' && f.date.to_s <= '2019-05-17'
     combined_temps += f.predicted_temp
   end
   combined_temps.to_f
@@ -200,10 +200,3 @@ Forecast.all.each do |f|
 end
 
 # UPDATE CONTEST 1 ACTUAL WEATHER
-
-
-Forecast.all.each do |f|
-  if f.date.to_s >= '2019-05-13' && f.date.to_s <= '2019-05-17'
-    f.update(actual_weather: weather.sample)
-  end
-end
