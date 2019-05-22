@@ -1,7 +1,5 @@
 import React from 'react'
 import MyTeamsListItem from '../components/MyTeamsListItem'
-import { connect } from 'react-redux'
-// import uuid from 'uuid'
 
 class MyTeamsList extends React.Component {
 
@@ -34,14 +32,4 @@ class MyTeamsList extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    currentUser: state.user.currentUser,
-    teams: state.teams.teams,
-    currentDate: state.date.currentDate,
-    drafts: state.drafts.drafts,
-    contests: state.contests.contests
-  }
-}
-
-export default connect(mapStateToProps)(MyTeamsList)
+export default MyTeamsList
