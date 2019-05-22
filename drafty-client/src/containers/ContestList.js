@@ -48,7 +48,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    setContests: contests => dispatch({type: 'SET_CONTESTS', payload: contests})
+    setContests: contests => dispatch({type: 'SET_CONTESTS', payload: contests}),
+
   }
 }
 

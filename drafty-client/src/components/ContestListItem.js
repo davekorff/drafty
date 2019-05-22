@@ -3,19 +3,25 @@ import { connect } from 'react-redux'
 
 class ContestListItem extends React.Component {
 
-  // create a new team unless the current user already has a team for the selected contest
-  createTeam(userID, contestID) {
-    if (this.props.teams.filter(team => team.user.id === userID && team.contest.id === contestID).length === 0) {
+
+  // when user clicks 'enter draft' button, create a new team unless the current user already has a team for the selected contest
+  // set current team in redux store
+  // reroute user to contest entry
+  handleClickEnterDraft(contestID) {
+    if (!this.props.teams.find(team => team.user.id === this.props.currentUser.id && team.contest.id === contestID)) {
       fetch('http://localhost:3000/api/v1/teams', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accepts': 'application/json',
         },
-        body: JSON.stringify({user_id: userID, contest_id: contestID})
+        body: JSON.stringify({user_id: this.props.currentUser.id, contest_id: contestID})
       })
       .then(res => res.json())
       .then(team => this.props.addTeam(team))
+    } else {
+      const currentTeam = this.props.teams.find(team => team.user.id === this.props.currentUser.id && team.contest.id === contestID)
+      this.props.setCurrentTeam(currentTeam)
     }
 
     this.props.history.push('/entry/' + contestID)
@@ -38,7 +44,7 @@ class ContestListItem extends React.Component {
           Ends: <br/>
           {this.props.contest.end_date} <br/>
         </div>
-        <button className='contest-li-col' onClick={() => this.createTeam(this.props.currentUser.id, this.props.contest.id)}>
+        <button className='contest-li-col' onClick={() => this.handleClickEnterDraft(this.props.contest.id)}>
           Enter draft
         </button>
       </div>
@@ -55,7 +61,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    addTeam: team => dispatch({type: 'ADD_TEAM', payload: team})
+    addTeam: team => dispatch({type: 'ADD_TEAM', payload: team}),
+    setCurrentTeam: team => dispatch({type: 'SET_CURRENT_TEAM', payload: team})
   }
 }
 

@@ -6,8 +6,8 @@ class WeatherpeopleListItem extends React.Component {
 
   //TODO: PUT THE BELOW LOGIC INTO A FUNCTION
 
-  userID = this.props.currentUser.id
-  weatherpersonID = this.props.weatherperson.id
+  // userID = this.props.currentUser.id
+  // weatherpersonID = this.props.weatherperson.id
   // contestID = this.props.currentContest.id
 
   thisWeeksPredictedForecasts = this.props.weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date)
@@ -30,22 +30,9 @@ class WeatherpeopleListItem extends React.Component {
   thuDate = this.thisWeeksPredictedForecasts[3].date.slice(5)
   friDate = this.thisWeeksPredictedForecasts[4].date.slice(5)
 
-  createDraft = () => {
 
-    fetch('http://localhost:3000/api/v1/drafts', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-				'Accepts': 'application/json',
-			},
-			body: JSON.stringify({user_id: this.userID, weatherperson_id: this.weatherpersonID, contest_id: this.props.currentContest.id})
-		})
-		.then(res => res.json())
-    .then(draft => this.props.addDraft(draft))
-	}
 
   render() {
-    const team = this.props.drafts.filter(draft => draft.user_id === this.props.currentUser.id && draft.contest_id === this.props.currentContest.id)
 
     return (
       <div className='my-teams-li'>
@@ -95,7 +82,7 @@ class WeatherpeopleListItem extends React.Component {
           fri <br/>
           {this.friDate}
         </div>
-        <button className='my-teams-li-col' onClick={team.length < 3 ? this.createDraft : null}>
+        <button className='my-teams-li-col' onClick={() => this.props.handleClickDraft(this.props.weatherperson.id)}>
           Draft
         </button>
       </div>
@@ -106,8 +93,9 @@ class WeatherpeopleListItem extends React.Component {
 function mapStateToProps(state) {
   return {
     currentContest: state.contests.currentContest,
-    currentUser: state.user.currentUser,
-    drafts: state.drafts.drafts
+    drafts: state.drafts.drafts,
+    teams: state.teams.teams,
+    currentTeam: state.teams.currentTeam
   }
 }
 

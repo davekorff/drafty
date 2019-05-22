@@ -4,25 +4,17 @@ import { connect } from 'react-redux'
 
 class MyTeamList extends React.Component {
 
-  componentDidMount() {
-    fetch('http://localhost:3000/api/v1/drafts')
-      .then(res => res.json())
-      .then(drafts => this.props.setDrafts(drafts))
-  }
-
   renderMyTeam = () => {
-    if (this.props.drafts) {
-      return this.props.drafts.map(draft => {
-        if (draft.user_id === this.props.currentUser.id && draft.contest_id === this.props.currentContest.id) {
-          return <MyTeamListItem currentContest={this.props.currentContest} currentUser={this.props.currentUser} draft={draft} key={draft.id} />
-        }
-        return null
+    if (this.props.myTeam) {
+      return this.props.myTeam.map(weatherperson => {
+        return <MyTeamListItem key={weatherperson.id} weatherperson={weatherperson}/>
       })
     }
   }
 
 
   render() {
+
     return (
       <div className='my-team-list-container'>
         <h1>My Team</h1>
@@ -35,15 +27,16 @@ class MyTeamList extends React.Component {
 function mapStateToProps(state) {
   return {
     currentContest: state.contests.currentContest,
-    currentUser: state.user.currentUser,
     drafts: state.drafts.drafts,
-    weatherpeople: state.weatherpeople.weatherpeople
+    weatherpeople: state.weatherpeople.weatherpeople,
+    currentUser: state.user.currentUser,
+    teams: state.teams.teams
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    setDrafts: drafts => dispatch({type: 'SET_DRAFTS', payload: drafts})
+    setTeams: teams => dispatch({type: 'SET_TEAMS', payload: teams})
   }
 }
 

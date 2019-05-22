@@ -1,3 +1,5 @@
+// TODO: GET RID OF CURRENT USER PROP PASSDOWNS WHERE NOT NEEDED
+
 import React, { Component } from 'react'
 import './App.css'
 import { Switch, Route } from 'react-router-dom'
@@ -23,7 +25,20 @@ class App extends Component {
 			})
 			.then(res => res.json())
 			.then(user => user.errors ? alert(user.errors) : this.props.setCurrentUser(user))
+
 		}
+
+		fetch('http://localhost:3000/api/v1/weatherpeople')
+		.then(res => res.json())
+		.then(weatherpeople => this.props.setWeatherpeople(weatherpeople))
+
+		fetch('http://localhost:3000/api/v1/teams')
+			.then(res => res.json())
+			.then(teams => this.props.setTeams(teams))
+
+		fetch('http://localhost:3000/api/v1/drafts')
+			.then(res => res.json())
+			.then(drafts => this.props.setDrafts(drafts))
 
 		this.setCurrentDate()
 	}
@@ -41,11 +56,11 @@ class App extends Component {
 	}
 
 	setCurrentDate = () => {
-		let today = new Date()
-		let dd = String(today.getDate()).padStart(2, '0')
-		let mm = String(today.getMonth() + 1).padStart(2, '0')
-		let yyyy = today.getFullYear()
-		let currentDate = yyyy + '-' + mm + '-' + dd
+		const today = new Date()
+		const dd = String(today.getDate()).padStart(2, '0')
+		const mm = String(today.getMonth() + 1).padStart(2, '0')
+		const yyyy = today.getFullYear()
+		const currentDate = yyyy + '-' + mm + '-' + dd
 		this.props.setCurrentDate(currentDate)
 	}
 
@@ -55,12 +70,12 @@ class App extends Component {
 			<Grid>
 				<Nav currentUser={this.props.currentUser} logOut={this.logOut}/>
 					<Switch>
-						<Route exact path='/' render={this.props.currentUser ? routeProps => <Lobby {...routeProps} /> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
-						<Route exact path='/lobby' render={this.props.currentUser ? routeProps => <Lobby {...routeProps} /> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
-						<Route exact path='/login' render={this.props.currentUser ? null : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
-						<Route exact path='/signup' render={this.props.currentUser ? null : routeProps => <Signup {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
-						<Route exact path='/history' render={this.props.currentUser ? routeProps => <History {...routeProps}/> : null}/>
-						<Route exact path='/entry/:contestID' render={routeProps => <ContestEntry {...routeProps}/>}/>
+						<Route exact path='/' render={this.props.currentUser ? routeProps => <Lobby {...routeProps} currentUser={this.props.currentUser} /> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser} />}/>
+						<Route exact path='/lobby' render={this.props.currentUser ? routeProps => <Lobby {...routeProps} currentUser={this.props.currentUser} /> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser} />}/>
+						<Route exact path='/login' render={this.props.currentUser ? null : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser} />}/>
+						<Route exact path='/signup' render={this.props.currentUser ? null : routeProps => <Signup {...routeProps} setCurrentUser={this.setCurrentUser} />}/>
+						<Route exact path='/history' render={this.props.currentUser ? routeProps => <History {...routeProps} currentUser={this.props.currentUser}/> : null}/>
+						<Route exact path='/entry/:contestID' render={routeProps => <ContestEntry {...routeProps}/>} />
 					</Switch>
 			</Grid>
 		)
@@ -76,7 +91,10 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
 	return {
 		setCurrentUser: user => dispatch({type: 'SET_CURRENT_USER', payload: user}),
-		setCurrentDate: date => dispatch({type: 'SET_CURRENT_DATE', payload: date})
+		setCurrentDate: date => dispatch({type: 'SET_CURRENT_DATE', payload: date}),
+		setTeams: teams => dispatch({type: 'SET_TEAMS', payload: teams}),
+		setWeatherpeople: weatherpeople => dispatch({type: 'SET_WEATHERPEOPLE', payload: weatherpeople}),
+		setDrafts: drafts => dispatch({type: 'SET_DRAFTS', payload: drafts})
 	}
 }
 

@@ -5,14 +5,7 @@ import uuid from 'uuid'
 
 class MyTeamsList extends React.Component {
 
-  componentDidMount() {
-    fetch('http://localhost:3000/api/v1/teams')
-      .then(res => res.json())
-      .then(teams => this.props.setTeams(teams))
-  }
-
   render() {
-
     const currentUsersDrafts = this.props.drafts.filter(draft => draft.user_id === this.props.currentUser.id)
 
     const currentUsersTeams = this.props.contests.map(contest => {
@@ -43,10 +36,4 @@ function mapStateToProps(state) {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    setTeams: teams => dispatch({type: 'SET_TEAMS', payload: teams})
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(MyTeamsList)
+export default connect(mapStateToProps)(MyTeamsList)

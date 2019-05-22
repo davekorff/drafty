@@ -20,14 +20,14 @@ class History extends React.Component {
       .then(contests => this.props.setContests(contests))
   }
 
-  //TODO: MOVE THE DATE LOGIC INTO APP AND SET IT IN THE REDUX STORE
-
-  today = new Date()
-  dd = String(this.today.getDate()).padStart(2, '0')
-  mm = String(this.today.getMonth() + 1).padStart(2, '0')
-  yyyy = this.today.getFullYear();
-
-  currentDate = this.yyyy + '-' + this.mm + '-' + this.dd
+  //MOVED THE DATE LOGIC INTO APP AND SET IT IN THE REDUX STORE
+  // TODO: DELETE?
+  // today = new Date()
+  // dd = String(this.today.getDate()).padStart(2, '0')
+  // mm = String(this.today.getMonth() + 1).padStart(2, '0')
+  // yyyy = this.today.getFullYear();
+  //
+  // currentDate = this.yyyy + '-' + this.mm + '-' + this.dd
 
   render() {
     const currentUsersDrafts = this.props.drafts.filter(draft => draft.user_id === this.props.currentUser.id)
@@ -35,7 +35,7 @@ class History extends React.Component {
     const currentUsersTeams = this.props.contests.map(contest => {
       let team = []
       currentUsersDrafts.forEach(draft => {
-        if (draft.contest_id === contest.id && contest.end_date <= this.currentDate) {
+        if (draft.contest_id === contest.id && contest.end_date <= this.props.currentDate) {
           team.push(draft)
         }
       })
@@ -53,8 +53,8 @@ class History extends React.Component {
 
 function mapStateToProps(state) {
   return {
+    currentDate: state.date.currentDate,
     currentContest: state.contests.currentContest,
-    currentUser: state.user.currentUser,
     drafts: state.drafts.drafts,
     weatherpeople: state.weatherpeople.weatherpeople,
     contests: state.contests.contests
