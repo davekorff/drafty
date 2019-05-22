@@ -1,9 +1,32 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 class ContestListItem extends React.Component {
 
-  selectContest(contestID) {
-    this.props.history.push('/entry/' + this.props.contest.id)
+
+  // when user clicks 'enter draft' button, create a new team unless the current user already has a team for the selected contest
+  // set current team in redux store
+  // reroute user to contest entry
+  handleClickEnterDraft(contestID) {
+    if (!this.props.teams.find(team => team.user.id === this.props.currentUser.id && team.contest.id === contestID)) {
+      fetch('http://localhost:3000/api/v1/teams', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accepts': 'application/json',
+        },
+        body: JSON.stringify({user_id: this.props.currentUser.id, contest_id: contestID})
+      })
+      .then(res => res.json())
+      .then(team => {
+        this.props.addTeam(team)
+        this.props.history.push('/entry/' + contestID)
+      })
+    } else {
+      const currentTeam = this.props.teams.find(team => team.user.id === this.props.currentUser.id && team.contest.id === contestID)
+      this.props.setCurrentTeam(currentTeam)
+      this.props.history.push('/entry/' + contestID)
+    }
   }
 
   render() {
@@ -23,12 +46,7 @@ class ContestListItem extends React.Component {
           Ends: <br/>
           {this.props.contest.end_date} <br/>
         </div>
-        {/* user clicks enter contest button =>
-          1. set selectedContest in store
-          2. render contest entry container
-          3. ?
-          */}
-        <button className='contest-li-col' onClick={() => this.selectContest(this.props.contest.id)}>
+        <button className='contest-li-col' onClick={() => this.handleClickEnterDraft(this.props.contest.id)}>
           Enter draft
         </button>
       </div>
@@ -36,4 +54,18 @@ class ContestListItem extends React.Component {
   }
 }
 
-export default ContestListItem
+function mapStateToProps(state) {
+  return {
+    currentUser: state.user.currentUser,
+    teams: state.teams.teams
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    addTeam: team => dispatch({type: 'ADD_TEAM', payload: team}),
+    setCurrentTeam: team => dispatch({type: 'SET_CURRENT_TEAM', payload: team})
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContestListItem)

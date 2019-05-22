@@ -12,7 +12,7 @@ class Api::V1::DraftsController < ApplicationController
 	end
 
 	def create
-		draft = Draft.create(user_id: params[:user_id], contest_id: params[:contest_id], weatherperson_id: params[:weatherperson_id])
+		draft = Draft.create(team_id: params[:team_id], weatherperson_id: params[:weatherperson_id])
 
 		render json: draft
 	end

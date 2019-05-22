@@ -4,30 +4,42 @@ import { connect } from 'react-redux'
 
 class WeatherpeopleList extends React.Component {
 
-  componentDidMount() {
-    fetch('http://localhost:3000/api/v1/weatherpeople')
+  // when user clicks 'draft' button, create a new draft unless the current team
+  // already has three weatherpeople drafted
+  handleClickDraft = wp_id => {
+    const team = this.props.teams.find(team => {
+      return team.user.id === this.props.currentUser.id && team.contest.id === this.props.currentContest.id
+    })
+
+    if (this.props.undraftedWeatherpeople.length > 2) {
+      fetch('http://localhost:3000/api/v1/drafts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accepts': 'application/json',
+        },
+        body: JSON.stringify({team_id: team.id, weatherperson_id: wp_id})
+      })
       .then(res => res.json())
-      .then(weatherpeople => this.props.setWeatherpeople(weatherpeople))
+      .then(draft => this.handleCreateDraft(draft))
+    }
   }
 
-  renderWeatherpeople() {
-    if (this.props.weatherpeople) {
-      return this.props.weatherpeople.weatherpeople.map(weatherperson => {
-        if (this.props.drafts.filter(draft => draft.user_id === this.props.currentUser.id && draft.weatherperson_id === weatherperson.id && draft.contest_id === this.props.currentContest.id).length === 0) {
-          return <WeatherpeopleListItem key={weatherperson.id} weatherperson={weatherperson} />
-        }
-        return null
-      })
-    }
+  // after draft creation, add the drafted weatherperson to my team list and remove
+  // them from weatherpeople list
+  handleCreateDraft = draft => {
+    const weatherperson = this.props.weatherpeople.find(weatherperson => weatherperson.id === draft.weatherperson_id)
+    this.props.addToMyTeam(weatherperson)
+    this.props.removeFromUndrafted(weatherperson.id)
   }
 
 
   render() {
-
+    // console.log(this.props.undraftedWeatherpeople)
     return (
       <div className='weatherpeople-list-container'>
         <h1>Weatherpeople</h1>
-        {this.renderWeatherpeople()}
+        {this.props.undraftedWeatherpeople ? this.props.undraftedWeatherpeople.map(weatherperson => <WeatherpeopleListItem handleClickDraft={this.handleClickDraft} key={weatherperson.id} weatherperson={weatherperson} currentUser={this.props.currentUser} />) : <div>LOADING...</div>}
       </div>
     )
   }
@@ -35,17 +47,12 @@ class WeatherpeopleList extends React.Component {
 
 function mapStateToProps(state) {
 	return {
-		weatherpeople: state.weatherpeople,
+		weatherpeople: state.weatherpeople.weatherpeople,
     currentContest: state.contests.currentContest,
-    currentUser: state.user.currentUser,
-    drafts: state.drafts.drafts
+    drafts: state.drafts.drafts,
+    teams: state.teams.teams,
+    currentTeam: state.teams.currentTeam
 	}
 }
 
-function mapDispatchToProps(dispatch) {
-	return {
-		setWeatherpeople: weatherpeople => dispatch({type: 'SET_WEATHERPEOPLE', payload: weatherpeople})
-	}
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(WeatherpeopleList)
+export default connect(mapStateToProps)(WeatherpeopleList)

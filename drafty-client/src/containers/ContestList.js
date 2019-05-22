@@ -10,29 +10,23 @@ class ContestList extends React.Component {
       .then(contests => this.props.setContests(contests))
   }
 
-  today = new Date()
-  dd = String(this.today.getDate()).padStart(2, '0')
-  mm = String(this.today.getMonth() + 1).padStart(2, '0')
-  yyyy = this.today.getFullYear();
+  // Render all future contests
+  renderContestList() {
+    return this.props.contests.contests.map(contest => {
+      if (contest.start_date > this.props.currentDate) {
+        return <ContestListItem history={this.props.history} setCurrentContest={this.props.setCurrentContest} key={contest.id} contest={contest}/>
+      }
+      return null
+    })
+  }
 
-  currentDate = this.yyyy + '-' + this.mm + '-' + this.dd;
-
-  // TODO: UNCOMMENT THIS
-  // Render contests that haven't begun yet
+  // Render all past and future contests
   // renderContestList() {
   //   return this.props.contests.contests.map(contest => {
-  //     if (contest.start_date > this.currentDate) {
-  //       return <ContestListItem history={this.props.history} setCurrentContest={this.props.setCurrentContest} key={contest.id} contest={contest}/>
-  //     }
-  //     return null
+  //     return <ContestListItem history={this.props.history} setCurrentContest={this.props.setCurrentContest} key={contest.id} contest={contest}/>
   //   })
   // }
 
-  renderContestList() {
-    return this.props.contests.contests.map(contest => {
-      return <ContestListItem history={this.props.history} setCurrentContest={this.props.setCurrentContest} key={contest.id} contest={contest}/>
-    })
-  }
 
   render() {
 
@@ -47,13 +41,15 @@ class ContestList extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    contests: state.contests
+    contests: state.contests,
+    currentDate: state.date.currentDate
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    setContests: contests => dispatch({type: 'SET_CONTESTS', payload: contests})
+    setContests: contests => dispatch({type: 'SET_CONTESTS', payload: contests}),
+
   }
 }
 

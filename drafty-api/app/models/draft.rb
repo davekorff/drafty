@@ -1,5 +1,4 @@
 class Draft < ApplicationRecord
-  belongs_to :user
-  belongs_to :contest
+  belongs_to :team
   belongs_to :weatherperson
 end
