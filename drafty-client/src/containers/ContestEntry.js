@@ -45,6 +45,8 @@ class ContestEntry extends React.Component {
           const myTeamWeatherpeopleIDs = myTeam.weatherpeople.map(weatherperson => weatherperson.id)
           const undraftedWeatherpeople = this.state.weatherpeople.filter(weatherperson => !myTeamWeatherpeopleIDs.includes(weatherperson.id))
           this.setState({undraftedWeatherpeople})
+        } else {
+          this.setState({ undraftedWeatherpeople: weatherpeople })
         }
       }))
   }

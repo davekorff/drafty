@@ -18,13 +18,15 @@ class ContestListItem extends React.Component {
         body: JSON.stringify({user_id: this.props.currentUser.id, contest_id: contestID})
       })
       .then(res => res.json())
-      .then(team => this.props.addTeam(team))
+      .then(team => {
+        this.props.addTeam(team)
+        this.props.history.push('/entry/' + contestID)
+      })
     } else {
       const currentTeam = this.props.teams.find(team => team.user.id === this.props.currentUser.id && team.contest.id === contestID)
       this.props.setCurrentTeam(currentTeam)
+      this.props.history.push('/entry/' + contestID)
     }
-
-    this.props.history.push('/entry/' + contestID)
   }
 
   render() {

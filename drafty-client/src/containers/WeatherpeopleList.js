@@ -35,6 +35,7 @@ class WeatherpeopleList extends React.Component {
 
 
   render() {
+    // console.log(this.props.undraftedWeatherpeople)
     return (
       <div className='weatherpeople-list-container'>
         <h1>Weatherpeople</h1>
