@@ -35,7 +35,7 @@ class ContestEntry extends React.Component {
   }
 
   render() {
-    console.log(this.state);
+
     return (
       this.props.currentContest
 
@@ -64,7 +64,6 @@ class ContestEntry extends React.Component {
 function mapStateToProps(state) {
 	return {
 		currentContest: state.contests.currentContest,
-    currentTeam: state.teams.currentTeam,
     currentUser: state.user.currentUser
 	}
 }

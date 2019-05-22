@@ -1,3 +1,6 @@
+// TODO: ADD LOBBY BUTTON ON NAV (CONDITIONALLY RENDERED IF USER IS LOGGED IN)
+
+
 import React from 'react'
 import { Grid, Menu } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
@@ -17,8 +20,12 @@ class Nav extends React.Component {
 						{this.props.currentUser
 							?
 							<Menu.Menu position='right'>
+								<Link id='nav-link' className='item' to='/weatherpeople'>
+									<span style={{textAlign: 'center'}}>Meet the <br/> Weatherpeople</span>
+								</Link>
                 <Link id='nav-link' className='item' to={'/history'}>
-                  {this.props.currentUser.username} - {this.props.currentUser.balance} flatcoin
+                  Logged in as: {this.props.currentUser.username} <br/> <br />
+									Balance: {this.props.currentUser.balance} flatcoin
                 </Link>
 								<Menu.Item id='nav-link' onClick={this.props.logOut}>
 									Log out
@@ -26,6 +33,9 @@ class Nav extends React.Component {
 							</Menu.Menu>
 							:
 							<Menu.Menu position='right' >
+								<Link id='nav-link' className='item' to='/weatherpeople'>
+									Meet the Weatherpeople
+								</Link>
 								<Link id='nav-link' className='item' to='/login'>
 									Login
 								</Link>

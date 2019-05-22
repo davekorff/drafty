@@ -10,6 +10,7 @@ import Signup from './components/Signup'
 import Lobby from './containers/Lobby'
 import History from './containers/History'
 import ContestEntry from './containers/ContestEntry'
+import Weatherpeople from './containers/Weatherpeople'
 import { connect } from 'react-redux'
 
 class App extends Component {
@@ -76,6 +77,7 @@ class App extends Component {
 						<Route exact path='/signup' render={this.props.currentUser ? null : routeProps => <Signup {...routeProps} setCurrentUser={this.setCurrentUser} />}/>
 						<Route exact path='/history' render={this.props.currentUser ? routeProps => <History {...routeProps} currentUser={this.props.currentUser}/> : null}/>
 						<Route exact path='/entry/:contestID' render={routeProps => <ContestEntry {...routeProps}/>} />
+						<Route exact path='/weatherpeople' render={routeProps => <Weatherpeople {...routeProps} weatherpeople={this.props.weatherpeople}/>} />
 					</Switch>
 			</Grid>
 		)
@@ -84,7 +86,8 @@ class App extends Component {
 
 function mapStateToProps(state) {
 	return {
-		currentUser: state.user.currentUser
+		currentUser: state.user.currentUser,
+		weatherpeople: state.weatherpeople.weatherpeople
 	}
 }
 

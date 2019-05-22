@@ -25,7 +25,6 @@ class WeatherpeopleList extends React.Component {
   }
 
   handleCreateDraft = draft => {
-    console.log(draft);
     const weatherperson = this.props.weatherpeople.find(weatherperson => weatherperson.id === draft.weatherperson_id)
     this.props.updateTeam(weatherperson)
   }
