@@ -1,5 +1,5 @@
 class TeamSerializer < ActiveModel::Serializer
-  attributes :id, :name, :score
+  attributes :id, :name, :score, :weatherpeople, :contest
 
   belongs_to :user
   belongs_to :contest

@@ -8,8 +8,8 @@ class ContestEntry extends React.Component {
   state = {
     teams: [],
     myTeam: [],
-    undrafted: [],
-    weatherpeople: []
+    weatherpeople: [],
+    undraftedWeatherpeople: []
   }
 
   componentDidMount() {
@@ -22,7 +22,7 @@ class ContestEntry extends React.Component {
       .then(teams => this.setState({ teams }, () => {
 
         // REPEATED BELOW
-        // TODO: REFACTOR INTO A HELPER FUNCTION
+        // TODO: REFACTOR INTO A HELPER FUNCTION?
         const myTeam = this.state.teams.find(team => {
           return team.user.id === this.props.currentUser.id && team.contest.id === this.props.currentContest.id
         })
@@ -36,20 +36,18 @@ class ContestEntry extends React.Component {
       .then(weatherpeople => this.setState({ weatherpeople }, () => {
 
         // REPEATED ABOVE
-        // TODO: REFACTOR INTO A HELPER FUNCTION
+        // TODO: REFACTOR INTO A HELPER FUNCTION?
         const myTeam = this.state.teams.find(team => {
           return team.user.id === this.props.currentUser.id && team.contest.id === this.props.currentContest.id
         })
 
         if (myTeam) {
           const myTeamWeatherpeopleIDs = myTeam.weatherpeople.map(weatherperson => weatherperson.id)
-          const undrafted = this.state.weatherpeople.filter(weatherperson => !myTeamWeatherpeopleIDs.includes(weatherperson.id))
-          this.setState({undrafted})
+          const undraftedWeatherpeople = this.state.weatherpeople.filter(weatherperson => !myTeamWeatherpeopleIDs.includes(weatherperson.id))
+          this.setState({undraftedWeatherpeople})
         }
       }))
   }
-
-
 
   addToMyTeam = weatherperson => {
     this.setState({
@@ -59,8 +57,8 @@ class ContestEntry extends React.Component {
   }
 
   removeFromUndrafted = weatherpersonID => {
-    const updatedList = this.state.undrafted.filter(weatherperson => weatherperson.id !== weatherpersonID)
-    this.setState({ undrafted: updatedList })
+    const updatedList = this.state.undraftedWeatherpeople.filter(weatherperson => weatherperson.id !== weatherpersonID)
+    this.setState({ undraftedWeatherpeople: updatedList })
   }
 
 
@@ -76,7 +74,7 @@ class ContestEntry extends React.Component {
         <h2>{this.props.currentContest.name}</h2>
           <div className='contest-entry-row'>
             <div className='contest-entry-col'>
-              <WeatherpeopleList undrafted={this.state.undrafted} removeFromUndrafted={this.removeFromUndrafted} addToMyTeam={this.addToMyTeam} currentUser={this.props.currentUser}/>
+              <WeatherpeopleList undraftedWeatherpeople={this.state.undraftedWeatherpeople} removeFromUndrafted={this.removeFromUndrafted} addToMyTeam={this.addToMyTeam} currentUser={this.props.currentUser}/>
             </div>
             <div className='contest-entry-col'>
               <MyTeamList myTeam={this.state.myTeam} />

@@ -4,13 +4,14 @@ import { connect } from 'react-redux'
 
 class WeatherpeopleList extends React.Component {
 
-  // when user clicks 'draft' button, create a new draft unless the current team already has three weatherpeople drafted
+  // when user clicks 'draft' button, create a new draft unless the current team
+  // already has three weatherpeople drafted
   handleClickDraft = wp_id => {
     const team = this.props.teams.find(team => {
       return team.user.id === this.props.currentUser.id && team.contest.id === this.props.currentContest.id
     })
 
-    if (this.props.undrafted.length > 2) {
+    if (this.props.undraftedWeatherpeople.length > 2) {
       fetch('http://localhost:3000/api/v1/drafts', {
         method: 'POST',
         headers: {
@@ -24,6 +25,8 @@ class WeatherpeopleList extends React.Component {
     }
   }
 
+  // after draft creation, add the drafted weatherperson to my team list and remove
+  // them from weatherpeople list
   handleCreateDraft = draft => {
     const weatherperson = this.props.weatherpeople.find(weatherperson => weatherperson.id === draft.weatherperson_id)
     this.props.addToMyTeam(weatherperson)
@@ -35,7 +38,7 @@ class WeatherpeopleList extends React.Component {
     return (
       <div className='weatherpeople-list-container'>
         <h1>Weatherpeople</h1>
-        {this.props.undrafted ? this.props.undrafted.map(weatherperson => <WeatherpeopleListItem handleClickDraft={this.handleClickDraft} key={weatherperson.id} weatherperson={weatherperson} currentUser={this.props.currentUser} />) : <div>LOADING...</div>}
+        {this.props.undraftedWeatherpeople ? this.props.undraftedWeatherpeople.map(weatherperson => <WeatherpeopleListItem handleClickDraft={this.handleClickDraft} key={weatherperson.id} weatherperson={weatherperson} currentUser={this.props.currentUser} />) : <div>LOADING...</div>}
       </div>
     )
   }

@@ -1,27 +1,34 @@
 import React from 'react'
 import MyTeamsListItem from '../components/MyTeamsListItem'
 import { connect } from 'react-redux'
-import uuid from 'uuid'
+// import uuid from 'uuid'
 
 class MyTeamsList extends React.Component {
 
-  render() {
-    const currentUsersDrafts = this.props.drafts.filter(draft => draft.user_id === this.props.currentUser.id)
+  state = {
+    myCurrentTeams: []
+  }
 
-    const currentUsersTeams = this.props.contests.map(contest => {
-      let team = []
-      currentUsersDrafts.forEach(draft => {
-        if (draft.contest_id === contest.id && contest.end_date > this.props.currentDate) {
-          team.push(draft)
-        }
-      })
-      return team
+  componentDidMount() {
+    fetch('http://localhost:3000/api/v1/users/' + this.props.currentUser.id)
+      .then(res => res.json())
+      .then(user => this.setState({myCurrentTeams: user.current_teams}))
+  }
+
+  renderMyTeams = () => {
+    return this.state.myCurrentTeams.map(team => {
+      if (team.weatherpeople.length === 3) {
+        return <MyTeamsListItem key={team.id} team={team}/>
+      }
+      return null
     })
+  }
 
+  render() {
     return (
       <div className='my-teams-list-container'>
         <h1>My Teams</h1>
-        {currentUsersTeams.map(team => team.length === 3 ? <MyTeamsListItem key={uuid()} team={team}/> : null)}
+        {this.renderMyTeams()}
       </div>
     )
   }
@@ -29,10 +36,11 @@ class MyTeamsList extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    drafts: state.drafts.drafts,
     currentUser: state.user.currentUser,
-    contests: state.contests.contests,
-    date: state.date.currentDate
+    teams: state.teams.teams,
+    currentDate: state.date.currentDate,
+    drafts: state.drafts.drafts,
+    contests: state.contests.contests
   }
 }
 
