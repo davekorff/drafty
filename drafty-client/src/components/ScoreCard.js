@@ -1,6 +1,3 @@
-//// TODO: CALCULATE SCORE FOR EACH SCORECARD
-
-
 import React from 'react'
 
 class Scorecard extends React.Component {
