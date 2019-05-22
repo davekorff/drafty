@@ -17,6 +17,11 @@ class Scorecard extends React.Component {
   }
 
   render() {
+    const weekScore = this.state.forecasts ? this.state.forecasts.reduce((a, b) => {
+      return {
+        score: a.score + b.score
+      }
+    }) : null
 
     return (
       this.state.forecasts
@@ -73,7 +78,7 @@ class Scorecard extends React.Component {
           </div>
         </div>
         <div id='scorecard-score' className='scorecard-row'>
-          Score: score
+          Score: {weekScore.score}
         </div>
       </div>
 

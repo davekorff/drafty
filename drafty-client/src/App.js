@@ -29,17 +29,28 @@ class App extends Component {
 
 		}
 
+		// not sure if I need this fetch here, but pretty sure I do.
+		// figure it out!
 		fetch('http://localhost:3000/api/v1/weatherpeople')
 		.then(res => res.json())
 		.then(weatherpeople => this.props.setWeatherpeople(weatherpeople))
 
+		// not sure if I need this fetch here, but pretty sure I do.
+		// figure it out!
 		fetch('http://localhost:3000/api/v1/teams')
 			.then(res => res.json())
 			.then(teams => this.props.setTeams(teams))
 
+		// not sure if I need this fetch here, but pretty sure I do.
+		// figure it out!
 		fetch('http://localhost:3000/api/v1/drafts')
 			.then(res => res.json())
 			.then(drafts => this.props.setDrafts(drafts))
+
+
+		fetch('http://localhost:3000/api/v1/contests')
+			.then(res => res.json())
+			.then(contests => this.props.setContests(contests))
 
 		this.setCurrentDate()
 	}
@@ -97,7 +108,8 @@ function mapDispatchToProps(dispatch) {
 		setCurrentDate: date => dispatch({type: 'SET_CURRENT_DATE', payload: date}),
 		setTeams: teams => dispatch({type: 'SET_TEAMS', payload: teams}),
 		setWeatherpeople: weatherpeople => dispatch({type: 'SET_WEATHERPEOPLE', payload: weatherpeople}),
-		setDrafts: drafts => dispatch({type: 'SET_DRAFTS', payload: drafts})
+		setDrafts: drafts => dispatch({type: 'SET_DRAFTS', payload: drafts}),
+		setContests: contests => dispatch({type: 'SET_CONTESTS', payload: contests})
 	}
 }
 

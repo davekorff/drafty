@@ -25,7 +25,7 @@ class Nav extends React.Component {
 								</Link>
                 <Link id='nav-link' className='item' to={'/history'}>
                   Logged in as: {this.props.currentUser.username} <br/> <br />
-									Balance: {this.props.currentUser.balance} flatcoin
+									Balance: {this.props.currentUser.balance} Flatcoin
                 </Link>
 								<Menu.Item id='nav-link' onClick={this.props.logOut}>
 									Log out
