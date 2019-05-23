@@ -6,15 +6,15 @@ class MyTeamsListItem extends React.Component {
     return (
       <div className='my-teams-li'>
         <div className='my-teams-li-col'>
-          <img height='50px' alt='wp-thumb' src='https://static.thenounproject.com/png/630729-200.png' /> <br/>
+          <img height='50px' alt='wp-thumb' src={this.props.team.weatherpeople[0].img_url_sm ? this.props.team.weatherpeople[0].img_url_sm : 'https://static.thenounproject.com/png/630729-200.png' } /> <br/>
           {this.props.team.weatherpeople[0].name}
         </div>
         <div className='my-teams-li-col'>
-          <img height='50px' alt='wp-thumb' src='https://static.thenounproject.com/png/630729-200.png' /> <br/>
+          <img height='50px' alt='wp-thumb' src={this.props.team.weatherpeople[1].img_url_sm ? this.props.team.weatherpeople[1].img_url_sm : 'https://static.thenounproject.com/png/630729-200.png' } /> <br/>
           {this.props.team.weatherpeople[1].name}
         </div >
         <div className='my-teams-li-col'>
-          <img height='50px' alt='wp-thumb' src='https://static.thenounproject.com/png/630729-200.png' /> <br/>
+          <img height='50px' alt='wp-thumb' src={this.props.team.weatherpeople[2].img_url_sm ? this.props.team.weatherpeople[2].img_url_sm : 'https://static.thenounproject.com/png/630729-200.png' } /> <br/>
           {this.props.team.weatherpeople[2].name}
         </div>
         <div className='my-teams-li-col'>

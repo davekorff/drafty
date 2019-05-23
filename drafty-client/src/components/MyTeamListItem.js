@@ -1,3 +1,6 @@
+// TODO: FIX THIS
+
+
 import React from 'react'
 import { connect } from 'react-redux'
 
@@ -5,86 +8,95 @@ class MyTeamListItem extends React.Component {
 
 
   render() {
-    // const this.props.weatherperson = this.props.weatherpeople.filter(wp => wp.id === this.props.draft.this.props.weatherperson_id)[0]
 
-    // const thisWeeksPredictedForecasts = this.props.weatherperson ? this.props.weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date) : null
-    //
-    // const monForecast = this.props.weatherperson ? thisWeeksPredictedForecasts[0].predicted_weather : null
-    // const tueForecast = this.props.weatherperson ? thisWeeksPredictedForecasts[1].predicted_weather : null
-    // const wedForecast = this.props.weatherperson ? thisWeeksPredictedForecasts[2].predicted_weather : null
-    // const thuForecast = this.props.weatherperson ? thisWeeksPredictedForecasts[3].predicted_weather : null
-    // const friForecast = this.props.weatherperson ? thisWeeksPredictedForecasts[4].predicted_weather : null
-    //
-    // const monTemp = this.props.weatherperson ? thisWeeksPredictedForecasts[0].predicted_temp : null
-    // const tueTemp = this.props.weatherperson ? thisWeeksPredictedForecasts[1].predicted_temp : null
-    // const wedTemp = this.props.weatherperson ? thisWeeksPredictedForecasts[2].predicted_temp : null
-    // const thuTemp = this.props.weatherperson ? thisWeeksPredictedForecasts[3].predicted_temp : null
-    // const friTemp = this.props.weatherperson ? thisWeeksPredictedForecasts[4].predicted_temp : null
-    //
-    // const monDate = this.props.weatherperson ? thisWeeksPredictedForecasts[0].date.slice(5) : null
-    // const tueDate = this.props.weatherperson ? thisWeeksPredictedForecasts[1].date.slice(5) : null
-    // const wedDate = this.props.weatherperson ? thisWeeksPredictedForecasts[2].date.slice(5) : null
-    // const thuDate = this.props.weatherperson ? thisWeeksPredictedForecasts[3].date.slice(5) : null
-    // const friDate = this.props.weatherperson ? thisWeeksPredictedForecasts[4].date.slice(5) : null
+    // TODO : REFACTOR - DRY
+    const weatherperson = this.props.weatherpeople.find(weatherperson => weatherperson.id === this.props.weatherperson.id)
+
+    const thisWeeksPredictedForecasts = weatherperson ? weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date) : null
+
+    const monForecast = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[0].predicted_weather : null
+    const tueForecast = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[1].predicted_weather : null
+    const wedForecast = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[2].predicted_weather : null
+    const thuForecast = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[3].predicted_weather : null
+    const friForecast = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[4].predicted_weather : null
+
+    const monTemp = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[0].predicted_temp : null
+    const tueTemp = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[1].predicted_temp : null
+    const wedTemp = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[2].predicted_temp : null
+    const thuTemp = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[3].predicted_temp : null
+    const friTemp = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[4].predicted_temp : null
+
+    const monDate = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[0].date.slice(5) : null
+    const tueDate = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[1].date.slice(5) : null
+    const wedDate = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[2].date.slice(5) : null
+    const thuDate = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[3].date.slice(5) : null
+    const friDate = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[4].date.slice(5) : null
 
 
     return (
-      this.props.weatherperson
+      weatherperson
 
       ?
 
       <div className='my-teams-li'>
         <div className='my-teams-li-col'>
-          <img height='50px' alt='wp-thumb' src='https://static.thenounproject.com/png/630729-200.png' /> <br/>
-          {this.props.weatherperson.name} <br/>
-        {this.props.weatherperson.station} <br/>
-      {this.props.weatherperson.city}
+          {
+            weatherperson.name === 'Brick Tamland'
+            ?
+            <img height='75px' alt='wp-thumb' src={weatherperson.img_url_sm} />
+            :
+            <img height='75px' alt='wp-thumb' src='https://static.thenounproject.com/png/630729-200.png' />
+          } <br/>
+          {weatherperson.name} <br/>
+          {weatherperson.station} <br/>
+          {weatherperson.city}
         </div>
         <div className='my-teams-li-col'>
           <div className='forecast-box'>
-            monForecast
+            {monForecast}
           </div>
-          monTemp℉ <br/>
+          {monTemp}℉ <br/>
           mon <br/>
-          monDate
+          {monDate}
         </div >
         <div className='my-teams-li-col'>
           <div className='forecast-box'>
-            tueForecast
+            {tueForecast}
           </div>
-          tueTemp℉ <br/>
+          {tueTemp}℉ <br/>
           tue <br/>
-          tueDate
+          {tueDate}
         </div>
         <div className='my-teams-li-col'>
           <div className='forecast-box'>
-            wedForecast
+            {wedForecast}
           </div>
-          wedTemp℉ <br/>
+          {wedTemp}℉ <br/>
           wed <br/>
-          wedDate
+          {wedDate}
         </div>
         <div className='my-teams-li-col'>
           <div className='forecast-box'>
-            thuForecast
+            {thuForecast}
           </div>
-          thuTemp℉ <br/>
+          {thuTemp}℉ <br/>
           thu <br/>
-          thuDate
+          {thuDate}
         </div>
         <div className='my-teams-li-col'>
           <div className='forecast-box'>
-            friForecast
+            {friForecast}
           </div>
-          friTemp℉ <br/>
+          {friTemp}℉ <br/>
           fri <br/>
-          friDate
+          {friDate}
         </div>
       </div>
 
       :
-
-      <div>LOADING...</div>
+      <div className='my-teams-li'>
+        <div>LOADING...</div>
+      </div>
     )
   }
 }

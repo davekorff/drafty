@@ -35,7 +35,7 @@ Contest.create(name: 'Spring No. 14', start_date: '2019-06-17', end_date: '2019-
 #CONTEST 1 TEAMS
 i = 0
 uids = (1..22).to_a.shuffle
-while i < 5 do
+while i < 22 do
   uid = uids.pop
   Team.create(name: Faker::Kpop.i_groups, user_id: uid, contest_id: 1, score: 0)
   i += 1
@@ -45,7 +45,7 @@ end
 #CONTEST 2 TEAMS
 i = 0
 uids = (1..22).to_a.shuffle
-while i < 5 do
+while i < 22 do
   uid = uids.pop
   Team.create(name: Faker::Kpop.i_groups, user_id: uid, contest_id: 2, score: 0)
   i += 1
@@ -54,7 +54,7 @@ end
 #CONTEST 3 TEAMS
 i = 0
 uids = (1..22).to_a.shuffle
-while i < 5 do
+while i < 22 do
   uid = uids.pop
   Team.create(name: Faker::Kpop.i_groups, user_id: uid, contest_id: 3, score: 0)
   i += 1
@@ -62,81 +62,65 @@ end
 
 
 #WEATHERPEOPLE
-Weatherperson.create(name: 'Brick', station: 'KVWN ch. 4', city: 'NYC')
-Weatherperson.create(name: Faker::FunnyName.name, station: 'ABC', city: 'NYC')
-Weatherperson.create(name: Faker::FunnyName.name, station: 'NBC', city: 'NYC')
-Weatherperson.create(name: Faker::FunnyName.name, station: 'CBS', city: 'NYC')
-Weatherperson.create(name: Faker::FunnyName.name, station: 'FOX', city: 'NYC')
+Weatherperson.create(name: 'Brick Tamland', station: 'KVWN ch. 4', city: 'NYC', img_url_sm: '/brick-tamland-sm.png', img_url_lg: '/brick-tamland-lg.png')
+Weatherperson.create(name: 'Dusty Storm', station: 'ABC', city: 'NYC', img_url_sm: nil, img_url_lg: nil)
+Weatherperson.create(name: 'April Schauer', station: 'CBS', city: 'NYC', img_url_sm: nil, img_url_lg: nil)
+Weatherperson.create(name: 'Amy Freeze', station: 'FOX', city: 'NYC', img_url_sm: nil, img_url_lg: nil)
+Weatherperson.create(name: 'Hy Lowe', station: 'NBC', city: 'NYC', img_url_sm: nil, img_url_lg: nil)
 
 
 #CONTEST 1 DRAFTS
-Draft.create(team_id: 1, weatherperson_id: 1)
-Draft.create(team_id: 1, weatherperson_id: 2)
-Draft.create(team_id: 1, weatherperson_id: 3)
 
-Draft.create(team_id: 2, weatherperson_id: 2)
-Draft.create(team_id: 2, weatherperson_id: 3)
-Draft.create(team_id: 2, weatherperson_id: 4)
-
-Draft.create(team_id: 3, weatherperson_id: 3)
-Draft.create(team_id: 3, weatherperson_id: 4)
-Draft.create(team_id: 3, weatherperson_id: 5)
-
-Draft.create(team_id: 4, weatherperson_id: 1)
-Draft.create(team_id: 4, weatherperson_id: 2)
-Draft.create(team_id: 4, weatherperson_id: 4)
-
-Draft.create(team_id: 5, weatherperson_id: 2)
-Draft.create(team_id: 5, weatherperson_id: 3)
-Draft.create(team_id: 5, weatherperson_id: 5)
+i = 0
+team_ids = (1..22).to_a.shuffle
+while i < 22 do
+  j = 0
+  team_id = team_ids.pop
+  wp_ids = (1..5).to_a.shuffle
+  while j < 3 do
+    three_wp_ids = wp_ids[0..2]
+    Draft.create(team_id: i + 1, weatherperson_id: three_wp_ids[j])
+    j += 1
+  end
+  i += 1
+end
 
 
 #CONTEST 2 DRAFTS
-Draft.create(team_id: 6, weatherperson_id: 2)
-Draft.create(team_id: 6, weatherperson_id: 5)
-Draft.create(team_id: 6, weatherperson_id: 3)
-
-Draft.create(team_id: 7, weatherperson_id: 2)
-Draft.create(team_id: 7, weatherperson_id: 3)
-Draft.create(team_id: 7, weatherperson_id: 4)
-
-Draft.create(team_id: 8, weatherperson_id: 3)
-Draft.create(team_id: 8, weatherperson_id: 4)
-Draft.create(team_id: 8, weatherperson_id: 5)
-
-Draft.create(team_id: 9, weatherperson_id: 1)
-Draft.create(team_id: 9, weatherperson_id: 3)
-Draft.create(team_id: 9, weatherperson_id: 5)
-
-Draft.create(team_id: 10, weatherperson_id: 2)
-Draft.create(team_id: 10, weatherperson_id: 4)
-Draft.create(team_id: 10, weatherperson_id: 5)
+i = 0
+team_ids = (23..44).to_a.shuffle
+while i < 22 do
+  j = 0
+  team_id = team_ids.pop
+  wp_ids = (1..5).to_a.shuffle
+  while j < 3 do
+    three_wp_ids = wp_ids[0..2]
+    Draft.create(team_id: i + 23, weatherperson_id: three_wp_ids[j])
+    j += 1
+  end
+  i += 1
+end
 
 
 #CONTEST 3 DRAFTS
-Draft.create(team_id: 11, weatherperson_id: 4)
-Draft.create(team_id: 11, weatherperson_id: 1)
-Draft.create(team_id: 11, weatherperson_id: 3)
-
-Draft.create(team_id: 12, weatherperson_id: 1)
-Draft.create(team_id: 12, weatherperson_id: 3)
-Draft.create(team_id: 12, weatherperson_id: 4)
-
-Draft.create(team_id: 13, weatherperson_id: 3)
-Draft.create(team_id: 13, weatherperson_id: 1)
-Draft.create(team_id: 13, weatherperson_id: 5)
-
-Draft.create(team_id: 14, weatherperson_id: 1)
-Draft.create(team_id: 14, weatherperson_id: 2)
-Draft.create(team_id: 14, weatherperson_id: 4)
-
-Draft.create(team_id: 15, weatherperson_id: 2)
-Draft.create(team_id: 15, weatherperson_id: 1)
-Draft.create(team_id: 15, weatherperson_id: 5)
+i = 0
+team_ids = (45..66).to_a.shuffle
+while i < 22 do
+  j = 0
+  team_id = team_ids.pop
+  wp_ids = (1..5).to_a.shuffle
+  while j < 3 do
+    three_wp_ids = wp_ids[0..2]
+    Draft.create(team_id: i + 45, weatherperson_id: three_wp_ids[j])
+    j += 1
+  end
+  i += 1
+end
 
 
+## TODO: ADD  'T-storm'
 
-weather = ['Sunny', 'Cloudy', 'Rain', 'T-storm']
+weather = ['Sunny', 'Cloudy', 'Rain']
 temps = (65..80).to_a
 
 #CONTEST 1
@@ -333,30 +317,39 @@ Forecast.create(weatherperson_id: 5, date: '2019-06-21', predicted_temp: temps.s
 
 
 # UPDATE CONTEST 1 WITH ACTUAL TEMPS
-combined_temps = 0
+# combined_temps = 0
+#
+# Forecast.all.each do |f|
+#   if f.date.to_s >= '2019-05-06' && f.date.to_s <= '2019-05-10'
+#     combined_temps += f.predicted_temp
+#   end
+#   combined_temps.to_f
+# end
+#
+# avg_temp = (combined_temps / 25).round
+#
+# temp_diffs = (-5..5).to_a.shuffle
 
 Forecast.all.each do |f|
-  if f.date.to_s >= '2019-05-06' && f.date.to_s <= '2019-05-10'
-    combined_temps += f.predicted_temp
-  end
-  combined_temps.to_f
-end
-
-avg_temp = (combined_temps / 25).round
-
-
-temp_diffs = (-5..5).to_a.shuffle
-
-Forecast.all.each do |f|
-  if f.date.to_s >= '2019-05-06' && f.date.to_s <= '2019-05-10'
-    temp_diff = temp_diffs.sample
-    f.update(actual_temp: avg_temp + temp_diff)
+  if f.date.to_s == '2019-05-06'
+    f.update(actual_temp: 66)
+  elsif f.date.to_s == '2019-05-07'
+    f.update(actual_temp: 76)
+  elsif f.date.to_s == '2019-05-08'
+    f.update(actual_temp: 69)
+  elsif f.date.to_s == '2019-05-09'
+    f.update(actual_temp: 73)
+  elsif f.date.to_s == '2019-05-10'
+    f.update(actual_temp: 70)
   end
 end
 
 
 
 # UPDATE CONTEST 1 WITH ACTUAL WEATHER
+
+### TODO: MAKE WEATHER PREDICTIONS "MORE ACCURATE" BY PULLING FROM MOST FREQUENTLY
+### FORECASTED WEATHER FOR ACTUAL WEATHER SEEDING
 
 actual_weather = weather.sample
 
@@ -403,24 +396,43 @@ end
 
 
 # UPDATE CONTEST 2 WITH ACTUAL TEMPS
-combined_temps = 0
+# combined_temps = 0
+
+# Forecast.all.each do |f|
+#   if f.date.to_s >= '2019-05-13' && f.date.to_s <= '2019-05-17'
+#     combined_temps += f.predicted_temp
+#   end
+#   combined_temps.to_f
+# end
+#
+# avg_temp = (combined_temps / 25).round
+#
+#
+# temp_diffs = (-5..5).to_a.shuffle
+#
+# Forecast.all.each do |f|
+#   if f.date.to_s >= '2019-05-13' && f.date.to_s <= '2019-05-17'
+#     temp_diff = temp_diffs.sample
+#     f.update(actual_temp: avg_temp + temp_diff)
+#   end
+# end
 
 Forecast.all.each do |f|
-  if f.date.to_s >= '2019-05-13' && f.date.to_s <= '2019-05-17'
-    combined_temps += f.predicted_temp
-  end
-  combined_temps.to_f
-end
-
-avg_temp = (combined_temps / 25).round
-
-
-temp_diffs = (-5..5).to_a.shuffle
-
-Forecast.all.each do |f|
-  if f.date.to_s >= '2019-05-13' && f.date.to_s <= '2019-05-17'
-    temp_diff = temp_diffs.sample
-    f.update(actual_temp: avg_temp + temp_diff)
+  if f.date.to_s == '2019-05-13'
+    temp = temps.sample
+    f.update(actual_temp: 71)
+  elsif f.date.to_s == '2019-05-14'
+    temp = temps.sample
+    f.update(actual_temp: 68)
+  elsif f.date.to_s == '2019-05-15'
+    temp = temps.sample
+    f.update(actual_temp: 76)
+  elsif f.date.to_s == '2019-05-16'
+    temp = temps.sample
+    f.update(actual_temp: 78)
+  elsif f.date.to_s == '2019-05-17'
+    temp = temps.sample
+    f.update(actual_temp: 73)
   end
 end
 

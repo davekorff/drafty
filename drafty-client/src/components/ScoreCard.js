@@ -28,14 +28,17 @@ class Scorecard extends React.Component {
 
       ?
 
-      <div className='scorecard-container'>
-        <div className='scorecard-row'>
+      <div id='box-shadow' className='scorecard-container'>
           <div className='scorecard-col'>
-            <img height='50px' alt='wp-thumb' src='https://static.thenounproject.com/png/630729-200.png' /> <br/>
+            <img height='85px' alt='wp-thumb' src={this.props.weatherperson.img_url_sm ? this.props.weatherperson.img_url_sm : 'https://static.thenounproject.com/png/630729-200.png' } />
+            <br/>
             {this.props.weatherperson.name} <br/>
             {this.props.weatherperson.station} <br/>
             {this.props.weatherperson.city}
           </div>
+          <br/>
+          5-Day Forecast
+          <div className='scorecard-row'>
           <div className='scorecard-col'>
             <div className='forecast-box'>
               {this.state.forecasts[0].predicted_weather}
@@ -77,7 +80,42 @@ class Scorecard extends React.Component {
           {this.state.forecasts[4].date.slice(5)}
           </div>
         </div>
-        <div id='scorecard-score' className='scorecard-row'>
+        <br/>
+        Actual Weather
+        <div id='actual-weather' className='scorecard-row'>
+          <div className='scorecard-col'>
+            <div className='forecast-box'>
+              {this.state.forecasts[0].actual_weather}
+            </div>
+            {this.state.forecasts[0].actual_temp}℉ <br/>
+          </div>
+          <div className='scorecard-col'>
+            <div className='forecast-box'>
+              {this.state.forecasts[1].actual_weather}
+            </div>
+            {this.state.forecasts[1].actual_temp}℉ <br/>
+          </div>
+          <div className='scorecard-col'>
+            <div className='forecast-box'>
+              {this.state.forecasts[2].actual_weather}
+            </div>
+            {this.state.forecasts[2].actual_temp}℉ <br/>
+          </div>
+          <div className='scorecard-col'>
+            <div className='forecast-box'>
+              {this.state.forecasts[3].actual_weather}
+            </div>
+            {this.state.forecasts[3].actual_temp}℉ <br/>
+          </div>
+          <div className='scorecard-col'>
+            <div className='forecast-box'>
+              {this.state.forecasts[4].actual_weather}
+            </div>
+            {this.state.forecasts[4].actual_temp}℉ <br/>
+          </div>
+        </div>
+        <br/>
+        <div className='scorecard-col'>
           Score: {weekScore.score}
         </div>
       </div>

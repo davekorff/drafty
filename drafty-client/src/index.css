@@ -12,6 +12,21 @@ code {
     monospace;
 }
 
+
+/********** GLOBAL **********/
+
+/* #box-shadow {
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 1px 1px;
+} */
+
+.emoji {
+  font-size: 30px;
+  vertical-align: middle;
+  line-height: 2;
+}
+
 /********** CONTEST ENTRY **********/
 .contest-entry-container {
   margin: auto;
@@ -83,7 +98,6 @@ code {
 
 .history-card-row {
   display: flex;
-  margin-top: 10px;
 }
 
 .history-card-col {
@@ -96,7 +110,7 @@ code {
   margin-left: 4%;
   margin-right: 4%;
   padding: 5%;
-  height: 90%;
+  height: 98%;
 }
 
 .scorecard-row {
@@ -108,9 +122,16 @@ code {
 }
 
 #scorecard-score {
- margin-left: 45%;
+  text-align: center;
 }
 
+/* #actual-weather {
+  margin-left: 21%;
+} */
+
+#weatherperson-info {
+
+}
 
 
 /********** LOBBY **********/

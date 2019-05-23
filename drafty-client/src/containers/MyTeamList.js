@@ -7,7 +7,7 @@ class MyTeamList extends React.Component {
   renderMyTeam = () => {
     if (this.props.myTeam) {
       return this.props.myTeam.map(weatherperson => {
-        return <MyTeamListItem key={weatherperson.id} weatherperson={weatherperson}/>
+        return <MyTeamListItem currentContest={this.props.currentContest} key={weatherperson.id} weatherperson={weatherperson}/>
       })
     }
   }
@@ -26,7 +26,6 @@ class MyTeamList extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    currentContest: state.contests.currentContest,
     drafts: state.drafts.drafts,
     weatherpeople: state.weatherpeople.weatherpeople,
     currentUser: state.user.currentUser,

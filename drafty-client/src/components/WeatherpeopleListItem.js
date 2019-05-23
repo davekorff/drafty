@@ -4,83 +4,81 @@ import { connect } from 'react-redux'
 
 class WeatherpeopleListItem extends React.Component {
 
-  //TODO: PUT THE BELOW LOGIC INTO A FUNCTION
-
-  // userID = this.props.currentUser.id
-  // weatherpersonID = this.props.weatherperson.id
-  // contestID = this.props.currentContest.id
-
-  thisWeeksPredictedForecasts = this.props.weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date)
-
-  monForecast = this.thisWeeksPredictedForecasts[0].predicted_weather
-  tueForecast = this.thisWeeksPredictedForecasts[1].predicted_weather
-  wedForecast = this.thisWeeksPredictedForecasts[2].predicted_weather
-  thuForecast = this.thisWeeksPredictedForecasts[3].predicted_weather
-  friForecast = this.thisWeeksPredictedForecasts[4].predicted_weather
-
-  monTemp = this.thisWeeksPredictedForecasts[0].predicted_temp
-  tueTemp = this.thisWeeksPredictedForecasts[1].predicted_temp
-  wedTemp = this.thisWeeksPredictedForecasts[2].predicted_temp
-  thuTemp = this.thisWeeksPredictedForecasts[3].predicted_temp
-  friTemp = this.thisWeeksPredictedForecasts[4].predicted_temp
-
-  monDate = this.thisWeeksPredictedForecasts[0].date.slice(5)
-  tueDate = this.thisWeeksPredictedForecasts[1].date.slice(5)
-  wedDate = this.thisWeeksPredictedForecasts[2].date.slice(5)
-  thuDate = this.thisWeeksPredictedForecasts[3].date.slice(5)
-  friDate = this.thisWeeksPredictedForecasts[4].date.slice(5)
-
 
 
   render() {
+    // console.log(this.props)
+    //TODO: REFACTOR
+    // PUT THE BELOW LOGIC INTO A FUNCTION
+
+    const thisWeeksPredictedForecasts = this.props.weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date)
+
+    const monForecast = thisWeeksPredictedForecasts[0].predicted_weather
+    const tueForecast = thisWeeksPredictedForecasts[1].predicted_weather
+    const wedForecast = thisWeeksPredictedForecasts[2].predicted_weather
+    const thuForecast = thisWeeksPredictedForecasts[3].predicted_weather
+    const friForecast = thisWeeksPredictedForecasts[4].predicted_weather
+
+    const monTemp = thisWeeksPredictedForecasts[0].predicted_temp
+    const tueTemp = thisWeeksPredictedForecasts[1].predicted_temp
+    const wedTemp = thisWeeksPredictedForecasts[2].predicted_temp
+    const thuTemp = thisWeeksPredictedForecasts[3].predicted_temp
+    const friTemp = thisWeeksPredictedForecasts[4].predicted_temp
+
+    const monDate = thisWeeksPredictedForecasts[0].date.slice(5)
+    const tueDate = thisWeeksPredictedForecasts[1].date.slice(5)
+    const wedDate = thisWeeksPredictedForecasts[2].date.slice(5)
+    const thuDate = thisWeeksPredictedForecasts[3].date.slice(5)
+    const friDate = thisWeeksPredictedForecasts[4].date.slice(5)
 
     return (
       <div className='my-teams-li'>
         <div className='my-teams-li-col'>
-          <img height='50px' alt='wp-thumb' src='https://static.thenounproject.com/png/630729-200.png' /> <br/>
+          <img height='75px' alt='wp-thumb' src={this.props.weatherperson.img_url_sm ? this.props.weatherperson.img_url_sm : 'https://static.thenounproject.com/png/630729-200.png' } />
+          <br/>
           {this.props.weatherperson.name} <br/>
           {this.props.weatherperson.station} <br/>
           {this.props.weatherperson.city}
         </div>
         <div className='my-teams-li-col'>
           <div className='forecast-box'>
-            {this.monForecast}
+            {monForecast}
           </div>
-          {this.monTemp}℉ <br/>
+          {monTemp}℉ <br/>
           mon <br/>
-          {this.monDate}
+        {monDate}
         </div >
         <div className='my-teams-li-col'>
           <div className='forecast-box'>
-            {this.tueForecast}
+            {tueForecast}
           </div>
-          {this.tueTemp}℉ <br/>
+          {tueTemp}℉ <br/>
           tue <br/>
-          {this.tueDate}
+        {tueDate}
         </div>
         <div className='my-teams-li-col'>
           <div className='forecast-box'>
-            {this.wedForecast}
+            {wedForecast}
           </div>
-          {this.wedTemp}℉ <br/>
+          {wedTemp}℉ <br/>
           wed <br/>
-          {this.wedDate}
+        {wedDate}
         </div>
         <div className='my-teams-li-col'>
           <div className='forecast-box'>
-            {this.thuForecast}
+            {thuForecast}
           </div>
-          {this.thuTemp}℉ <br/>
+          {thuTemp}℉ <br/>
           thu <br/>
-          {this.thuDate}
+        {thuDate}
         </div>
         <div className='my-teams-li-col'>
           <div className='forecast-box'>
-            {this.friForecast}
+            {friForecast}
           </div>
-          {this.friTemp}℉ <br/>
+          {friTemp}℉ <br/>
           fri <br/>
-          {this.friDate}
+        {friDate}
         </div>
         <button className='my-teams-li-col' onClick={() => this.props.handleClickDraft(this.props.weatherperson.id)}>
           Draft
@@ -92,10 +90,7 @@ class WeatherpeopleListItem extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    currentContest: state.contests.currentContest,
-    drafts: state.drafts.drafts,
-    teams: state.teams.teams,
-    currentTeam: state.teams.currentTeam
+    currentContest: state.contests.currentContest
   }
 }
 

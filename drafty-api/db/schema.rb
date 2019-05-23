@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_21_013952) do
+ActiveRecord::Schema.define(version: 2019_05_23_044239) do
 
   create_table "contests", force: :cascade do |t|
     t.string "name"
@@ -67,10 +67,10 @@ ActiveRecord::Schema.define(version: 2019_05_21_013952) do
     t.string "station"
     t.string "city"
     t.text "bio"
-    t.string "img_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "img_url_lg"
+    t.string "img_url_sm"
   end
 
 end

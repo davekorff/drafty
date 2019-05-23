@@ -28,26 +28,23 @@ class App extends Component {
 			.then(user => user.errors ? alert(user.errors) : this.props.setCurrentUser(user))
 
 		}
+		
+		fetch('http://localhost:3000/api/v1/teams')
+		.then(res => res.json())
+		.then(teams => this.props.setTeams(teams))
 
-		// not sure if I need this fetch here, but pretty sure I do.
-		// figure it out!
+		//needed?
 		fetch('http://localhost:3000/api/v1/weatherpeople')
 		.then(res => res.json())
 		.then(weatherpeople => this.props.setWeatherpeople(weatherpeople))
 
-		// not sure if I need this fetch here, but pretty sure I do.
-		// figure it out!
-		fetch('http://localhost:3000/api/v1/teams')
-			.then(res => res.json())
-			.then(teams => this.props.setTeams(teams))
 
-		// not sure if I need this fetch here, but pretty sure I do.
-		// figure it out!
+		//needed?
 		fetch('http://localhost:3000/api/v1/drafts')
 			.then(res => res.json())
 			.then(drafts => this.props.setDrafts(drafts))
 
-
+		//needed?
 		fetch('http://localhost:3000/api/v1/contests')
 			.then(res => res.json())
 			.then(contests => this.props.setContests(contests))
