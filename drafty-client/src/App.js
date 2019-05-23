@@ -28,7 +28,7 @@ class App extends Component {
 			.then(user => user.errors ? alert(user.errors) : this.props.setCurrentUser(user))
 
 		}
-		
+
 		fetch('http://localhost:3000/api/v1/teams')
 		.then(res => res.json())
 		.then(teams => this.props.setTeams(teams))
