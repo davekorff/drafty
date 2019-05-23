@@ -61,9 +61,32 @@ code {
   /* margin-left: 10%; */
 }
 
+
+.weatherpeople-li {
+  display: flex;
+  border-style: solid;
+  margin-top: 4%;
+  margin-left: 4%;
+  margin-right: 4%;
+  padding: 3%;
+}
+
+.weatherpeople-li-col {
+  flex: 25%
+}
+
 .forecast-box {
   border-style: solid;
-  border-with: thin;
+}
+
+#weatherperson-info {
+  margin-right: 10px;
+}
+
+#draft-button {
+  margin-left: 15px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 /********** NAV **********/
@@ -126,15 +149,6 @@ code {
   text-align: center;
 }
 
-/* #actual-weather {
-  margin-left: 21%;
-} */
-
-#weatherperson-info {
-
-}
-
-
 /********** LOBBY **********/
 
 .lobby-row {
@@ -187,4 +201,9 @@ code {
 
 .my-teams-li-col {
   flex: 25%
+}
+
+#enter-draft-button {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }

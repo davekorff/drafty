@@ -46,7 +46,7 @@ class ContestListItem extends React.Component {
           Ends: <br/>
           {this.props.contest.end_date} <br/>
         </div>
-        <button className='contest-li-col' onClick={() => this.handleClickEnterDraft(this.props.contest.id)}>
+        <button id='enter-draft-button' className='contest-li-col' onClick={() => this.handleClickEnterDraft(this.props.contest.id)}>
           Enter draft
         </button>
       </div>

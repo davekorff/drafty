@@ -32,15 +32,15 @@ class WeatherpeopleListItem extends React.Component {
     const friDate = thisWeeksPredictedForecasts[4].date.slice(5)
 
     return (
-      <div className='my-teams-li'>
-        <div className='my-teams-li-col'>
+      <div className='weatherpeople-li'>
+        <div id='weatherperson-info' className='weatherpeople-li-col'>
           <img height='75px' alt='wp-thumb' src={this.props.weatherperson.img_url_sm ? this.props.weatherperson.img_url_sm : 'https://static.thenounproject.com/png/630729-200.png' } />
           <br/>
           {this.props.weatherperson.name} <br/>
           {this.props.weatherperson.station} <br/>
           {this.props.weatherperson.city}
         </div>
-        <div className='my-teams-li-col'>
+        <div className='weatherpeople-li-col'>
           <div className='forecast-box'>
             {monForecast}
           </div>
@@ -48,7 +48,7 @@ class WeatherpeopleListItem extends React.Component {
           mon <br/>
         {monDate}
         </div >
-        <div className='my-teams-li-col'>
+        <div className='weatherpeople-li-col'>
           <div className='forecast-box'>
             {tueForecast}
           </div>
@@ -56,7 +56,7 @@ class WeatherpeopleListItem extends React.Component {
           tue <br/>
         {tueDate}
         </div>
-        <div className='my-teams-li-col'>
+        <div className='weatherpeople-li-col'>
           <div className='forecast-box'>
             {wedForecast}
           </div>
@@ -64,7 +64,7 @@ class WeatherpeopleListItem extends React.Component {
           wed <br/>
         {wedDate}
         </div>
-        <div className='my-teams-li-col'>
+        <div className='weatherpeople-li-col'>
           <div className='forecast-box'>
             {thuForecast}
           </div>
@@ -72,7 +72,7 @@ class WeatherpeopleListItem extends React.Component {
           thu <br/>
         {thuDate}
         </div>
-        <div className='my-teams-li-col'>
+        <div className='weatherpeople-li-col'>
           <div className='forecast-box'>
             {friForecast}
           </div>
@@ -80,7 +80,7 @@ class WeatherpeopleListItem extends React.Component {
           fri <br/>
         {friDate}
         </div>
-        <button className='my-teams-li-col' onClick={() => this.props.handleClickDraft(this.props.weatherperson.id)}>
+        <button id='draft-button' className='weatherpeople-li-col' onClick={() => this.props.handleClickDraft(this.props.weatherperson.id)}>
           Draft
         </button>
       </div>
