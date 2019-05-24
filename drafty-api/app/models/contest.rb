@@ -4,7 +4,7 @@ class Contest < ApplicationRecord
 
   # find high score for the contest
   def high_score
-    self.teams.includes(:forecasts).max_by { |team| team.score }.score
+    self.teams.includes(:forecasts).max_by { |team| team.score }
   end
 
 end

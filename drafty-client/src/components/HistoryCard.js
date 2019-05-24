@@ -7,15 +7,15 @@ class HistoryCard extends React.Component {
   //TODO: DRY - MOVE TO BACKEND AND SERVE DATA FROM API?
   renderScoreRibbon = () => {
     const currentContest = this.props.contests ? this.props.contests.find(contest => contest.id === this.props.team.contest.id) : null
-    const totalScores = currentContest ? currentContest.teams.map(team => team.score) : null
-    const sortedScores = totalScores ? totalScores.sort(function(a, b){return b - a}) : null
+    // const totalScores = currentContest ? currentContest.teams.map(team => team.score) : null
+    // const sortedScores = totalScores ? totalScores.sort(function(a, b){return b - a}) : null
     const score = this.props.team.score
 
-    if (sortedScores && score === sortedScores[0]) {
+    if (score === currentContest.high_score) {
       return <img height='50px' alt='ribbon' src='1st-place-medal.svg' />
-    } else if (sortedScores && score === sortedScores[1]) {
+    } else if (score === currentContest.high_score) {
       return <img height='50px' alt='ribbon' src='2nd-place-medal.svg' />
-    } else if (sortedScores && score === sortedScores[2]) {
+    } else if (score === currentContest.high_score) {
       return <img height='50px' alt='ribbon' src='3rd-place-medal.svg' />
     } else {
       return <span className='emoji' aria-label='perservering-face' role="img">😣</span>
@@ -107,8 +107,6 @@ class HistoryCard extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    //not sure if I need weatherpeople here. I don't think I do.
-    //figure it out!
     weatherpeople: state.weatherpeople.weatherpeople,
     contests: state.contests.contests
   }

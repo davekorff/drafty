@@ -16,6 +16,7 @@ class Team < ApplicationRecord
     score
   end
 
+  # calculate the team winnings, if any
   def winnings
     self.contest.prize if self.contest.high_score == self.score && self.contest.end_date < Date.today
   end

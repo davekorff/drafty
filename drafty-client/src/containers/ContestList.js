@@ -12,7 +12,7 @@ class ContestList extends React.Component {
 
   // Render all future contests
   renderContestList() {
-    return this.props.contests.contests.map(contest => {
+    return this.props.contests.map(contest => {
       if (contest.start_date > this.props.currentDate) {
         return <ContestListItem history={this.props.history} setCurrentContest={this.props.setCurrentContest} key={contest.id} contest={contest}/>
       }
@@ -22,7 +22,6 @@ class ContestList extends React.Component {
 
 
   render() {
-
     return (
       <div className='contest-list-container'>
         <h1>Contests</h1>
@@ -34,7 +33,7 @@ class ContestList extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    contests: state.contests,
+    contests: state.contests.contests,
     currentDate: state.date.currentDate
   }
 }

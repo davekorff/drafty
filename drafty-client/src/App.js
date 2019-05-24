@@ -64,7 +64,6 @@ class App extends Component {
 	}
 
 	render() {
-		console.log(this.props.currentUser);
 		return (
 			<Grid>
 				<Nav currentUser={this.props.currentUser} logOut={this.logOut}/>
