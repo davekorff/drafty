@@ -1,9 +1,8 @@
-// TODO: GET RID OF CURRENT USER PROP PASSDOWNS WHERE NOT NEEDED
-
 import React, { Component } from 'react'
-import './App.css'
 import { Switch, Route } from 'react-router-dom'
 import { Grid } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import './App.css'
 import Nav from './components/Nav'
 import Login from './components/Login'
 import Signup from './components/Signup'
@@ -11,7 +10,6 @@ import Lobby from './containers/Lobby'
 import History from './containers/History'
 import ContestEntry from './containers/ContestEntry'
 import Weatherpeople from './containers/Weatherpeople'
-import { connect } from 'react-redux'
 
 class App extends Component {
 
