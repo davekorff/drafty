@@ -9,7 +9,7 @@ class Weatherpeople extends React.Component {
   renderWeatherpeople = () => {
     return this.props.weatherpeople.map(weatherperson => {
       return (
-        <Grid.Column>
+        <Grid.Column key={weatherperson.id}>
           <WeatherpersonProfileCard weatherperson={weatherperson}/>
         </Grid.Column>
       )

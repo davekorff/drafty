@@ -4,13 +4,19 @@
 import React from 'react'
 import { Grid, Menu } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 
 class Nav extends React.Component {
 
 	calculateBalance = () => {
-		const winnings = this.props.currentUser.teams.map(team => team.winnings ? team.winnings : 0)
-		return winnings.reduce((partial_sum, a) => partial_sum + a, 0)
+		if (this.props.currentUser) {
+			const winningTeams = this.props.currentUser.past_teams.filter(team => team.score === team.contest.high_score)
+			const prizesWon = winningTeams.map(team => team.contest.prize)
+			return prizesWon.reduce((partial_sum, a) => partial_sum + a, 0)
+		} else {
+			return 0
+		}
 	}
 
 	render(){
@@ -21,8 +27,11 @@ class Nav extends React.Component {
 						<Link className='item' to={this.props.currentUser ? '/lobby' : '/login'}>
 							<img alt='logo' style={{height: '34px', width: '70px', marginRight: '8px', marginTop: '2px'}} src='/drafty-logo.png' />
 						</Link>
-						{this.props.currentUser
+						{
+							this.props.currentUser
+
 							?
+
 							<Menu.Menu position='right'>
 								<Link id='nav-link' className='item' to='/weatherpeople'>
 									<span style={{textAlign: 'center'}}>Meet the <br/> Weatherpeople</span>
@@ -35,11 +44,10 @@ class Nav extends React.Component {
 									Log out
 								</Menu.Item>
 							</Menu.Menu>
+
 							:
+
 							<Menu.Menu position='right' >
-								<Link id='nav-link' className='item' to='/weatherpeople'>
-									Meet the Weatherpeople
-								</Link>
 								<Link id='nav-link' className='item' to='/login'>
 									Login
 								</Link>
@@ -47,6 +55,7 @@ class Nav extends React.Component {
 									Sign Up
 								</Link>
 							</Menu.Menu>
+
 						}
 					</Menu>
 				</Grid.Column>
@@ -55,4 +64,13 @@ class Nav extends React.Component {
 	}
 }
 
-export default Nav
+function mapStateToProps(state) {
+	return {
+		currentUser: state.user.currentUser,
+		currentDate: state.date.currentDate,
+		contests: state.contests.contests,
+		teams: state.teams.teams,
+	}
+}
+
+export default connect(mapStateToProps)(Nav)

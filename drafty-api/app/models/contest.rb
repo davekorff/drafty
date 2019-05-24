@@ -4,7 +4,9 @@ class Contest < ApplicationRecord
 
   # find high score for the contest
   def high_score
-    self.teams.includes(:forecasts).max_by { |team| team.score }
+    if self.end_date < Date.today
+      self.teams.max_by { |team| team.score }.score
+    end
   end
 
 end

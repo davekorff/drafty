@@ -1,20 +1,11 @@
 import React from 'react'
 import MyTeamsListItem from '../components/MyTeamsListItem'
+import { connect } from 'react-redux'
 
 class MyTeamsList extends React.Component {
 
-  state = {
-    myCurrentTeams: []
-  }
-
-  componentDidMount() {
-    fetch('http://localhost:3000/api/v1/users/' + this.props.currentUser.id)
-      .then(res => res.json())
-      .then(user => this.setState({myCurrentTeams: user.current_teams}))
-  }
-
   renderMyTeams = () => {
-    return this.state.myCurrentTeams.map(team => {
+    return this.props.currentUser.current_teams.map(team => {
       if (team.weatherpeople.length === 3) {
         return <MyTeamsListItem key={team.id} team={team}/>
       }
@@ -23,6 +14,7 @@ class MyTeamsList extends React.Component {
   }
 
   render() {
+
     return (
       <div className='my-teams-list-container'>
         <h1>My Teams</h1>
@@ -32,4 +24,10 @@ class MyTeamsList extends React.Component {
   }
 }
 
-export default MyTeamsList
+function mapStateToProps(state) {
+  return {
+    currentUser: state.user.currentUser
+  }
+}
+
+export default connect(mapStateToProps)(MyTeamsList)

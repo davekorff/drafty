@@ -7,8 +7,7 @@ function contestsReducer(state = initialState, action) {
   switch (action.type) {
 
     case 'SET_CONTESTS':
-      return { ...state, contests: action.payload }
-
+      return { ...state, contests: action.payload}
     case 'SET_CURRENT_CONTEST':
       return { ...state, currentContest: action.payload}
 

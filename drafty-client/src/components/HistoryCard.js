@@ -11,11 +11,11 @@ class HistoryCard extends React.Component {
     // const sortedScores = totalScores ? totalScores.sort(function(a, b){return b - a}) : null
     const score = this.props.team.score
 
-    if (score === currentContest.high_score) {
+    if (currentContest && score === currentContest.high_score.score) {
       return <img height='50px' alt='ribbon' src='1st-place-medal.svg' />
-    } else if (score === currentContest.high_score) {
+    } else if (currentContest && score === currentContest.high_score.score) {
       return <img height='50px' alt='ribbon' src='2nd-place-medal.svg' />
-    } else if (score === currentContest.high_score) {
+    } else if (currentContest && score === currentContest.high_score.score) {
       return <img height='50px' alt='ribbon' src='3rd-place-medal.svg' />
     } else {
       return <span className='emoji' aria-label='perservering-face' role="img">😣</span>
@@ -24,7 +24,7 @@ class HistoryCard extends React.Component {
 
   //TODO: DRY - MOVE TO BACKEND AND SERVE DATA FROM API?
   renderPlacement = () => {
-    const currentContest = this.props.contests ? this.props.contests.find(contest => contest.id === this.props.team.contest.id) : null
+    const currentContest = this.props.contests.find(contest => contest.id === this.props.team.contest.id)
     const totalScores = currentContest ? currentContest.teams.map(team => team.score) : null
     const sortedScores = totalScores ? totalScores.sort(function(a, b){return b - a}) : null
     const score = this.props.team.score
@@ -53,11 +53,8 @@ class HistoryCard extends React.Component {
   //TODO: DRY - MOVE TO BACKEND AND SERVE DATA FROM API?
   renderPrize() {
     const currentContest = this.props.contests ? this.props.contests.find(contest => contest.id === this.props.team.contest.id) : null
-    const totalScores = currentContest ? currentContest.teams.map(team => team.score) : null
-    const sortedScores = totalScores ? totalScores.sort(function(a, b){return b - a}) : null
-    const score = this.props.team.score
 
-    if (sortedScores && score === sortedScores[0]) {
+    if (currentContest && this.props.team.score === currentContest.high_score.score) {
       return this.props.team.contest.prize
     } else {
       return 0
@@ -65,7 +62,7 @@ class HistoryCard extends React.Component {
   }
 
   render() {
-
+    console.log(this.props.contests)
     return (
       <div className="history-card-container">
         <h2>Team {this.props.team.name}</h2>
@@ -106,6 +103,7 @@ class HistoryCard extends React.Component {
 }
 
 function mapStateToProps(state) {
+  console.log('MSTP in HC', state.contests);
   return {
     weatherpeople: state.weatherpeople.weatherpeople,
     contests: state.contests.contests

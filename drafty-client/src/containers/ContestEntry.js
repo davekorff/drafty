@@ -65,7 +65,7 @@ class ContestEntry extends React.Component {
 
 
   render() {
-
+    console.log(this.state.teams)
     return (
       this.props.currentContest
 

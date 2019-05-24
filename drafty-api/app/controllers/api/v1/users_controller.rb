@@ -8,8 +8,7 @@ class Api::V1::UsersController < ApplicationController
 	def create
 		user = User.new(
 			username: params[:username],
-			password: params[:password],
-			balance: 0
+			password: params[:password]
 		)
 
 		if user.save
