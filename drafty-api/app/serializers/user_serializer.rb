@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :balance
+  attributes :id, :username
 
   has_many :teams
   has_many :contests, through: :teams

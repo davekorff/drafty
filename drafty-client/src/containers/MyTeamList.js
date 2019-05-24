@@ -26,7 +26,6 @@ class MyTeamList extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    drafts: state.drafts.drafts,
     weatherpeople: state.weatherpeople.weatherpeople,
     currentUser: state.user.currentUser,
     teams: state.teams.teams

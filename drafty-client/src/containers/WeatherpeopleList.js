@@ -48,7 +48,6 @@ function mapStateToProps(state) {
 	return {
 		weatherpeople: state.weatherpeople.weatherpeople,
     currentContest: state.contests.currentContest,
-    drafts: state.drafts.drafts,
     teams: state.teams.teams,
     currentTeam: state.teams.currentTeam
 	}
