@@ -26,7 +26,6 @@ class App extends Component {
 			})
 			.then(res => res.json())
 			.then(user => user.errors ? alert(user.errors) : this.props.setCurrentUser(user))
-
 		}
 
 		fetch('http://localhost:3000/api/v1/teams')
@@ -55,7 +54,7 @@ class App extends Component {
 	setCurrentUser = (response) => {
 		this.props.setCurrentUser(response.user)
 		localStorage.setItem('token', response.token)
-		this.props.history.push('/')
+		this.props.history.push('/lobby')
 	}
 
 	logOut = () => {

@@ -478,3 +478,15 @@ Forecast.all.each do |f|
     f.update(actual_weather: actual_weather)
   end
 end
+
+
+### UPDATE USERS BALANCES ###
+
+# Contest.all[0..1].each do |contest|
+#   User.all.each do |user|
+#     if contest.winning_user_ids.include?(user.id)
+#       prev_balance = user.balance
+#       user.update(balance: prev_balance + contest.prize)
+#     end
+#   end
+# end

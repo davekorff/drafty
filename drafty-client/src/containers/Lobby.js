@@ -11,7 +11,7 @@ class Lobby extends React.Component {
     return (
       <div className='lobby-row'>
         <div className='lobby-col'>
-          <ContestList history={this.props.history} currentUser={this.props.currentUser} />
+          <ContestList history={this.props.history} />
         </div>
         <div className='lobby-col'>
           <MyTeamsList currentUser={this.props.currentUser} />

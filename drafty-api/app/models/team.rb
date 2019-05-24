@@ -5,7 +5,7 @@ class Team < ApplicationRecord
   has_many :weatherpeople, through: :drafts
   has_many :forecasts, through: :weatherpeople
 
-
+  # calculate the team score
   def score
     score = 0
     self.forecasts.each do |forecast|

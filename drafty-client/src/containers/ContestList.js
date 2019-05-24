@@ -20,13 +20,6 @@ class ContestList extends React.Component {
     })
   }
 
-  // Render all past and future contests
-  // renderContestList() {
-  //   return this.props.contests.contests.map(contest => {
-  //     return <ContestListItem history={this.props.history} setCurrentContest={this.props.setCurrentContest} key={contest.id} contest={contest}/>
-  //   })
-  // }
-
 
   render() {
 
@@ -48,8 +41,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    setContests: contests => dispatch({type: 'SET_CONTESTS', payload: contests}),
-
+    setContests: contests => dispatch({type: 'SET_CONTESTS', payload: contests})
   }
 }
 
