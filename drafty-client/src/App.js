@@ -32,18 +32,10 @@ class App extends Component {
 		.then(res => res.json())
 		.then(teams => this.props.setTeams(teams))
 
-		//needed?
 		fetch('http://localhost:3000/api/v1/weatherpeople')
 		.then(res => res.json())
 		.then(weatherpeople => this.props.setWeatherpeople(weatherpeople))
 
-
-		//needed?
-		fetch('http://localhost:3000/api/v1/drafts')
-			.then(res => res.json())
-			.then(drafts => this.props.setDrafts(drafts))
-
-		//needed?
 		fetch('http://localhost:3000/api/v1/contests')
 			.then(res => res.json())
 			.then(contests => this.props.setContests(contests))
@@ -54,6 +46,7 @@ class App extends Component {
 	setCurrentUser = (response) => {
 		this.props.setCurrentUser(response.user)
 		localStorage.setItem('token', response.token)
+		// changed below 5/23 from '/'
 		this.props.history.push('/lobby')
 	}
 
@@ -73,7 +66,7 @@ class App extends Component {
 	}
 
 	render() {
-
+		console.log(this.props.currentUser);
 		return (
 			<Grid>
 				<Nav currentUser={this.props.currentUser} logOut={this.logOut}/>
@@ -104,7 +97,6 @@ function mapDispatchToProps(dispatch) {
 		setCurrentDate: date => dispatch({type: 'SET_CURRENT_DATE', payload: date}),
 		setTeams: teams => dispatch({type: 'SET_TEAMS', payload: teams}),
 		setWeatherpeople: weatherpeople => dispatch({type: 'SET_WEATHERPEOPLE', payload: weatherpeople}),
-		setDrafts: drafts => dispatch({type: 'SET_DRAFTS', payload: drafts}),
 		setContests: contests => dispatch({type: 'SET_CONTESTS', payload: contests})
 	}
 }

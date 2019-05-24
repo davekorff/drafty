@@ -8,8 +8,12 @@ import { Link } from 'react-router-dom'
 
 class Nav extends React.Component {
 
-	render(){
+	calculateBalance = () => {
+		const winnings = this.props.currentUser.teams.map(team => team.winnings ? team.winnings : 0)
+		return winnings.reduce((partial_sum, a) => partial_sum + a, 0)
+	}
 
+	render(){
 		return (
 			<Grid.Row>
 				<Grid.Column width={16}>
@@ -25,7 +29,7 @@ class Nav extends React.Component {
 								</Link>
                 <Link id='nav-link' className='item' to={'/history'}>
                   Logged in as: {this.props.currentUser.username} <br/> <br />
-									Balance: {this.props.currentUser.balance} Flatcoin
+								Balance: {this.calculateBalance()} Flatcoin
                 </Link>
 								<Menu.Item id='nav-link' onClick={this.props.logOut}>
 									Log out
