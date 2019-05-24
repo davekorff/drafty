@@ -26,18 +26,9 @@ class App extends Component {
 			.then(user => user.errors ? alert(user.errors) : this.props.setCurrentUser(user))
 		}
 
-		// fetch('http://localhost:3000/api/v1/teams')
-		// .then(res => res.json())
-		// .then(teams => this.props.setTeams(teams))
-
-		//
-		// fetch('http://localhost:3000/api/v1/weatherpeople')
-		// .then(res => res.json())
-		// .then(weatherpeople => this.props.setWeatherpeople(weatherpeople))
-		//
-		fetch('http://localhost:3000/api/v1/contests')
-			.then(res => res.json())
-			.then(contests => this.props.setContests(contests))
+		// fetch('http://localhost:3000/api/v1/contests')
+		// 	.then(res => res.json())
+		// 	.then(contests => this.props.setContests(contests))
 
 		this.setCurrentDate()
 	}
@@ -66,7 +57,7 @@ class App extends Component {
 	render() {
 		return (
 			<Grid>
-				<Nav currentUser={this.props.currentUser} logOut={this.logOut}/>
+				<Nav logOut={this.logOut}/>
 					<Switch>
 						<Route exact path='/' render={this.props.currentUser ? routeProps => <Lobby {...routeProps} currentUser={this.props.currentUser}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
 						<Route exact path='/lobby' render={this.props.currentUser ? routeProps => <Lobby {...routeProps} currentUser={this.props.currentUser}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
@@ -84,7 +75,7 @@ class App extends Component {
 function mapStateToProps(state) {
 	return {
 		currentUser: state.user.currentUser,
-		weatherpeople: state.weatherpeople.weatherpeople
+		// weatherpeople: state.weatherpeople.weatherpeople
 	}
 }
 
@@ -92,9 +83,9 @@ function mapDispatchToProps(dispatch) {
 	return {
 		setCurrentUser: user => dispatch({type: 'SET_CURRENT_USER', payload: user}),
 		setCurrentDate: date => dispatch({type: 'SET_CURRENT_DATE', payload: date}),
-		setTeams: teams => dispatch({type: 'SET_TEAMS', payload: teams}),
-		setWeatherpeople: weatherpeople => dispatch({type: 'SET_WEATHERPEOPLE', payload: weatherpeople}),
-		setContests: contests => dispatch({type: 'SET_CONTESTS', payload: contests})
+		// setTeams: teams => dispatch({type: 'SET_TEAMS', payload: teams}),
+		// setWeatherpeople: weatherpeople => dispatch({type: 'SET_WEATHERPEOPLE', payload: weatherpeople}),
+		// setContests: contests => dispatch({type: 'SET_CONTESTS', payload: contests})
 	}
 }
 
