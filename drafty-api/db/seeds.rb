@@ -60,6 +60,15 @@ while i < 22 do
   i += 1
 end
 
+#CONTEST 4 TEAMS
+i = 0
+uids = (1..22).to_a.shuffle
+while i < 22 do
+  uid = uids.pop
+  Team.create(name: Faker::Kpop.i_groups, user_id: uid, contest_id: 4)
+  i += 1
+end
+
 
 #WEATHERPEOPLE
 Weatherperson.create(name: 'Brick Tamland', station: 'KVWN ch. 4', city: 'NYC', img_url_sm: '/brick-tamland-sm.png', img_url_lg: '/brick-tamland-lg.png')
@@ -117,10 +126,25 @@ while i < 22 do
   i += 1
 end
 
+#CONTEST 4 DRAFTS
+i = 0
+team_ids = (66..87).to_a.shuffle
+while i < 22 do
+  j = 0
+  team_id = team_ids.pop
+  wp_ids = (1..5).to_a.shuffle
+  while j < 3 do
+    three_wp_ids = wp_ids[0..2]
+    Draft.create(team_id: i + 45, weatherperson_id: three_wp_ids[j])
+    j += 1
+  end
+  i += 1
+end
+
 
 ## TODO: ADD  'T-storm'
 
-weather = ['Sunny', 'Cloudy', 'Rain']
+weather = ['Sunny', 'Cloudy', 'Rain', 'Sunny', 'Cloudy', 'Rain', 'T-storm']
 temps = (65..80).to_a
 
 #CONTEST 1
@@ -388,19 +412,14 @@ end
 
 Forecast.all.each do |f|
   if f.date.to_s == '2019-05-13'
-    temp = temps.sample
     f.update(actual_temp: 71)
   elsif f.date.to_s == '2019-05-14'
-    temp = temps.sample
     f.update(actual_temp: 68)
   elsif f.date.to_s == '2019-05-15'
-    temp = temps.sample
     f.update(actual_temp: 76)
   elsif f.date.to_s == '2019-05-16'
-    temp = temps.sample
     f.update(actual_temp: 78)
   elsif f.date.to_s == '2019-05-17'
-    temp = temps.sample
     f.update(actual_temp: 73)
   end
 end
@@ -444,6 +463,69 @@ actual_weather = weather.sample
 
 Forecast.all.each do |f|
   if f.date.to_s == '2019-05-17'
+    f.update(actual_weather: actual_weather)
+  end
+end
+
+
+
+
+# UPDATE CONTEST 3 WITH ACTUAL TEMPS
+
+
+Forecast.all.each do |f|
+  if f.date.to_s == '2019-05-20'
+    f.update(actual_temp: 78)
+  elsif f.date.to_s == '2019-05-21'
+    f.update(actual_temp: 70)
+  elsif f.date.to_s == '2019-05-22'
+    f.update(actual_temp: 68)
+  elsif f.date.to_s == '2019-05-23'
+    f.update(actual_temp: 66)
+  elsif f.date.to_s == '2019-05-24'
+    f.update(actual_temp: 69)
+  end
+end
+
+
+
+# UPDATE CONTEST 3 WITH ACTUAL WEATHER
+actual_weather = weather.sample
+
+Forecast.all.each do |f|
+  if f.date.to_s == '2019-05-20'
+    f.update(actual_weather: actual_weather)
+  end
+end
+
+actual_weather = weather.sample
+
+Forecast.all.each do |f|
+  if f.date.to_s == '2019-05-21'
+    f.update(actual_weather: actual_weather)
+  end
+end
+
+actual_weather = weather.sample
+
+Forecast.all.each do |f|
+  if f.date.to_s == '2019-05-22'
+    f.update(actual_weather: actual_weather)
+  end
+end
+
+actual_weather = weather.sample
+
+Forecast.all.each do |f|
+  if f.date.to_s == '2019-05-23'
+    f.update(actual_weather: actual_weather)
+  end
+end
+
+actual_weather = weather.sample
+
+Forecast.all.each do |f|
+  if f.date.to_s == '2019-05-24'
     f.update(actual_weather: actual_weather)
   end
 end

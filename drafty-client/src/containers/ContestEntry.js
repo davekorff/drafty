@@ -2,12 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import WeatherpeopleList from './WeatherpeopleList'
 import MyTeamList from './MyTeamList'
+import ReactAnimatedWeather from 'react-animated-weather';
 
 class ContestEntry extends React.Component {
 
   state = {
-    teams: [],
-    myTeam: [],
+    myWeatherpeople: [],
     weatherpeople: [],
     undraftedWeatherpeople: []
   }
@@ -17,44 +17,43 @@ class ContestEntry extends React.Component {
       .then(res => res.json())
       .then(contest => this.props.setCurrentContest(contest))
 
-    fetch('http://localhost:3000/api/v1/teams')
-      .then(res => res.json())
-      .then(teams => this.setState({ teams }, () => {
+    // fetch('http://localhost:3000/api/v1/teams')
+    //   .then(res => res.json())
+    //   .then(teams => this.setState({ teams }, () => {
+    //
+    //     // REPEATED BELOW
+    //     // TODO: REFACTOR INTO A HELPER FUNCTION?
+    //     const myTeam = this.state.teams.find(team => {
+    //       return team.user.id === this.props.currentUser.id && team.contest.id === this.props.currentContest.id
+    //     })
+    //     if (myTeam) {
+    //       this.setState({myWeatherpeople: myTeam.weatherpeople})
+    //     }
+    //   }))
 
-        // REPEATED BELOW
-        // TODO: REFACTOR INTO A HELPER FUNCTION?
-        const myTeam = this.state.teams.find(team => {
-          return team.user.id === this.props.currentUser.id && team.contest.id === this.props.currentContest.id
-        })
-        if (myTeam) {
-          this.setState({myTeam: myTeam.weatherpeople})
-        }
-      }))
-
-    fetch('http://localhost:3000/api/v1/weatherpeople')
-      .then(res => res.json())
-      .then(weatherpeople => this.setState({ weatherpeople }, () => {
-
-        // REPEATED ABOVE
-        // TODO: REFACTOR INTO A HELPER FUNCTION?
-        const myTeam = this.state.teams.find(team => {
-          return team.user.id === this.props.currentUser.id && team.contest.id === this.props.currentContest.id
-        })
-
-        if (myTeam) {
-          const myTeamWeatherpeopleIDs = myTeam.weatherpeople.map(weatherperson => weatherperson.id)
-          const undraftedWeatherpeople = this.state.weatherpeople.filter(weatherperson => !myTeamWeatherpeopleIDs.includes(weatherperson.id))
-          this.setState({undraftedWeatherpeople})
-        } else {
-          this.setState({ undraftedWeatherpeople: weatherpeople })
-        }
-      }))
+    // fetch('http://localhost:3000/api/v1/weatherpeople')
+    //   .then(res => res.json())
+    //   .then(weatherpeople => this.setState({ weatherpeople }, () => {
+    //
+    //     const myWeatherpeople = this.props.currentUser.current_teams.find(team => {
+    //       return team.contest.id === this.props.currentContest.id
+    //     }).weatherpeople
+    //
+    //     if (myWeatherpeople) {
+    //       const myWeatherpeopleIDs = myWeatherpeople.weatherpeople.map(weatherperson => weatherperson.id)
+    //       const undraftedWeatherpeople = this.state.weatherpeople.filter(weatherperson => !myWeatherpeopleIDs.includes(weatherperson.id))
+    //       this.setState({undraftedWeatherpeople})
+    //     } else {
+    //       this.setState({ undraftedWeatherpeople: weatherpeople })
+    //     }
+    //
+    //   }))
   }
 
   addToMyTeam = weatherperson => {
     this.setState({
       ...this.state,
-      myTeam: [...this.state.myTeam, weatherperson]
+      myWeatherpeople: [...this.state.myWeatherpeople, weatherperson]
     })
   }
 
@@ -63,38 +62,71 @@ class ContestEntry extends React.Component {
     this.setState({ undraftedWeatherpeople: updatedList })
   }
 
-
   render() {
-    console.log(this.state.teams)
+    console.log('in contestentry, props:',this.props)
+    console.log('in contestentry, state:',this.state)
     return (
-      this.props.currentContest
-
-      ?
-
-      <div className='contest-entry-container'>
-        <h1>Contest Entry</h1>
-        <h2>{this.props.currentContest.name}</h2>
-          <div className='contest-entry-row'>
-            <div className='contest-entry-col'>
-              <WeatherpeopleList undraftedWeatherpeople={this.state.undraftedWeatherpeople} removeFromUndrafted={this.removeFromUndrafted} addToMyTeam={this.addToMyTeam} currentUser={this.props.currentUser}/>
-            </div>
-            <div className='contest-entry-col'>
-              <MyTeamList currentContest={this.props.currentContest} myTeam={this.state.myTeam} />
-            </div>
-          </div>
+      <div>
+        BEEF?
       </div>
-
-      :
-
-      <div>BEEF. I mean, LOADING...</div>
     )
   }
+
+  // render() {
+  //   console.log(this.state.teams)
+  //   return (
+  //     this.props.currentContest
+  //
+  //     ?
+  //
+  //     <div className='contest-entry-container'>
+  //       <h1>Contest Entry</h1>
+  //       <h2>{this.props.currentContest.name}</h2>
+  //         <div className='contest-entry-row'>
+  //           <div className='contest-entry-col'>
+  //             <WeatherpeopleList undraftedWeatherpeople={this.state.undraftedWeatherpeople} removeFromUndrafted={this.removeFromUndrafted} addToMyTeam={this.addToMyTeam} currentUser={this.props.currentUser}/>
+  //           </div>
+  //           <div className='contest-entry-col'>
+  //             <MyTeamList currentContest={this.props.currentContest} myWeatherpeople={this.state.myWeatherpeople} />
+  //           </div>
+  //         </div>
+  //     </div>
+  //
+  //     :
+  //
+  //     <div>BEEF. I mean, LOADING...</div>
+  //   )
+  // }
+
+  // const defaults = {
+  //   icon: 'CLEAR_DAY',
+  //   color: 'goldenrod',
+  //   size: 40,
+  //   animate: true
+  // };
+
+  // <div class="icon thunder-storm">
+  //   <div class="cloud"></div>
+  //   <div class="lightning">
+  //     <div class="bolt"></div>
+  //     <div class="bolt"></div>
+  //   </div>
+  // </div>
+  //
+  //
+  // <ReactAnimatedWeather
+  //   icon={defaults.icon}
+  //   color={defaults.color}
+  //   size={defaults.size}
+  //   animate={defaults.animate}
+  // />
 }
 
 function mapStateToProps(state) {
 	return {
 		currentContest: state.contests.currentContest,
-    currentUser: state.user.currentUser
+    currentUser: state.user.currentUser,
+    currentTeam: state.teams.currentTeam
 	}
 }
 

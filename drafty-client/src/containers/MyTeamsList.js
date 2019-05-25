@@ -17,7 +17,7 @@ class MyTeamsList extends React.Component {
 
     return (
       <div className='my-teams-list-container'>
-        <h1>My Teams</h1>
+        <h1 id='secular'>My Teams</h1>
         {this.renderMyTeams()}
       </div>
     )

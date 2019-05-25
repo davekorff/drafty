@@ -23,7 +23,7 @@ class Nav extends React.Component {
 		return (
 			<Grid.Row>
 				<Grid.Column width={16}>
-					<Menu style={{backgroundColor: '#f7951f'}}>
+					<Menu style={{backgroundImage: `url(egg-shell.png)`, height: '100%'}}>
 						<Link className='item' to={this.props.currentUser ? '/lobby' : '/login'}>
 							<img alt='logo' style={{height: '34px', width: '70px', marginRight: '8px', marginTop: '2px'}} src='/drafty-logo.png' />
 						</Link>
