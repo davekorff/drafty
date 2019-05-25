@@ -50,21 +50,21 @@ class ContestListItem extends React.Component {
 
   render() {
     return (
-      <div className='contest-li' id='assistant'>
+      <div className='contest-li' id='secular'>
         <div className='contest-li-col'>
           Contest name: <br/>
         {this.props.contest.name}
         </div>
-        <div className='contest-li-col'>
-          Prize: <br/>
-          {this.props.contest.prize} Flatcoin
-        </div >
         <div className='contest-li-col'>
           Starts: <br/>
           {this.transformDate(this.props.contest.start_date)} <br/>
           Ends: <br/>
           {this.transformDate(this.props.contest.end_date)} <br/>
         </div>
+        <div className='contest-li-col'>
+            Prize: <br/>
+          {this.props.contest.prize} Flatcoin
+        </div >
         <Button variant="contained" size="small" color="primary" id='enter-draft-button' className='contest-li-col' onClick={() => this.handleClickEnterDraft(this.props.contest.id)}>
           Enter draft
         </Button>

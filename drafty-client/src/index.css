@@ -17,7 +17,6 @@ code {
 /********** GLOBAL **********/
 
 
-
 #secular {
   font-family: 'Secular One', sans-serif;
 }
@@ -207,12 +206,14 @@ code {
 }
 
 .contest-li-col {
-  flex: 25%
+  flex: 25%;
+  margin: auto;
+  width: 50%;
 }
 
 .my-teams-li {
   display: flex;
-  border-style: solid;
+  /* border-style: solid; */
   margin-top: 4%;
   margin-left: 4%;
   margin-right: 4%;

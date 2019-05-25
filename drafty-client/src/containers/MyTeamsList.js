@@ -6,15 +6,11 @@ class MyTeamsList extends React.Component {
 
   renderMyTeams = () => {
     return this.props.currentUser.current_teams.map(team => {
-      if (team.weatherpeople.length === 3) {
         return <MyTeamsListItem key={team.id} team={team}/>
-      }
-      return null
     })
   }
 
   render() {
-
     return (
       <div className='my-teams-list-container'>
         <h1 id='secular'>My Teams</h1>
