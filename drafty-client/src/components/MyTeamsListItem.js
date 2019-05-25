@@ -3,12 +3,7 @@ import React from 'react'
 class MyTeamsListItem extends React.Component {
 
   render() {
-    console.log(this.props);
     return (
-      this.props.team.weatherpeople.length !== 0
-
-      ?
-
       <div className='my-teams-li'>
         <div className='my-teams-li-col'>
           <img height='50px' alt='wp-thumb' src={this.props.team.weatherpeople[0].img_url_sm ? this.props.team.weatherpeople[0].img_url_sm : 'https://static.thenounproject.com/png/630729-200.png' } /> <br/>
@@ -28,12 +23,6 @@ class MyTeamsListItem extends React.Component {
           Ends: {this.props.team.contest.end_date.slice(5)}<br/>
           Prize: {this.props.team.contest.prize}<br/>
         </div>
-      </div>
-
-      :
-
-      <div className='make-a-team' id='secular' style={{marginTop: '50px'}}>
-        <center>Make a team...</center>
       </div>
     )
   }
