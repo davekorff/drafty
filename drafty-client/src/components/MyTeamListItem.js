@@ -6,96 +6,131 @@ import { connect } from 'react-redux'
 
 class MyTeamListItem extends React.Component {
 
+  renderWeatherperson = () => {
+    return this.props.weatherpeople.find(weatherperson => weatherperson.id === this.props.weatherperson.id)
+  }
+
+  renderWeather = index => {
+    const weatherperson = this.props.weatherpeople.find(weatherperson => weatherperson.id === this.props.weatherperson.id)
+    const thisWeeksForecasts = weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date)
+
+    if (thisWeeksForecasts[index].predicted_weather === 'T-storm') {
+      return (
+        <div className="icon thunder-storm">
+          <div className="cloud"></div>
+          <div className="lightning">
+            <div className="bolt"></div>
+            <div className="bolt"></div>
+          </div>
+        </div>
+      )
+    } else if (thisWeeksForecasts[index].predicted_weather === 'Sunny') {
+      return (
+        <div className="icon sunny">
+          <div className="sun">
+            <div className="rays"></div>
+          </div>
+        </div>
+      )
+    } else if (thisWeeksForecasts[index].predicted_weather === 'Cloudy') {
+      return (
+        <div className="icon cloudy">
+          <div className="cloud"></div>
+          <div className="cloud"></div>
+        </div>
+      )
+    } else if (thisWeeksForecasts[index].predicted_weather === 'Rain') {
+      return (
+        <div className="icon rainy">
+          <div className="cloud"></div>
+          <div className="rain"></div>
+        </div>
+      )
+    }
+  }
+
+  renderTemp = index => {
+    const weatherperson = this.props.weatherpeople.find(weatherperson => weatherperson.id === this.props.weatherperson.id)
+    const thisWeeksForecasts = weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date)
+    return thisWeeksForecasts[index].predicted_temp
+  }
+
+  renderDate = index => {
+    const weatherperson = this.props.weatherpeople.find(weatherperson => weatherperson.id === this.props.weatherperson.id)
+    const thisWeeksForecasts = weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date)
+    const date = this.transformDate(thisWeeksForecasts[index].date)
+    return date.slice(0, -5)
+  }
+
+  transformDate = (date) => {
+    let yyyy = date.slice(0,4)
+    let mm = date.slice(5,7)
+    let dd = date.slice(8,10)
+
+    if (mm.slice(0,1) === '0' && dd.slice(0,1) === '0') {
+      return `${mm.slice(1,2)}/${dd.slice(1,2)}/${yyyy}`
+    } else if (mm.slice(0,1) === '0') {
+      return `${mm.slice(1,2)}/${dd}/${yyyy}`
+    } else if (dd.slice(0,1) === '0') {
+      return `${mm}/${dd.slice(1,2)}/${yyyy}`
+    } else {
+      return `${mm}/${dd}/${yyyy}`
+    }
+  }
+
+
+
 
   render() {
 
-    // TODO : REFACTOR - DRY
-    const weatherperson = this.props.weatherpeople.find(weatherperson => weatherperson.id === this.props.weatherperson.id)
-
-    const thisWeeksPredictedForecasts = weatherperson ? weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date) : null
-
-    const monForecast = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[0].predicted_weather : null
-    const tueForecast = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[1].predicted_weather : null
-    const wedForecast = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[2].predicted_weather : null
-    const thuForecast = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[3].predicted_weather : null
-    const friForecast = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[4].predicted_weather : null
-
-    const monTemp = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[0].predicted_temp : null
-    const tueTemp = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[1].predicted_temp : null
-    const wedTemp = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[2].predicted_temp : null
-    const thuTemp = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[3].predicted_temp : null
-    const friTemp = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[4].predicted_temp : null
-
-    const monDate = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[0].date.slice(5) : null
-    const tueDate = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[1].date.slice(5) : null
-    const wedDate = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[2].date.slice(5) : null
-    const thuDate = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[3].date.slice(5) : null
-    const friDate = thisWeeksPredictedForecasts ? thisWeeksPredictedForecasts[4].date.slice(5) : null
-
-
     return (
-      weatherperson
-
-      ?
-
-      <div className='my-teams-li'>
-        <div className='my-teams-li-col'>
-          {
-            weatherperson.name === 'Brick Tamland'
-            ?
-            <img height='75px' alt='wp-thumb' src={weatherperson.img_url_sm} />
-            :
-            <img height='75px' alt='wp-thumb' src='https://static.thenounproject.com/png/630729-200.png' />
-          } <br/>
-          {weatherperson.name} <br/>
-          {weatherperson.station} <br/>
-          {weatherperson.city}
+      <div className='my-team-li' >
+        <div id='my-team-list-wp-info' className='my-team-li-col' style={{fontSize: '14px'}}>
+          <img height='75px' alt='wp-thumb' src={this.renderWeatherperson().img_url_sm} /><br/>
+          {this.renderWeatherperson().name} <br/>
+          {this.renderWeatherperson().station} <br/>
+          {this.renderWeatherperson().city}
         </div>
-        <div className='my-teams-li-col'>
+        <div id='weatherpeople-li-weather-col' className='my-team-li-col'>
           <div className='forecast-box'>
-            {monForecast}
+            {this.renderWeather(0)}
           </div>
-          {monTemp}℉ <br/>
+          {this.renderTemp(0)}℉ <br/>
           mon <br/>
-          {monDate}
+        {this.renderDate(0)}
         </div >
-        <div className='my-teams-li-col'>
+        <div id='weatherpeople-li-weather-col' className='my-team-li-col'>
           <div className='forecast-box'>
-            {tueForecast}
+            {this.renderWeather(1)}
           </div>
-          {tueTemp}℉ <br/>
+          {this.renderTemp(1)}℉ <br/>
           tue <br/>
-          {tueDate}
+        {this.renderDate(1)}
         </div>
-        <div className='my-teams-li-col'>
+        <div id='weatherpeople-li-weather-col' className='my-team-li-col'>
           <div className='forecast-box'>
-            {wedForecast}
+            {this.renderWeather(2)}
           </div>
-          {wedTemp}℉ <br/>
+          {this.renderTemp(2)}℉ <br/>
           wed <br/>
-          {wedDate}
+        {this.renderDate(2)}
         </div>
-        <div className='my-teams-li-col'>
+        <div id='weatherpeople-li-weather-col' className='my-team-li-col'>
           <div className='forecast-box'>
-            {thuForecast}
+            {this.renderWeather(3)}
           </div>
-          {thuTemp}℉ <br/>
+          {this.renderTemp(3)}℉ <br/>
           thu <br/>
-          {thuDate}
+        {this.renderDate(3)}
         </div>
-        <div className='my-teams-li-col'>
+        <div id='weatherpeople-li-weather-col' className='my-team-li-col'>
           <div className='forecast-box'>
-            {friForecast}
+            {this.renderWeather(4)}
           </div>
-          {friTemp}℉ <br/>
+          {this.renderTemp(4)}℉ <br/>
           fri <br/>
-          {friDate}
+        {this.renderDate(4)}
         </div>
-      </div>
-
-      :
-      <div className='my-teams-li'>
-        <div>LOADING...</div>
       </div>
     )
   }
@@ -103,7 +138,8 @@ class MyTeamListItem extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    weatherpeople: state.weatherpeople.weatherpeople
+    weatherpeople: state.weatherpeople.weatherpeople,
+    currentContest: state.contests.currentContest,
   }
 }
 

@@ -1,8 +1,5 @@
-// TODO: ADD LOBBY BUTTON ON NAV (CONDITIONALLY RENDERED IF USER IS LOGGED IN)
-
-
 import React from 'react'
-import { Grid, Menu } from 'semantic-ui-react'
+// import { Grid, Menu } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
@@ -19,57 +16,134 @@ class Nav extends React.Component {
 		}
 	}
 
-	render(){
-		return (
-			<Grid.Row>
-				<Grid.Column width={16}>
-					<Menu style={{backgroundImage: `url(egg-shell.png)`, height: '100%'}}>
-						<Link className='item' to={this.props.currentUser ? '/lobby' : '/login'}>
-							<img alt='logo' style={{height: '34px', width: '70px', marginRight: '8px', marginTop: '2px'}} src='/drafty-logo.png' />
-						</Link>
-						{
-							this.props.currentUser
+	render() {
+		return(
+			this.props.currentUser
 
-							?
+			?
 
-							<Menu.Menu position='right'>
-								<Link id='nav-link' className='item' to='/weatherpeople'>
-									<span style={{textAlign: 'center'}}>Meet the <br/> Weatherpeople</span>
-								</Link>
-                <Link id='nav-link' className='item' to={'/history'}>
-                  Logged in as: {this.props.currentUser.username} <br/> <br />
-								Balance: {this.calculateBalance()} Flatcoin
-                </Link>
-								<Menu.Item id='nav-link' onClick={this.props.logOut}>
-									Log out
-								</Menu.Item>
-							</Menu.Menu>
+			<ul id='secular'>
 
-							:
+			  <li>
+					<Link id='nav-bar-link' to={'/lobby'}>
+						Lobby
+					</Link>
+				</li>
 
-							<Menu.Menu position='right' >
-								<Link id='nav-link' className='item' to='/login'>
-									Login
-								</Link>
-								<Link id='nav-link' className='item' to='/signup'>
-									Sign Up
-								</Link>
-							</Menu.Menu>
+			  <li>
+					<Link id='nav-bar-link' to={'/history'}>
+						History
+					</Link>
+				</li>
 
-						}
-					</Menu>
-				</Grid.Column>
-			</Grid.Row>
+			  <li>
+					<Link id='nav-bar-link' to={'/weatherpeople'}>
+						Meet the Weatherpeople
+					</Link>
+				</li>
+
+			  <li id='center-logo'>
+					<Link to={'/lobby'}>
+						<img height="80px" alt='drafty-logo' src='/drafty-logo.png'/>
+					</Link>
+				</li>
+
+			  <li id='li-right'>
+					<Link id='nav-bar-link' to={'/login'} onClick={this.props.logOut}>
+						Logout
+					</Link>
+				</li>
+
+				<li id='li-right'>
+					<span id='nav-bar-link'>
+						Balance:
+						<span style={{color: '#fbde4a', marginLeft: '5px'}}>
+							{this.calculateBalance()}
+						</span>
+					</span>
+				</li>
+
+				<li id='li-right'>
+					<span id='nav-bar-link'>
+						Logged in as:
+						<span style={{color: '#fbde4a', marginLeft: '5px'}}>
+							{this.props.currentUser.username}
+						</span>
+					</span>
+				</li>
+			</ul>
+
+			:
+
+			<ul id='secular'>
+				<li id='li-right'>
+					<Link id='nav-bar-link' to={'/signup'}>
+						Signup
+					</Link>
+				</li>
+
+				<li id='li-right'>
+					<Link id='nav-bar-link' to={'/login'}>
+						Login
+					</Link>
+				</li>
+
+			</ul>
 		)
 	}
+
+	// render(){
+	// 	return (
+	// 		<Grid.Row>
+	// 			<Grid.Column width={16}>
+	// 				<Menu style={{backgroundColor: '#5188B1'}}>
+	// 					<Link className='item' to={this.props.currentUser ? '/lobby' : '/login'}>
+	// 						<img alt='logo' style={{height: '34px', width: '70px', marginRight: '8px', marginTop: '2px'}} src='/drafty-logo.png' />
+	// 					</Link>
+	// 					{
+	// 						this.props.currentUser
+	//
+	// 						?
+	//
+	// 						<Menu.Menu position='right'>
+	// 							<Link id='nav-link' className='item' to='/weatherpeople'>
+	// 								<span style={{textAlign: 'center'}}>Meet the <br/> Weatherpeople</span>
+	// 							</Link>
+  //               <Link id='nav-link' className='item' to={'/history'}>
+  //                 Logged in as: {this.props.currentUser.username} <br/> <br />
+	// 							Balance: {this.calculateBalance()} Flatcoin
+  //               </Link>
+	// 							<Menu.Item id='nav-link' onClick={this.props.logOut}>
+	// 								Log out
+	// 							</Menu.Item>
+	// 						</Menu.Menu>
+	//
+	// 						:
+	//
+	// 						<Menu.Menu position='right' >
+	// 							<Link id='nav-link' className='item' to='/login'>
+	// 								Login
+	// 							</Link>
+	// 							<Link id='nav-link' className='item' to='/signup'>
+	// 								Sign Up
+	// 							</Link>
+	// 						</Menu.Menu>
+	//
+	// 					}
+	// 				</Menu>
+	// 			</Grid.Column>
+	// 		</Grid.Row>
+	// 	)
+	// }
+
+
+
+
 }
 
 function mapStateToProps(state) {
 	return {
-		currentUser: state.user.currentUser,
-		currentDate: state.date.currentDate,
-		contests: state.contests.contests,
-		teams: state.teams.teams,
+		currentUser: state.user.currentUser
 	}
 }
 

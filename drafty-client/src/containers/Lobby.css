@@ -1,0 +1,78 @@
+/********** LOBBY **********/
+.lobby-row {
+  margin-top: 80px;
+  display: flex;
+  width: 100%;
+}
+
+.lobby-col {
+  flex: 50%;
+  padding: 3%;
+}
+
+/********** CONTEST LIST **********/
+.contest-list-container {
+  width: 90%;
+  text-align: center;
+  height: 150%;
+  margin-left: 10%;
+}
+
+.contest-li {
+  display: flex;
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 1px 1px;
+  margin-top: 4%;
+  margin-left: 4%;
+  margin-right: 4%;
+  padding: 5%;
+  background-color: #EFF5F2;
+}
+
+.contest-li-col {
+  flex: 25%;
+  margin: auto;
+  width: 50%;
+}
+
+#enter-draft-button {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background-color: #fbde4a;
+  text-transform: lowercase;
+  font-family: 'Secular One', sans-serif;
+  font-size: 15px;
+  z-index:0;
+  color: #323042;
+}
+
+
+/********** MY TEAMS LIST **********/
+.my-teams-list-container {
+  width: 90%;
+  text-align: center;
+  height: 150%;
+  margin-right: 10%;
+}
+
+.my-teams-li {
+  display: flex;
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 1px 1px;
+  margin-top: 4%;
+  margin-left: 4%;
+  margin-right: 4%;
+  padding: 5%;
+  background-color: #EFF5F2;
+  font-family: 'Secular One', sans-serif;
+}
+
+.my-teams-li-col {
+  flex: 25%;
+}
+
+#my-teams-li-contest-info {
+  margin-left: 18px;
+}

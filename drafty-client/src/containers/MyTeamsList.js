@@ -5,9 +5,7 @@ import { connect } from 'react-redux'
 class MyTeamsList extends React.Component {
 
   renderMyTeams = () => {
-    const myCompleteTeams = this.props.currentUser.current_teams.filter(team => {
-      return team.weatherpeople.length === 3
-    })
+    const myCompleteTeams = this.props.currentUser.current_teams.filter(team => team.weatherpeople.length === 3)
 
     if (myCompleteTeams.length === 0) {
       return (
@@ -16,30 +14,10 @@ class MyTeamsList extends React.Component {
         </div>
       )
     } else {
-      myCompleteTeams.map(team => {
+      return myCompleteTeams.map(team => {
         return <MyTeamsListItem key={team.id} team={team}/>
       })
     }
-
-    //
-    // if (this.props.currentUser.current_teams.length === 0) {
-    //   return (
-    //     <div className='make-a-team' id='secular' style={{marginTop: '50px'}}>
-    //       <center>Make a team...</center>
-    //     </div>
-    //   )
-    // } else {
-    //   const myCompleteTeams = this.props.currentUser.current_teams.filter(team => {
-    //     return team.weatherpeople.length === 3
-    //   })
-    //   return this.props.currentUser.current_teams.map(team => {
-    //     if (team.weatherpeople.length === 3) {
-    //       return <MyTeamsListItem key={team.id} team={team}/>
-    //     } else {
-    //       return null
-    //     }
-    //   })
-    // }
   }
 
   render() {

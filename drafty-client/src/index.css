@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-image: url("/rice-paper.png") */
 }
 
 
@@ -12,6 +13,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+#background-img {
+  background-image: url('/rice-paper.png');
+  background-repeat: repeat;
+  height: 3000px;
+}
+
+
 
 
 /********** GLOBAL **********/
@@ -37,83 +46,96 @@ code {
   vertical-align: middle;
   line-height: 2;
 }
-
-/********** CONTEST ENTRY **********/
-.contest-entry-container {
-  margin: auto;
-  width: 95%;
-  text-align: center;
-  /* border-style: solid; */
-}
-
-.contest-entry-row {
-  display: flex;
-  width: 100%;
-}
-
-.contest-entry-col {
-  flex: 50%;
-  padding: 1%;
-}
-
-.weatherpeople-list-container {
-  border-style: solid;
-  width: 100%;
-  text-align: center;
-  height: 100%;
-  /* margin-left: 10%; */
-}
-
-.my-team-list-container {
-  border-style: solid;
-  width: 100%;
-  text-align: center;
-  height: 100%;
-  /* margin-left: 10%; */
-}
-
-
-.weatherpeople-li {
-  display: flex;
-  border-style: solid;
-  margin-top: 4%;
-  margin-left: 4%;
-  margin-right: 4%;
-  padding: 3%;
-}
-
-.weatherpeople-li-col {
-  flex: 25%
-}
-
-.forecast-box {
-  border-style: solid;
-}
-
-#weatherperson-info {
-  margin-right: 10px;
-}
-
-#draft-button {
-  margin-left: 15px;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
 /********** NAV **********/
+
+/* #beef-nav {
+  z-index: 1;
+} */
 
 #nav-link {
   color: white
 }
+
+ul {
+  height: 9%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-image: url('/egg-shell.png');
+  position: fixed;
+  top: 0;
+  width: 102%;
+  z-index: 3;
+  border-bottom: 4px solid #323042;
+}
+
+li {
+  float: left;
+  height: 100%;
+}
+
+#li-right {
+  float: right;
+}
+
+#center-logo {
+  margin-left: 14.5%;
+  margin-top: -5px;
+  /* align: center; */
+  /* margin: auto; */
+  /* width: 25%; */
+}
+
+#center-logo-logged-out {
+  margin-left: 43%;
+}
+
+#nav-bar-link {
+  height: 100%;
+  display: block;
+  color: #eff5f2;
+  text-align: center;
+  font-size: 18px;
+  padding: 26px 16px;
+  text-decoration: none;
+}
+
+#nav-bar-link:hover:not(.active) {
+  background-color: #323042;
+}
+
+.active {
+  background-color: #323042;
+}
+
 
 
 /********** LOGIN ********/
 
 #login-form, #sign-up-form {
   margin: auto;
-  width: 15%;
+  width: 100%;
   text-align: center;
+  margin-top: 200px;
+  background-color: '#eff5f2';
 }
+
+
+#styled-form {
+  margin: auto;
+  width: 19%;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* #styled-form-label {
+  color: '#323042';
+}
+
+#styled-form-input {
+  background-color: '#eff5f2';
+} */
 
 /********** HISTORY ********/
 
@@ -160,80 +182,6 @@ code {
   text-align: center;
 }
 
-/********** LOBBY **********/
-
-.lobby-row {
-  display: flex;
-  width: 100%;
-}
-
-.lobby-col {
-  flex: 50%;
-  padding: 3%;
-}
-
-.contest-list-container {
-  /* border-style: solid; */
-  /* border: 1px solid;
-  padding: 10px;
-  box-shadow: 1px 1px; */
-  width: 90%;
-  text-align: center;
-  height: 150%;
-  margin-left: 10%;
-}
-
-.my-teams-list-container {
-  /* border: 1px solid;
-  padding: 10px;
-  box-shadow: 1px 1px; */
-  width: 90%;
-  text-align: center;
-  height: 150%;
-  margin-right: 10%;
-}
-
-.contest-li {
-  display: flex;
-  border: 1px solid;
-  padding: 10px;
-  box-shadow: 1px 1px;
-  margin-top: 4%;
-  margin-left: 4%;
-  margin-right: 4%;
-  padding: 5%;
-  background-color: #EFF5F2;
-}
-
-.contest-li-col {
-  flex: 25%;
-  margin: auto;
-  width: 50%;
-}
-
-.my-teams-li {
-  display: flex;
-  /* border-style: solid; */
-  margin-top: 4%;
-  margin-left: 4%;
-  margin-right: 4%;
-  padding: 5%;
-}
-
-.my-teams-li-col {
-  flex: 25%
-}
-
-#enter-draft-button {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  background-color: #b3defc;
-  text-transform: lowercase;
-  font-family: 'Secular One', sans-serif;
-  font-size: 15px;
-}
-
-
 /********** MEET THE WEATHERPEOPLE **********/
 
 .meet-container {
@@ -262,39 +210,14 @@ code {
 }
 
 
-
-
-
-/* body {
-  max-width: 42em;
-  padding: 2em;
-  margin: 0 auto;
-  color: #161616;
-  font-family: 'Roboto', sans-serif;
-  text-align: center;
-  background-color: currentColor;
-} */
-
-/* h1 {
-  margin-bottom: 1.375em;
-  color: #fff;
-  font-weight: 100;
-  font-size: 2em;
-  text-transform: uppercase;
-} */
-/* p,
-a {
-  color: rgba(255,255,255,0.3);
-  font-size: small;
-}
-p { margin: 1.375rem 0; } */
+/********** WEATHERR ICONS **********/
 
 .icon {
   position: relative;
   display: inline-block;
   width: 12em;
   height: 10em;
-  font-size: 3em; /* control icon size here */
+  font-size: 0.3em; /*control size here*/
 }
 
 .cloud {
@@ -314,7 +237,7 @@ p { margin: 1.375rem 0; } */
     -2.1875em 0.6875em 0 -0.3125em #fff,
     2.0625em 0.9375em 0 -0.5625em #fff;
 }
-/* .cloud:after {
+.cloud:after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -324,7 +247,7 @@ p { margin: 1.375rem 0; } */
   height: 1em;
   background: currentColor;
   box-shadow: 0 0.4375em 0 -0.0625em #fff;
-} */
+}
 .cloud:nth-child(2) {
   z-index: 0;
   background: #fff;
@@ -341,6 +264,7 @@ p { margin: 1.375rem 0; } */
 .cloud:nth-child(2):after { background: #fff; }
 
 .sun {
+  color: white;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -396,7 +320,7 @@ p { margin: 1.375rem 0; } */
   width: 3.75em;
   height: 3.75em;
   margin: 0.375em 0 0 -2em;
-  background: #ffffff;
+  background: black;
 }
 
 .rain:after {

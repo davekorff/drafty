@@ -62,7 +62,6 @@ class HistoryCard extends React.Component {
   }
 
   render() {
-    console.log(this.props.contests)
     return (
       <div className="history-card-container">
         <h2>Team {this.props.team.name}</h2>
@@ -103,7 +102,6 @@ class HistoryCard extends React.Component {
 }
 
 function mapStateToProps(state) {
-  console.log('MSTP in HC', state.contests);
   return {
     weatherpeople: state.weatherpeople.weatherpeople,
     contests: state.contests.contests

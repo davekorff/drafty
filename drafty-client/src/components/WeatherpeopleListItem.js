@@ -1,36 +1,77 @@
 import React from 'react'
 import { connect } from 'react-redux'
-
+import Button from '@material-ui/core/Button';
 
 class WeatherpeopleListItem extends React.Component {
 
+  renderWeather = index => {
+    const thisWeeksForecasts = this.props.weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date)
+    // return thisWeeksForecasts[index].predicted_weather
+    console.log(thisWeeksForecasts.map(forecast => forecast.predicted_weather));
 
+    if (thisWeeksForecasts[index].predicted_weather === 'T-storm') {
+      return (
+        <div className="icon thunder-storm">
+          <div className="cloud"></div>
+          <div className="lightning">
+            <div className="bolt"></div>
+            <div className="bolt"></div>
+          </div>
+        </div>
+      )
+    } else if (thisWeeksForecasts[index].predicted_weather === 'Sunny') {
+      return (
+        <div className="icon sunny">
+          <div className="sun">
+            <div className="rays"></div>
+          </div>
+        </div>
+      )
+    } else if (thisWeeksForecasts[index].predicted_weather === 'Cloudy') {
+      return (
+        <div className="icon cloudy">
+          <div className="cloud"></div>
+          <div className="cloud"></div>
+        </div>
+      )
+    } else if (thisWeeksForecasts[index].predicted_weather === 'Rain') {
+      return (
+        <div className="icon rainy">
+          <div className="cloud"></div>
+          <div className="rain"></div>
+        </div>
+      )
+    }
+  }
+
+  renderTemp = index => {
+    const thisWeeksForecasts = this.props.weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date)
+    return thisWeeksForecasts[index].predicted_temp
+  }
+
+  renderDate = index => {
+    const thisWeeksForecasts = this.props.weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date)
+    const date = this.transformDate(thisWeeksForecasts[index].date)
+    return date.slice(0, -5)
+  }
+
+  transformDate = (date) => {
+    let yyyy = date.slice(0,4)
+    let mm = date.slice(5,7)
+    let dd = date.slice(8,10)
+
+    if (mm.slice(0,1) === '0' && dd.slice(0,1) === '0') {
+      return `${mm.slice(1,2)}/${dd.slice(1,2)}/${yyyy}`
+    } else if (mm.slice(0,1) === '0') {
+      return `${mm.slice(1,2)}/${dd}/${yyyy}`
+    } else if (dd.slice(0,1) === '0') {
+      return `${mm}/${dd.slice(1,2)}/${yyyy}`
+    } else {
+      return `${mm}/${dd}/${yyyy}`
+    }
+  }
 
   render() {
-    // console.log(this.props)
-    //TODO: REFACTOR
-    // PUT THE BELOW LOGIC INTO A FUNCTION
-
-    const thisWeeksPredictedForecasts = this.props.weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date)
-
-    const monForecast = thisWeeksPredictedForecasts[0].predicted_weather
-    const tueForecast = thisWeeksPredictedForecasts[1].predicted_weather
-    const wedForecast = thisWeeksPredictedForecasts[2].predicted_weather
-    const thuForecast = thisWeeksPredictedForecasts[3].predicted_weather
-    const friForecast = thisWeeksPredictedForecasts[4].predicted_weather
-
-    const monTemp = thisWeeksPredictedForecasts[0].predicted_temp
-    const tueTemp = thisWeeksPredictedForecasts[1].predicted_temp
-    const wedTemp = thisWeeksPredictedForecasts[2].predicted_temp
-    const thuTemp = thisWeeksPredictedForecasts[3].predicted_temp
-    const friTemp = thisWeeksPredictedForecasts[4].predicted_temp
-
-    const monDate = thisWeeksPredictedForecasts[0].date.slice(5)
-    const tueDate = thisWeeksPredictedForecasts[1].date.slice(5)
-    const wedDate = thisWeeksPredictedForecasts[2].date.slice(5)
-    const thuDate = thisWeeksPredictedForecasts[3].date.slice(5)
-    const friDate = thisWeeksPredictedForecasts[4].date.slice(5)
-
     return (
       <div className='weatherpeople-li'>
         <div id='weatherperson-info' className='weatherpeople-li-col'>
@@ -40,49 +81,49 @@ class WeatherpeopleListItem extends React.Component {
           {this.props.weatherperson.station} <br/>
           {this.props.weatherperson.city}
         </div>
-        <div className='weatherpeople-li-col'>
+        <div id='weatherpeople-li-weather-col' className='weatherpeople-li-col' style={{marginTop: '25px'}}>
           <div className='forecast-box'>
-            {monForecast}
+            {this.renderWeather(0)}
           </div>
-          {monTemp}℉ <br/>
+          {this.renderTemp(0)}℉ <br/>
           mon <br/>
-        {monDate}
+        {this.renderDate(0)}
         </div >
-        <div className='weatherpeople-li-col'>
+        <div id='weatherpeople-li-weather-col' className='weatherpeople-li-col' style={{marginTop: '25px'}}>
           <div className='forecast-box'>
-            {tueForecast}
+            {this.renderWeather(1)}
           </div>
-          {tueTemp}℉ <br/>
+          {this.renderTemp(1)}℉ <br/>
           tue <br/>
-        {tueDate}
+        {this.renderDate(1)}
         </div>
-        <div className='weatherpeople-li-col'>
+        <div id='weatherpeople-li-weather-col' className='weatherpeople-li-col' style={{marginTop: '25px'}}>
           <div className='forecast-box'>
-            {wedForecast}
+            {this.renderWeather(2)}
           </div>
-          {wedTemp}℉ <br/>
+          {this.renderTemp(2)}℉ <br/>
           wed <br/>
-        {wedDate}
+        {this.renderDate(2)}
         </div>
-        <div className='weatherpeople-li-col'>
+        <div id='weatherpeople-li-weather-col' className='weatherpeople-li-col' style={{marginTop: '25px'}}>
           <div className='forecast-box'>
-            {thuForecast}
+            {this.renderWeather(3)}
           </div>
-          {thuTemp}℉ <br/>
+          {this.renderTemp(3)}℉ <br/>
           thu <br/>
-        {thuDate}
+        {this.renderDate(3)}
         </div>
-        <div className='weatherpeople-li-col'>
+        <div id='weatherpeople-li-weather-col' className='weatherpeople-li-col' style={{marginTop: '25px'}}>
           <div className='forecast-box'>
-            {friForecast}
+            {this.renderWeather(4)}
           </div>
-          {friTemp}℉ <br/>
+          {this.renderTemp(4)}℉ <br/>
           fri <br/>
-        {friDate}
+        {this.renderDate(4)}
         </div>
-        <button id='draft-button' className='weatherpeople-li-col' onClick={() => this.props.handleClickDraft(this.props.weatherperson.id)}>
+        <Button style={{height: '50px', marginTop: '55px', marginLeft: '20px'}} variant="contained" size="small" color="primary" id='enter-draft-button' className='weatherpeople-li-col' onClick={() => this.props.handleClickDraft(this.props.weatherperson.id)}>
           Draft
-        </button>
+        </Button>
       </div>
     )
   }

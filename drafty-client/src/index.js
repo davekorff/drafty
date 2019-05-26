@@ -28,9 +28,11 @@ const rootReducer = combineReducers({
 const store = createStore(rootReducer)
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router>
-        <Route path="/" component={App} />
-    </Router>
-  </Provider>,
+  <div id='background-img'>
+    <Provider store={store}>
+      <Router>
+          <Route path="/" component={App} />
+      </Router>
+    </Provider>
+  </div>,
 document.getElementById('root'))

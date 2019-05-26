@@ -71,11 +71,11 @@ end
 
 
 #WEATHERPEOPLE
-Weatherperson.create(name: 'Brick Tamland', station: 'KVWN ch. 4', city: 'NYC', img_url_sm: '/brick-tamland-sm.png', img_url_lg: '/brick-tamland-lg.png')
-Weatherperson.create(name: 'Dusty Storm', station: 'ABC', city: 'NYC', img_url_sm: nil, img_url_lg: nil)
-Weatherperson.create(name: 'April Schauer', station: 'CBS', city: 'NYC', img_url_sm: nil, img_url_lg: nil)
-Weatherperson.create(name: 'Amy Freeze', station: 'FOX', city: 'NYC', img_url_sm: nil, img_url_lg: nil)
-Weatherperson.create(name: 'Hy Lowe', station: 'NBC', city: 'NYC', img_url_sm: nil, img_url_lg: nil)
+Weatherperson.create(name: 'Brick Tamland', station: 'KVWN ch. 4', city: 'New York', img_url_sm: '/brick-tamland-sm.png', img_url_lg: '/brick-tamland-lg.png')
+Weatherperson.create(name: 'Dusty Storm', station: 'ABC', city: 'New York', img_url_sm: '/dusty-storm-sm.png', img_url_lg: '/dusty-storm-lg.jpeg')
+Weatherperson.create(name: 'April Schauer', station: 'CBS', city: 'New York', img_url_sm: '/april-schauer-sm.png', img_url_lg: '/april-schauer-lg.jpg')
+Weatherperson.create(name: 'Amy Freeze', station: 'FOX', city: 'New York', img_url_sm: '/amy-freeze-sm.png', img_url_lg: '/amy-freeze-lg.jpg')
+Weatherperson.create(name: 'Hy Lowe', station: 'NBC', city: 'New York', img_url_sm: '/hy-low-sm.png', img_url_lg: '/hy-low-lg.jpg')
 
 
 #CONTEST 1 DRAFTS
@@ -135,7 +135,7 @@ while i < 22 do
   wp_ids = (1..5).to_a.shuffle
   while j < 3 do
     three_wp_ids = wp_ids[0..2]
-    Draft.create(team_id: i + 45, weatherperson_id: three_wp_ids[j])
+    Draft.create(team_id: i + 66, weatherperson_id: three_wp_ids[j])
     j += 1
   end
   i += 1
@@ -144,7 +144,7 @@ end
 
 ## TODO: ADD  'T-storm'
 
-weather = ['Sunny', 'Cloudy', 'Rain', 'Sunny', 'Cloudy', 'Rain', 'T-storm']
+weather = ['Sunny', 'Cloudy', 'Rain', 'Sunny', 'Cloudy', 'Rain', 'Sunny', 'Sunny', 'Cloudy', 'Sunny', 'Cloudy', 'T-storm']
 temps = (65..80).to_a
 
 #CONTEST 1

@@ -35,15 +35,16 @@ class Login extends React.Component {
 
 		return (
 			<Form id='login-form' onSubmit={this.handleSubmit}>
-		    <Form.Field>
-		      <label>Username</label>
-		      <input onChange={this.handleChange} name='username' value={this.state.username} placeholder='Username' />
+				<img id='drafty-logo-lg' alt='draft-logo-lg' src='/drafty-landing.png' height='300px'/>
+				<Form.Field id='styled-form' style={{marginTop: '50px'}}>
+		      <label style={{color: '#323042', fontFamily: `'Secular One', sans-serif`}}>Username</label>
+		      <input style={{backgroundColor: '#eff5f2'}} onChange={this.handleChange} name='username' value={this.state.username} placeholder='Username' />
 		    </Form.Field>
-		    <Form.Field>
-		      <label>Password</label>
-		      <input onChange={this.handleChange} type='password' name='password' value={this.state.password} placeholder='Password' />
+		    <Form.Field id='styled-form'>
+		      <label style={{color: '#323042', fontFamily: `'Secular One', sans-serif`}}>Password</label>
+		      <input style={{backgroundColor: '#eff5f2'}} onChange={this.handleChange} type='password' name='password' value={this.state.password} placeholder='Password' />
 		    </Form.Field>
-		    <Button type='submit'>Log in</Button>
+		    <Button type='submit' style={{color: '#eff5f2', backgroundColor: '#323042', fontFamily: `'Secular One', sans-serif`}}>Log in</Button>
 		  </Form>
 		)
 	}

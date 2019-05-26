@@ -5,8 +5,8 @@ import { connect } from 'react-redux'
 class MyTeamList extends React.Component {
 
   renderMyTeam = () => {
-    if (this.props.myTeam) {
-      return this.props.myTeam.map(weatherperson => {
+    if (this.props.myWeatherpeople) {
+      return this.props.myWeatherpeople.map(weatherperson => {
         return <MyTeamListItem currentContest={this.props.currentContest} key={weatherperson.id} weatherperson={weatherperson}/>
       })
     }
@@ -17,7 +17,7 @@ class MyTeamList extends React.Component {
 
     return (
       <div className='my-team-list-container'>
-        <h1>My Team</h1>
+        <h1 id='secular'>Your Team</h1>
         {this.renderMyTeam()}
       </div>
     )
