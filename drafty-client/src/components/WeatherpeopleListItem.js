@@ -6,8 +6,6 @@ class WeatherpeopleListItem extends React.Component {
 
   renderWeather = index => {
     const thisWeeksForecasts = this.props.weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date)
-    // return thisWeeksForecasts[index].predicted_weather
-    console.log(thisWeeksForecasts.map(forecast => forecast.predicted_weather));
 
     if (thisWeeksForecasts[index].predicted_weather === 'T-storm') {
       return (

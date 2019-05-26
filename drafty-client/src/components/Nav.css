@@ -1,0 +1,57 @@
+/********** NAV **********/
+#nav-link {
+  color: white
+}
+
+ul {
+  height: 9%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-image: url('/egg-shell.png');
+  position: fixed;
+  top: 0;
+  width: 102%;
+  z-index: 3;
+  border-bottom: 4px solid #323042;
+}
+
+li {
+  float: left;
+  height: 100%;
+}
+
+#li-right {
+  float: right;
+}
+
+#center-logo {
+  margin-left: 14.5%;
+  margin-top: -5px;
+  /* align: center; */
+  /* margin: auto; */
+  /* width: 25%; */
+}
+
+#center-logo-logged-out {
+  margin-left: 43%;
+}
+
+#nav-bar-link {
+  height: 100%;
+  display: block;
+  color: #eff5f2;
+  text-align: center;
+  font-size: 18px;
+  padding: 26px 16px;
+  text-decoration: none;
+}
+
+#nav-bar-link:hover:not(.active) {
+  background-color: #323042;
+}
+
+.active {
+  background-color: #323042;
+}

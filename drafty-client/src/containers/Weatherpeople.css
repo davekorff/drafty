@@ -1,0 +1,24 @@
+/********** MEET THE WEATHERPEOPLE **********/
+.meet-container {
+  border-style: solid;
+  margin: auto;
+  width: 80%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.weatherperson-profile-card {
+  margin: auto;
+  width: 90%;
+  border-style: solid;
+  text-align: center;
+  padding-top: 2%;
+}
+
+.weatherpeople-index {
+  border-style: solid;
+  margin: auto;
+  width: 80%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}

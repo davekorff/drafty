@@ -21,17 +21,20 @@ class MyTeamsListItem extends React.Component {
   render() {
     return (
       <div className='my-teams-li'>
-        <div className='my-teams-li-col'>
-          <img height='85px' alt='wp-thumb' src={this.props.team.weatherpeople[0].img_url_sm ? this.props.team.weatherpeople[0].img_url_sm : 'https://static.thenounproject.com/png/630729-200.png' } /> <br/>
-          {this.props.team.weatherpeople[0].name}
+        <div className='my-teams-li-col' id='my-teams-li-wp'>
+          <img height='95px' alt='wp-thumb' src={this.props.team.weatherpeople[0].img_url_sm} /> <br/>
+          {this.props.team.weatherpeople[0].name}<br/>
+          {this.props.team.weatherpeople[0].station}
         </div>
-        <div className='my-teams-li-col'>
-          <img height='85px' alt='wp-thumb' src={this.props.team.weatherpeople[1].img_url_sm ? this.props.team.weatherpeople[1].img_url_sm : 'https://static.thenounproject.com/png/630729-200.png' } /> <br/>
-          {this.props.team.weatherpeople[1].name}
+        <div className='my-teams-li-col' id='my-teams-li-wp'>
+          <img height='95px' alt='wp-thumb' src={this.props.team.weatherpeople[1].img_url_sm} /> <br/>
+          {this.props.team.weatherpeople[1].name}<br/>
+          {this.props.team.weatherpeople[1].station}
         </div >
-        <div className='my-teams-li-col'>
-          <img height='85px' alt='wp-thumb' src={this.props.team.weatherpeople[2].img_url_sm ? this.props.team.weatherpeople[2].img_url_sm : 'https://static.thenounproject.com/png/630729-200.png' } /> <br/>
-          {this.props.team.weatherpeople[2].name}
+        <div className='my-teams-li-col' id='my-teams-li-wp'>
+          <img height='95px' alt='wp-thumb' src={this.props.team.weatherpeople[2].img_url_sm} /> <br/>
+          {this.props.team.weatherpeople[2].name}<br/>
+          {this.props.team.weatherpeople[2].station}
         </div>
         <div className='my-teams-li-col' id="my-teams-li-contest-info">
           <p style={{fontSize:'18px'}}>{this.props.team.name}</p>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Grid } from 'semantic-ui-react'
 import WeatherpersonProfileCard from '../components/WeatherpersonProfileCard'
-
+import './Weatherpeople.css'
 
 class Weatherpeople extends React.Component {
 

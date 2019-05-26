@@ -8,7 +8,6 @@ body {
   /* background-image: url("/rice-paper.png") */
 }
 
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -20,12 +19,14 @@ code {
   height: 3000px;
 }
 
+#box-shadow {
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 1px 1px;
+}
 
 
-
-/********** GLOBAL **********/
-
-
+/********** FONTS ********/
 #secular {
   font-family: 'Secular One', sans-serif;
 }
@@ -34,85 +35,14 @@ code {
   font-family: 'Assistant', sans-serif;
 }
 
-
-#box-shadow {
-  border: 1px solid;
-  padding: 10px;
-  box-shadow: 1px 1px;
-}
-
 .emoji {
   font-size: 30px;
   vertical-align: middle;
   line-height: 2;
 }
-/********** NAV **********/
-
-/* #beef-nav {
-  z-index: 1;
-} */
-
-#nav-link {
-  color: white
-}
-
-ul {
-  height: 9%;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-image: url('/egg-shell.png');
-  position: fixed;
-  top: 0;
-  width: 102%;
-  z-index: 3;
-  border-bottom: 4px solid #323042;
-}
-
-li {
-  float: left;
-  height: 100%;
-}
-
-#li-right {
-  float: right;
-}
-
-#center-logo {
-  margin-left: 14.5%;
-  margin-top: -5px;
-  /* align: center; */
-  /* margin: auto; */
-  /* width: 25%; */
-}
-
-#center-logo-logged-out {
-  margin-left: 43%;
-}
-
-#nav-bar-link {
-  height: 100%;
-  display: block;
-  color: #eff5f2;
-  text-align: center;
-  font-size: 18px;
-  padding: 26px 16px;
-  text-decoration: none;
-}
-
-#nav-bar-link:hover:not(.active) {
-  background-color: #323042;
-}
-
-.active {
-  background-color: #323042;
-}
 
 
-
-/********** LOGIN ********/
-
+/********** LOGIN/SIGNUP ********/
 #login-form, #sign-up-form {
   margin: auto;
   width: 100%;
@@ -129,89 +59,8 @@ li {
   margin-bottom: 10px;
 }
 
-/* #styled-form-label {
-  color: '#323042';
-}
 
-#styled-form-input {
-  background-color: '#eff5f2';
-} */
-
-/********** HISTORY ********/
-
-.history-container {
-  margin: auto;
-  width: 99%;
-  text-align: center;
-}
-
-.history-card-container {
-  padding-top: 1%;
-  margin-top: 2%;
-  margin-bottom: 4%;
-  border-style: solid;
-  text-align: center;
-}
-
-.history-card-row {
-  display: flex;
-}
-
-.history-card-col {
-  flex: 33.3%
-}
-
-.scorecard-container {
-  border-style: solid;
-  margin-top: 4%;
-  margin-left: 4%;
-  margin-right: 4%;
-  padding: 5%;
-  height: 93%;
-}
-
-.scorecard-row {
-  display: flex;
-}
-
-.scorecard-col {
-  flex: 100%;
-}
-
-#scorecard-score {
-  text-align: center;
-}
-
-/********** MEET THE WEATHERPEOPLE **********/
-
-.meet-container {
-  border-style: solid;
-  margin: auto;
-  width: 80%;
-  padding-top: 1%;
-  padding-bottom: 1%;
-}
-
-
-.weatherperson-profile-card {
-  margin: auto;
-  width: 90%;
-  border-style: solid;
-  text-align: center;
-  padding-top: 2%;
-}
-
-.weatherpeople-index {
-  border-style: solid;
-  margin: auto;
-  width: 80%;
-  padding-top: 1%;
-  padding-bottom: 1%;
-}
-
-
-/********** WEATHERR ICONS **********/
-
+/********** WEATHER ICONS **********/
 .icon {
   position: relative;
   display: inline-block;

@@ -1,6 +1,7 @@
 import React from 'react'
 import HistoryCard from '../components/HistoryCard'
 import uuid from 'uuid'
+import './History.css'
 
 
 class History extends React.Component {
