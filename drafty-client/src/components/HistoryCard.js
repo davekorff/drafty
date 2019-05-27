@@ -10,11 +10,11 @@ class HistoryCard extends React.Component {
     const place = sortedScores ? sortedScores.indexOf(this.props.team.score) + 1 : null
 
     if (place === 1) {
-      return <img height='50px' alt='ribbon' src='1st-place-medal.svg' />
+      return <img height='75px' alt='ribbon' src='1st-place-medal.svg' />
     } else if (place === 2) {
-      return <img height='50px' alt='ribbon' src='2nd-place-medal.svg' />
+      return <img height='75px' alt='ribbon' src='2nd-place-medal.svg' />
     } else if (place === 3) {
-      return <img height='50px' alt='ribbon' src='3rd-place-medal.svg' />
+      return <img height='75px' alt='ribbon' src='3rd-place-medal.svg' />
     } else {
       return <span className='emoji' aria-label='perservering-face' role="img">😣</span>
     }
@@ -79,19 +79,19 @@ class HistoryCard extends React.Component {
 
         <div className='history-card-row'>
           <div  className='history-card-col'>
-            <span id='secular'>Contest:</span><br/>
+            <span id='pacifico' style={{fontSize: '20px'}}>Contest:</span><br/>
             <p>{this.props.team.contest.name}</p>
             <p>Started: {this.transformDate(this.props.team.contest.start_date)}</p>
             Ended: {this.transformDate(this.props.team.contest.end_date)}
           </div>
           <div className='history-card-col'>
-            <span id='secular'>Total Score:</span> <br />
-            {this.props.team.score} points <br />
+            <span id='pacifico' style={{fontSize: '20px'}}>Total Score:</span> <br/>
+            {this.props.team.score} points <br/> <br/>
             {this.renderScoreRibbon()} <br/>
             {this.renderPlacement()} <br/> <br />
           </div>
           <div className='history-card-col'>
-            <p id='secular'>Prize:</p>
+            <p id='pacifico' style={{fontSize: '20px'}}>Prize:</p>
             <p>{this.renderPrize()}/{this.props.team.contest.prize} Flatcoin</p>
           </div>
         </div>
