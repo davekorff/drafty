@@ -31,8 +31,16 @@ code {
   font-family: 'Secular One', sans-serif;
 }
 
+#pacifico {
+  font-family: 'Pacifico', cursive;
+}
+
 #assistant {
   font-family: 'Assistant', sans-serif;
+}
+
+#pacifico {
+  font-family: 'Pacifico', cursive;
 }
 
 .emoji {

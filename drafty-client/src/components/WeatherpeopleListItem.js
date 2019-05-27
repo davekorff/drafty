@@ -129,7 +129,7 @@ class WeatherpeopleListItem extends React.Component {
           fri <br/>
         {this.renderDate(4)}
         </div>
-        <Button style={{height: '50px', marginTop: '55px', marginLeft: '20px'}} variant="contained" size="small" color="primary" id='enter-draft-button' className='weatherpeople-li-col' onClick={() => this.props.handleClickDraft(this.props.weatherperson.id)}>
+        <Button style={{height: '50px', marginTop: '55px', marginLeft: '20px'}} variant="contained" size="small" color="primary" id='draft-button' className='weatherpeople-li-col' onClick={() => this.props.handleClickDraft(this.props.weatherperson.id)}>
           Draft
         </Button>
       </div>
@@ -143,10 +143,4 @@ function mapStateToProps(state) {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    addDraft: draft => dispatch({type: 'ADD_DRAFT', payload: draft})
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(WeatherpeopleListItem)
+export default connect(mapStateToProps)(WeatherpeopleListItem)

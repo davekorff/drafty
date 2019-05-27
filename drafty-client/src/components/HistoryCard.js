@@ -75,7 +75,7 @@ class HistoryCard extends React.Component {
   render() {
     return (
       <div className="history-card-container">
-        <h2 id='secular'>Team {this.props.team.name}</h2>
+        <h2 id='pacifico'>Team {this.props.team.name}</h2>
 
         <div className='history-card-row'>
           <div className='history-card-col'>

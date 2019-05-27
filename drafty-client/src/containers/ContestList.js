@@ -24,7 +24,7 @@ class ContestList extends React.Component {
   render() {
     return (
       <div className='contest-list-container'>
-        <h1 id='secular'>Contests</h1>
+        <h1 id='pacifico'>Contests</h1>
         {this.renderContestList()}
       </div>
     )

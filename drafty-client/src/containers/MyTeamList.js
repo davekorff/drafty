@@ -5,19 +5,21 @@ import { connect } from 'react-redux'
 class MyTeamList extends React.Component {
 
   renderMyTeam = () => {
-    if (this.props.myWeatherpeople) {
+    if (this.props.myWeatherpeople && this.props.myWeatherpeople.length !== 0) {
       return this.props.myWeatherpeople.map(weatherperson => {
         return <MyTeamListItem currentContest={this.props.currentContest} key={weatherperson.id} weatherperson={weatherperson}/>
       })
+    } else if (this.props.myWeatherpeople.length === 0) {
+      return <div style={{marginTop: '40px'}}>Draft somebody...</div>
     }
   }
 
 
   render() {
-
+  console.log(this.props.myWeatherpeople);
     return (
       <div className='my-team-list-container'>
-        <h1 id='secular'>Your Team</h1>
+        <h3 id='pacifico'>Your Team</h3>
         {this.renderMyTeam()}
       </div>
     )

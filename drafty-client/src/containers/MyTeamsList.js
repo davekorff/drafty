@@ -9,7 +9,7 @@ class MyTeamsList extends React.Component {
 
     if (myCompleteTeams.length === 0) {
       return (
-        <div className='make-a-team' id='secular' style={{marginTop: '50px'}}>
+        <div className='make-a-team' style={{marginTop: '50px'}}>
           <center>Make a team...</center>
         </div>
       )
@@ -23,7 +23,7 @@ class MyTeamsList extends React.Component {
   render() {
     return (
       <div className='my-teams-list-container'>
-        <h1 id='secular'>My Teams</h1>
+        <h1 id='pacifico'>My Teams</h1>
         {this.renderMyTeams()}
       </div>
     )

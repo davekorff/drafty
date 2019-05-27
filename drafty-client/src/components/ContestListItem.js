@@ -66,7 +66,7 @@ class ContestListItem extends React.Component {
           {this.props.contest.prize} Flatcoin
         </div >
         <Button variant="contained" size="small" color="primary" id='enter-draft-button' className='contest-li-col' onClick={() => this.handleClickEnterDraft(this.props.contest.id)}>
-          Enter draft
+          View Draft
         </Button>
       </div>
     )

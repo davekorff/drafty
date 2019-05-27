@@ -1,6 +1,3 @@
-// TODO: FIX THIS
-
-
 import React from 'react'
 import { connect } from 'react-redux'
 
@@ -88,7 +85,6 @@ class MyTeamListItem extends React.Component {
 
 
   render() {
-
     return (
       <div className='my-team-li' >
         <div id='my-team-list-wp-info' className='my-team-li-col' style={{fontSize: '14px'}}>

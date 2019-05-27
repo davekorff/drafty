@@ -11,9 +11,10 @@
   border-color: #b6d8f0;
   padding: 10px;
   box-shadow: 1px 1px grey;
-  width: 14%;
+  width: 17%;
   margin: auto;
-  border-radius: 10px;
+  border-radius: 5px;
+  font-family: 'Secular One', sans-serif;
 }
 
 .history-card-container {

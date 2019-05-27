@@ -5,13 +5,13 @@ class WeatherpersonProfileCard extends React.Component {
   render() {
 
     return (
-      <div className='weatherperson-profile-card'>
-          <img height='85px' alt='wp-thumb' src='https://static.thenounproject.com/png/630729-200.png' />
+      <button className='wp-button' onClick={() => this.props.handleProfileClick(this.props.weatherperson.id)}>
+          <img height='85px' alt='wp-thumb' src={this.props.weatherperson.img_url_sm} />
           <br/>
-          name <br/>
-          station <br/>
-          city
-      </div>
+          {this.props.weatherperson.name} <br/>
+          {this.props.weatherperson.station} <br/>
+          {this.props.weatherperson.city}
+      </button>
     )
   }
 }

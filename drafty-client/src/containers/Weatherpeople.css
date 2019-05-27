@@ -1,24 +1,39 @@
 /********** MEET THE WEATHERPEOPLE **********/
 .meet-container {
-  border-style: solid;
-  margin: auto;
-  width: 80%;
-  padding-top: 1%;
-  padding-bottom: 1%;
-}
-
-.weatherperson-profile-card {
+  /* border-style: solid; */
   margin: auto;
   width: 90%;
-  border-style: solid;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  margin-top: 20px;
+}
+
+.wp-button {
+  margin: auto;
+  width: 12em;
+  height: 12em;
   text-align: center;
   padding-top: 2%;
+  box-shadow: 1px 1px grey;
+  border-radius: 10px;
+  border-color: #b6d8f0;
+  background-color: #eff5f2;
+}
+
+#wp-img {
+  width: 45em;
 }
 
 .weatherpeople-index {
-  border-style: solid;
   margin: auto;
-  width: 80%;
+  width: 90%;
   padding-top: 1%;
   padding-bottom: 1%;
+}
+
+
+/********** BIO **********/
+
+.wp-bio {
+  margin-left: 50px;
 }

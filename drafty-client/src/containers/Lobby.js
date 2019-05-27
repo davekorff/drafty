@@ -16,7 +16,6 @@ class Lobby extends React.Component {
       .then(user => this.props.setCurrentUser(user))
   }
 
-
   render() {
     return (
         <div className='lobby-row'>
@@ -30,7 +29,6 @@ class Lobby extends React.Component {
     )
   }
 }
-
 
 function mapStateToProps(state) {
 	return {

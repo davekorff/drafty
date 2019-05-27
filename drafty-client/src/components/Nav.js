@@ -22,7 +22,13 @@ class Nav extends React.Component {
 
 			?
 
-			<ul id='secular'>
+			<ul className='nav-ul' id='secular'>
+
+				<li id='center-logo'>
+					<Link to={'/lobby'}>
+						<img height="75px" alt='drafty-logo' src='/drafty-logo.png'/>
+					</Link>
+				</li>
 
 			  <li>
 					<Link id='nav-bar-link' to={'/lobby'}>
@@ -31,8 +37,8 @@ class Nav extends React.Component {
 				</li>
 
 			  <li>
-					<Link id='nav-bar-link' to={'/history'}>
-						History
+					<Link id='nav-bar-link' to={'/pastteams'}>
+						Past teams
 					</Link>
 				</li>
 
@@ -42,11 +48,7 @@ class Nav extends React.Component {
 					</Link>
 				</li>
 
-			  <li id='center-logo'>
-					<Link to={'/lobby'}>
-						<img height="80px" alt='drafty-logo' src='/drafty-logo.png'/>
-					</Link>
-				</li>
+
 
 			  <li id='li-right'>
 					<Link id='nav-bar-link' to={'/login'} onClick={this.props.logOut}>
@@ -75,7 +77,7 @@ class Nav extends React.Component {
 
 			:
 
-			<ul id='secular'>
+			<ul className='nav-ul' id='secular'>
 				<li id='li-right'>
 					<Link id='nav-bar-link' to={'/signup'}>
 						Signup

@@ -71,12 +71,12 @@ end
 
 
 #WEATHERPEOPLE
-Weatherperson.create(name: 'Brick Tamland', station: 'KVWN ch. 4', city: 'New York', img_url_sm: '/brick-tamland-sm.png', img_url_lg: '/brick-tamland-lg.png')
-Weatherperson.create(name: 'Dusty Storm', station: 'ABC', city: 'New York', img_url_sm: '/dusty-storm-sm.png', img_url_lg: '/dusty-storm-lg.jpeg')
-Weatherperson.create(name: 'April Schauer', station: 'CBS', city: 'New York', img_url_sm: '/april-schauer-sm.png', img_url_lg: '/april-schauer-lg.jpg')
-Weatherperson.create(name: 'Amy Freeze', station: 'FOX', city: 'New York', img_url_sm: '/amy-freeze-sm.png', img_url_lg: '/amy-freeze-lg.jpg')
-Weatherperson.create(name: 'Hy Lowe', station: 'NBC', city: 'New York', img_url_sm: '/hy-low-sm.png', img_url_lg: '/hy-low-lg.jpg')
-Weatherperson.create(name: 'Larry Sprinkle', station: 'PBS', city: 'New York', img_url_sm: '/larry-sprinkle-sm.png', img_url_lg: '/larry-sprinkle-lg.jpg')
+Weatherperson.create(name: 'Brick Tamland', station: 'KVWN ch. 4', city: 'San Diego', img_url_sm: '/brick-tamland-sm.png', img_url_lg: '/brick-tamland-lg.png', bio: 'beef')
+Weatherperson.create(name: 'Dusty Storm', station: 'ABC', city: 'Las Vegas', img_url_sm: '/dusty-storm-sm.png', img_url_lg: '/dusty-storm-lg.jpeg', bio: 'beef')
+Weatherperson.create(name: 'April Schauer', station: 'CBS', city: 'New York', img_url_sm: '/april-schauer-sm.png', img_url_lg: '/april-schauer-lg.jpg', bio: 'beef')
+Weatherperson.create(name: 'Amy Freeze', station: 'FOX', city: 'Chicago', img_url_sm: '/amy-freeze-sm.png', img_url_lg: '/amy-freeze-lg.jpg', bio: 'beef')
+Weatherperson.create(name: 'Hy Lowe', station: 'NBC', city: 'Miami', img_url_sm: '/hy-low-sm.png', img_url_lg: '/hy-low-lg.jpg', bio: 'beef')
+Weatherperson.create(name: 'Larry Sprinkle', station: 'KCPY', city: 'Los Angeles', img_url_sm: '/larry-sprinkle-sm.png', img_url_lg: '/larry-sprinkle-lg.jpg', bio: 'beef')
 
 
 #CONTEST 1 DRAFTS

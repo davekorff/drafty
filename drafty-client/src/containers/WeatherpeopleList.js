@@ -13,7 +13,7 @@ class WeatherpeopleList extends React.Component {
     })
 
     if (team) {
-      if (this.props.undraftedWeatherpeople.length > 2) {
+      if (this.props.undraftedWeatherpeople.length > 3) {
         fetch('http://localhost:3000/api/v1/drafts', {
           method: 'POST',
           headers: {
@@ -43,7 +43,7 @@ class WeatherpeopleList extends React.Component {
   render() {
     return (
       <div className='weatherpeople-list-container'>
-        <h1 id='secular'>Weatherpeople</h1>
+        <h3 id='secular'>Weatherpeople</h3>
         {this.props.undraftedWeatherpeople ? this.props.undraftedWeatherpeople.map(weatherperson => <WeatherpeopleListItem handleClickDraft={this.handleClickDraft} key={weatherperson.id} weatherperson={weatherperson} currentUser={this.props.currentUser} />) : <div>LOADING...</div>}
       </div>
     )

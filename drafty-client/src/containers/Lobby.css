@@ -27,7 +27,9 @@
   margin-left: 4%;
   margin-right: 4%;
   padding: 5%;
-  background-color: #EFF5F2;
+  background-image: url('/sandpaper.png');
+  border-color: #eff5f2;
+  border-radius: 5px;
 }
 
 .contest-li-col {
@@ -40,8 +42,8 @@
   margin-top: 15px;
   margin-bottom: 15px;
   background-color: #fbde4a;
-  text-transform: lowercase;
-  font-family: 'Secular One', sans-serif;
+  text-transform: none;
+  font-family: 'Pacifico', cursive;
   font-size: 15px;
   z-index:0;
   color: #323042;
@@ -64,8 +66,10 @@
   margin-top: 4%;
   margin-left: 4%;
   margin-right: 4%;
-  padding: 5%;
-  background-color: #EFF5F2;
+  padding: 4%;
+  background-image: url('/sandpaper.png');
+  border-color: #eff5f2;
+  border-radius: 5px;
   font-family: 'Secular One', sans-serif;
 }
 
