@@ -49,6 +49,12 @@ class MyTeamListItem extends React.Component {
     }
   }
 
+  renderWeatherString = index => {
+    const weatherperson = this.props.weatherpeople.find(weatherperson => weatherperson.id === this.props.weatherperson.id)
+    const thisWeeksForecasts = weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date)
+    return thisWeeksForecasts[index].predicted_weather.toLowerCase()
+  }
+
   renderTemp = index => {
     const weatherperson = this.props.weatherpeople.find(weatherperson => weatherperson.id === this.props.weatherperson.id)
     const thisWeeksForecasts = weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date)
@@ -95,6 +101,7 @@ class MyTeamListItem extends React.Component {
           <div className='forecast-box'>
             {this.renderWeather(0)}
           </div>
+          {this.renderWeatherString(0)}<br/>
           {this.renderTemp(0)}℉ <br/>
           mon <br/>
         {this.renderDate(0)}
@@ -103,6 +110,7 @@ class MyTeamListItem extends React.Component {
           <div className='forecast-box'>
             {this.renderWeather(1)}
           </div>
+          {this.renderWeatherString(1)}<br/>
           {this.renderTemp(1)}℉ <br/>
           tue <br/>
         {this.renderDate(1)}
@@ -111,6 +119,7 @@ class MyTeamListItem extends React.Component {
           <div className='forecast-box'>
             {this.renderWeather(2)}
           </div>
+          {this.renderWeatherString(2)}<br/>
           {this.renderTemp(2)}℉ <br/>
           wed <br/>
         {this.renderDate(2)}
@@ -119,6 +128,7 @@ class MyTeamListItem extends React.Component {
           <div className='forecast-box'>
             {this.renderWeather(3)}
           </div>
+          {this.renderWeatherString(3)}<br/>
           {this.renderTemp(3)}℉ <br/>
           thu <br/>
         {this.renderDate(3)}
@@ -127,6 +137,7 @@ class MyTeamListItem extends React.Component {
           <div className='forecast-box'>
             {this.renderWeather(4)}
           </div>
+          {this.renderWeatherString(4)}<br/>
           {this.renderTemp(4)}℉ <br/>
           fri <br/>
         {this.renderDate(4)}

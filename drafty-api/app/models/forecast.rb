@@ -9,7 +9,7 @@ class Forecast < ApplicationRecord
       if self.predicted_weather == self.actual_weather
         weather_score = 50
       else
-        weather_score = -10
+        weather_score = 0
       end
 
       weather_score - temp_score

@@ -1,5 +1,5 @@
 class ContestSerializer < ActiveModel::Serializer
-  attributes :id, :name, :start_date, :end_date, :prize, :high_score
+  attributes :id, :name, :start_date, :end_date, :prize, :high_score, :sorted_scores
   #
   #
   # def team_count
@@ -11,4 +11,9 @@ class ContestSerializer < ActiveModel::Serializer
   # end
   # has_many :teams
   # has_many :users, through: :teams
+
+
+  def sorted_scores
+    self.object.teams.map {|team| team.score}.sort.reverse
+  end
 end

@@ -53,7 +53,7 @@ class ContestEntry extends React.Component {
 
       <div className='contest-entry-container'>
         <h1 id='secular'>Drafting for: {this.props.currentContest.name}</h1>
-        <h1 id='secular'>{this.props.currentTeam.name}</h1>
+        <h1 id='secular'>Team {this.props.currentTeam.name}</h1>
           <div className='contest-entry-row'>
             <div className='contest-entry-col'>
               <WeatherpeopleList {...this.props.routeProps} undraftedWeatherpeople={this.state.undraftedWeatherpeople} removeFromUndrafted={this.removeFromUndrafted} addToMyTeam={this.addToMyTeam} currentUser={this.props.currentUser}/>

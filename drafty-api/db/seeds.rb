@@ -47,7 +47,7 @@ i = 0
 uids = (1..22).to_a.shuffle
 while i < 22 do
   uid = uids.pop
-  Team.create(name: Faker::Kpop.i_groups, user_id: uid, contest_id: 2)
+  Team.create(name: Faker::Kpop.ii_groups, user_id: uid, contest_id: 2)
   i += 1
 end
 
@@ -56,7 +56,7 @@ i = 0
 uids = (1..22).to_a.shuffle
 while i < 22 do
   uid = uids.pop
-  Team.create(name: Faker::Kpop.i_groups, user_id: uid, contest_id: 3)
+  Team.create(name: Faker::Kpop.iii_groups, user_id: uid, contest_id: 3)
   i += 1
 end
 
@@ -65,7 +65,7 @@ i = 0
 uids = (1..22).to_a.shuffle
 while i < 22 do
   uid = uids.pop
-  Team.create(name: Faker::Kpop.i_groups, user_id: uid, contest_id: 4)
+  Team.create(name: Faker::Kpop.girl_groups, user_id: uid, contest_id: 4)
   i += 1
 end
 
@@ -76,6 +76,7 @@ Weatherperson.create(name: 'Dusty Storm', station: 'ABC', city: 'New York', img_
 Weatherperson.create(name: 'April Schauer', station: 'CBS', city: 'New York', img_url_sm: '/april-schauer-sm.png', img_url_lg: '/april-schauer-lg.jpg')
 Weatherperson.create(name: 'Amy Freeze', station: 'FOX', city: 'New York', img_url_sm: '/amy-freeze-sm.png', img_url_lg: '/amy-freeze-lg.jpg')
 Weatherperson.create(name: 'Hy Lowe', station: 'NBC', city: 'New York', img_url_sm: '/hy-low-sm.png', img_url_lg: '/hy-low-lg.jpg')
+Weatherperson.create(name: 'Larry Sprinkle', station: 'PBS', city: 'New York', img_url_sm: '/larry-sprinkle-sm.png', img_url_lg: '/larry-sprinkle-lg.jpg')
 
 
 #CONTEST 1 DRAFTS
@@ -85,7 +86,7 @@ team_ids = (1..22).to_a.shuffle
 while i < 22 do
   j = 0
   team_id = team_ids.pop
-  wp_ids = (1..5).to_a.shuffle
+  wp_ids = (1..6).to_a.shuffle
   while j < 3 do
     three_wp_ids = wp_ids[0..2]
     Draft.create(team_id: i + 1, weatherperson_id: three_wp_ids[j])
@@ -101,7 +102,7 @@ team_ids = (23..44).to_a.shuffle
 while i < 22 do
   j = 0
   team_id = team_ids.pop
-  wp_ids = (1..5).to_a.shuffle
+  wp_ids = (1..6).to_a.shuffle
   while j < 3 do
     three_wp_ids = wp_ids[0..2]
     Draft.create(team_id: i + 23, weatherperson_id: three_wp_ids[j])
@@ -117,7 +118,7 @@ team_ids = (45..66).to_a.shuffle
 while i < 22 do
   j = 0
   team_id = team_ids.pop
-  wp_ids = (1..5).to_a.shuffle
+  wp_ids = (1..6).to_a.shuffle
   while j < 3 do
     three_wp_ids = wp_ids[0..2]
     Draft.create(team_id: i + 45, weatherperson_id: three_wp_ids[j])
@@ -132,7 +133,7 @@ team_ids = (66..87).to_a.shuffle
 while i < 22 do
   j = 0
   team_id = team_ids.pop
-  wp_ids = (1..5).to_a.shuffle
+  wp_ids = (1..6).to_a.shuffle
   while j < 3 do
     three_wp_ids = wp_ids[0..2]
     Draft.create(team_id: i + 66, weatherperson_id: three_wp_ids[j])
@@ -144,7 +145,7 @@ end
 
 ## TODO: ADD  'T-storm'
 
-weather = ['Sunny', 'Cloudy', 'Rain', 'Sunny', 'Cloudy', 'Rain', 'Sunny', 'Sunny', 'Cloudy', 'Sunny', 'Cloudy', 'T-storm']
+weather = ['Sunny', 'Cloudy', 'Rain', 'Sunny', 'Cloudy', 'Rain', 'Sunny', 'Cloudy', 'T-storm']
 temps = (65..80).to_a
 
 #CONTEST 1
@@ -153,26 +154,31 @@ Forecast.create(weatherperson_id: 2, date: '2019-05-06', predicted_temp: temps.s
 Forecast.create(weatherperson_id: 3, date: '2019-05-06', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-05-06', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-05-06', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-05-06', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-05-07', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-05-07', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-05-07', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-05-07', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-05-07', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-05-07', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-05-08', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-05-08', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-05-08', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-05-08', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-05-08', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-05-08', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-05-09', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-05-09', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-05-09', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-05-09', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-05-09', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-05-09', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-05-10', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-05-10', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-05-10', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-05-10', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-05-10', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-05-10', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 
 #CONTEST 2
 Forecast.create(weatherperson_id: 1, date: '2019-05-13', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
@@ -180,26 +186,31 @@ Forecast.create(weatherperson_id: 2, date: '2019-05-13', predicted_temp: temps.s
 Forecast.create(weatherperson_id: 3, date: '2019-05-13', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-05-13', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-05-13', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-05-13', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-05-14', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-05-14', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-05-14', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-05-14', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-05-14', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-05-14', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-05-15', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-05-15', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-05-15', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-05-15', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-05-15', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-05-15', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-05-16', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-05-16', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-05-16', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-05-16', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-05-16', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-05-16', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-05-17', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-05-17', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-05-17', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-05-17', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-05-17', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-05-17', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 
 #CONTEST 3
 Forecast.create(weatherperson_id: 1, date: '2019-05-20', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
@@ -207,26 +218,31 @@ Forecast.create(weatherperson_id: 2, date: '2019-05-20', predicted_temp: temps.s
 Forecast.create(weatherperson_id: 3, date: '2019-05-20', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-05-20', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-05-20', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-05-20', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-05-21', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-05-21', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-05-21', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-05-21', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-05-21', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-05-21', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-05-22', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-05-22', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-05-22', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-05-22', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-05-22', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-05-22', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-05-23', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-05-23', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-05-23', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-05-23', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-05-23', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-05-23', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-05-24', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-05-24', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-05-24', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-05-24', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-05-24', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-05-24', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 
 
 #CONTEST 4
@@ -235,26 +251,31 @@ Forecast.create(weatherperson_id: 2, date: '2019-05-27', predicted_temp: temps.s
 Forecast.create(weatherperson_id: 3, date: '2019-05-27', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-05-27', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-05-27', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-05-27', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-05-28', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-05-28', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-05-28', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-05-28', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-05-28', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-05-28', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-05-29', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-05-29', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-05-29', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-05-29', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-05-29', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-05-29', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-05-30', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-05-30', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-05-30', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-05-30', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-05-30', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-05-30', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-05-31', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-05-31', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-05-31', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-05-31', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-05-31', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-05-31', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 
 
 
@@ -264,26 +285,31 @@ Forecast.create(weatherperson_id: 2, date: '2019-06-03', predicted_temp: temps.s
 Forecast.create(weatherperson_id: 3, date: '2019-06-03', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-06-03', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-06-03', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-06-03', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-06-04', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-06-04', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-06-04', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-06-04', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-06-04', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-06-04', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-06-05', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-06-05', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-06-05', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-06-05', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-06-05', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-06-05', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-06-06', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-06-06', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-06-06', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-06-06', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-06-06', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-06-06', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-06-07', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-06-07', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-06-07', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-06-07', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-06-07', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-06-07', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 
 #CONTEST 6
 Forecast.create(weatherperson_id: 1, date: '2019-06-10', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
@@ -291,26 +317,31 @@ Forecast.create(weatherperson_id: 2, date: '2019-06-10', predicted_temp: temps.s
 Forecast.create(weatherperson_id: 3, date: '2019-06-10', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-06-10', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-06-10', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-06-10', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-06-11', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-06-11', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-06-11', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-06-11', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-06-11', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-06-11', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-06-12', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-06-12', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-06-12', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-06-12', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-06-12', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-06-12', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-06-13', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-06-13', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-06-13', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-06-13', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-06-13', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-06-13', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-06-14', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-06-14', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-06-14', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-06-14', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-06-14', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-06-14', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 
 #CONTEST 7
 Forecast.create(weatherperson_id: 1, date: '2019-06-17', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
@@ -318,26 +349,31 @@ Forecast.create(weatherperson_id: 2, date: '2019-06-17', predicted_temp: temps.s
 Forecast.create(weatherperson_id: 3, date: '2019-06-17', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-06-17', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-06-17', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-06-17', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-06-18', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-06-18', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-06-18', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-06-18', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-06-18', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-06-18', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-06-19', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-06-19', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-06-19', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-06-19', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-06-19', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-06-19', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-06-20', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-06-20', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-06-20', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-06-20', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-06-20', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-06-20', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 1, date: '2019-06-21', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-06-21', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-06-21', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 4, date: '2019-06-21', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-06-21', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+Forecast.create(weatherperson_id: 6, date: '2019-06-21', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 
 
 # UPDATE CONTEST 1 WITH ACTUAL TEMPS

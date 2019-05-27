@@ -21,8 +21,8 @@
   background-color: black;
 }
 
-/********** WEATHERPEOPLE LIST **********/
 
+/********** WEATHERPEOPLE LIST **********/
 .weatherpeople-list-container {
   width: 100%;
   text-align: center;
@@ -48,7 +48,7 @@
 #weatherpeople-li-weather-col {
   border: 1px solid;
   margin: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   box-shadow: 1px 1px;
 }
 

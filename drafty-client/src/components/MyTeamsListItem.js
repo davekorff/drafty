@@ -37,7 +37,7 @@ class MyTeamsListItem extends React.Component {
           {this.props.team.weatherpeople[2].station}
         </div>
         <div className='my-teams-li-col' id="my-teams-li-contest-info">
-          <p style={{fontSize:'18px'}}>{this.props.team.name}</p>
+          <p style={{fontSize:'18px'}}> Team {this.props.team.name}</p>
           {this.props.team.contest.name}
           <p>Prize: {this.props.team.contest.prize}</p>
           Starts: {this.transformDate(this.props.team.contest.start_date).slice(0, -5)}<br/>

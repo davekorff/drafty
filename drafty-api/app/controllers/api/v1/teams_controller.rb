@@ -12,7 +12,7 @@ class Api::V1::TeamsController < ApplicationController
 	end
 
 	def create
-		team = Team.create(user_id: params[:user_id], contest_id: params[:contest_id], name: Faker::Kpop.i_groups)
+		team = Team.create(user_id: params[:user_id], contest_id: params[:contest_id], name: Faker::Kpop.boy_bands)
 
 		render json: team
 	end
