@@ -1,6 +1,7 @@
 import React from 'react'
 import Scorecard from './Scorecard'
 import { connect } from 'react-redux'
+import CountUp from 'react-countup';
 
 class HistoryCard extends React.Component {
 
@@ -86,7 +87,7 @@ class HistoryCard extends React.Component {
           </div>
           <div className='history-card-col'>
             <span id='pacifico' style={{fontSize: '20px'}}>Total Score:</span> <br/>
-            {this.props.team.score} points <br/> <br/>
+            <CountUp start={0} end={this.props.team.score}/> points <br/> <br/>
             {this.renderScoreRibbon()} <br/>
             {this.renderPlacement()} <br/> <br />
           </div>

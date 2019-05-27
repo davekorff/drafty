@@ -1,5 +1,6 @@
 import React from 'react'
 import { renderThunderstormIcon, renderRainIcon, renderSunnyIcon, renderCloudyIcon } from './WeatherIcons'
+import CountUp from 'react-countup';
 
 class Scorecard extends React.Component {
 
@@ -201,7 +202,7 @@ class Scorecard extends React.Component {
         </div>
         <br/>
         <div className='scorecard-col'>
-          <div style={{marginTop: '-10px'}} >Score: {this.renderTeamScore()}</div>
+          <div style={{marginTop: '-10px'}} >Score: <CountUp start={0} end={this.renderTeamScore()} /></div>
         </div>
       </div>
 
