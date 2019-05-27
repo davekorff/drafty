@@ -140,9 +140,10 @@ class Scorecard extends React.Component {
             {this.props.weatherperson.station} - {this.props.weatherperson.city}
           </div>
           <br/>
-          5-Day Forecast
+          <div style={{marginTop: '-10px'}} >5-Day Forecast</div>
           <div className='scorecard-row'>
           <div className='scorecard-col'>
+            <div id='scorecard-col-forecast'>
             <div className='forecast-box'>
               {this.renderPredictedWeather(0)}
             </div>
@@ -151,7 +152,9 @@ class Scorecard extends React.Component {
             mon <br/>
           {this.transformDate(this.state.forecasts[0].date).slice(0, -5)}
           </div>
+          </div>
           <div className='scorecard-col'>
+            <div id='scorecard-col-forecast'>
             <div className='forecast-box'>
               {this.renderPredictedWeather(1)}
             </div>
@@ -160,7 +163,9 @@ class Scorecard extends React.Component {
             tue <br/>
           {this.transformDate(this.state.forecasts[1].date).slice(0, -5)}
           </div>
+          </div>
           <div className='scorecard-col'>
+            <div id='scorecard-col-forecast'>
             <div className='forecast-box'>
               {this.renderPredictedWeather(2)}
             </div>
@@ -169,7 +174,9 @@ class Scorecard extends React.Component {
             wed <br/>
           {this.transformDate(this.state.forecasts[2].date).slice(0, -5)}
           </div>
+          </div>
           <div className='scorecard-col'>
+            <div id='scorecard-col-forecast'>
             <div className='forecast-box'>
               {this.renderPredictedWeather(3)}
             </div>
@@ -178,7 +185,9 @@ class Scorecard extends React.Component {
             thu <br/>
           {this.transformDate(this.state.forecasts[3].date).slice(0, -5)}
           </div>
+          </div>
           <div className='scorecard-col'>
+            <div id='scorecard-col-forecast'>
             <div className='forecast-box'>
               {this.renderPredictedWeather(4)}
             </div>
@@ -187,49 +196,60 @@ class Scorecard extends React.Component {
             fri <br/>
           {this.transformDate(this.state.forecasts[4].date).slice(0, -5)}
           </div>
+          </div>
         </div>
         <br/>
-        Actual Weather
+        <div style={{marginTop: '-10px'}} >Actual Weather</div>
         <div id='actual-weather' className='scorecard-row'>
           <div className='scorecard-col'>
+            <div id='scorecard-col-forecast'>
             <div className='forecast-box'>
               {this.renderActualWeather(0)}
             </div>
             {this.renderActualWeatherString(0)}<br/>
             {this.state.forecasts[0].actual_temp}℉ <br/>
-          </div>
+        </div>
+        </div>
           <div className='scorecard-col'>
+            <div id='scorecard-col-forecast'>
             <div className='forecast-box'>
               {this.renderActualWeather(1)}
             </div>
             {this.renderActualWeatherString(1)}<br/>
             {this.state.forecasts[1].actual_temp}℉ <br/>
-          </div>
+        </div>
+        </div>
           <div className='scorecard-col'>
+            <div id='scorecard-col-forecast'>
             <div className='forecast-box'>
               {this.renderActualWeather(2)}
             </div>
             {this.renderActualWeatherString(2)}<br/>
             {this.state.forecasts[2].actual_temp}℉ <br/>
-          </div>
+        </div>
+        </div>
           <div className='scorecard-col'>
+            <div id='scorecard-col-forecast'>
             <div className='forecast-box'>
               {this.renderActualWeather(3)}
             </div>
             {this.renderActualWeatherString(3)}<br/>
             {this.state.forecasts[3].actual_temp}℉ <br/>
-          </div>
+        </div>
+        </div>
           <div className='scorecard-col'>
+            <div id='scorecard-col-forecast'>
             <div className='forecast-box'>
               {this.renderActualWeather(4)}
             </div>
             {this.renderActualWeatherString(4)}<br/>
             {this.state.forecasts[4].actual_temp}℉ <br/>
-          </div>
+        </div>
+        </div>
         </div>
         <br/>
         <div className='scorecard-col'>
-          Score: {this.renderTeamScore()}
+          <div style={{marginTop: '-10px'}} >Score: {this.renderTeamScore()}</div>
         </div>
       </div>
 

@@ -78,7 +78,7 @@ class HistoryCard extends React.Component {
         <h2 id='pacifico'>Team {this.props.team.name}</h2>
 
         <div className='history-card-row'>
-          <div className='history-card-col'>
+          <div  className='history-card-col'>
             <span id='secular'>Contest:</span><br/>
             <p>{this.props.team.contest.name}</p>
             <p>Started: {this.transformDate(this.props.team.contest.start_date)}</p>
@@ -86,7 +86,7 @@ class HistoryCard extends React.Component {
           </div>
           <div className='history-card-col'>
             <span id='secular'>Total Score:</span> <br />
-            {this.props.team.score} points <br /> <br/>
+            {this.props.team.score} points <br />
             {this.renderScoreRibbon()} <br/>
             {this.renderPlacement()} <br/> <br />
           </div>
@@ -96,7 +96,7 @@ class HistoryCard extends React.Component {
           </div>
         </div>
 
-        <div className='history-card-row'>
+        <div style={{marginTop: '-30px'}} className='history-card-row'>
           <div className='history-card-col'>
             <Scorecard currentContest={this.props.team.contest} weatherperson={this.props.team.weatherpeople[0]}/>
           </div>

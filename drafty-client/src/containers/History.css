@@ -3,7 +3,7 @@
   margin: auto;
   width: 90%;
   text-align: center;
-  margin-top: 8%;
+  margin-top: 6.5%;
 }
 
 #team-history-label {
@@ -19,11 +19,10 @@
 
 .history-card-container {
   padding-top: 1%;
-  margin-top: 3%;
+  margin-top: 1%;
   margin-bottom: 4%;
   text-align: center;
   background-image: url('/rice-paper.png');
-  height: 58em;
   border-radius: 10px;
   border: 1px solid;
   border-color: #b6d8f0;
@@ -47,7 +46,8 @@
   margin-left: 4%;
   margin-right: 4%;
   padding: 5%;
-  height: 100%;
+  padding-top: 3%;
+  padding-bottom: 3%;
   background-image: url('/sandpaper.png');
   border-color: #eff5f2;
   border-radius: 5px;
@@ -60,6 +60,15 @@
 .scorecard-col {
   flex: 100%;
 }
+
+#scorecard-col-forecast {
+  border: 1px solid;
+  margin: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+
 
 #scorecard-score {
   text-align: center;
