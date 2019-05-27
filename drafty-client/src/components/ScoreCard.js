@@ -1,4 +1,5 @@
 import React from 'react'
+import { renderThunderstormIcon, renderRainIcon, renderSunnyIcon, renderCloudyIcon } from './WeatherIcons'
 
 class Scorecard extends React.Component {
 
@@ -16,87 +17,36 @@ class Scorecard extends React.Component {
       }))
   }
 
-
   renderTeamScore = () => {
-    const teamScore = this.state.forecasts ? this.state.forecasts.reduce((a, b) => {
-      return {
-        score: a.score + b.score
-      }
-    }) : null
-
-    return teamScore.score
+    if (this.state.forecasts) {
+      const teamScore = this.state.forecasts.reduce((a, b) => {
+        return { score: a.score + b.score }
+      })
+      return teamScore.score
+    }
   }
-
 
   renderPredictedWeather = index => {
     if (this.state.forecasts[index].predicted_weather === 'T-storm') {
-      return (
-        <div className="icon thunder-storm">
-          <div className="cloud"></div>
-          <div className="lightning">
-            <div className="bolt"></div>
-            <div className="bolt"></div>
-          </div>
-        </div>
-      )
+      return renderThunderstormIcon()
     } else if (this.state.forecasts[index].predicted_weather === 'Sunny') {
-      return (
-        <div className="icon sunny">
-          <div className="sun">
-            <div className="rays"></div>
-          </div>
-        </div>
-      )
+      return renderSunnyIcon()
     } else if (this.state.forecasts[index].predicted_weather === 'Cloudy') {
-      return (
-        <div className="icon cloudy">
-          <div className="cloud"></div>
-          <div className="cloud"></div>
-        </div>
-      )
+      return renderCloudyIcon()
     } else if (this.state.forecasts[index].predicted_weather === 'Rain') {
-      return (
-        <div className="icon rainy">
-          <div className="cloud"></div>
-          <div className="rain"></div>
-        </div>
-      )
+      return renderRainIcon()
     }
   }
 
   renderActualWeather = index => {
     if (this.state.forecasts[index].actual_weather === 'T-storm') {
-      return (
-        <div className="icon thunder-storm">
-          <div className="cloud"></div>
-          <div className="lightning">
-            <div className="bolt"></div>
-            <div className="bolt"></div>
-          </div>
-        </div>
-      )
+      return renderThunderstormIcon()
     } else if (this.state.forecasts[index].actual_weather === 'Sunny') {
-      return (
-        <div className="icon sunny">
-          <div className="sun">
-            <div className="rays"></div>
-          </div>
-        </div>
-      )
+      return renderSunnyIcon()
     } else if (this.state.forecasts[index].actual_weather === 'Cloudy') {
-      return (
-        <div className="icon cloudy">
-          <div className="cloud"></div>
-          <div className="cloud"></div>
-        </div>
-      )
+      return renderCloudyIcon()
     } else if (this.state.forecasts[index].actual_weather === 'Rain') {
-      return (
-        <div className="icon rainy">
-          <div className="cloud"></div>
-          <div className="rain"></div>
-        </div>
-      )
+      return renderRainIcon()
     }
   }
 
@@ -133,15 +83,17 @@ class Scorecard extends React.Component {
       ?
 
       <div className='scorecard-container'>
-          <div className='scorecard-col'>
-            <img height='85px' alt='wp-thumb' src={this.props.weatherperson.img_url_sm ? this.props.weatherperson.img_url_sm : 'https://static.thenounproject.com/png/630729-200.png' } />
-            <br/>
-            <span id="secular">{this.props.weatherperson.name}</span><br/>
-            {this.props.weatherperson.station} - {this.props.weatherperson.city}
-          </div>
+        <div className='scorecard-col'>
+          <img height='85px' alt='wp-thumb' src={this.props.weatherperson.img_url_sm ? this.props.weatherperson.img_url_sm : 'https://static.thenounproject.com/png/630729-200.png' } />
           <br/>
-          <div style={{marginTop: '-10px'}} >5-Day Forecast</div>
-          <div className='scorecard-row'>
+          <span id="secular">{this.props.weatherperson.name}</span><br/>
+          {this.props.weatherperson.station} - {this.props.weatherperson.city}
+        </div>
+        <br/>
+        <div style={{marginTop: '-10px'}} >
+          5-Day Forecast
+        </div>
+        <div className='scorecard-row'>
           <div className='scorecard-col'>
             <div id='scorecard-col-forecast'>
             <div className='forecast-box'>
@@ -150,8 +102,8 @@ class Scorecard extends React.Component {
             {this.renderPredictedWeatherString(0)}<br/>
             {this.state.forecasts[0].predicted_temp}℉ <br/>
             mon <br/>
-          {this.transformDate(this.state.forecasts[0].date).slice(0, -5)}
-          </div>
+            {this.transformDate(this.state.forecasts[0].date).slice(0, -5)}
+            </div>
           </div>
           <div className='scorecard-col'>
             <div id='scorecard-col-forecast'>
@@ -161,8 +113,8 @@ class Scorecard extends React.Component {
             {this.renderPredictedWeatherString(1)}<br/>
             {this.state.forecasts[1].predicted_temp}℉ <br/>
             tue <br/>
-          {this.transformDate(this.state.forecasts[1].date).slice(0, -5)}
-          </div>
+            {this.transformDate(this.state.forecasts[1].date).slice(0, -5)}
+            </div>
           </div>
           <div className='scorecard-col'>
             <div id='scorecard-col-forecast'>
@@ -172,8 +124,8 @@ class Scorecard extends React.Component {
             {this.renderPredictedWeatherString(2)}<br/>
             {this.state.forecasts[2].predicted_temp}℉ <br/>
             wed <br/>
-          {this.transformDate(this.state.forecasts[2].date).slice(0, -5)}
-          </div>
+            {this.transformDate(this.state.forecasts[2].date).slice(0, -5)}
+            </div>
           </div>
           <div className='scorecard-col'>
             <div id='scorecard-col-forecast'>
@@ -183,8 +135,8 @@ class Scorecard extends React.Component {
             {this.renderPredictedWeatherString(3)}<br/>
             {this.state.forecasts[3].predicted_temp}℉ <br/>
             thu <br/>
-          {this.transformDate(this.state.forecasts[3].date).slice(0, -5)}
-          </div>
+            {this.transformDate(this.state.forecasts[3].date).slice(0, -5)}
+            </div>
           </div>
           <div className='scorecard-col'>
             <div id='scorecard-col-forecast'>
@@ -194,8 +146,8 @@ class Scorecard extends React.Component {
             {this.renderPredictedWeatherString(4)}<br/>
             {this.state.forecasts[4].predicted_temp}℉ <br/>
             fri <br/>
-          {this.transformDate(this.state.forecasts[4].date).slice(0, -5)}
-          </div>
+            {this.transformDate(this.state.forecasts[4].date).slice(0, -5)}
+            </div>
           </div>
         </div>
         <br/>
