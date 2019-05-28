@@ -1,18 +1,26 @@
 /********** MEET THE WEATHERPEOPLE **********/
 .meet-container {
   margin: auto;
-  width: 100%;
-  padding-top: 1%;
-  padding-bottom: 1%;
-  margin-top: 6%;
+  margin-top: 10%;
+  width: 90%;
+  /* border: 1px solid; */
+}
+
+.weatherpeople-index {
+  margin: auto;
+  width: 80%;
+  /* border: 1px solid; */
+}
+
+.weatherpeople-show {
+  margin: auto;
+  width: 80%;
+  /* border: 1px solid; */
 }
 
 .wp-button {
   margin: auto;
-  width: 12em;
-  height: 12em;
-  text-align: center;
-  padding-top: 2%;
+  width: 100%;
   border-radius: 5px;
   background-color: #eff5f2;
   border-color: #eff5f2;
@@ -21,19 +29,11 @@
 
 #wp-img {
   width: 45em;
+  float: right;
   border-radius: 5px;
 }
 
-.weatherpeople-index {
-  margin: auto;
-  width: 80%;
-  padding-top: 1%;
-  padding-bottom: 1%;
-}
-
-
-/********** BIO **********/
-
-.wp-bio {
-  margin-left: 50px;
+#wp-index-prompt {
+  margin-top: 3%;
+  text-align: center;
 }

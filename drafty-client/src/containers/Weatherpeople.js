@@ -26,54 +26,50 @@ class Weatherpeople extends React.Component {
 
   renderImage = () => {
     if(this.state.selectedWeatherperson) {
-      return (
-          <Grid.Column>
-            <div>
-              <img id='wp-img' alt={this.state.selectedWeatherperson.name} src={this.state.selectedWeatherperson.img_url_lg}/>
-            </div>
-          </Grid.Column>
-      )
+      return <img id='wp-img' alt={this.state.selectedWeatherperson.name} src={this.state.selectedWeatherperson.img_url_lg}/>
     }
   }
 
   renderBio = () => {
     if(this.state.selectedWeatherperson) {
       return (
-          <Grid.Column>
-            <div className='wp-bio'>
-              <h4 style={{margin: 'auto'}}>About:</h4>
-              {this.state.selectedWeatherperson.bio}
-              <h4>Education:</h4>
-              {this.state.selectedWeatherperson.education}
-            </div>
-          </Grid.Column>
+        <div>
+          <h4 style={{margin: 'auto'}}>About:</h4>
+          {this.state.selectedWeatherperson.bio}
+          <h4>Education:</h4>
+          {this.state.selectedWeatherperson.education}
+        </div>
       )
-    }
-  }
-
-  renderPrompt = () => {
-    if (!this.state.selectedWeatherperson) {
-      return <div style={{marginTop: '3%', textAlign: 'center'}}>Select a weatherperson to learn more...</div>
     }
   }
 
   render() {
     return(
       <div className='meet-container'>
+
         <div className='weatherpeople-index'>
-          <Grid columns={6}>
+          <Grid columns={this.props.weatherpeople.length}>
             <Grid.Row>
               {this.renderProfileCards()}
             </Grid.Row>
           </Grid>
-            {this.renderPrompt()}
+        </div>
+
+        {this.state.selectedWeatherperson ? null : <div id='wp-index-prompt'>Select a weatherperson to learn more...</div>}
+
+        <div className='weatherpeople-show'>
           <Grid columns={2}>
             <Grid.Row>
-              {this.renderImage()}
-              {this.renderBio()}
+              <Grid.Column>
+                {this.renderImage()}
+              </Grid.Column>
+              <Grid.Column>
+                {this.renderBio()}
+              </Grid.Column>
             </Grid.Row>
           </Grid>
         </div>
+
       </div>
     )
   }
