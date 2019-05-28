@@ -27,7 +27,7 @@ class History extends React.Component {
   }
 
   render() {
-
+    console.log(this.props);
     return (
       <div style={{backgroundImage: `url('/egg-shell.png')`, width: '100%', height: '3000px'}}>
         <div className='history-container'>
