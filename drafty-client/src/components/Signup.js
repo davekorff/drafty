@@ -44,22 +44,26 @@ class Signup extends React.Component {
 
 	render(){
 		return (
-			<Form id='login-form' onSubmit={this.handleSubmit}>
-				<img id='drafty-logo-lg' alt='draft-logo-lg' src='/drafty-landing.png' height='300px'/>
-				<Form.Field id='styled-form' style={{marginTop: '50px'}}>
-		      <label style={{color: '#323042', fontFamily: `'Secular One', sans-serif`}}>Username</label>
-		      <input style={{backgroundColor: '#eff5f2'}} onChange={this.handleChange} name='username' value={this.state.username} placeholder='Username' />
+			<Form id='signup-form' onSubmit={this.handleSubmit}>
+
+				<img alt='draft-landing-img' src='/drafty-landing.png' height='300px'/>
+
+				<Form.Field>
+		      <label id='signup-form-label'> Username </label>
+		      <input id='signup-form-input' onChange={this.handleChange} name='username' value={this.state.username} placeholder='username' />
 		    </Form.Field>
-		    <Form.Field id='styled-form'>
-		      <label style={{color: '#323042', fontFamily: `'Secular One', sans-serif`}}>Password</label>
-		      <input style={{backgroundColor: '#eff5f2'}} onChange={this.handleChange} type='password' name='password' value={this.state.password} placeholder='Password' />
+
+		    <Form.Field>
+		      <label id='signup-form-label'> Password </label>
+		      <input id='signup-form-input' onChange={this.handleChange} type='password' name='password' value={this.state.password} placeholder='password' />
 		    </Form.Field>
-		    <Form.Field id='styled-form'>
-		      <label style={{color: '#323042', fontFamily: `'Secular One', sans-serif`}}>Password Confirmation</label>
-		      <input style={{backgroundColor: '#eff5f2'}} onChange={this.handleChange} type='password' name='passwordConfirmation' value={this.state.passwordConfirmation} placeholder='Password Confirmation' />
+
+		    <Form.Field>
+		      <label id='signup-form-label'> Password Confirmation </label>
+		      <input id='signup-form-input' onChange={this.handleChange} type='password' name='passwordConfirmation' value={this.state.passwordConfirmation} placeholder='password... again' />
 		    </Form.Field>
-		    <Button type='submit' style={{color: '#eff5f2', backgroundColor: '#323042', fontFamily: `'Secular One', sans-serif`
-				}}>Sign up</Button>
+
+		    <Button type='submit' id='signup-form-button'>Sign up</Button>
 		  </Form>
 		)
 	}

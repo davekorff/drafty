@@ -35,16 +35,21 @@ class Login extends React.Component {
 
 		return (
 			<Form id='login-form' onSubmit={this.handleSubmit}>
-				<img id='drafty-logo-lg' alt='draft-logo-lg' src='/drafty-landing.png' height='300px'/>
-				<Form.Field id='styled-form' style={{marginTop: '50px'}}>
-		      <label style={{color: '#323042', fontFamily: `'Secular One', sans-serif`}}>Username</label>
-		      <input style={{backgroundColor: '#eff5f2'}} onChange={this.handleChange} name='username' value={this.state.username} placeholder='Username' />
+
+				<img alt='draft-landing-img' src='/drafty-landing.png' height='300px'/>
+
+				<Form.Field>
+		      <label id='login-form-label'> Username </label>
+		      <input id='login-form-input' onChange={this.handleChange} name='username' value={this.state.username} placeholder='username' />
 		    </Form.Field>
-		    <Form.Field id='styled-form'>
-		      <label style={{color: '#323042', fontFamily: `'Secular One', sans-serif`}}>Password</label>
-		      <input style={{backgroundColor: '#eff5f2'}} onChange={this.handleChange} type='password' name='password' value={this.state.password} placeholder='Password' />
+
+		    <Form.Field>
+		      <label id='login-form-label'> Password </label>
+		      <input id='login-form-input' onChange={this.handleChange} type='password' name='password' value={this.state.password} placeholder='password' />
 		    </Form.Field>
-		    <Button type='submit' style={{color: '#eff5f2', backgroundColor: '#323042', fontFamily: `'Secular One', sans-serif`}}>Log in</Button>
+
+		    <Button type='submit' id='login-form-button'>Log in</Button>
+
 		  </Form>
 		)
 	}

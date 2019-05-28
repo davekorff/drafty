@@ -16,6 +16,7 @@ class Nav extends React.Component {
 	}
 
 	render() {
+
 		return(
 			this.props.currentUser
 
@@ -23,7 +24,7 @@ class Nav extends React.Component {
 
 			<ul className='nav-ul' id='secular'>
 
-				<li id='center-logo'>
+				<li id='drafty-nav-logo'>
 					<Link to={'/lobby'}>
 						<img height="75px" alt='drafty-logo' src='/drafty-logo.png'/>
 					</Link>
@@ -46,8 +47,6 @@ class Nav extends React.Component {
 						Meet the Weatherpeople
 					</Link>
 				</li>
-
-
 
 			  <li id='li-right'>
 					<Link id='nav-bar-link' to={'/login'} onClick={this.props.logOut}>
@@ -92,53 +91,6 @@ class Nav extends React.Component {
 			</ul>
 		)
 	}
-
-	// render(){
-	// 	return (
-	// 		<Grid.Row>
-	// 			<Grid.Column width={16}>
-	// 				<Menu style={{backgroundColor: '#5188B1'}}>
-	// 					<Link className='item' to={this.props.currentUser ? '/lobby' : '/login'}>
-	// 						<img alt='logo' style={{height: '34px', width: '70px', marginRight: '8px', marginTop: '2px'}} src='/drafty-logo.png' />
-	// 					</Link>
-	// 					{
-	// 						this.props.currentUser
-	//
-	// 						?
-	//
-	// 						<Menu.Menu position='right'>
-	// 							<Link id='nav-link' className='item' to='/weatherpeople'>
-	// 								<span style={{textAlign: 'center'}}>Meet the <br/> Weatherpeople</span>
-	// 							</Link>
-  //               <Link id='nav-link' className='item' to={'/history'}>
-  //                 Logged in as: {this.props.currentUser.username} <br/> <br />
-	// 							Balance: {this.calculateBalance()} Flatcoin
-  //               </Link>
-	// 							<Menu.Item id='nav-link' onClick={this.props.logOut}>
-	// 								Log out
-	// 							</Menu.Item>
-	// 						</Menu.Menu>
-	//
-	// 						:
-	//
-	// 						<Menu.Menu position='right' >
-	// 							<Link id='nav-link' className='item' to='/login'>
-	// 								Login
-	// 							</Link>
-	// 							<Link id='nav-link' className='item' to='/signup'>
-	// 								Sign Up
-	// 							</Link>
-	// 						</Menu.Menu>
-	//
-	// 					}
-	// 				</Menu>
-	// 			</Grid.Column>
-	// 		</Grid.Row>
-	// 	)
-	// }
-
-
-
 
 }
 
