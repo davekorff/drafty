@@ -25,7 +25,7 @@ class Nav extends React.Component {
 			<ul className='nav-ul' id='secular'>
 
 				<li id='drafty-nav-logo'>
-					<Link to={'/lobby'} onClick={() => this.handleNavClick('lobby')}>
+					<Link to={'/lobby'}>
 						<img height="75px" alt='drafty-logo' src='/drafty-logo.png'/>
 					</Link>
 				</li>

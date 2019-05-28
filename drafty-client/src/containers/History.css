@@ -1,6 +1,6 @@
 /********** PAST TEAMS ********/
 .history-container {
-  margin-top: 6.5%;
+  margin-top: 7.5%;
   text-align: center;
 }
 
@@ -17,7 +17,7 @@
 
 .history-card-container {
   margin: auto;
-  width: 75%;
+  width: 90%;
   padding-top: 1%;
   margin-top: 1%;
   margin-bottom: 4%;
@@ -38,7 +38,7 @@
 
 .scorecard-container {
   margin: auto;
-  width: 80%;
+  width: 85%;
   padding: 10px;
   margin-top: 4%;
   padding: 5%;

@@ -2,6 +2,7 @@ import React from 'react'
 import Scorecard from './Scorecard'
 import { connect } from 'react-redux'
 import CountUp from 'react-countup';
+import transformDate from '../helpers/transformDate'
 
 class HistoryCard extends React.Component {
 
@@ -35,15 +36,15 @@ class HistoryCard extends React.Component {
     let j = i % 10
     let k = i % 100
     if (j === 1 && k !== 11) {
-        return i + "st";
+        return i + "st"
     }
     if (j === 2 && k !== 12) {
-        return i + "nd";
+        return i + "nd"
     }
     if (j === 3 && k !== 13) {
-        return i + "rd";
+        return i + "rd"
     }
-    return i + "th";
+    return i + "th"
   }
 
 
@@ -57,22 +58,6 @@ class HistoryCard extends React.Component {
     }
   }
 
-  transformDate = (date) => {
-    let yyyy = date.slice(0,4)
-    let mm = date.slice(5,7)
-    let dd = date.slice(8,10)
-
-    if (mm.slice(0,1) === '0' && dd.slice(0,1) === '0') {
-      return `${mm.slice(1,2)}/${dd.slice(1,2)}/${yyyy}`
-    } else if (mm.slice(0,1) === '0') {
-      return `${mm.slice(1,2)}/${dd}/${yyyy}`
-    } else if (dd.slice(0,1) === '0') {
-      return `${mm}/${dd.slice(1,2)}/${yyyy}`
-    } else {
-      return `${mm}/${dd}/${yyyy}`
-    }
-  }
-
   render() {
     return (
       <div className="history-card-container">
@@ -81,20 +66,20 @@ class HistoryCard extends React.Component {
           <div className='history-card-col'>
             <span id='pacifico' style={{fontSize: '20px'}}>Contest:</span><br/>
             <p>{this.props.team.contest.name}</p>
-            <p>Started: {this.transformDate(this.props.team.contest.start_date)}</p>
-            Ended: {this.transformDate(this.props.team.contest.end_date)}
+            <p>Started: {transformDate(this.props.team.contest.start_date)}</p>
+            Ended: {transformDate(this.props.team.contest.end_date)}
           </div>
           <div className='history-card-col'>
             <span id='pacifico' style={{fontSize: '20px'}}>Total Score:</span> <br/>
             <div  id='countup'>
                 <CountUp style={{fontSize: '2em'}} start={0} end={this.props.team.score}/> <br/> <br/>
               </div>
-          {this.renderScoreRibbon()} <br/>
+            {this.renderScoreRibbon()} <br/>
             {this.renderPlacement()} <br/> <br />
           </div>
           <div className='history-card-col'>
             <p id='pacifico' style={{fontSize: '20px'}}>Prize:</p>
-            <p>{this.renderPrize()}/{this.props.team.contest.prize} Flatcoin</p>
+            {this.renderPrize()}/{this.props.team.contest.prize} Flatcoin
           </div>
         </div>
 

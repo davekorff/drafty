@@ -1,5 +1,6 @@
 import React from 'react'
 import { Form, Button } from 'semantic-ui-react'
+import { connect } from 'react-redux'
 
 class Login extends React.Component {
 
@@ -55,4 +56,11 @@ class Login extends React.Component {
 	}
 }
 
-export default Login
+function mapStateToProps(state) {
+	return {
+		currentUser: state.user.currentUser
+	}
+}
+
+
+export default connect(mapStateToProps)(Login)

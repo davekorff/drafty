@@ -1,8 +1,8 @@
 /********** LOBBY **********/
 .lobby-container {
   margin: auto;
-  width: 90%;
-  margin-top: 5%;
+  width: 100%;
+  margin-top: 8%;
 }
 
 .lobby-row {
@@ -12,7 +12,7 @@
 
 .lobby-col {
   flex: 50%;
-  padding: 3%;
+  padding: 1%;
 }
 
 /********** CONTEST LIST **********/
@@ -84,6 +84,5 @@
 }
 
 #my-teams-li-wp {
-  margin-right: 20px;
-  margin-top: 10px;
+  margin-top: 4%;
 }

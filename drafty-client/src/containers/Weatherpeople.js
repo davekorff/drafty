@@ -41,19 +41,23 @@ class Weatherpeople extends React.Component {
       return (
           <Grid.Column>
             <div className='wp-bio'>
-              <p>Bio:</p>
-              <p>{this.state.selectedWeatherperson.bio}</p>
-              <br/>
-              <p>Education:</p>
-              <p>{this.state.selectedWeatherperson.education}</p>
+              <h4 style={{margin: 'auto'}}>About:</h4>
+              {this.state.selectedWeatherperson.bio}
+              <h4>Education:</h4>
+              {this.state.selectedWeatherperson.education}
             </div>
           </Grid.Column>
       )
     }
   }
 
+  renderPrompt = () => {
+    if (!this.state.selectedWeatherperson) {
+      return <div style={{marginTop: '3%', textAlign: 'center'}}>Select a weatherperson to learn more...</div>
+    }
+  }
+
   render() {
-    console.log(this.state);
     return(
       <div className='meet-container'>
         <div className='weatherpeople-index'>
@@ -62,6 +66,7 @@ class Weatherpeople extends React.Component {
               {this.renderProfileCards()}
             </Grid.Row>
           </Grid>
+            {this.renderPrompt()}
           <Grid columns={2}>
             <Grid.Row>
               {this.renderImage()}
@@ -72,8 +77,6 @@ class Weatherpeople extends React.Component {
       </div>
     )
   }
-
-
 }
 
 export default Weatherpeople
