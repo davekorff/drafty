@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Button from '@material-ui/core/Button';
+import { renderThunderstormIcon, renderRainIcon, renderSunnyIcon, renderCloudyIcon } from './WeatherIcons'
+import transformDate from '../helpers/transformDate'
 
 class WeatherpeopleListItem extends React.Component {
 
@@ -8,37 +10,13 @@ class WeatherpeopleListItem extends React.Component {
     const thisWeeksForecasts = this.props.weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date)
 
     if (thisWeeksForecasts[index].predicted_weather === 'T-storm') {
-      return (
-        <div className="icon thunder-storm">
-          <div className="cloud"></div>
-          <div className="lightning">
-            <div className="bolt"></div>
-            <div className="bolt"></div>
-          </div>
-        </div>
-      )
+      return renderThunderstormIcon()
     } else if (thisWeeksForecasts[index].predicted_weather === 'Sunny') {
-      return (
-        <div className="icon sunny">
-          <div className="sun">
-            <div className="rays"></div>
-          </div>
-        </div>
-      )
+      return renderSunnyIcon()
     } else if (thisWeeksForecasts[index].predicted_weather === 'Cloudy') {
-      return (
-        <div className="icon cloudy">
-          <div className="cloud"></div>
-          <div className="cloud"></div>
-        </div>
-      )
+      return renderCloudyIcon()
     } else if (thisWeeksForecasts[index].predicted_weather === 'Rain') {
-      return (
-        <div className="icon rainy">
-          <div className="cloud"></div>
-          <div className="rain"></div>
-        </div>
-      )
+      return renderRainIcon()
     }
   }
 
@@ -54,24 +32,8 @@ class WeatherpeopleListItem extends React.Component {
 
   renderDate = index => {
     const thisWeeksForecasts = this.props.weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date)
-    const date = this.transformDate(thisWeeksForecasts[index].date)
+    const date = transformDate(thisWeeksForecasts[index].date)
     return date.slice(0, -5)
-  }
-
-  transformDate = (date) => {
-    let yyyy = date.slice(0,4)
-    let mm = date.slice(5,7)
-    let dd = date.slice(8,10)
-
-    if (mm.slice(0,1) === '0' && dd.slice(0,1) === '0') {
-      return `${mm.slice(1,2)}/${dd.slice(1,2)}/${yyyy}`
-    } else if (mm.slice(0,1) === '0') {
-      return `${mm.slice(1,2)}/${dd}/${yyyy}`
-    } else if (dd.slice(0,1) === '0') {
-      return `${mm}/${dd.slice(1,2)}/${yyyy}`
-    } else {
-      return `${mm}/${dd}/${yyyy}`
-    }
   }
 
   render() {

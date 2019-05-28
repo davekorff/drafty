@@ -1,4 +1,4 @@
-export const transformDate = (date) => {
+export default function transformDate(date) {
   let yyyy = date.slice(0,4)
   let mm = date.slice(5,7)
   let dd = date.slice(8,10)

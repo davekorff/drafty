@@ -69,29 +69,6 @@ class ContestEntry extends React.Component {
       <div>LOADING...</div>
     )
   }
-
-  // const defaults = {
-  //   icon: 'CLEAR_DAY',
-  //   color: 'goldenrod',
-  //   size: 40,
-  //   animate: true
-  // };
-
-  // <div class="icon thunder-storm">
-  //   <div class="cloud"></div>
-  //   <div class="lightning">
-  //     <div class="bolt"></div>
-  //     <div class="bolt"></div>
-  //   </div>
-  // </div>
-  //
-  //
-  // <ReactAnimatedWeather
-  //   icon={defaults.icon}
-  //   color={defaults.color}
-  //   size={defaults.size}
-  //   animate={defaults.animate}
-  // />
 }
 
 function mapStateToProps(state) {

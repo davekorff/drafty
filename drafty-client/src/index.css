@@ -5,7 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-image: url("/rice-paper.png") */
 }
 
 code {
@@ -91,7 +90,7 @@ code {
   width: 3.6875em;
   height: 3.6875em;
   margin: -1.84375em;
-  background: currentColor;
+  background: #161616;
   border-radius: 50%;
   box-shadow:
     -2.1875em 0.6875em 0 -0.6875em,
@@ -108,7 +107,7 @@ code {
   display: block;
   width: 4.5625em;
   height: 1em;
-  background: currentColor;
+  background: #161616;
   box-shadow: 0 0.4375em 0 -0.0625em #fff;
 }
 .cloud:nth-child(2) {
@@ -183,7 +182,7 @@ code {
   width: 3.75em;
   height: 3.75em;
   margin: 0.375em 0 0 -2em;
-  background: black;
+  background: #161616;
 }
 
 .rain:after {
@@ -338,7 +337,7 @@ code {
 @keyframes lightning {
   45% {
     color: #fff;
-    background: #fff;
+    background: #161616;
     opacity: 0.2;
   }
   50% {

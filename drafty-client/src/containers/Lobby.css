@@ -20,16 +20,14 @@
 
 .contest-li {
   display: flex;
-  border: 1px solid;
   padding: 10px;
-  box-shadow: 1px 1px;
   margin-top: 4%;
   margin-left: 4%;
   margin-right: 4%;
   padding: 5%;
   background-image: url('/sandpaper.png');
-  border-color: #eff5f2;
   border-radius: 5px;
+  font-size: 1.2em;
 }
 
 .contest-li-col {
@@ -38,7 +36,7 @@
   width: 50%;
 }
 
-#enter-draft-button {
+#view-draft-button {
   margin-top: 15px;
   margin-bottom: 15px;
   background-color: #fbde4a;
@@ -60,17 +58,15 @@
 
 .my-teams-li {
   display: flex;
-  border: 1px solid;
   padding: 10px;
-  box-shadow: 1px 1px;
   margin-top: 4%;
   margin-left: 4%;
   margin-right: 4%;
   padding: 4%;
   background-image: url('/sandpaper.png');
-  border-color: #eff5f2;
   border-radius: 5px;
   font-family: 'Secular One', sans-serif;
+  font-size: 1.2em;
 }
 
 .my-teams-li-col {

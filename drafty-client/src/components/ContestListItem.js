@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Button from '@material-ui/core/Button';
+import transformDate from '../helpers/transformDate';
 
 class ContestListItem extends React.Component {
-
 
   // when user clicks 'enter draft' button, create a new team unless the current user already has a team for the selected contest
   // set current team in redux store
@@ -20,7 +20,6 @@ class ContestListItem extends React.Component {
       })
       .then(res => res.json())
       .then(team => {
-        //TODO: NEED addTeam HERE?
         this.props.addTeam(team)
         this.props.setCurrentTeam(team)
         this.props.history.push('/entry/' + contestID)
@@ -32,22 +31,6 @@ class ContestListItem extends React.Component {
     }
   }
 
-  transformDate = (date) => {
-    let yyyy = date.slice(0,4)
-    let mm = date.slice(5,7)
-    let dd = date.slice(8,10)
-
-    if (mm.slice(0,1) === '0' && dd.slice(0,1) === '0') {
-      return `${mm.slice(1,2)}/${dd.slice(1,2)}/${yyyy}`
-    } else if (mm.slice(0,1) === '0') {
-      return `${mm.slice(1,2)}/${dd}/${yyyy}`
-    } else if (dd.slice(0,1) === '0') {
-      return `${mm}/${dd.slice(1,2)}/${yyyy}`
-    } else {
-      return `${mm}/${dd}/${yyyy}`
-    }
-  }
-
   render() {
     return (
       <div className='contest-li' id='secular'>
@@ -56,16 +39,14 @@ class ContestListItem extends React.Component {
         {this.props.contest.name}
         </div>
         <div className='contest-li-col'>
-          Starts: <br/>
-          {this.transformDate(this.props.contest.start_date)} <br/>
-          Ends: <br/>
-          {this.transformDate(this.props.contest.end_date)} <br/>
+          Starts: {transformDate(this.props.contest.start_date)} <br/>
+          Ends: {transformDate(this.props.contest.end_date)} <br/>
         </div>
         <div className='contest-li-col'>
             Prize: <br/>
           {this.props.contest.prize} Flatcoin
         </div >
-        <Button variant="contained" size="small" color="primary" id='enter-draft-button' className='contest-li-col' onClick={() => this.handleClickEnterDraft(this.props.contest.id)}>
+        <Button variant="contained" size="small" color="primary" id='view-draft-button' onClick={() => this.handleClickEnterDraft(this.props.contest.id)}>
           View Draft
         </Button>
       </div>
@@ -75,14 +56,12 @@ class ContestListItem extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    currentUser: state.user.currentUser,
-    teams: state.teams.teams
+    currentUser: state.user.currentUser
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    //TODO: NEED addTeam HERE?
     addTeam: team => dispatch({type: 'ADD_TEAM', payload: team}),
     setCurrentTeam: team => dispatch({type: 'SET_CURRENT_TEAM', payload: team})
   }
