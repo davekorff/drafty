@@ -40,12 +40,12 @@ class Login extends React.Component {
 
 				<Form.Field>
 		      <label id='login-form-label'> Username </label>
-		      <input id='login-form-input' onChange={this.handleChange} name='username' value={this.state.username} placeholder='username' />
+		      <input style={{backgroundColor: '#eff5f2', width: '15%', marginBottom: '10px'}} onChange={this.handleChange} name='username' value={this.state.username} placeholder='username' />
 		    </Form.Field>
 
 		    <Form.Field>
 		      <label id='login-form-label'> Password </label>
-		      <input id='login-form-input' onChange={this.handleChange} type='password' name='password' value={this.state.password} placeholder='password' />
+		      <input style={{backgroundColor: '#eff5f2', width: '15%', marginBottom: '10px'}} onChange={this.handleChange} type='password' name='password' value={this.state.password} placeholder='password' />
 		    </Form.Field>
 
 		    <Button type='submit' id='login-form-button'>Log in</Button>

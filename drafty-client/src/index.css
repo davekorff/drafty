@@ -66,12 +66,6 @@ code {
   margin-top: 10px;
 }
 
-#login-form-input, #signup-form-input {
-  background-color: #eff5f2;
-  width: 15%;
-  margin-bottom: 10px;
-}
-
 #login-form-button, #signup-form-button {
   color: #eff5f2;
   background-color: #323042;
