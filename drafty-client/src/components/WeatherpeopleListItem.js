@@ -46,7 +46,7 @@ class WeatherpeopleListItem extends React.Component {
           {this.props.weatherperson.station} <br/>
           {this.props.weatherperson.city}
         </div>
-        <div id='weatherpeople-li-weather-col' className='weatherpeople-li-col' style={{marginTop: '25px'}}>
+        <div id='weatherpeople-li-weather-col'>
           <div className='forecast-box'>
             {this.renderWeather(0)}
           </div>
@@ -55,7 +55,7 @@ class WeatherpeopleListItem extends React.Component {
           mon <br/>
         {this.renderDate(0)}
         </div >
-        <div id='weatherpeople-li-weather-col' className='weatherpeople-li-col' style={{marginTop: '25px'}}>
+        <div id='weatherpeople-li-weather-col'>
           <div className='forecast-box'>
             {this.renderWeather(1)}
           </div>
@@ -64,7 +64,7 @@ class WeatherpeopleListItem extends React.Component {
           tue <br/>
         {this.renderDate(1)}
         </div>
-        <div id='weatherpeople-li-weather-col' className='weatherpeople-li-col' style={{marginTop: '25px'}}>
+        <div id='weatherpeople-li-weather-col'>
           <div className='forecast-box'>
             {this.renderWeather(2)}
           </div>
@@ -73,7 +73,7 @@ class WeatherpeopleListItem extends React.Component {
           wed <br/>
         {this.renderDate(2)}
         </div>
-        <div id='weatherpeople-li-weather-col' className='weatherpeople-li-col' style={{marginTop: '25px'}}>
+        <div id='weatherpeople-li-weather-col'>
           <div className='forecast-box'>
             {this.renderWeather(3)}
           </div>
@@ -82,7 +82,7 @@ class WeatherpeopleListItem extends React.Component {
           thu <br/>
         {this.renderDate(3)}
         </div>
-        <div id='weatherpeople-li-weather-col' className='weatherpeople-li-col' style={{marginTop: '25px'}}>
+        <div id='weatherpeople-li-weather-col'>
           <div className='forecast-box'>
             {this.renderWeather(4)}
           </div>
@@ -91,7 +91,7 @@ class WeatherpeopleListItem extends React.Component {
           fri <br/>
         {this.renderDate(4)}
         </div>
-        <Button style={{height: '50px', marginTop: '55px', marginLeft: '20px'}} variant="contained" size="small" color="primary" id='draft-button' className='weatherpeople-li-col' onClick={() => this.props.handleClickDraft(this.props.weatherperson.id)}>
+        <Button style={{height: '50px', marginTop: '55px', marginLeft: '20px'}} variant="contained" size="small" color="primary" id='draft-button' onClick={() => this.props.handleClickDraft(this.props.weatherperson.id)}>
           Draft
         </Button>
       </div>

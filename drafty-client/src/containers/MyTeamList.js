@@ -16,7 +16,6 @@ class MyTeamList extends React.Component {
 
 
   render() {
-  console.log(this.props.myWeatherpeople);
     return (
       <div className='my-team-list-container'>
         <h3 id='pacifico'>Your Team</h3>

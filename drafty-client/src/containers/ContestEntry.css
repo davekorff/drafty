@@ -30,16 +30,16 @@
 .weatherpeople-li {
   height: 15em;
   display: flex;
-  border: 1px solid;
+  /* border: 1px solid; */
   padding: 10px;
-  box-shadow: 1px 1px;
+  /* box-shadow: 1px 1px; */
   margin-top: 3%;
   margin-left: 4%;
   margin-right: 4%;
   padding: 3%;
   padding-top: 1%;
   background-image: url('/sandpaper.png');
-  border-color: #eff5f2;
+  /* border-color: #eff5f2; */
   border-radius: 5px;
 }
 
@@ -49,17 +49,18 @@
 
 #weatherpeople-li-weather-col {
   border: 1px solid;
-  margin: 5px;
-  margin-bottom: 5px;
+  margin: 10px;
+  margin-bottom: 10px;
+  margin-top: 15px;
   border-radius: 5px;
+  width: 5px;
+  flex: 25%;
 }
-
 
 #weatherperson-info {
   margin-right: 10px;
   margin-top: 15px;
 }
-
 
 #draft-button {
   margin-top: 15px;
@@ -83,16 +84,13 @@
 .my-team-li {
   height: 15em;
   display: flex;
-  border: 1px solid;
   padding: 10px;
-  box-shadow: 1px 1px;
   margin-top: 3%;
   margin-left: 4%;
   margin-right: 4%;
   padding: 3%;
   padding-top: 2%;
   background-image: url('/sandpaper.png');
-  border-color: #eff5f2;
   border-radius: 5px;
 }
 
@@ -102,4 +100,5 @@
 
 #my-team-list-wp-info {
   margin-right: 15px;
+  margin-top: 10px;
 }

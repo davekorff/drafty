@@ -2,8 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import WeatherpeopleList from './WeatherpeopleList'
 import MyTeamList from './MyTeamList'
-// import ReactAnimatedWeather from 'react-animated-weather';
 import './ContestEntry.css'
+
 class ContestEntry extends React.Component {
 
   state = {
@@ -45,15 +45,14 @@ class ContestEntry extends React.Component {
   }
 
   render() {
-
     return (
       this.props.currentContest && this.props.currentTeam
 
       ?
 
       <div className='contest-entry-container'>
-        <h1><span style={{fontSize: '.8em'}} id='secular'>Drafting for:</span> <span id='pacifico'>{this.props.currentContest.name}</span></h1>
-        <h1 id='pacifico'>Team {this.props.currentTeam.name}</h1>
+        <h1><span style={{fontSize: '.8em'}} id='secular'>Contest:</span> <span id='pacifico'>{this.props.currentContest.name}</span></h1>
+        <h1><span style={{fontSize: '.8em'}} id='secular'>Team:</span> <span id='pacifico'>{this.props.currentTeam.name}</span></h1>
           <div className='contest-entry-row'>
             <div className='contest-entry-col'>
               <WeatherpeopleList {...this.props.routeProps} undraftedWeatherpeople={this.state.undraftedWeatherpeople} removeFromUndrafted={this.removeFromUndrafted} addToMyTeam={this.addToMyTeam} currentUser={this.props.currentUser}/>
