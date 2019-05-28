@@ -1,0 +1,22 @@
+/********** LOGIN/SIGNUP ********/
+#login-form, #signup-form {
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  margin-top: 150px;
+  background-color: '#eff5f2';
+}
+
+#login-form-label, #signup-form-label {
+  color: #323042;
+  font-family: 'Pacifico', cursive;
+  font-size: 1.1em;
+  margin-top: 10px;
+}
+
+#login-form-button, #signup-form-button {
+  color: #eff5f2;
+  background-color: #323042;
+  font-family: 'Pacifico', cursive;
+  font-size: 1.2em;
+}

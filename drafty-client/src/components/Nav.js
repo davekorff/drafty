@@ -16,7 +16,6 @@ class Nav extends React.Component {
 	}
 
 	render() {
-
 		return(
 			this.props.currentUser
 
