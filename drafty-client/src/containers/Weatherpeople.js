@@ -5,19 +5,8 @@ import './Weatherpeople.css'
 
 class Weatherpeople extends React.Component {
 
-
   state = {
-    selectedWeatherperson: {}
-  }
-
-  renderWeatherpeople = () => {
-    return this.props.weatherpeople.map(weatherperson => {
-      return (
-        <Grid.Column key={weatherperson.id}>
-          <WeatherpersonProfileCard handleProfileClick={this.handleProfileClick} weatherperson={weatherperson}/>
-        </Grid.Column>
-      )
-    })
+    selectedWeatherperson: null
   }
 
   handleProfileClick = id => {
@@ -25,9 +14,18 @@ class Weatherpeople extends React.Component {
     this.setState({ selectedWeatherperson })
   }
 
+  renderProfileCards = () => {
+    return this.props.weatherpeople.map(weatherperson => {
+      return (
+        <Grid.Column key={weatherperson.id}>
+          <WeatherpersonProfileCard weatherperson={weatherperson} handleProfileClick={this.handleProfileClick}/>
+        </Grid.Column>
+      )
+    })
+  }
 
   renderImage = () => {
-    if(this.state.selectedWeatherperson.img_url_lg) {
+    if(this.state.selectedWeatherperson) {
       return (
           <Grid.Column>
             <div>
@@ -39,23 +37,29 @@ class Weatherpeople extends React.Component {
   }
 
   renderBio = () => {
-    return (
-        <Grid.Column>
-          <div className='wp-bio'>
-            <p>{this.state.selectedWeatherperson.bio}</p>
-          </div>
-        </Grid.Column>
-    )
+    if(this.state.selectedWeatherperson) {
+      return (
+          <Grid.Column>
+            <div className='wp-bio'>
+              <p>Bio:</p>
+              <p>{this.state.selectedWeatherperson.bio}</p>
+              <br/>
+              <p>Education:</p>
+              <p>{this.state.selectedWeatherperson.education}</p>
+            </div>
+          </Grid.Column>
+      )
+    }
   }
 
   render() {
+    console.log(this.state);
     return(
       <div className='meet-container'>
-        <h1 style={{textAlign: 'center', marginBottom: '40px'}}>Meet the Weatherpeople</h1>
         <div className='weatherpeople-index'>
           <Grid columns={6}>
             <Grid.Row>
-              {this.renderWeatherpeople()}
+              {this.renderProfileCards()}
             </Grid.Row>
           </Grid>
           <Grid columns={2}>
