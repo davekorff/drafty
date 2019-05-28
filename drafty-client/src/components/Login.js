@@ -1,6 +1,7 @@
 import React from 'react'
 import { Form, Button } from 'semantic-ui-react'
 import { connect } from 'react-redux'
+import './LoginAndSignup.css'
 
 class Login extends React.Component {
 
@@ -33,7 +34,6 @@ class Login extends React.Component {
 	}
 
 	render(){
-
 		return (
 			<Form id='login-form' onSubmit={this.handleSubmit}>
 

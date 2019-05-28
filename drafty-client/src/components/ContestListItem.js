@@ -4,9 +4,7 @@ import transformDate from '../helpers/transformDate';
 
 class ContestListItem extends React.Component {
 
-  // when user clicks 'enter draft' button, create a new team unless the current user already has a team for the selected contest
-  // set current team in redux store
-  // reroute user to contest entry
+  // user clicks 'enter draft' button
   handleClickEnterDraft(contestID) {
     if (!this.props.currentUser.current_teams.find(team => team.contest.id === contestID)) {
       fetch('http://localhost:3000/api/v1/teams', {

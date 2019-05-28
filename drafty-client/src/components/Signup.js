@@ -1,5 +1,6 @@
 import React from 'react'
 import { Form, Button } from 'semantic-ui-react'
+import './LoginAndSignup.css'
 
 class Signup extends React.Component {
 

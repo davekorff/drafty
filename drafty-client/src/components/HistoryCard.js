@@ -32,6 +32,16 @@ class HistoryCard extends React.Component {
     }
   }
 
+  renderPrize() {
+    const currentContest = this.props.contests.find(contest => contest.id === this.props.team.contest.id)
+
+    if (currentContest && this.props.team.score === currentContest.high_score) {
+      return this.props.team.contest.prize
+    } else {
+      return 0
+    }
+  }
+
   ordinalSuffixOf = i => {
     let j = i % 10
     let k = i % 100
@@ -47,21 +57,11 @@ class HistoryCard extends React.Component {
     return i + "th"
   }
 
-
-  renderPrize() {
-    const currentContest = this.props.contests.find(contest => contest.id === this.props.team.contest.id)
-
-    if (currentContest && this.props.team.score === currentContest.high_score) {
-      return this.props.team.contest.prize
-    } else {
-      return 0
-    }
-  }
-
   render() {
     return (
       <div className="history-card-container">
         <h2 id='pacifico' >Team {this.props.team.name}</h2>
+
         <div className='history-card-row'>
           <div className='history-card-col'>
             <span id='pacifico' style={{fontSize: '20px'}}>Contest:</span><br/>
