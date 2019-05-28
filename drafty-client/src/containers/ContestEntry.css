@@ -71,6 +71,9 @@
   color: #323042;
   height: 2.5em;
   margin-top: 10%;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px #fbde4a;
 }
 
 /********** MY TEAM LIST **********/

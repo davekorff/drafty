@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Button from '@material-ui/core/Button';
 import transformDate from '../helpers/transformDate';
 
 class ContestListItem extends React.Component {
@@ -46,9 +45,9 @@ class ContestListItem extends React.Component {
             Prize: <br/>
           {this.props.contest.prize} Flatcoin
         </div >
-        <Button variant="contained" size="small" color="primary" id='view-draft-button' onClick={() => this.handleClickEnterDraft(this.props.contest.id)}>
+        <button variant="contained" size="small" color="primary" id='view-draft-button' onClick={() => this.handleClickEnterDraft(this.props.contest.id)}>
           View Draft
-        </Button>
+        </button>
       </div>
     )
   }

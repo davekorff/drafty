@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Button from '@material-ui/core/Button';
 import { renderThunderstormIcon, renderRainIcon, renderSunnyIcon, renderCloudyIcon } from './WeatherIcons'
 import transformDate from '../helpers/transformDate'
 
@@ -91,9 +90,9 @@ class WeatherpeopleListItem extends React.Component {
           fri <br/>
         {this.renderDate(4)}
         </div>
-        <Button variant="contained" size="small" color="primary" id='draft-button' onClick={() => this.props.handleClickDraft(this.props.weatherperson.id)}>
+        <button variant="contained" size="small" color="primary" id='draft-button' onClick={() => this.props.handleClickDraft(this.props.weatherperson.id)}>
           Draft
-        </Button>
+        </button>
       </div>
     )
   }

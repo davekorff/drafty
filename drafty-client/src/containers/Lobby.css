@@ -48,6 +48,9 @@
   font-size: 15px;
   z-index: 0;
   color: #323042;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px #fbde4a;
 }
 
 
