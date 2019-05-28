@@ -60,7 +60,7 @@ class App extends Component {
 
 		return (
 			<Grid>
-				<Nav logOut={this.logOut}/>
+				<Route path='/' render={routeProps => <Nav {...routeProps} logOut={this.logOut}/>} />
 					<Switch>
 						<Route exact path='/' render={this.props.currentUser ? routeProps => <Lobby {...routeProps} currentUser={this.props.currentUser}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
 						<Route exact path='/lobby' render={this.props.currentUser ? routeProps => <Lobby {...routeProps} currentUser={this.props.currentUser}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>

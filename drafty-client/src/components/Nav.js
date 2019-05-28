@@ -25,25 +25,25 @@ class Nav extends React.Component {
 			<ul className='nav-ul' id='secular'>
 
 				<li id='drafty-nav-logo'>
-					<Link to={'/lobby'}>
+					<Link to={'/lobby'} onClick={() => this.handleNavClick('lobby')}>
 						<img height="75px" alt='drafty-logo' src='/drafty-logo.png'/>
 					</Link>
 				</li>
 
 			  <li>
-					<Link id='nav-bar-link' to={'/lobby'}>
+					<Link id='nav-bar-link' className={this.props.history.location.pathname === '/lobby' ? 'active' : null} to={'/lobby'}>
 						Lobby
 					</Link>
 				</li>
 
 			  <li>
-					<Link id='nav-bar-link' to={'/pastteams'}>
+					<Link id='nav-bar-link' className={this.props.history.location.pathname === '/pastteams' ? 'active' : null} to={'/pastteams'}>
 						Past teams
 					</Link>
 				</li>
 
 			  <li>
-					<Link id='nav-bar-link' to={'/weatherpeople'}>
+					<Link id='nav-bar-link' className={this.props.history.location.pathname === '/weatherpeople' ? 'active' : null} to={'/weatherpeople'}>
 						Meet the Weatherpeople
 					</Link>
 				</li>
@@ -77,13 +77,13 @@ class Nav extends React.Component {
 
 			<ul className='nav-ul' id='secular'>
 				<li id='li-right'>
-					<Link id='nav-bar-link' to={'/signup'}>
+					<Link id='nav-bar-link' to={'/signup'} className={this.props.history.location.pathname === '/signup' ? 'active' : null}>
 						Signup
 					</Link>
 				</li>
 
 				<li id='li-right'>
-					<Link id='nav-bar-link' to={'/login'}>
+					<Link id='nav-bar-link' to={'/login'} className={this.props.history.location.pathname === '/login' ? 'active' : null}>
 						Login
 					</Link>
 				</li>
