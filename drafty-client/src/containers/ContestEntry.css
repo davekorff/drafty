@@ -30,7 +30,7 @@
   height: 100%;
 }
 .weatherpeople-li {
-  height: 190px;
+  height: 15em;
   display: flex;
   border: 1px solid;
   padding: 10px;
@@ -83,7 +83,7 @@
 }
 
 .my-team-li {
-  height: 190px;
+  height: 15em;
   display: flex;
   border: 1px solid;
   padding: 10px;

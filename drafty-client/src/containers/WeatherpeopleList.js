@@ -43,7 +43,7 @@ class WeatherpeopleList extends React.Component {
   render() {
     return (
       <div className='weatherpeople-list-container'>
-        <h3 id='secular'>Weatherpeople</h3>
+        <h3 id='pacifico'>Weatherpeople</h3>
         {this.props.undraftedWeatherpeople ? this.props.undraftedWeatherpeople.map(weatherperson => <WeatherpeopleListItem handleClickDraft={this.handleClickDraft} key={weatherperson.id} weatherperson={weatherperson} currentUser={this.props.currentUser} />) : <div>LOADING...</div>}
       </div>
     )

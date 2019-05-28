@@ -52,7 +52,7 @@ class ContestEntry extends React.Component {
       ?
 
       <div className='contest-entry-container'>
-        <h1><span id='secular'>Drafting for:</span> <span id='pacifico'>{this.props.currentContest.name}</span></h1>
+        <h1><span style={{fontSize: '.8em'}} id='secular'>Drafting for:</span> <span id='pacifico'>{this.props.currentContest.name}</span></h1>
         <h1 id='pacifico'>Team {this.props.currentTeam.name}</h1>
           <div className='contest-entry-row'>
             <div className='contest-entry-col'>

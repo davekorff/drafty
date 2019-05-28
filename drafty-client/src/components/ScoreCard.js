@@ -1,6 +1,7 @@
 import React from 'react'
 import { renderThunderstormIcon, renderRainIcon, renderSunnyIcon, renderCloudyIcon } from './WeatherIcons'
 import CountUp from 'react-countup';
+import ScorecardProfile from './ScorecardProfile'
 
 class Scorecard extends React.Component {
 
@@ -84,12 +85,7 @@ class Scorecard extends React.Component {
       ?
 
       <div className='scorecard-container'>
-        <div className='scorecard-col'>
-          <img height='85px' alt='wp-thumb' src={this.props.weatherperson.img_url_sm ? this.props.weatherperson.img_url_sm : 'https://static.thenounproject.com/png/630729-200.png' } />
-          <br/>
-          <span id="secular">{this.props.weatherperson.name}</span><br/>
-          {this.props.weatherperson.station} - {this.props.weatherperson.city}
-        </div>
+        <ScorecardProfile weatherperson={this.props.weatherperson}/>
         <br/>
         <div style={{marginTop: '-10px'}} >
           5-Day Forecast

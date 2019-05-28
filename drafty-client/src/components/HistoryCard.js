@@ -76,10 +76,9 @@ class HistoryCard extends React.Component {
   render() {
     return (
       <div className="history-card-container">
-        <h2 id='pacifico'>Team {this.props.team.name}</h2>
-
+        <h2 id='pacifico' >Team {this.props.team.name}</h2>
         <div className='history-card-row'>
-          <div  className='history-card-col'>
+          <div className='history-card-col'>
             <span id='pacifico' style={{fontSize: '20px'}}>Contest:</span><br/>
             <p>{this.props.team.contest.name}</p>
             <p>Started: {this.transformDate(this.props.team.contest.start_date)}</p>
@@ -87,7 +86,7 @@ class HistoryCard extends React.Component {
           </div>
           <div className='history-card-col'>
             <span id='pacifico' style={{fontSize: '20px'}}>Total Score:</span> <br/>
-            <CountUp start={0} end={this.props.team.score}/> points <br/> <br/>
+            <CountUp style={{fontSize: '2em'}} start={0} end={this.props.team.score}/> points <br/> <br/>
             {this.renderScoreRibbon()} <br/>
             {this.renderPlacement()} <br/> <br />
           </div>
