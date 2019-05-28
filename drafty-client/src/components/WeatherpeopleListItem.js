@@ -91,7 +91,7 @@ class WeatherpeopleListItem extends React.Component {
           fri <br/>
         {this.renderDate(4)}
         </div>
-        <Button style={{height: '50px', marginTop: '55px', marginLeft: '20px'}} variant="contained" size="small" color="primary" id='draft-button' onClick={() => this.props.handleClickDraft(this.props.weatherperson.id)}>
+        <Button variant="contained" size="small" color="primary" id='draft-button' onClick={() => this.props.handleClickDraft(this.props.weatherperson.id)}>
           Draft
         </Button>
       </div>

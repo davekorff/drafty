@@ -1,6 +1,11 @@
 /********** LOBBY **********/
+.lobby-container {
+  margin: auto;
+  width: 90%;
+  margin-top: 5%;
+}
+
 .lobby-row {
-  margin-top: 80px;
   display: flex;
   width: 100%;
 }
@@ -37,13 +42,11 @@
 }
 
 #view-draft-button {
-  margin-top: 15px;
-  margin-bottom: 15px;
   background-color: #fbde4a;
   text-transform: none;
   font-family: 'Pacifico', cursive;
   font-size: 15px;
-  z-index:0;
+  z-index: 0;
   color: #323042;
 }
 
