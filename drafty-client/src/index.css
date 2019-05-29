@@ -1,3 +1,7 @@
+/* html {
+  height: 100%;
+} */
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -7,15 +11,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-#background-img {
+.App {
   background-image: url('/rice-paper.png');
-  background-repeat: repeat;
-  height: 3000px;
+  background-repeat: repeat-y;
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
 }
 
 
@@ -30,122 +37,4 @@ code {
 
 #assistant {
   font-family: 'Assistant', sans-serif;
-}
-
-
-/********** BACKGROUND CLOUDS ********/
-#backgroundclouds{
-	padding: 600px 0;
-	/* background: #c9dbe9; */
-	background: -webkit-linear-gradient(top, #c9dbe9 0%, #fff 100%);
-	background: -linear-gradient(top, #c9dbe9 0%, #fff 100%);
-	background: -moz-linear-gradient(top, #c9dbe9 0%, #fff 100%);
-}
-
-/*Time to finalise the backgroundcloud shape*/
-.backgroundcloud {
-	width: 200px; height: 60px;
-	background: #fff;
-
-	border-radius: 200px;
-	-moz-border-radius: 200px;
-	-webkit-border-radius: 200px;
-
-	position: relative;
-}
-
-.backgroundcloud:before, .backgroundcloud:after {
-	content: '';
-	position: absolute;
-	background: #fff;
-	width: 100px; height: 80px;
-	position: absolute; top: -15px; left: 10px;
-
-	border-radius: 100px;
-	-moz-border-radius: 100px;
-	-webkit-border-radius: 100px;
-
-	-webkit-transform: rotate(30deg);
-	transform: rotate(30deg);
-	-moz-transform: rotate(30deg);
-}
-
-.backgroundcloud:after {
-	width: 120px; height: 120px;
-	top: -55px; left: auto; right: 15px;
-}
-
-/*Time to animate*/
-.x1 {
-	-webkit-animation: movebackgroundclouds 15s linear infinite;
-	-moz-animation: movebackgroundclouds 15s linear infinite;
-	-o-animation: movebackgroundclouds 15s linear infinite;
-}
-
-/*variable speed, opacity, and position of backgroundclouds for realistic effect*/
-.x2 {
-	left: 200px;
-
-	-webkit-transform: scale(0.6);
-	-moz-transform: scale(0.6);
-	transform: scale(0.6);
-	opacity: 0.6; /*opacity proportional to the size*/
-
-	/*Speed will also be proportional to the size and opacity*/
-	/*More the speed. Less the time in 's' = seconds*/
-	-webkit-animation: movebackgroundclouds 25s linear infinite;
-	-moz-animation: movebackgroundclouds 25s linear infinite;
-	-o-animation: movebackgroundclouds 25s linear infinite;
-}
-
-.x3 {
-	left: -250px; top: -200px;
-
-	-webkit-transform: scale(0.8);
-	-moz-transform: scale(0.8);
-	transform: scale(0.8);
-	opacity: 0.8; /*opacity proportional to the size*/
-
-	-webkit-animation: movebackgroundclouds 20s linear infinite;
-	-moz-animation: movebackgroundclouds 20s linear infinite;
-	-o-animation: movebackgroundclouds 20s linear infinite;
-}
-
-.x4 {
-	left: 470px; top: -250px;
-
-	-webkit-transform: scale(0.75);
-	-moz-transform: scale(0.75);
-	transform: scale(0.75);
-	opacity: 0.75; /*opacity proportional to the size*/
-
-	-webkit-animation: movebackgroundclouds 18s linear infinite;
-	-moz-animation: movebackgroundclouds 18s linear infinite;
-	-o-animation: movebackgroundclouds 18s linear infinite;
-}
-
-.x5 {
-	left: -150px; top: -150px;
-
-	-webkit-transform: scale(0.8);
-	-moz-transform: scale(0.8);
-	transform: scale(0.8);
-	opacity: 0.8; /*opacity proportional to the size*/
-
-	-webkit-animation: movebackgroundclouds 20s linear infinite;
-	-moz-animation: movebackgroundclouds 20s linear infinite;
-	-o-animation: movebackgroundclouds 20s linear infinite;
-}
-
-@-webkit-keyframes movebackgroundclouds {
-	0% {margin-left: 1000px;}
-	100% {margin-left: -1000px;}
-}
-@-moz-keyframes movebackgroundclouds {
-	0% {margin-left: 1000px;}
-	100% {margin-left: -1000px;}
-}
-@-o-keyframes movebackgroundclouds {
-	0% {margin-left: 1000px;}
-	100% {margin-left: -1000px;}
 }

@@ -24,7 +24,7 @@ class History extends React.Component {
 
   render() {
     return (
-      <div style={{backgroundImage: `url('/egg-shell.png')`, width: '100%', height: '3000px'}}>
+      <div class='history-background'>
         <div className='history-container'>
           {this.renderCards()}
         </div>
