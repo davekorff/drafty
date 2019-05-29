@@ -54,21 +54,21 @@ class Nav extends React.Component {
 				</li>
 
 				<li id='li-right'>
-					<span id='nav-bar-link'>
+					<Link id='nav-bar-link' to={'/pastteams'}>
 						Balance:
 						<span style={{color: '#fbde4a', marginLeft: '5px'}}>
 							{this.calculateBalance()}
 						</span>
-					</span>
+					</Link>
 				</li>
 
 				<li id='li-right'>
-					<span id='nav-bar-link'>
+					<Link id='nav-bar-link' to={'/pastteams'}>
 						Logged in as:
 						<span style={{color: '#fbde4a', marginLeft: '5px'}}>
 							{this.props.currentUser.username}
 						</span>
-					</span>
+					</Link>
 				</li>
 			</ul>
 
