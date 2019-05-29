@@ -24,7 +24,7 @@ class History extends React.Component {
 
   render() {
     return (
-      <div class='history-background'>
+      <div className='history-background'>
         <div className='history-container'>
           {this.renderCards()}
         </div>

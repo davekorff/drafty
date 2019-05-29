@@ -1,8 +1,4 @@
 /********** NAV **********/
-#nav-link {
-  color: white
-}
-
 .nav-ul {
   height: 6.25em;
   list-style-type: none;
@@ -13,6 +9,7 @@
   width: 100%;
   z-index: 3;
   border-bottom: 4px solid #323042;
+  padding-left: 0px;
 }
 
 li {
@@ -25,8 +22,7 @@ li {
 }
 
 #drafty-nav-logo {
-  margin-left: -3%;
-  margin-top: 6px;
+  margin-top: 5px;
 }
 
 #nav-bar-link {
