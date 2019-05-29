@@ -4,6 +4,7 @@
   width: 95%;
   text-align: center;
   margin-top: 7.5%;
+  margin-bottom: 10%;
 }
 
 .contest-entry-row {
@@ -27,6 +28,7 @@
   text-align: center;
   height: 100%;
 }
+
 .weatherpeople-li {
   height: 15em;
   display: flex;

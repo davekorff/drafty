@@ -1,4 +1,10 @@
 /********** PAST TEAMS ********/
+
+.history-background {
+  background-image: url('/egg-shell.png');
+  width: 100%;
+}
+
 .history-container {
   margin-top: 7.5%;
   text-align: center;

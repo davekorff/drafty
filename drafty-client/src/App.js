@@ -56,21 +56,21 @@ class App extends Component {
 	}
 
 	render() {
-
-
 		return (
-			<Grid>
-				<Route path='/' render={routeProps => <Nav {...routeProps} logOut={this.logOut}/>} />
-					<Switch>
-						<Route exact path='/' render={this.props.currentUser ? routeProps => <Lobby {...routeProps} currentUser={this.props.currentUser}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
-						<Route exact path='/lobby' render={this.props.currentUser ? routeProps => <Lobby {...routeProps} currentUser={this.props.currentUser}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
-						<Route exact path='/login' render={this.props.currentUser ? null : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
-						<Route exact path='/signup' render={this.props.currentUser ? null : routeProps => <Signup {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
-						<Route exact path='/pastteams' render={this.props.currentUser ? routeProps => <History {...routeProps} currentUser={this.props.currentUser}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
-						<Route exact path='/entry/:contestID' render={this.props.currentUser ? routeProps => <ContestEntry {...routeProps}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
-						<Route exact path='/weatherpeople' render={this.props.currentUser ? routeProps => <Weatherpeople {...routeProps} weatherpeople={this.props.weatherpeople}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
-					</Switch>
-			</Grid>
+			<div className="App">
+				<Grid>
+					<Route path='/' render={routeProps => <Nav {...routeProps} logOut={this.logOut}/>} />
+						<Switch>
+							<Route exact path='/' render={this.props.currentUser ? routeProps => <Lobby {...routeProps} currentUser={this.props.currentUser}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
+							<Route exact path='/lobby' render={this.props.currentUser ? routeProps => <Lobby {...routeProps} currentUser={this.props.currentUser}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
+							<Route exact path='/login' render={this.props.currentUser ? null : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
+							<Route exact path='/signup' render={this.props.currentUser ? null : routeProps => <Signup {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
+							<Route exact path='/pastteams' render={this.props.currentUser ? routeProps => <History {...routeProps} currentUser={this.props.currentUser}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
+							<Route exact path='/entry/:contestID' render={this.props.currentUser ? routeProps => <ContestEntry {...routeProps}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
+							<Route exact path='/weatherpeople' render={this.props.currentUser ? routeProps => <Weatherpeople {...routeProps} weatherpeople={this.props.weatherpeople}/> : routeProps => <Login {...routeProps} setCurrentUser={this.setCurrentUser}/>}/>
+						</Switch>
+				</Grid>
+				</div>
 		)
 	}
 }
