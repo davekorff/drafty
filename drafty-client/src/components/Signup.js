@@ -51,17 +51,17 @@ class Signup extends React.Component {
 
 				<Form.Field>
 		      <label id='signup-form-label'> Username </label>
-		      <input id='signup-form-input' onChange={this.handleChange} name='username' value={this.state.username} placeholder='username' />
+		      <input style={{backgroundColor: '#eff5f2', width: '15%', marginBottom: '10px'}} onChange={this.handleChange} name='username' value={this.state.username} placeholder='username' />
 		    </Form.Field>
 
 		    <Form.Field>
 		      <label id='signup-form-label'> Password </label>
-		      <input id='signup-form-input' onChange={this.handleChange} type='password' name='password' value={this.state.password} placeholder='password' />
+		      <input style={{backgroundColor: '#eff5f2', width: '15%', marginBottom: '10px'}} onChange={this.handleChange} type='password' name='password' value={this.state.password} placeholder='password' />
 		    </Form.Field>
 
 		    <Form.Field>
 		      <label id='signup-form-label'> Password Confirmation </label>
-		      <input id='signup-form-input' onChange={this.handleChange} type='password' name='passwordConfirmation' value={this.state.passwordConfirmation} placeholder='password... again' />
+		      <input style={{backgroundColor: '#eff5f2', width: '15%', marginBottom: '10px'}} onChange={this.handleChange} type='password' name='passwordConfirmation' value={this.state.passwordConfirmation} placeholder='password... again' />
 		    </Form.Field>
 
 		    <Button type='submit' id='signup-form-button'>Sign up</Button>

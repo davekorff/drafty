@@ -39,7 +39,6 @@
   padding: 3%;
   padding-top: 1%;
   background-image: url('/sandpaper.png');
-  /* border-color: #eff5f2; */
   border-radius: 5px;
 }
 
@@ -54,6 +53,7 @@
   border-radius: 5px;
   width: 5px;
   flex: 25%;
+  border: 1px solid #161616;
 }
 
 #weatherperson-info {
