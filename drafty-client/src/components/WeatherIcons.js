@@ -1,7 +1,6 @@
 import React from 'react'
 import './WeatherIcons.css'
 
-
 export const renderThunderstormIcon = () => {
   return (
     <div className="icon thunder-storm">

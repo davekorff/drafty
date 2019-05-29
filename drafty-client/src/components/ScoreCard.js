@@ -182,7 +182,7 @@ class Scorecard extends React.Component {
         </div>
         <br/>
         <div className='scorecard-col'>
-          <div style={{marginTop: '-10px', fontSize: '15px'}} >Score: <CountUp style={{fontSize: '20px'}} start={0} end={this.renderTeamScore()} /></div>
+          <div style={{marginTop: '-10px', fontSize: '15px'}} >5-Day Score: <CountUp style={{fontSize: '20px'}} start={0} end={this.renderTeamScore()} /></div>
         </div>
       </div>
 

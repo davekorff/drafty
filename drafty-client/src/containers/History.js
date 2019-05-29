@@ -19,7 +19,6 @@ class History extends React.Component {
     } else {
       return "You don't have any past teams..."
     }
-
   }
 
   render() {
@@ -33,10 +32,16 @@ class History extends React.Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    currentUser: state.user.currentUser
+  }
+}
+
 function mapDispatchToProps(dispatch) {
   return {
     setContests: contests => dispatch({type: 'SET_CONTESTS', payload: contests})
   }
 }
 
-export default connect(null, mapDispatchToProps)(History)
+export default connect(mapStateToProps, mapDispatchToProps)(History)
