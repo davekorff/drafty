@@ -31,13 +31,27 @@ Contest.create(name: 'Spring No. 12', start_date: '2019-06-03', end_date: '2019-
 Contest.create(name: 'Spring No. 13', start_date: '2019-06-10', end_date: '2019-06-14', prize: 100)
 Contest.create(name: 'Spring No. 14', start_date: '2019-06-17', end_date: '2019-06-21', prize: 100)
 
+kpop = ["Chocolat", "Luv", "Gavy NJ", "Skarf", "Stellar", "Cosmic Girls", "Sunny Days", "Cosmic Girls", "Mamamoo",
+  "Tahiti", "Fiestar", "Dia", "Red Velvet", "Good Day", "Lovelyz", "Bob Girls",
+  "Wink", "Loona", "Draft:THE ARK", "Girl's Day", "Sugar", "Bestie", "Momoland", "Girls' Generation-TTS",
+  "T-ara", "Kiss", "She'z", "Roo'ra", "As One", "Fly to the Sky", "Seo Taiji and Boys", "Koyote",
+  "Seo Taiji and Boys", "Cool", "Diva", "Roo'ra", "As One", "Cool", "Cool", "Seo Taiji and Boys",
+  "As One", "Diva", "Baby V.O.X.", "Koyote", "Turbo", "Seo Taiji and Boys", "Chakra", "Untouchable", "Big Mama",
+  "Miss $", "Sugar", "Tritops", "Papaya", "Mighty Mouth", "Super Junior-T", "Buzz", "SeeYa", "Big Mama", "Good Day",
+  "Unnies", "Favorite", "F.Cuz", "Momoland", "K-Much", "K-Much", "Berry Good", "Bolbbalgan4", "C-Real",
+  "Mr. Mr.", "Golden Child", "5urprise", "D-Unit", "C-Real", "Play the Siren", "Momoland",
+  "Lunafly", "My Name", "Snuper", "Supernova ", "100%", "Cross Gene", "One Way", "Honey G", "F.Cuz", "Can",
+  "Romeo", "Beatwin", "N-Sonic", "T-max", "Can", "K'Pop", "Wanted", "Winner", "Lunafly", "Voisper", "Big Bang",
+  "Black Beat", "K'Pop", "HeartB", "Touch", "Lunafly", "Pentagon", "Black Beat", "Brown Eyes", "Pentagon",
+  "Vibe", "Boys Republic", "Highlight"
+]
 
 #CONTEST 1 TEAMS
 i = 0
 uids = (1..22).to_a.shuffle
 while i < 22 do
   uid = uids.pop
-  Team.create(name: Faker::Kpop.i_groups, user_id: uid, contest_id: 1)
+  Team.create(name: kpop.pop, user_id: uid, contest_id: 1)
   i += 1
 end
 
@@ -47,7 +61,7 @@ i = 0
 uids = (1..22).to_a.shuffle
 while i < 22 do
   uid = uids.pop
-  Team.create(name: Faker::Kpop.ii_groups, user_id: uid, contest_id: 2)
+  Team.create(name: kpop.pop, user_id: uid, contest_id: 2)
   i += 1
 end
 
@@ -56,7 +70,7 @@ i = 0
 uids = (1..22).to_a.shuffle
 while i < 22 do
   uid = uids.pop
-  Team.create(name: Faker::Kpop.iii_groups, user_id: uid, contest_id: 3)
+  Team.create(name: kpop.pop, user_id: uid, contest_id: 3)
   i += 1
 end
 
@@ -65,7 +79,7 @@ i = 0
 uids = (1..22).to_a.shuffle
 while i < 22 do
   uid = uids.pop
-  Team.create(name: Faker::Kpop.girl_groups, user_id: uid, contest_id: 4)
+  Team.create(name: kpop.pop, user_id: uid, contest_id: 4)
   i += 1
 end
 
@@ -167,7 +181,7 @@ end
 weather = ['Sunny', 'Cloudy', 'Rain', 'Sunny', 'Cloudy', 'Rain', 'Sunny', 'Cloudy', 'T-storm']
 temps = (65..80).to_a
 
-#CONTEST 1
+#CONTEST 1 FORECASTS
 Forecast.create(weatherperson_id: 1, date: '2019-05-06', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-05-06', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-05-06', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
@@ -199,7 +213,7 @@ Forecast.create(weatherperson_id: 4, date: '2019-05-10', predicted_temp: temps.s
 Forecast.create(weatherperson_id: 5, date: '2019-05-10', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 6, date: '2019-05-10', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 
-#CONTEST 2
+#CONTEST 2 FORECASTS
 Forecast.create(weatherperson_id: 1, date: '2019-05-13', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-05-13', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-05-13', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
@@ -231,7 +245,7 @@ Forecast.create(weatherperson_id: 4, date: '2019-05-17', predicted_temp: temps.s
 Forecast.create(weatherperson_id: 5, date: '2019-05-17', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 6, date: '2019-05-17', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 
-#CONTEST 3
+#CONTEST 3 FORECASTS
 Forecast.create(weatherperson_id: 1, date: '2019-05-20', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-05-20', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-05-20', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
@@ -264,7 +278,7 @@ Forecast.create(weatherperson_id: 5, date: '2019-05-24', predicted_temp: temps.s
 Forecast.create(weatherperson_id: 6, date: '2019-05-24', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 
 
-#CONTEST 4
+#CONTEST 4 FORECASTS
 Forecast.create(weatherperson_id: 1, date: '2019-05-27', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-05-27', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-05-27', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
@@ -298,7 +312,7 @@ Forecast.create(weatherperson_id: 6, date: '2019-05-31', predicted_temp: temps.s
 
 
 
-#CONTEST 5
+#CONTEST 5 FORECASTS
 Forecast.create(weatherperson_id: 1, date: '2019-06-03', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-06-03', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-06-03', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
@@ -330,7 +344,7 @@ Forecast.create(weatherperson_id: 4, date: '2019-06-07', predicted_temp: temps.s
 Forecast.create(weatherperson_id: 5, date: '2019-06-07', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 6, date: '2019-06-07', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 
-#CONTEST 6
+#CONTEST 6 FORECASTS
 Forecast.create(weatherperson_id: 1, date: '2019-06-10', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-06-10', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-06-10', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
@@ -362,7 +376,7 @@ Forecast.create(weatherperson_id: 4, date: '2019-06-14', predicted_temp: temps.s
 Forecast.create(weatherperson_id: 5, date: '2019-06-14', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 6, date: '2019-06-14', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 
-#CONTEST 7
+#CONTEST 7 FORECASTS
 Forecast.create(weatherperson_id: 1, date: '2019-06-17', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-06-17', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 3, date: '2019-06-17', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)

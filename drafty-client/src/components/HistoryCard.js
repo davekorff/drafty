@@ -12,13 +12,13 @@ class HistoryCard extends React.Component {
     const place = sortedScores ? sortedScores.indexOf(this.props.team.score) + 1 : null
 
     if (place === 1) {
-      return <img height='75px' alt='ribbon' src='1st-place-medal.svg' />
+      return <img height='75px' alt='first-ribbon' src='1st-place-medal.svg' />
     } else if (place === 2) {
-      return <img height='75px' alt='ribbon' src='2nd-place-medal.svg' />
+      return <img height='75px' alt='second-ribbon' src='2nd-place-medal.svg' />
     } else if (place === 3) {
-      return <img height='75px' alt='ribbon' src='3rd-place-medal.svg' />
+      return <img height='75px' alt='third-ribbon' src='3rd-place-medal.svg' />
     } else {
-      return <span className='emoji' aria-label='perservering-face' role="img">😣</span>
+      return <img height='75px' alt='see-no-evil-monkey' src='see-no-evil-monkey.svg' />
     }
   }
 

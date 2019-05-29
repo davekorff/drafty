@@ -17,7 +17,7 @@ class History extends React.Component {
       const sortedTeams = this.props.currentUser.past_teams.sort((a, b) => (b.contest.start_date > a.contest.start_date) ? 1 : -1)
       return sortedTeams.map(team => <HistoryCard team={team} key={team.id}/>)
     } else {
-      return <div id='team-history-label'>You don't have any past teams</div>
+      return "You don't have any past teams..."
     }
 
   }

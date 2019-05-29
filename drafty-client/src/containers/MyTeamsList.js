@@ -10,7 +10,8 @@ class MyTeamsList extends React.Component {
     if (myCompleteTeams.length === 0) {
       return (
         <div className='make-a-team' style={{marginTop: '50px'}}>
-          <center>Make a team...</center>
+          <center>You don't have any teams...</center>
+          <center>Click 'View Draft' to make a team</center>
         </div>
       )
     } else {
