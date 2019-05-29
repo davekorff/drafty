@@ -1,21 +1,18 @@
 /********** MEET THE WEATHERPEOPLE **********/
 .meet-container {
   margin: auto;
-  margin-top: 10%;
-  width: 90%;
-  /* border: 1px solid; */
+  width: 100%;
 }
 
 .weatherpeople-index {
   margin: auto;
   width: 80%;
-  /* border: 1px solid; */
+  padding-top: 8em;
 }
 
 .weatherpeople-show {
   margin: auto;
   width: 80%;
-  /* border: 1px solid; */
 }
 
 .wp-button {

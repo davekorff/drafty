@@ -2,7 +2,6 @@
 .history-background {
   background-image: url('/brilliant.png');
   min-height: 100%;
-  /* min-width: 100%; */
   position: absolute;
   width: 100%;
 

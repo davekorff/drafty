@@ -3,8 +3,8 @@
   margin: auto;
   width: 100%;
   text-align: center;
-  margin-top: 150px;
   background-color: '#eff5f2';
+  padding-top: 8em;
 }
 
 #login-form-label, #signup-form-label {
