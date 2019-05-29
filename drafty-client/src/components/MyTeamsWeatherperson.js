@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 class MyTeamsWeatherperson extends React.Component {
 
   render() {

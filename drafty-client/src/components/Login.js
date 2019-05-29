@@ -1,6 +1,5 @@
 import React from 'react'
 import { Form, Button } from 'semantic-ui-react'
-import { connect } from 'react-redux'
 import './LoginAndSignup.css'
 
 class Login extends React.Component {
@@ -64,11 +63,4 @@ class Login extends React.Component {
 	}
 }
 
-function mapStateToProps(state) {
-	return {
-		currentUser: state.user.currentUser
-	}
-}
-
-
-export default connect(mapStateToProps)(Login)
+export default Login

@@ -1,4 +1,4 @@
-#USERS
+################################## USERS ##################################
 User.create(username: 'adam', password: '1234')
 User.create(username: 'akram', password: '1234')
 User.create(username: 'alonso', password: '1234')
@@ -22,7 +22,7 @@ User.create(username: 'vicky', password: '1234')
 User.create(username: 'victoria', password: '1234')
 User.create(username: 'will', password: '1234')
 
-#CONTESTS
+################################## CONTESTS ##################################
 Contest.create(name: 'Spring No. 8', start_date: '2019-05-06', end_date: '2019-05-10', prize: 100)
 Contest.create(name: 'Spring No. 9', start_date: '2019-05-13', end_date: '2019-05-17', prize: 100)
 Contest.create(name: 'Spring No. 10', start_date: '2019-05-20', end_date: '2019-05-24', prize: 100)
@@ -31,6 +31,7 @@ Contest.create(name: 'Spring No. 12', start_date: '2019-06-03', end_date: '2019-
 Contest.create(name: 'Spring No. 13', start_date: '2019-06-10', end_date: '2019-06-14', prize: 100)
 Contest.create(name: 'Spring No. 14', start_date: '2019-06-17', end_date: '2019-06-21', prize: 100)
 
+################################## TEAMS ##################################
 kpop = ["Chocolat", "Luv", "Gavy NJ", "Skarf", "Stellar", "Cosmic Girls", "Sunny Days", "Cosmic Girls", "Mamamoo",
   "Tahiti", "Fiestar", "Dia", "Red Velvet", "Good Day", "Lovelyz", "Bob Girls",
   "Wink", "Loona", "Draft:THE ARK", "Girl's Day", "Sugar", "Bestie", "Momoland", "Girls' Generation-TTS",
@@ -54,7 +55,6 @@ while i < 22 do
   Team.create(name: kpop.pop, user_id: uid, contest_id: 1)
   i += 1
 end
-
 
 #CONTEST 2 TEAMS
 i = 0
@@ -84,8 +84,7 @@ while i < 22 do
 end
 
 
-#WEATHERPEOPLE
-
+################################## WEATHERPEOPLE ##################################
 bios = [
   "'I just - I can't stand the sound of the human voice.'",
   "Hy Lowe is an on-camera meteorologist and host. He can be seen weeknights. Hy was a meteorologist for KING-TV in Sarasota and contributed to Southeast Cable News. He also worked at KTVZ-TV in Atlanta, Georgia, as a chief weather anchor and at KSBY-TV in San Luis Obispo, California as a weather anchor and reporter. A recipient of the AMS Seal of Approval, Hy was awarded a 2008 Emmy Award for on camera talent in the weather category. A native of Kirkland, Washington, Hy received his bachelor’s degree in broadcasting with a psychology minor from Washington State University and a certificate in broadcast meteorology from Mississippi State University. Hy enjoys being outdoors and, when not at work, can be found hiking, snowboarding, throwing a football in the park, traveling or shooting photographs. He is also certified in basic keelboat sailing by the American Sailing Association.",
@@ -112,72 +111,7 @@ Weatherperson.create(name: 'Hy Lowe', station: 'NBC', city: 'Miami, FL', img_url
 Weatherperson.create(name: 'Larry Sprinkle', station: 'KCPY', city: 'Los Angeles, CA', img_url_sm: '/larry-sprinkle-sm.png', img_url_lg: '/larry-sprinkle-lg.jpg', education: educations.pop, bio: bios.pop)
 
 
-#CONTEST 1 DRAFTS
-
-i = 0
-team_ids = (1..22).to_a.shuffle
-while i < 22 do
-  j = 0
-  team_id = team_ids.pop
-  wp_ids = (1..6).to_a.shuffle
-  while j < 3 do
-    three_wp_ids = wp_ids[0..2]
-    Draft.create(team_id: i + 1, weatherperson_id: three_wp_ids[j])
-    j += 1
-  end
-  i += 1
-end
-
-
-#CONTEST 2 DRAFTS
-i = 0
-team_ids = (23..44).to_a.shuffle
-while i < 22 do
-  j = 0
-  team_id = team_ids.pop
-  wp_ids = (1..6).to_a.shuffle
-  while j < 3 do
-    three_wp_ids = wp_ids[0..2]
-    Draft.create(team_id: i + 23, weatherperson_id: three_wp_ids[j])
-    j += 1
-  end
-  i += 1
-end
-
-
-#CONTEST 3 DRAFTS
-i = 0
-team_ids = (45..66).to_a.shuffle
-while i < 22 do
-  j = 0
-  team_id = team_ids.pop
-  wp_ids = (1..6).to_a.shuffle
-  while j < 3 do
-    three_wp_ids = wp_ids[0..2]
-    Draft.create(team_id: i + 45, weatherperson_id: three_wp_ids[j])
-    j += 1
-  end
-  i += 1
-end
-
-#CONTEST 4 DRAFTS
-i = 0
-team_ids = (66..87).to_a.shuffle
-while i < 22 do
-  j = 0
-  team_id = team_ids.pop
-  wp_ids = (1..6).to_a.shuffle
-  while j < 3 do
-    three_wp_ids = wp_ids[0..2]
-    Draft.create(team_id: i + 66, weatherperson_id: three_wp_ids[j])
-    j += 1
-  end
-  i += 1
-end
-
-
-## TODO: ADD  'T-storm'
-
+################################## FORECASTS ##################################
 weather = ['Sunny', 'Cloudy', 'Rain', 'Sunny', 'Cloudy', 'Rain', 'Sunny', 'Cloudy', 'T-storm']
 temps = (65..80).to_a
 
@@ -277,7 +211,6 @@ Forecast.create(weatherperson_id: 4, date: '2019-05-24', predicted_temp: temps.s
 Forecast.create(weatherperson_id: 5, date: '2019-05-24', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 6, date: '2019-05-24', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 
-
 #CONTEST 4 FORECASTS
 Forecast.create(weatherperson_id: 1, date: '2019-05-27', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 2, date: '2019-05-27', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
@@ -309,8 +242,6 @@ Forecast.create(weatherperson_id: 3, date: '2019-05-31', predicted_temp: temps.s
 Forecast.create(weatherperson_id: 4, date: '2019-05-31', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 5, date: '2019-05-31', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 Forecast.create(weatherperson_id: 6, date: '2019-05-31', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
-
-
 
 #CONTEST 5 FORECASTS
 Forecast.create(weatherperson_id: 1, date: '2019-06-03', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
@@ -409,8 +340,72 @@ Forecast.create(weatherperson_id: 5, date: '2019-06-21', predicted_temp: temps.s
 Forecast.create(weatherperson_id: 6, date: '2019-06-21', predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
 
 
-# UPDATE CONTEST 1 WITH ACTUAL TEMPS
+################################## DRAFTS ##################################
 
+#CONTEST 1 DRAFTS
+i = 0
+team_ids = (1..22).to_a.shuffle
+while i < 22 do
+  j = 0
+  team_id = team_ids.pop
+  wp_ids = (1..Weatherperson.all.length).to_a.shuffle
+  while j < 3 do
+    three_wp_ids = wp_ids[0..2]
+    Draft.create(team_id: i + 1, weatherperson_id: three_wp_ids[j])
+    j += 1
+  end
+  i += 1
+end
+
+#CONTEST 2 DRAFTS
+i = 0
+team_ids = (23..44).to_a.shuffle
+while i < 22 do
+  j = 0
+  team_id = team_ids.pop
+  wp_ids = (1..Weatherperson.all.length).to_a.shuffle
+  while j < 3 do
+    three_wp_ids = wp_ids[0..2]
+    Draft.create(team_id: i + 23, weatherperson_id: three_wp_ids[j])
+    j += 1
+  end
+  i += 1
+end
+
+#CONTEST 3 DRAFTS
+i = 0
+team_ids = (45..66).to_a.shuffle
+while i < 22 do
+  j = 0
+  team_id = team_ids.pop
+  wp_ids = (1..Weatherperson.all.length).to_a.shuffle
+  while j < 3 do
+    three_wp_ids = wp_ids[0..2]
+    Draft.create(team_id: i + 45, weatherperson_id: three_wp_ids[j])
+    j += 1
+  end
+  i += 1
+end
+
+#CONTEST 4 DRAFTS
+i = 0
+team_ids = (67..88).to_a.shuffle
+while i < 22 do
+  j = 0
+  team_id = team_ids.pop
+  wp_ids = (1..Weatherperson.all.length).to_a.shuffle
+  while j < 3 do
+    three_wp_ids = wp_ids[0..2]
+    Draft.create(team_id: i + 67, weatherperson_id: three_wp_ids[j])
+    j += 1
+  end
+  i += 1
+end
+
+
+################################## UPDATE FORECASTS ##################################
+
+# UPDATE CONTEST 1 FORECASTS WITH ACTUAL TEMPS
 Forecast.all.each do |f|
   if f.date.to_s == '2019-05-06'
     f.update(actual_temp: 66)
@@ -425,13 +420,7 @@ Forecast.all.each do |f|
   end
 end
 
-
-
-# UPDATE CONTEST 1 WITH ACTUAL WEATHER
-
-### TODO: MAKE WEATHER PREDICTIONS "MORE ACCURATE" BY PULLING FROM MOST FREQUENTLY
-### FORECASTED WEATHER FOR ACTUAL WEATHER SEEDING
-
+# UPDATE CONTEST 1 FORECASTS WITH ACTUAL WEATHER
 actual_weather = weather.sample
 
 Forecast.all.each do |f|
@@ -473,12 +462,7 @@ Forecast.all.each do |f|
 end
 
 
-
-
-
-# UPDATE CONTEST 2 WITH ACTUAL TEMPS
-
-
+# UPDATE CONTEST 2 FORECASTS WITH ACTUAL TEMPS
 Forecast.all.each do |f|
   if f.date.to_s == '2019-05-13'
     f.update(actual_temp: 71)
@@ -493,9 +477,7 @@ Forecast.all.each do |f|
   end
 end
 
-
-
-# UPDATE CONTEST 2 WITH ACTUAL WEATHER
+# UPDATE CONTEST 2 FORECASTS WITH ACTUAL WEATHER
 actual_weather = weather.sample
 
 Forecast.all.each do |f|
@@ -537,11 +519,7 @@ Forecast.all.each do |f|
 end
 
 
-
-
-# UPDATE CONTEST 3 WITH ACTUAL TEMPS
-
-
+# UPDATE CONTEST 3 FORECASTS WITH ACTUAL TEMPS
 Forecast.all.each do |f|
   if f.date.to_s == '2019-05-20'
     f.update(actual_temp: 78)
@@ -556,9 +534,7 @@ Forecast.all.each do |f|
   end
 end
 
-
-
-# UPDATE CONTEST 3 WITH ACTUAL WEATHER
+# UPDATE CONTEST 3 FORECASTS WITH ACTUAL WEATHER
 actual_weather = weather.sample
 
 Forecast.all.each do |f|
