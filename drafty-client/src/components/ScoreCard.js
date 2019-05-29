@@ -2,6 +2,7 @@ import React from 'react'
 import { renderThunderstormIcon, renderRainIcon, renderSunnyIcon, renderCloudyIcon } from './WeatherIcons'
 import CountUp from 'react-countup';
 import ScorecardProfile from './ScorecardProfile'
+import transformDate from '../helpers/transformDate'
 
 class Scorecard extends React.Component {
 
@@ -60,23 +61,6 @@ class Scorecard extends React.Component {
     return this.state.forecasts[index].actual_weather.toLowerCase()
   }
 
-  transformDate = (date) => {
-    let yyyy = date.slice(0,4)
-    let mm = date.slice(5,7)
-    let dd = date.slice(8,10)
-
-    if (mm.slice(0,1) === '0' && dd.slice(0,1) === '0') {
-      return `${mm.slice(1,2)}/${dd.slice(1,2)}/${yyyy}`
-    } else if (mm.slice(0,1) === '0') {
-      return `${mm.slice(1,2)}/${dd}/${yyyy}`
-    } else if (dd.slice(0,1) === '0') {
-      return `${mm}/${dd.slice(1,2)}/${yyyy}`
-    } else {
-      return `${mm}/${dd}/${yyyy}`
-    }
-  }
-
-
   render() {
 
     return (
@@ -99,7 +83,7 @@ class Scorecard extends React.Component {
             {this.renderPredictedWeatherString(0)}<br/>
             {this.state.forecasts[0].predicted_temp}℉ <br/>
             mon <br/>
-            {this.transformDate(this.state.forecasts[0].date).slice(0, -5)}
+            {transformDate(this.state.forecasts[0].date).slice(0, -5)}
             </div>
           </div>
           <div className='scorecard-col'>
@@ -110,7 +94,7 @@ class Scorecard extends React.Component {
             {this.renderPredictedWeatherString(1)}<br/>
             {this.state.forecasts[1].predicted_temp}℉ <br/>
             tue <br/>
-            {this.transformDate(this.state.forecasts[1].date).slice(0, -5)}
+            {transformDate(this.state.forecasts[1].date).slice(0, -5)}
             </div>
           </div>
           <div className='scorecard-col'>
@@ -121,7 +105,7 @@ class Scorecard extends React.Component {
             {this.renderPredictedWeatherString(2)}<br/>
             {this.state.forecasts[2].predicted_temp}℉ <br/>
             wed <br/>
-            {this.transformDate(this.state.forecasts[2].date).slice(0, -5)}
+            {transformDate(this.state.forecasts[2].date).slice(0, -5)}
             </div>
           </div>
           <div className='scorecard-col'>
@@ -132,7 +116,7 @@ class Scorecard extends React.Component {
             {this.renderPredictedWeatherString(3)}<br/>
             {this.state.forecasts[3].predicted_temp}℉ <br/>
             thu <br/>
-            {this.transformDate(this.state.forecasts[3].date).slice(0, -5)}
+            {transformDate(this.state.forecasts[3].date).slice(0, -5)}
             </div>
           </div>
           <div className='scorecard-col'>
@@ -143,7 +127,7 @@ class Scorecard extends React.Component {
             {this.renderPredictedWeatherString(4)}<br/>
             {this.state.forecasts[4].predicted_temp}℉ <br/>
             fri <br/>
-            {this.transformDate(this.state.forecasts[4].date).slice(0, -5)}
+            {transformDate(this.state.forecasts[4].date).slice(0, -5)}
             </div>
           </div>
         </div>

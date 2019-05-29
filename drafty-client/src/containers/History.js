@@ -28,7 +28,7 @@ class History extends React.Component {
         <div className='history-container'>
           {this.renderCards()}
         </div>
-    </div>
+      </div>
     )
   }
 }

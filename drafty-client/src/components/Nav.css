@@ -10,7 +10,7 @@
   background-image: url('/brilliant.png');
   position: fixed;
   top: 0;
-  width: 102%;
+  width: 100%;
   z-index: 3;
   border-bottom: 4px solid #323042;
 }

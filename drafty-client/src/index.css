@@ -1,5 +1,5 @@
-/* html {
-  height: 100%;
+/* html, body {
+  height: 100vh;
 } */
 
 body {
@@ -20,9 +20,10 @@ code {
 .App {
   background-image: url('/rice-paper.png');
   background-repeat: repeat-y;
-  min-height: 110%;
-  min-width: 100%;
-  position: absolute;
+  height: 100%;
+  width: 100vw;
+  min-height: 100vh;
+  border: 1px solid;
 }
 
 
