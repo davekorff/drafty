@@ -574,3 +574,61 @@ Forecast.all.each do |f|
     f.update(actual_weather: actual_weather)
   end
 end
+
+
+
+# UPDATE CONTEST 4 FORECASTS WITH ACTUAL TEMPS
+Forecast.all.each do |f|
+  if f.date.to_s == '2019-05-27'
+    f.update(actual_temp: 78)
+  elsif f.date.to_s == '2019-05-28'
+    f.update(actual_temp: 70)
+  elsif f.date.to_s == '2019-05-29'
+    f.update(actual_temp: 68)
+  elsif f.date.to_s == '2019-05-30'
+    f.update(actual_temp: 66)
+  elsif f.date.to_s == '2019-05-31'
+    f.update(actual_temp: 69)
+  end
+end
+
+# UPDATE CONTEST 4 FORECASTS WITH ACTUAL WEATHER
+actual_weather = weather.sample
+
+Forecast.all.each do |f|
+  if f.date.to_s == '2019-05-27'
+    f.update(actual_weather: actual_weather)
+  end
+end
+
+actual_weather = weather.sample
+
+Forecast.all.each do |f|
+  if f.date.to_s == '2019-05-28'
+    f.update(actual_weather: actual_weather)
+  end
+end
+
+actual_weather = weather.sample
+
+Forecast.all.each do |f|
+  if f.date.to_s == '2019-05-29'
+    f.update(actual_weather: actual_weather)
+  end
+end
+
+actual_weather = weather.sample
+
+Forecast.all.each do |f|
+  if f.date.to_s == '2019-05-30'
+    f.update(actual_weather: actual_weather)
+  end
+end
+
+actual_weather = weather.sample
+
+Forecast.all.each do |f|
+  if f.date.to_s == '2019-05-31'
+    f.update(actual_weather: actual_weather)
+  end
+end
