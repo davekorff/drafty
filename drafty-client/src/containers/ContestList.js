@@ -20,21 +20,6 @@ class ContestList extends React.Component {
     })
   }
 
-  // Render all future contests
-  // renderContestList() {
-  //   if (this.props.contests.length === 0 || this.props.contests.status === 500) {
-  //     return <div>Error loading contests...</div>
-  //   } else {
-  //     return this.props.contests.map(contest => {
-  //       if (contest.start_date > this.props.currentDate) {
-  //         return <ContestListItem history={this.props.history} setCurrentContest={this.props.setCurrentContest} key={contest.id} contest={contest}/>
-  //       }
-  //       return null
-  //     })
-  //   }
-  // }
-
-
   render() {
     console.log(this.props.contests)
     return (

@@ -10,7 +10,7 @@ class Team < ApplicationRecord
 
   # calculate the team score
   def score
-    if self.contest.end_date < Date.today && self.forecasts.first.score
+    if self.contest.end_date < Date.today && self.forecasts.first && self.forecasts.first.score
       self.forecasts.map { |forecast| forecast.score }.reduce(:+)
     end
   end
