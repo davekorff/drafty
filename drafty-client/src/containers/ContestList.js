@@ -10,9 +10,16 @@ class ContestList extends React.Component {
       .then(contests => this.props.setContests(contests))
   }
 
+  // Find the last contest's date
+  lastContestDate() {
+    if (this.props.contests[this.props.contests.length - 1]) {
+      return this.props.contests[this.props.contests.length - 1].end_date
+    }
+  }
+
   // Render all future contests
   renderContestList() {
-    if (this.props.contests[this.props.contests.length - 1] && this.props.contests[this.props.contests.length - 1].end_date < this.props.currentDate) {
+    if (this.lastContestDate() && this.lastContestDate() < this.props.currentDate) {
       return <div style={{marginTop: '45px'}}>There are no current contests...</div>
     } else {
       return this.props.contests.map(contest => {
@@ -25,7 +32,6 @@ class ContestList extends React.Component {
   }
 
   render() {
-    console.log(this.props.contests[this.props.contests.length - 1]);
     return (
       <div className='contest-list-container'>
         <h1 id='pacifico'>Contests</h1>
