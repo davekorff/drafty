@@ -17,17 +17,19 @@ class ContestList extends React.Component {
     }
   }
 
-  // Render all future contests
+  // Render all future contests or "No contests" message
   renderContestList() {
     if (this.lastContestDate() && this.lastContestDate() < this.props.currentDate) {
       return <div style={{marginTop: '45px'}}>There are no current contests...</div>
-    } else {
+    } else if (this.lastContestDate()) {
       return this.props.contests.map(contest => {
         if (contest.start_date > this.props.currentDate) {
           return <ContestListItem history={this.props.history} setCurrentContest={this.props.setCurrentContest} key={contest.id} contest={contest}/>
         }
         return null
       })
+    } else {
+      return <div style={{marginTop: '45px'}}>Loading contests...</div>
     }
   }
 
