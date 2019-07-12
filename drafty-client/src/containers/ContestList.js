@@ -12,16 +12,20 @@ class ContestList extends React.Component {
 
   // Render all future contests
   renderContestList() {
-    return this.props.contests.map(contest => {
-      if (contest.start_date > this.props.currentDate) {
-        return <ContestListItem history={this.props.history} setCurrentContest={this.props.setCurrentContest} key={contest.id} contest={contest}/>
-      }
-      return null
-    })
+    if (this.props.contests[this.props.contests.length - 1] && this.props.contests[this.props.contests.length - 1].end_date < this.props.currentDate) {
+      return <div style={{marginTop: '45px'}}>There are no current contests...</div>
+    } else {
+      return this.props.contests.map(contest => {
+        if (contest.start_date > this.props.currentDate) {
+          return <ContestListItem history={this.props.history} setCurrentContest={this.props.setCurrentContest} key={contest.id} contest={contest}/>
+        }
+        return null
+      })
+    }
   }
 
   render() {
-    console.log(this.props.contests)
+    console.log(this.props.contests[this.props.contests.length - 1]);
     return (
       <div className='contest-list-container'>
         <h1 id='pacifico'>Contests</h1>
