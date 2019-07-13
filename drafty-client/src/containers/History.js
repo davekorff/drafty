@@ -12,6 +12,8 @@ class History extends React.Component {
       .then(contests => this.props.setContests(contests))
   }
 
+  // Sort current user's past teams starting with the most recent
+  // Render a HistoryCard for each past team
   renderCards = () => {
     if (this.props.currentUser.past_teams.length !== 0) {
       const sortedTeams = this.props.currentUser.past_teams.sort((a, b) => (b.contest.start_date > a.contest.start_date) ? 1 : -1)

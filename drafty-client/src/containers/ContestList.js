@@ -17,7 +17,7 @@ class ContestList extends React.Component {
     }
   }
 
-  // Render all future contests or "No contests" message
+  // Render all future contests, if any
   renderContestList() {
     if (this.lastContestDate() && this.lastContestDate() < this.props.currentDate) {
       return <div style={{marginTop: '45px'}}>There are no current contests...</div>
