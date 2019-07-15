@@ -1,4 +1,5 @@
 ################################## USERS ##################################
+
 users = [
   'adam', 'akram', 'alonso', 'dave', 'diana', 'faizan', 'jessy', 'ian',
   'kate', 'khaled', 'matt', 'mica', 'naomi', 'nate', 'nicky', 'richie',
@@ -12,6 +13,7 @@ while i < users.length
 end
 
 ################################## CONTESTS ##################################
+
 Contest.create(name: 'Summer No. 1', start_date: '2019-06-24', end_date: '2019-06-28', prize: 100)
 Contest.create(name: 'Summer No. 2', start_date: '2019-07-01', end_date: '2019-07-05', prize: 100)
 Contest.create(name: 'Summer No. 3', start_date: '2019-07-08', end_date: '2019-07-12', prize: 100)
@@ -20,6 +22,7 @@ Contest.create(name: 'Summer No. 5', start_date: '2019-07-22', end_date: '2019-0
 Contest.create(name: 'Summer No. 6', start_date: '2019-07-29', end_date: '2019-08-02', prize: 100)
 
 ################################## TEAMS ##################################
+
 kpop = ["Chocolat", "Luv", "Gavy NJ", "Skarf", "Stellar", "Cosmic Girls", "Sunny Days", "Cosmic Girls", "Mamamoo",
   "Tahiti", "Fiestar", "Dia", "Red Velvet", "Good Day", "Lovelyz", "Bob Girls",
   "Wink", "Loona", "Draft:THE ARK", "Girl's Day", "Sugar", "Bestie", "Momoland", "Girls' Generation-TTS",
@@ -35,19 +38,19 @@ kpop = ["Chocolat", "Luv", "Gavy NJ", "Skarf", "Stellar", "Cosmic Girls", "Sunny
   "Vibe", "Boys Republic", "Highlight"
 ]
 
-i = 0
-while i < Contest.all.length
+Contest.all[0..2].each do |contest|
   j = 0
   uids = (1..User.all.length).to_a.shuffle
-  while j < User.all.length do
+  while j < User.all.length
     uid = uids.pop
-    Team.create(name: kpop.sample, user_id: uid, contest_id: i + 1)
+    Team.create(name: kpop.sample, user_id: uid, contest_id: contest.id)
     j += 1
   end
-i += 1
 end
 
+
 ################################## WEATHERPEOPLE ##################################
+
 bios = [
   "'I just - I can't stand the sound of the human voice.'",
   "Hy Lowe is an on-camera meteorologist and host. He can be seen weeknights. Hy was a meteorologist for KING-TV in Sarasota and contributed to Southeast Cable News. He also worked at KTVZ-TV in Atlanta, Georgia, as a chief weather anchor and at KSBY-TV in San Luis Obispo, California as a weather anchor and reporter. A recipient of the AMS Seal of Approval, Hy was awarded a 2008 Emmy Award for on camera talent in the weather category. A native of Kirkland, Washington, Hy received his bachelor’s degree in broadcasting with a psychology minor from Washington State University and a certificate in broadcast meteorology from Mississippi State University. Hy enjoys being outdoors and, when not at work, can be found hiking, snowboarding, throwing a football in the park, traveling or shooting photographs. He is also certified in basic keelboat sailing by the American Sailing Association.",
@@ -74,6 +77,7 @@ Weatherperson.create(name: 'Hy Lowe', station: 'NBC', city: 'Miami, FL', img_url
 Weatherperson.create(name: 'Larry Sprinkle', station: 'KCPY', city: 'Los Angeles, CA', img_url_sm: '/larry-sprinkle-sm.png', img_url_lg: '/larry-sprinkle-lg.jpg', education: educations.pop, bio: bios.pop)
 
 ################################## FORECASTS ##################################
+
 weather = ['Sunny', 'Cloudy', 'Rain', 'Sunny', 'Cloudy', 'Rain', 'Sunny', 'Cloudy', 'T-storm']
 temps = (65..80).to_a
 
@@ -90,7 +94,8 @@ Contest.all.each do |contest|
 end
 
 ################################## DRAFTS ##################################
-Contest.all[0..3].each do |contest|
+
+Contest.all[0..2].each do |contest|
   contest.teams.each do |team|
     j = 0
     wp_ids = (1..Weatherperson.all.length).to_a.shuffle[0..2]
@@ -102,6 +107,7 @@ Contest.all[0..3].each do |contest|
 end
 
 ################################## UPDATE FORECASTS ##################################
+
 Contest.all[0..2].each do |contest|
   i = 0
   while i < 5

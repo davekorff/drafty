@@ -7,7 +7,6 @@ class Api::V1::TeamsController < ApplicationController
 	end
 
 
-
 	def create
 		kpop = ["Chocolat", "Luv", "Gavy NJ", "Skarf", "Stellar", "Cosmic Girls", "Sunny Days", "Cosmic Girls", "Mamamoo",
 			"Tahiti", "Fiestar", "Dia", "Red Velvet", "Good Day", "Lovelyz", "Bob Girls",
@@ -23,8 +22,8 @@ class Api::V1::TeamsController < ApplicationController
 			"Black Beat", "K'Pop", "HeartB", "Touch", "Lunafly", "Pentagon", "Black Beat", "Brown Eyes", "Pentagon",
 			"Vibe", "Boys Republic", "Highlight"
 		]
-		
-		team = Team.create(user_id: params[:user_id], contest_id: params[:contest_id], name: kpop.sample)
+
+		team = Team.create(user_id: params[:user_id], contest_id: params[:contest_id], name: "SeeYa")
 
 		render json: team
 	end
