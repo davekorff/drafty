@@ -45,6 +45,7 @@ class App extends Component {
 		this.props.history.push('/login')
 	}
 
+	// Set date to match format from backend
 	setCurrentDate = () => {
 		const today = new Date()
 		const dd = String(today.getDate()).padStart(2, '0')
@@ -83,7 +84,7 @@ function mapDispatchToProps(dispatch) {
 	return {
 		setCurrentUser: user => dispatch({type: 'SET_CURRENT_USER', payload: user}),
 		setCurrentDate: date => dispatch({type: 'SET_CURRENT_DATE', payload: date}),
-		setWeatherpeople: Weatherpeople => dispatch({type: 'SET_WEATHERPEOPLE', payload: Weatherpeople}),
+		setWeatherpeople: weatherpeople => dispatch({type: 'SET_WEATHERPEOPLE', payload: weatherpeople}),
 	}
 }
 

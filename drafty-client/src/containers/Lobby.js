@@ -10,6 +10,7 @@ class Lobby extends React.Component {
     this.updateUser()
   }
 
+  // Fetch latest user data to keep team rosters up to date
   updateUser = () => {
     fetch(`http://localhost:3000/api/v1/users/${this.props.currentUser.id}`)
       .then(res => res.json())
@@ -19,19 +20,14 @@ class Lobby extends React.Component {
   render() {
     return (
       <div className='lobby-container'>
-
         <div className='lobby-row'>
-
           <div className='lobby-col'>
             <ContestList history={this.props.history} />
           </div>
-
           <div className='lobby-col'>
             <MyTeamsList />
           </div>
-
         </div>
-
       </div>
     )
   }

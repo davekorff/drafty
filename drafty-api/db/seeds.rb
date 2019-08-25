@@ -38,7 +38,7 @@ kpop = ["Chocolat", "Luv", "Gavy NJ", "Skarf", "Stellar", "Cosmic Girls", "Sunny
   "Vibe", "Boys Republic", "Highlight"
 ]
 
-Contest.all[0..2].each do |contest|
+Contest.all.each do |contest|
   j = 0
   uids = (1..User.all.length).to_a.shuffle
   while j < User.all.length
@@ -93,9 +93,24 @@ Contest.all.each do |contest|
   end
 end
 
+####################### ADD LAST CONTESTS FORECASTS #######################
+
+# weather = ['Sunny', 'Cloudy', 'Rain', 'Sunny', 'Cloudy', 'Rain', 'Sunny', 'Cloudy', 'T-storm']
+# temps = (65..80).to_a
+#
+# i = 0
+# while i < 5
+#   j = 0
+#   while j < Weatherperson.all.length
+#     Forecast.create(weatherperson_id: j + 1, date: Contest.last.start_date + i, predicted_temp: temps.sample, actual_temp: nil, predicted_weather: weather.sample, actual_weather: nil)
+#     j += 1
+#   end
+#   i += 1
+# end
+
 ################################## DRAFTS ##################################
 
-Contest.all[0..2].each do |contest|
+Contest.all.each do |contest|
   contest.teams.each do |team|
     j = 0
     wp_ids = (1..Weatherperson.all.length).to_a.shuffle[0..2]
@@ -108,7 +123,10 @@ end
 
 ################################## UPDATE FORECASTS ##################################
 
-Contest.all[0..2].each do |contest|
+weather = ['Sunny', 'Cloudy', 'Rain', 'Sunny', 'Cloudy', 'Rain', 'Sunny', 'Cloudy', 'T-storm']
+temps = (65..80).to_a
+
+Contest.all[0..3].each do |contest|
   i = 0
   while i < 5
     w = weather.sample
@@ -122,3 +140,22 @@ Contest.all[0..2].each do |contest|
     i += 1
   end
 end
+
+####################### UPDATE LAST CONTESTS FORECASTS #######################
+
+# weather = ['Sunny', 'Cloudy', 'Rain', 'Sunny', 'Cloudy', 'Rain', 'Sunny', 'Cloudy', 'T-storm']
+# temps = (65..80).to_a
+#
+#
+# i = 0
+# while i < 5
+#   w = weather.sample
+#   t = temps.sample
+#   Forecast.all.each do |forecast|
+#     if forecast.date == Contest.last.start_date + i
+#       forecast.update(actual_weather: w)
+#       forecast.update(actual_temp: t)
+#     end
+#   end
+#   i += 1
+# end

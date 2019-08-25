@@ -23,7 +23,7 @@ class Api::V1::TeamsController < ApplicationController
 			"Vibe", "Boys Republic", "Highlight"
 		]
 
-		team = Team.create(user_id: params[:user_id], contest_id: params[:contest_id], name: "SeeYa")
+		team = Team.create(user_id: params[:user_id], contest_id: params[:contest_id], name: kpop.sample)
 
 		render json: team
 	end
