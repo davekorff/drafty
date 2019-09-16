@@ -58,7 +58,11 @@ class Scorecard extends React.Component {
   }
 
   renderActualWeatherString = index => {
-    return this.state.forecasts[index].actual_weather.toLowerCase()
+    if (this.state.forecasts[index].actual_weather) {
+      return this.state.forecasts[index].actual_weather.toLowerCase()
+    } else {
+      return 'No data'
+    }
   }
 
   render() {
