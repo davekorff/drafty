@@ -43,6 +43,21 @@ class MyTeamListItem extends React.Component {
     return date.slice(0, -5)
   }
 
+  renderWeatherTile = index => {
+    const daysOfWeek = ['mon', 'tue', 'wed', 'thu', 'fri']
+      return (
+        <div id='weatherpeople-li-weather-col' className='my-team-li-col'>
+        <div className='forecast-box'>
+          {this.renderWeather(index)}
+        </div>
+        {this.renderWeatherString(index)}<br/>
+        {this.renderTemp(index)}℉ <br/>
+        {daysOfWeek[index]} <br/>
+      {this.renderDate(index)}
+      </div >
+      )
+  }
+
   render() {
     return (
       <div className='my-team-li' >
@@ -52,51 +67,14 @@ class MyTeamListItem extends React.Component {
           {this.renderWeatherperson().station} <br/>
           {this.renderWeatherperson().city}
         </div>
-        <div id='weatherpeople-li-weather-col' className='my-team-li-col'>
-          <div className='forecast-box'>
-            {this.renderWeather(0)}
-          </div>
-          {this.renderWeatherString(0)}<br/>
-          {this.renderTemp(0)}℉ <br/>
-          mon <br/>
-        {this.renderDate(0)}
-        </div >
-        <div id='weatherpeople-li-weather-col' className='my-team-li-col'>
-          <div className='forecast-box'>
-            {this.renderWeather(1)}
-          </div>
-          {this.renderWeatherString(1)}<br/>
-          {this.renderTemp(1)}℉ <br/>
-          tue <br/>
-        {this.renderDate(1)}
-        </div>
-        <div id='weatherpeople-li-weather-col' className='my-team-li-col'>
-          <div className='forecast-box'>
-            {this.renderWeather(2)}
-          </div>
-          {this.renderWeatherString(2)}<br/>
-          {this.renderTemp(2)}℉ <br/>
-          wed <br/>
-        {this.renderDate(2)}
-        </div>
-        <div id='weatherpeople-li-weather-col' className='my-team-li-col'>
-          <div className='forecast-box'>
-            {this.renderWeather(3)}
-          </div>
-          {this.renderWeatherString(3)}<br/>
-          {this.renderTemp(3)}℉ <br/>
-          thu <br/>
-        {this.renderDate(3)}
-        </div>
-        <div id='weatherpeople-li-weather-col' className='my-team-li-col'>
-          <div className='forecast-box'>
-            {this.renderWeather(4)}
-          </div>
-          {this.renderWeatherString(4)}<br/>
-          {this.renderTemp(4)}℉ <br/>
-          fri <br/>
-        {this.renderDate(4)}
-        </div>
+        {this.renderWeatherTile(0)}
+        {this.renderWeatherTile(1)}
+        {this.renderWeatherTile(2)}
+        {this.renderWeatherTile(3)}
+        {this.renderWeatherTile(4)}
+        <button variant="contained" size="small" color="primary" id='draft-button' onClick={() => console.log(this.renderWeatherperson().id)}>
+          Undraft
+        </button>
       </div>
     )
   }

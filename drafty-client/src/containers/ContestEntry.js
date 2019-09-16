@@ -61,11 +61,25 @@ class ContestEntry extends React.Component {
     })
   }
 
+  // Update local state when user undrafts a weatherperson, removing them from the user's team
+  // removeFromMyTeam = weatherperson => {
+  //   this.setState({
+  //     ...this.state,
+  //     myWeatherpeople: [...this.state.myWeatherpeople, weatherperson]
+  //   })
+  // }
+
   // Update local state when user drafts a weatherperson, removing them from the undrafted list
   removeFromUndrafted = weatherpersonID => {
     const updatedList = this.state.undraftedWeatherpeople.filter(weatherperson => weatherperson.id !== weatherpersonID)
     this.setState({ undraftedWeatherpeople: updatedList })
   }
+
+  // Update local state when user undrafts a weatherperson, adding them to the undrafted list
+  // addToUndrafted = weatherpersonID => {
+  //   const updatedList = this.state.undraftedWeatherpeople.filter(weatherperson => weatherperson.id !== weatherpersonID)
+  //   this.setState({ undraftedWeatherpeople: updatedList })
+  // }
 
   render() {
     return (
