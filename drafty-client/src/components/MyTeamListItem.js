@@ -72,7 +72,7 @@ class MyTeamListItem extends React.Component {
         {this.renderWeatherTile(2)}
         {this.renderWeatherTile(3)}
         {this.renderWeatherTile(4)}
-        <button variant="contained" size="small" color="primary" id='draft-button' onClick={() => console.log('beef')}>
+        <button variant="contained" size="small" color="primary" id='draft-button' onClick={() => console.log(this.renderWeatherperson().id)}>
           Undraft
         </button>
       </div>
