@@ -43,7 +43,7 @@ class MyTeamListItem extends React.Component {
     return date.slice(0, -5)
   }
 
-  renderWeatherTiles = index => {
+  renderWeatherTile = index => {
     const daysOfWeek = ['mon', 'tue', 'wed', 'thu', 'fri']
       return (
         <div id='weatherpeople-li-weather-col' className='my-team-li-col'>
@@ -67,11 +67,14 @@ class MyTeamListItem extends React.Component {
           {this.renderWeatherperson().station} <br/>
           {this.renderWeatherperson().city}
         </div>
-        {this.renderWeatherTiles(0)}
-        {this.renderWeatherTiles(1)}
-        {this.renderWeatherTiles(2)}
-        {this.renderWeatherTiles(3)}
-        {this.renderWeatherTiles(4)}
+        {this.renderWeatherTile(0)}
+        {this.renderWeatherTile(1)}
+        {this.renderWeatherTile(2)}
+        {this.renderWeatherTile(3)}
+        {this.renderWeatherTile(4)}
+        <button variant="contained" size="small" color="primary" id='draft-button' onClick={() => console.log('beef')}>
+          Undraft
+        </button>
       </div>
     )
   }
