@@ -14,12 +14,10 @@ end
 
 ################################## CONTESTS ##################################
 
-Contest.create(name: 'Summer No. 1', start_date: '2019-06-24', end_date: '2019-06-28', prize: 100)
-Contest.create(name: 'Summer No. 2', start_date: '2019-07-01', end_date: '2019-07-05', prize: 100)
-Contest.create(name: 'Summer No. 3', start_date: '2019-07-08', end_date: '2019-07-12', prize: 100)
-Contest.create(name: 'Summer No. 4', start_date: '2019-07-15', end_date: '2019-07-19', prize: 100)
-Contest.create(name: 'Summer No. 5', start_date: '2019-07-22', end_date: '2019-07-26', prize: 100)
-Contest.create(name: 'Summer No. 6', start_date: '2019-07-29', end_date: '2019-08-02', prize: 100)
+Contest.create(name: 'Summer No. 10', start_date: '2019-09-02', end_date: '2019-09-06', prize: 100)
+Contest.create(name: 'Summer No. 2', start_date: '2019-09-09', end_date: '2019-09-13', prize: 100)
+Contest.create(name: 'Summer No. 3', start_date: '2019-09-16', end_date: '2019-09-20', prize: 100)
+Contest.create(name: 'Summer No. 4', start_date: '2019-09-23', end_date: '2019-09-27', prize: 100)
 
 ################################## TEAMS ##################################
 
