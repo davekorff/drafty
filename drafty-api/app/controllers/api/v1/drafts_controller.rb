@@ -16,6 +16,4 @@ class Api::V1::DraftsController < ApplicationController
 
 		render json: draft
 	end
-
-
 end
