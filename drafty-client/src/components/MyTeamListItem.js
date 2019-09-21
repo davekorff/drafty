@@ -47,14 +47,14 @@ class MyTeamListItem extends React.Component {
     const daysOfWeek = ['mon', 'tue', 'wed', 'thu', 'fri']
       return (
         <div id='weatherpeople-li-weather-col' className='my-team-li-col'>
-        <div className='forecast-box'>
-          {this.renderWeather(index)}
-        </div>
-        {this.renderWeatherString(index)}<br/>
-        {this.renderTemp(index)}℉ <br/>
-        {daysOfWeek[index]} <br/>
-      {this.renderDate(index)}
-      </div >
+          <div className='forecast-box'>
+            {this.renderWeather(index)}
+          </div>
+          {this.renderWeatherString(index)}<br/>
+          {this.renderTemp(index)}℉ <br/>
+          {daysOfWeek[index]} <br/>
+          {this.renderDate(index)}
+      </div>
       )
   }
 
