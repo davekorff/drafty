@@ -65,6 +65,37 @@ class Scorecard extends React.Component {
     }
   }
 
+  renderPredictedWeatherTile = index => {
+    const daysOfWeek = ['mon', 'tue', 'wed', 'thu', 'fri']
+    return (
+      <div className='scorecard-col'>
+        <div id='scorecard-col-forecast'>
+          <div className='forecast-box'>
+            {this.renderPredictedWeather(index)}
+          </div>
+          {this.renderPredictedWeatherString(index)}<br/>
+          {this.state.forecasts[index].predicted_temp}℉ <br/>
+          {daysOfWeek[index]} <br/>
+          {transformDate(this.state.forecasts[index].date).slice(0, -5)}
+        </div>
+      </div>
+    )
+  }
+
+  renderActualWeatherTile = index => {
+    return (
+      <div className='scorecard-col'>
+        <div id='scorecard-col-forecast'>
+          <div className='forecast-box'>
+            {this.renderActualWeather(index)}
+          </div>
+          {this.renderActualWeatherString(index)}<br/>
+          {this.state.forecasts[index].actual_temp}℉ <br/>
+        </div>
+      </div>
+    )
+  }
+
   render() {
 
     return (
@@ -79,110 +110,20 @@ class Scorecard extends React.Component {
           5-Day Forecast
         </div>
         <div className='scorecard-row'>
-          <div className='scorecard-col'>
-            <div id='scorecard-col-forecast'>
-            <div className='forecast-box'>
-              {this.renderPredictedWeather(0)}
-            </div>
-            {this.renderPredictedWeatherString(0)}<br/>
-            {this.state.forecasts[0].predicted_temp}℉ <br/>
-            mon <br/>
-            {transformDate(this.state.forecasts[0].date).slice(0, -5)}
-            </div>
-          </div>
-          <div className='scorecard-col'>
-            <div id='scorecard-col-forecast'>
-            <div className='forecast-box'>
-              {this.renderPredictedWeather(1)}
-            </div>
-            {this.renderPredictedWeatherString(1)}<br/>
-            {this.state.forecasts[1].predicted_temp}℉ <br/>
-            tue <br/>
-            {transformDate(this.state.forecasts[1].date).slice(0, -5)}
-            </div>
-          </div>
-          <div className='scorecard-col'>
-            <div id='scorecard-col-forecast'>
-            <div className='forecast-box'>
-              {this.renderPredictedWeather(2)}
-            </div>
-            {this.renderPredictedWeatherString(2)}<br/>
-            {this.state.forecasts[2].predicted_temp}℉ <br/>
-            wed <br/>
-            {transformDate(this.state.forecasts[2].date).slice(0, -5)}
-            </div>
-          </div>
-          <div className='scorecard-col'>
-            <div id='scorecard-col-forecast'>
-            <div className='forecast-box'>
-              {this.renderPredictedWeather(3)}
-            </div>
-            {this.renderPredictedWeatherString(3)}<br/>
-            {this.state.forecasts[3].predicted_temp}℉ <br/>
-            thu <br/>
-            {transformDate(this.state.forecasts[3].date).slice(0, -5)}
-            </div>
-          </div>
-          <div className='scorecard-col'>
-            <div id='scorecard-col-forecast'>
-            <div className='forecast-box'>
-              {this.renderPredictedWeather(4)}
-            </div>
-            {this.renderPredictedWeatherString(4)}<br/>
-            {this.state.forecasts[4].predicted_temp}℉ <br/>
-            fri <br/>
-            {transformDate(this.state.forecasts[4].date).slice(0, -5)}
-            </div>
-          </div>
+          {this.renderPredictedWeatherTile(0)}
+          {this.renderPredictedWeatherTile(1)}
+          {this.renderPredictedWeatherTile(2)}
+          {this.renderPredictedWeatherTile(3)}
+          {this.renderPredictedWeatherTile(4)}
         </div>
         <br/>
         <div style={{marginTop: '-10px'}} >Actual Weather</div>
         <div id='actual-weather' className='scorecard-row'>
-          <div className='scorecard-col'>
-            <div id='scorecard-col-forecast'>
-            <div className='forecast-box'>
-              {this.renderActualWeather(0)}
-            </div>
-            {this.renderActualWeatherString(0)}<br/>
-            {this.state.forecasts[0].actual_temp}℉ <br/>
-        </div>
-        </div>
-          <div className='scorecard-col'>
-            <div id='scorecard-col-forecast'>
-            <div className='forecast-box'>
-              {this.renderActualWeather(1)}
-            </div>
-            {this.renderActualWeatherString(1)}<br/>
-            {this.state.forecasts[1].actual_temp}℉ <br/>
-        </div>
-        </div>
-          <div className='scorecard-col'>
-            <div id='scorecard-col-forecast'>
-            <div className='forecast-box'>
-              {this.renderActualWeather(2)}
-            </div>
-            {this.renderActualWeatherString(2)}<br/>
-            {this.state.forecasts[2].actual_temp}℉ <br/>
-        </div>
-        </div>
-          <div className='scorecard-col'>
-            <div id='scorecard-col-forecast'>
-            <div className='forecast-box'>
-              {this.renderActualWeather(3)}
-            </div>
-            {this.renderActualWeatherString(3)}<br/>
-            {this.state.forecasts[3].actual_temp}℉ <br/>
-        </div>
-        </div>
-          <div className='scorecard-col'>
-            <div id='scorecard-col-forecast'>
-            <div className='forecast-box'>
-              {this.renderActualWeather(4)}
-            </div>
-            {this.renderActualWeatherString(4)}<br/>
-            {this.state.forecasts[4].actual_temp}℉ <br/>
-        </div>
-        </div>
+          {this.renderActualWeatherTile(0)}
+          {this.renderActualWeatherTile(1)}
+          {this.renderActualWeatherTile(2)}
+          {this.renderActualWeatherTile(3)}
+          {this.renderActualWeatherTile(4)}
         </div>
         <br/>
         <div className='scorecard-col'>
