@@ -10,7 +10,6 @@ import History from './containers/History'
 import ContestEntry from './containers/ContestEntry'
 import Weatherpeople from './containers/Weatherpeople'
 
-
 class App extends Component {
 
 	componentDidMount(){
