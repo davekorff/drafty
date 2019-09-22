@@ -17,5 +17,10 @@ class Api::V1::DraftsController < ApplicationController
 		render json: draft
 	end
 
+	def destroy
+		draft = Draft.find(team_id: params[:team_id], weatherperson_id: params[:weatherperson_id])
+
+		draft.destroy
+	end
 
 end

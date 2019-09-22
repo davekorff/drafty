@@ -20,6 +20,10 @@ class ContestEntry extends React.Component {
       .then(action => {
         this.handleResponse(action)
       })
+
+    fetch('http://localhost:3000/api/v1/drafts')
+      .then(res => res.json())
+      .then(drafts => this.props.setDrafts(drafts))
   }
 
   // Verify user has a team for the selected contest. If they don't, push them to the lobby
@@ -119,7 +123,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
 	return {
 		setCurrentContest: contest => dispatch({type: 'SET_CURRENT_CONTEST', payload: contest}),
-    setCurrentTeam: team => dispatch({type: 'SET_CURRENT_TEAM', payload: team})
+    setCurrentTeam: team => dispatch({type: 'SET_CURRENT_TEAM', payload: team}),
+    setDrafts: drafts => dispatch({type: 'SET_DRAFTS', payload: drafts})
 	}
 }
 
