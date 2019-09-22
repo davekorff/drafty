@@ -16,4 +16,10 @@ class Api::V1::DraftsController < ApplicationController
 
 		render json: draft
 	end
+
+	def destroy
+		draft = Draft.find(params[:id])
+
+		draft.destroy
+	end
 end

@@ -24,20 +24,24 @@ class MyTeamListItem extends React.Component {
     }
   }
 
+  findWeatherperson = () => {
+    return this.props.weatherpeople.find(weatherperson => weatherperson.id === this.props.weatherperson.id)
+  }
+
   renderWeatherString = index => {
-    const weatherperson = this.props.weatherpeople.find(weatherperson => weatherperson.id === this.props.weatherperson.id)
+    const weatherperson = this.findWeatherperson()
     const thisWeeksForecasts = weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date)
     return thisWeeksForecasts[index].predicted_weather.toLowerCase()
   }
 
   renderTemp = index => {
-    const weatherperson = this.props.weatherpeople.find(weatherperson => weatherperson.id === this.props.weatherperson.id)
+    const weatherperson = this.findWeatherperson()
     const thisWeeksForecasts = weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date)
     return thisWeeksForecasts[index].predicted_temp
   }
 
   renderDate = index => {
-    const weatherperson = this.props.weatherpeople.find(weatherperson => weatherperson.id === this.props.weatherperson.id)
+    const weatherperson = this.findWeatherperson()
     const thisWeeksForecasts = weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date)
     const date = transformDate(thisWeeksForecasts[index].date)
     return date.slice(0, -5)
@@ -72,7 +76,7 @@ class MyTeamListItem extends React.Component {
         {this.renderWeatherTile(2)}
         {this.renderWeatherTile(3)}
         {this.renderWeatherTile(4)}
-        <button variant="contained" size="small" color="primary" id='draft-button' onClick={() => console.log(this.renderWeatherperson().id)}>
+        <button variant="contained" size="small" color="primary" id='draft-button' onClick={() => this.props.handleClickUndraft(this.renderWeatherperson().id, this.props.currentTeam.id)}>
           Undraft
         </button>
       </div>
@@ -84,6 +88,7 @@ function mapStateToProps(state) {
   return {
     weatherpeople: state.weatherpeople.weatherpeople,
     currentContest: state.contests.currentContest,
+    currentTeam: state.teams.currentTeam
   }
 }
 
