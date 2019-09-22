@@ -14,9 +14,10 @@ class MyTeamList extends React.Component {
 
   // When user clicks 'undraft' button, delete that draft
   handleClickUndraft = (wp_id, team_id) => {
-    const draft = this.props.drafts.filter(draft => draft.weatherperson_id === wp_id && draft.team_id === team_id)
-    console.log('http://localhost:3000/api/v1/drafts/' + draft[0].id);
-    // fetch('http://localhost:3000/api/v1/drafts/' + draft.id)
+    const draft = this.props.drafts.filter(draft => draft.weatherperson_id === wp_id && draft.team_id === team_id)[0]
+    fetch('http://localhost:3000/api/v1/drafts/' + draft.id, {
+      method: 'DELETE'
+    })
   }
 
   // handleDeleteDraft = () => {
