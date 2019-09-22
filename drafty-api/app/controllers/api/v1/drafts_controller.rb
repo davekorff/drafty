@@ -22,5 +22,4 @@ class Api::V1::DraftsController < ApplicationController
 
 		draft.destroy
 	end
-
 end
