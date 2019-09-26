@@ -30,26 +30,32 @@ class Scorecard extends React.Component {
   }
 
   renderPredictedWeather = index => {
-    if (this.state.forecasts[index].predicted_weather === 'T-storm') {
-      return renderThunderstormIcon()
-    } else if (this.state.forecasts[index].predicted_weather === 'Sunny') {
-      return renderSunnyIcon()
-    } else if (this.state.forecasts[index].predicted_weather === 'Cloudy') {
-      return renderCloudyIcon()
-    } else if (this.state.forecasts[index].predicted_weather === 'Rain') {
-      return renderRainIcon()
+    switch (this.state.forecasts[index].predicted_weather) {
+      case 'T-storm':
+        return renderThunderstormIcon()
+      case 'Sunny':
+        return renderSunnyIcon()
+      case 'Cloudy':
+        return renderCloudyIcon()
+      case 'Rain':
+        return renderRainIcon()
+      default:
+        return 'No data'
     }
   }
 
   renderActualWeather = index => {
-    if (this.state.forecasts[index].actual_weather === 'T-storm') {
-      return renderThunderstormIcon()
-    } else if (this.state.forecasts[index].actual_weather === 'Sunny') {
-      return renderSunnyIcon()
-    } else if (this.state.forecasts[index].actual_weather === 'Cloudy') {
-      return renderCloudyIcon()
-    } else if (this.state.forecasts[index].actual_weather === 'Rain') {
-      return renderRainIcon()
+    switch (this.state.forecasts[index].actual_weather) {
+      case 'T-storm':
+        return renderThunderstormIcon()
+      case 'Sunny':
+        return renderSunnyIcon()
+      case 'Cloudy':
+        return renderCloudyIcon()
+      case 'Rain':
+        return renderRainIcon()
+      default:
+        return 'No data'
     }
   }
 
