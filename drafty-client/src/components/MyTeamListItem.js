@@ -13,14 +13,17 @@ class MyTeamListItem extends React.Component {
     const weatherperson = this.props.weatherpeople.find(weatherperson => weatherperson.id === this.props.weatherperson.id)
     const thisWeeksForecasts = weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date)
 
-    if (thisWeeksForecasts[index].predicted_weather === 'T-storm') {
-      return renderThunderstormIcon()
-    } else if (thisWeeksForecasts[index].predicted_weather === 'Sunny') {
-      return renderSunnyIcon()
-    } else if (thisWeeksForecasts[index].predicted_weather === 'Cloudy') {
-      return renderCloudyIcon()
-    } else if (thisWeeksForecasts[index].predicted_weather === 'Rain') {
-      return renderRainIcon()
+    switch (thisWeeksForecasts[index].predicted_weather) {
+      case 'T-storm':
+        return renderThunderstormIcon()
+      case 'Sunny':
+        return renderSunnyIcon();
+      case 'Cloudy':
+        return renderCloudyIcon()
+      case 'Rain':
+        return renderRainIcon()
+      default:
+        return 'No data'
     }
   }
 
@@ -28,22 +31,24 @@ class MyTeamListItem extends React.Component {
     return this.props.weatherpeople.find(weatherperson => weatherperson.id === this.props.weatherperson.id)
   }
 
-  renderWeatherString = index => {
+  weeksForecasts = index => {
+    const start = this.props.currentContest.start_date
+    const end = this.props.currentContest.end_date
     const weatherperson = this.findWeatherperson()
-    const thisWeeksForecasts = weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date)
-    return thisWeeksForecasts[index].predicted_weather.toLowerCase()
+    return weatherperson.forecasts.filter(forecast => {
+      return forecast.date >= start && forecast.date <= end})[index]
+  }
+
+  renderWeatherString = index => {
+    return this.weeksForecasts(index).predicted_weather.toLowerCase()
   }
 
   renderTemp = index => {
-    const weatherperson = this.findWeatherperson()
-    const thisWeeksForecasts = weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date)
-    return thisWeeksForecasts[index].predicted_temp
+    return this.weeksForecasts(index).predicted_temp
   }
 
   renderDate = index => {
-    const weatherperson = this.findWeatherperson()
-    const thisWeeksForecasts = weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date)
-    const date = transformDate(thisWeeksForecasts[index].date)
+    const date = transformDate(this.weeksForecasts(index).date)
     return date.slice(0, -5)
   }
 
