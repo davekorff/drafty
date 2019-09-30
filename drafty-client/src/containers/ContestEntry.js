@@ -20,7 +20,7 @@ class ContestEntry extends React.Component {
       .then(action => {
         this.handleResponse(action)
       })
-    
+
     fetch('http://localhost:3000/api/v1/drafts')
       .then(res => res.json())
       .then(drafts => this.props.setDrafts(drafts))

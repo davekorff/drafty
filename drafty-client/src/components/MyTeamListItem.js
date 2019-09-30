@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { renderThunderstormIcon, renderRainIcon, renderSunnyIcon, renderCloudyIcon } from './WeatherIcons'
 import transformDate from '../helpers/transformDate'
+import DraftWeatherTile from './DraftWeatherTile'
 
 class MyTeamListItem extends React.Component {
 
@@ -70,7 +71,7 @@ class MyTeamListItem extends React.Component {
           {this.renderWeatherperson().station} <br/>
           {this.renderWeatherperson().city}
         </div>
-        {this.renderWeatherTile(0)}
+        <DraftWeatherTile currentContest={this.props.currentContest} weatherperson={this.renderWeatherperson()}/>
         {this.renderWeatherTile(1)}
         {this.renderWeatherTile(2)}
         {this.renderWeatherTile(3)}
