@@ -9,11 +9,30 @@ class MyTeamListItem extends React.Component {
     return this.props.weatherpeople.find(weatherperson => weatherperson.id === this.props.weatherperson.id)
   }
 
-  renderWeather = index => {
-    const weatherperson = this.props.weatherpeople.find(weatherperson => weatherperson.id === this.props.weatherperson.id)
-    const thisWeeksForecasts = weatherperson.forecasts.filter(forecast => forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date)
+  weeksForecastAt = index => {
+    const weatherperson = this.renderWeatherperson()
+    const contestStart = this.props.currentContest.start_date
+    const contestEnd = this.props.currentContest.end_date
+    return weatherperson.forecasts.filter(forecast => {
+      return forecast.date >= contestStart && forecast.date <= contestEnd
+    })[index]
+  }
 
-    switch (thisWeeksForecasts[index].predicted_weather) {
+  renderWeatherString = index => {
+    return this.weeksForecastAt(index).predicted_weather.toLowerCase()
+  }
+
+  renderTemp = index => {
+    return this.weeksForecastAt(index).predicted_temp
+  }
+
+  renderDate = index => {
+    const date = transformDate(this.weeksForecastAt(index).date)
+    return date.slice(0, -5)
+  }
+
+  renderWeatherIcon = index => {
+    switch (this.weeksForecastAt(index).predicted_weather) {
       case 'T-storm':
         return renderThunderstormIcon()
       case 'Sunny':
@@ -27,37 +46,12 @@ class MyTeamListItem extends React.Component {
     }
   }
 
-  findWeatherperson = () => {
-    return this.props.weatherpeople.find(weatherperson => weatherperson.id === this.props.weatherperson.id)
-  }
-
-  weeksForecasts = index => {
-    const start = this.props.currentContest.start_date
-    const end = this.props.currentContest.end_date
-    const weatherperson = this.findWeatherperson()
-    return weatherperson.forecasts.filter(forecast => {
-      return forecast.date >= start && forecast.date <= end})[index]
-  }
-
-  renderWeatherString = index => {
-    return this.weeksForecasts(index).predicted_weather.toLowerCase()
-  }
-
-  renderTemp = index => {
-    return this.weeksForecasts(index).predicted_temp
-  }
-
-  renderDate = index => {
-    const date = transformDate(this.weeksForecasts(index).date)
-    return date.slice(0, -5)
-  }
-
   renderWeatherTile = index => {
     const daysOfWeek = ['mon', 'tue', 'wed', 'thu', 'fri']
       return (
         <div id='weatherpeople-li-weather-col' className='my-team-li-col'>
           <div className='forecast-box'>
-            {this.renderWeather(index)}
+            {this.renderWeatherIcon(index)}
           </div>
           {this.renderWeatherString(index)}<br/>
           {this.renderTemp(index)}℉ <br/>
