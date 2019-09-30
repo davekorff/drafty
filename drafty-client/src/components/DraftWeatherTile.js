@@ -46,15 +46,16 @@ class DraftWeatherTile extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div id='weatherpeople-li-weather-col' className='my-team-li-col'>
         <div className='forecast-box'>
-          {this.renderWeatherIcon(index)}
+        {this.renderWeatherIcon(this.props.index)}
         </div>
-        {this.renderWeatherString(index)}<br/>
-        {this.renderTemp(index)}℉ <br/>
-        {this.renderDay(index)} <br/>
-        {this.renderDate(index)}
+        {this.renderWeatherString(this.props.index)}<br/>
+        {this.renderTemp(this.props.index)}℉ <br/>
+        {this.renderDay(this.props.index)} <br/>
+        {this.renderDate(this.props.index)}
       </div>
     )
   }

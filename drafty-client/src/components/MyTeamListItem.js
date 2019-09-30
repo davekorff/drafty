@@ -1,65 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { renderThunderstormIcon, renderRainIcon, renderSunnyIcon, renderCloudyIcon } from './WeatherIcons'
-import transformDate from '../helpers/transformDate'
 import DraftWeatherTile from './DraftWeatherTile'
 
 class MyTeamListItem extends React.Component {
 
   renderWeatherperson = () => {
     return this.props.weatherpeople.find(weatherperson => weatherperson.id === this.props.weatherperson.id)
-  }
-
-  weeksForecastAt = index => {
-    const weatherperson = this.renderWeatherperson()
-    const contestStart = this.props.currentContest.start_date
-    const contestEnd = this.props.currentContest.end_date
-    return weatherperson.forecasts.filter(forecast => {
-      return forecast.date >= contestStart && forecast.date <= contestEnd
-    })[index]
-  }
-
-  renderWeatherString = index => {
-    return this.weeksForecastAt(index).predicted_weather.toLowerCase()
-  }
-
-  renderTemp = index => {
-    return this.weeksForecastAt(index).predicted_temp
-  }
-
-  renderDate = index => {
-    const date = transformDate(this.weeksForecastAt(index).date)
-    return date.slice(0, -5)
-  }
-
-  renderWeatherIcon = index => {
-    switch (this.weeksForecastAt(index).predicted_weather) {
-      case 'T-storm':
-        return renderThunderstormIcon()
-      case 'Sunny':
-        return renderSunnyIcon();
-      case 'Cloudy':
-        return renderCloudyIcon()
-      case 'Rain':
-        return renderRainIcon()
-      default:
-        return 'No data'
-    }
-  }
-
-  renderWeatherTile = index => {
-    const daysOfWeek = ['mon', 'tue', 'wed', 'thu', 'fri']
-      return (
-        <div id='weatherpeople-li-weather-col' className='my-team-li-col'>
-          <div className='forecast-box'>
-            {this.renderWeatherIcon(index)}
-          </div>
-          {this.renderWeatherString(index)}<br/>
-          {this.renderTemp(index)}℉ <br/>
-          {daysOfWeek[index]} <br/>
-          {this.renderDate(index)}
-      </div>
-      )
   }
 
   render() {
@@ -71,11 +17,11 @@ class MyTeamListItem extends React.Component {
           {this.renderWeatherperson().station} <br/>
           {this.renderWeatherperson().city}
         </div>
-        <DraftWeatherTile currentContest={this.props.currentContest} weatherperson={this.renderWeatherperson()}/>
-        {this.renderWeatherTile(1)}
-        {this.renderWeatherTile(2)}
-        {this.renderWeatherTile(3)}
-        {this.renderWeatherTile(4)}
+        <DraftWeatherTile index={0} currentContest={this.props.currentContest} weatherperson={this.renderWeatherperson()}/>
+        <DraftWeatherTile index={1} currentContest={this.props.currentContest} weatherperson={this.renderWeatherperson()}/>
+        <DraftWeatherTile index={2} currentContest={this.props.currentContest} weatherperson={this.renderWeatherperson()}/>
+        <DraftWeatherTile index={3} currentContest={this.props.currentContest} weatherperson={this.renderWeatherperson()}/>
+        <DraftWeatherTile index={4} currentContest={this.props.currentContest} weatherperson={this.renderWeatherperson()}/>
         <button variant="contained" size="small" color="primary" id='draft-button' onClick={() => this.props.handleClickUndraft(this.renderWeatherperson().id, this.props.currentTeam.id)}>
           Undraft
         </button>
