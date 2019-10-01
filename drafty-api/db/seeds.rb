@@ -19,6 +19,7 @@ Contest.create(name: 'Summer No. 2', start_date: '2019-09-09', end_date: '2019-0
 Contest.create(name: 'Summer No. 3', start_date: '2019-09-16', end_date: '2019-09-20', prize: 100)
 Contest.create(name: 'Summer No. 4', start_date: '2019-09-23', end_date: '2019-09-27', prize: 100)
 Contest.create(name: 'Summer No. 5', start_date: '2019-09-30', end_date: '2019-10-04', prize: 100)
+Contest.create(name: 'Summer No. 6', start_date: '2019-10-07', end_date: '2019-10-11', prize: 100)
 
 ################################## TEAMS ##################################
 
