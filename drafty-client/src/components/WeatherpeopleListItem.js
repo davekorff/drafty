@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import DraftWeatherTile from './DraftWeatherTile'
+import ForecastTile from './ForecastTile'
 
 class WeatherpeopleListItem extends React.Component {
 
@@ -14,11 +14,11 @@ class WeatherpeopleListItem extends React.Component {
           {this.props.weatherperson.station} <br/>
           {this.props.weatherperson.city}
         </div>
-        <DraftWeatherTile index={0} currentContest={this.props.currentContest} weatherperson={this.props.weatherperson}/>
-        <DraftWeatherTile index={1} currentContest={this.props.currentContest} weatherperson={this.props.weatherperson}/>
-        <DraftWeatherTile index={2} currentContest={this.props.currentContest} weatherperson={this.props.weatherperson}/>
-        <DraftWeatherTile index={3} currentContest={this.props.currentContest} weatherperson={this.props.weatherperson}/>
-        <DraftWeatherTile index={4} currentContest={this.props.currentContest} weatherperson={this.props.weatherperson}/>
+        <ForecastTile index={0} currentContest={this.props.currentContest} weatherperson={this.props.weatherperson}/>
+        <ForecastTile index={1} currentContest={this.props.currentContest} weatherperson={this.props.weatherperson}/>
+        <ForecastTile index={2} currentContest={this.props.currentContest} weatherperson={this.props.weatherperson}/>
+        <ForecastTile index={3} currentContest={this.props.currentContest} weatherperson={this.props.weatherperson}/>
+        <ForecastTile index={4} currentContest={this.props.currentContest} weatherperson={this.props.weatherperson}/>
         <button variant="contained" size="small" color="primary" id='draft-button' onClick={() => this.props.handleClickDraft(this.props.weatherperson.id)}>
           Draft
         </button>

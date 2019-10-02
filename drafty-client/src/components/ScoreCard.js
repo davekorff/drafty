@@ -3,6 +3,7 @@ import { renderThunderstormIcon, renderRainIcon, renderSunnyIcon, renderCloudyIc
 import CountUp from 'react-countup';
 import ScorecardProfile from './ScorecardProfile'
 import transformDate from '../helpers/transformDate'
+import ForecastTile from './ForecastTile'
 
 class Scorecard extends React.Component {
 
@@ -103,7 +104,6 @@ class Scorecard extends React.Component {
   }
 
   render() {
-
     return (
       this.state.forecasts
 
@@ -116,6 +116,7 @@ class Scorecard extends React.Component {
           5-Day Forecast
         </div>
         <div className='scorecard-row'>
+          {/*<ForecastTile index={0} currentContest={this.props.currentContest} weatherperson={this.props.weatherperson} /> */}
           {this.renderPredictedWeatherTile(0)}
           {this.renderPredictedWeatherTile(1)}
           {this.renderPredictedWeatherTile(2)}
