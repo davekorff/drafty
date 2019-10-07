@@ -120,11 +120,10 @@ class Scorecard extends React.Component {
         </div>
         <div className='scorecard-row'>
           <ForecastTile index={0} currentContest={this.props.currentContest} weatherperson={this.state.weatherperson[0]} />
-          {/*{this.renderPredictedWeatherTile(0)}*/}
-          {this.renderPredictedWeatherTile(1)}
-          {this.renderPredictedWeatherTile(2)}
-          {this.renderPredictedWeatherTile(3)}
-          {this.renderPredictedWeatherTile(4)}
+          <ForecastTile index={1} currentContest={this.props.currentContest} weatherperson={this.state.weatherperson[0]} />
+          <ForecastTile index={2} currentContest={this.props.currentContest} weatherperson={this.state.weatherperson[0]} />
+          <ForecastTile index={3} currentContest={this.props.currentContest} weatherperson={this.state.weatherperson[0]} />
+          <ForecastTile index={4} currentContest={this.props.currentContest} weatherperson={this.state.weatherperson[0]} />
         </div>
         <br/>
         <div style={{marginTop: '-10px'}} >Actual Weather</div>
