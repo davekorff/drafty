@@ -51,7 +51,6 @@ class ForecastTile extends React.Component {
   }
 
   render() {
-
     return (
       this.state.forecasts
 
