@@ -8,16 +8,21 @@ import ForecastTile from './ForecastTile'
 class Scorecard extends React.Component {
 
   state = {
-    forecasts: null
+    forecasts: null,
+    weatherpeople: []
   }
 
   componentDidMount() {
+
     fetch('http://localhost:3000/api/v1/weatherpeople/' + this.props.weatherperson.id)
       .then(res => res.json())
       .then(weatherperson => this.setState({
         forecasts: weatherperson.forecasts.filter(forecast => {
           return forecast.date >= this.props.currentContest.start_date && forecast.date <= this.props.currentContest.end_date
         })
+      }))
+      .then(weatherperson => this.setState({
+        weatherpeople: [...this.state.weatherpeople, weatherperson]
       }))
   }
 
@@ -104,6 +109,7 @@ class Scorecard extends React.Component {
   }
 
   render() {
+    console.log(this.props.weatherperson)
     return (
       this.state.forecasts
 
@@ -116,7 +122,7 @@ class Scorecard extends React.Component {
           5-Day Forecast
         </div>
         <div className='scorecard-row'>
-          {/*<ForecastTile index={0} currentContest={this.props.currentContest} weatherperson={this.props.weatherperson} /> */}
+          {/*<ForecastTile index={0} currentContest={this.props.currentContest} weatherperson={this.props.weatherperson} />*/}
           {this.renderPredictedWeatherTile(0)}
           {this.renderPredictedWeatherTile(1)}
           {this.renderPredictedWeatherTile(2)}
