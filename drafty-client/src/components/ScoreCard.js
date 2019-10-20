@@ -4,6 +4,7 @@ import CountUp from 'react-countup';
 import ScorecardProfile from './ScorecardProfile'
 import transformDate from '../helpers/transformDate'
 import ForecastTile from './ForecastTile'
+import WeatherTile from './WeatherTile'
 
 class Scorecard extends React.Component {
 
@@ -128,6 +129,7 @@ class Scorecard extends React.Component {
         <br/>
         <div style={{marginTop: '-10px'}} >Actual Weather</div>
         <div id='actual-weather' className='scorecard-row'>
+          <WeatherTile index={0}/>
           {this.renderActualWeatherTile(0)}
           {this.renderActualWeatherTile(1)}
           {this.renderActualWeatherTile(2)}
