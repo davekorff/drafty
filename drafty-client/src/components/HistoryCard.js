@@ -69,7 +69,7 @@ class HistoryCard extends React.Component {
           <div className='history-card-col'>
             <span id='pacifico' style={{fontSize: '20px'}}>Total Score:</span> <br/>
             <div  id='countup'>
-                <strong><CountUp style={{fontSize: '2.2em', }} start={0} end={this.props.team.score}/></strong> <br/> <br/>
+                <strong><CountUp style={{fontSize: '2.2em', }} start={0} end={this.props.team.score ? this.props.team.score : 0}/></strong> <br/> <br/>
               </div>
             {this.renderScoreRibbon()} <br/>
           <strong style={{fontSize: '1.5em'}}>{this.renderPlacement()}</strong> <br/> <br />
