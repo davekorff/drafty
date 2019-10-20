@@ -19,7 +19,7 @@ Contest.create(name: 'Summer No. 4', start_date: '2019-09-23', end_date: '2019-0
 Contest.create(name: 'Summer No. 5', start_date: '2019-09-30', end_date: '2019-10-04', prize: 100)
 Contest.create(name: 'Summer No. 6', start_date: '2019-10-07', end_date: '2019-10-11', prize: 100)
 Contest.create(name: 'Summer No. 7', start_date: '2019-10-14', end_date: '2019-10-18', prize: 100)
-Contest.create(name: 'Summer No. 7', start_date: '2019-10-21', end_date: '2019-10-25', prize: 100)
+Contest.create(name: 'Summer No. 8', start_date: '2019-10-21', end_date: '2019-10-25', prize: 100)
 
 ################################## TEAMS ##################################
 
@@ -112,7 +112,7 @@ end
 weather = ['Sunny', 'Cloudy', 'Rain', 'Sunny', 'Cloudy', 'Rain', 'Sunny', 'Cloudy', 'T-storm']
 temps = (65..80).to_a
 
-Contest.all[0..3].each do |contest|
+Contest.all[0..4].each do |contest|
   i = 0
   while i < 5
     w = weather.sample
